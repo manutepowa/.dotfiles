@@ -316,8 +316,8 @@ require('telescope').load_extension('fzf')
 EOF
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope git_files<cr>
-nnoremap <leader>gg <cmd>Telescope live_grep<cr>
-nnoremap <leader>hh <cmd>Telescope oldfiles<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fh <cmd>Telescope oldfiles<cr>
 nnoremap <leader>'' <cmd>Telescope help_tags<cr>
 
 
