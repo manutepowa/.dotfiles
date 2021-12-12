@@ -10,14 +10,12 @@ return require('packer').startup(function(use)
             { 'nvim-lua/plenary.nvim'},
             { 'nvim-lua/popup.nvim' },
             { 'nvim-telescope/telescope-fzy-native.nvim' },
-            { 'kyazdani42/nvim-web-devicons' },
-			{ 'junegunn/fzf' },
-			{ 'junegunn/fzf.vim' },
+            { 'kyazdani42/nvim-web-devicons' }
         }
     }
 
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-	use 'p00f/nvim-ts-rainbow'
+	-- use 'p00f/nvim-ts-rainbow'
 
 	-- Vim fugitive
 	use 'tpope/vim-fugitive'
@@ -36,7 +34,7 @@ return require('packer').startup(function(use)
 	use 'mhinz/vim-signify'
 
 	-- PHP
-	use { 'lumiliet/vim-twig', { for = 'twig'}}
+	use 'lumiliet/vim-twig'
 
 	-- MultiCursor
 	use {'mg979/vim-visual-multi', {branch = 'master'}}
