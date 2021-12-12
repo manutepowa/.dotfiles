@@ -22,8 +22,9 @@ set scrolloff=5
 set ttimeoutlen=50
 set nofoldenable
 
-so ~/.config/nvim/plugins.vim
-
+" so ~/.config/nvim/plugins.vim
+lua require('plugins')
+lua require('manutepowa')
 let mapleader=" "
 
 " Close Tag
@@ -154,8 +155,8 @@ let g:coc_global_extensions = [
 inoremap <silent><expr> <C-j>
 		  \ pumvisible() ? "\<C-n>" :
 		  \ <SID>check_back_space() ? "\<C-j>" :
-		  \ coc#refresh() 
-inoremap <silent><expr> <C-k> 
+		  \ coc#refresh()
+inoremap <silent><expr> <C-k>
           \ pumvisible() ? "\<C-p>" :
 		  \ <SID>check_back_space() ? "\<C-k>" :
 		  \ coc#refresh()
@@ -229,7 +230,7 @@ augroup end
 " Example: `<leader>aap` for current paragraph
 " xmap <leader>a  <Plug>(coc-codeaction-selected)
 " nmap <leader>a  <Plug>(coc-codeaction-selected)
-" 
+"
 " " Remap keys for applying codeAction to the current buffer.
 " nmap <leader>ac  <Plug>(coc-codeaction)
 " " Apply AutoFix to problem on the current line.
@@ -290,7 +291,7 @@ require('telescope').setup {
   defaults = {
     prompt_prefix = "$ ",
     mappings = {
-      i = { 
+      i = {
         ["<C-j>"] = "move_selection_next",
         ["<C-k>"] = "move_selection_previous",
       }
