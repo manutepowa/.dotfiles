@@ -6,7 +6,6 @@ set shiftwidth=4
 set softtabstop=4
 set smarttab
 set mouse=a
-set clipboard+=unnamedplus
 set nowrap
 set ignorecase
 set completeopt-=preview " For No Previews
@@ -21,8 +20,7 @@ set shortmess+=c
 set scrolloff=5
 set ttimeoutlen=50
 set nofoldenable
-
-" so ~/.config/nvim/plugins.vim
+set clipboard+=unnamedplus
 
 let mapleader=" "
 
