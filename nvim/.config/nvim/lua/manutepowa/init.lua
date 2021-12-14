@@ -13,5 +13,7 @@ R = function (name)
 end
 
 
+require('manutepowa._options')
+require('manutepowa._mappings')
 require('manutepowa._telescope')
 require('manutepowa._treesitter')

@@ -1,53 +1,16 @@
-set number
-set relativenumber
-set autoindent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set smarttab
-set mouse=a
-set nowrap
-set ignorecase
-set completeopt-=preview " For No Previews
-set backspace=indent,eol,start
-set encoding=utf-8
-set hidden
-set nobackup
-set nowritebackup
-set cmdheight=2
-set updatetime=300
-set shortmess+=c
-set scrolloff=5
-set ttimeoutlen=50
-set nofoldenable
-set clipboard+=unnamedplus
-
 let mapleader=" "
 
-
-" normal mode:
-nnoremap <c-j> 5j
-nnoremap <c-k> 5k
-" visual mode:
-xnoremap <c-j> 5j
-xnoremap <c-k> 5k
-" MultiCursor
-let g:VM_maps = {}
-let g:VM_maps['Find Under']         = '<S-M-n>'           " replace C-n
-let g:VM_maps['Find Subword Under'] = '<S-M-n>'           " replace visual C-n
-let g:VM_maps["Select Cursor Down"] = '<S-M-j>'      " start selecting down
-let g:VM_maps["Select Cursor Up"]   = '<S-M-k>'        " start selecting up
-" noh - no highlight when search
-map <esc> :noh <CR>
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-inoremap kj <ESC>
-let g:NERDTreeQuitOnOpen = 1
-nnoremap <C-f> :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-e> :NERDTreeToggle<CR>
-nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>q :wincmd q<CR>
+" let g:NERDTreeQuitOnOpen = 1
+" nnoremap <C-f> :NERDTreeFocus<CR>
+" nnoremap <C-n> :NERDTree<CR>
+" nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <C-e> :NERDTreeToggle<CR>
+" nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
 " FixCursorHold for better performance
 let g:cursorhold_updatetime = 100
 " Theme
@@ -62,6 +25,7 @@ let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
 let NERDTreeMapActivateNode='<TAB>'
@@ -217,7 +181,6 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fh <cmd>Telescope oldfiles<cr>
 nnoremap <leader>'' <cmd>Telescope help_tags<cr>
 
-" autocmd BufWritePost */manutepowa/**.lua lua require('plenary.reload').reload_module('manutepowa')
 lua require('plugins')
 lua require('manutepowa')
 set secure

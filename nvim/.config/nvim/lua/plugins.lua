@@ -15,7 +15,9 @@ return require('packer').startup(function(use)
     }
 
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-	-- use 'p00f/nvim-ts-rainbow'
+	use { 'p00f/nvim-ts-rainbow' }
+	use { 'windwp/nvim-ts-autotag' }
+	use { 'windwp/nvim-autopairs' }
 
 	-- Vim fugitive
 	use 'tpope/vim-fugitive'
@@ -48,8 +50,6 @@ return require('packer').startup(function(use)
 	use 'mattn/emmet-vim'
 	use 'Yggdroot/indentLine' -- Indent lines
 	-- use 'alvan/vim-closetag' -- Close Tag
-	-- use 'windwp/nvim-ts-autotag'
-	use 'jiangmiao/auto-pairs' -- Close automatically brackets
 	use 'sheerun/vim-polyglot' -- A collection of language packs for Vim
 	use 'tpope/vim-surround' -- Surrounding ysw)
 	use 'preservim/nerdtree' -- NerdTree
