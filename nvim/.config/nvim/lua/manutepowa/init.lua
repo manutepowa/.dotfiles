@@ -15,5 +15,7 @@ end
 
 require('manutepowa._options')
 require('manutepowa._mappings')
+require('manutepowa.cmp')
+require('manutepowa.lsp')
 require('manutepowa._telescope')
 require('manutepowa._treesitter')
