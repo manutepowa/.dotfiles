@@ -59,6 +59,6 @@ return require('packer').startup(function(use)
 	use 'ryanoasis/vim-devicons' -- Developer Icons
 
 	-- Syntax highlighting
-	use 'pangloss/vim-javascript'
+	-- use 'pangloss/vim-javascript'
 
 end)
