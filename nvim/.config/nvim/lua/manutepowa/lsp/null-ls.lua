@@ -11,8 +11,9 @@ local diagnostics = null_ls.builtins.diagnostics
 -- https://github.com/prettier-solidity/prettier-plugin-solidity
 -- npm install --save-dev prettier prettier-plugin-solidity
 null_ls.setup({
-	debug = false,
+	debug = true,
 	sources = {
+		diagnostics.eslint,
 		formatting.prettier.with({
 			filetypes = {
 				"javascript",

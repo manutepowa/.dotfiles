@@ -39,7 +39,7 @@ return require('packer').startup(function(use)
 	use 'lumiliet/vim-twig'
 
 	-- MultiCursor
-	use {'mg979/vim-visual-multi', {branch = 'master'}}
+	use 'mg979/vim-visual-multi'
 
 	use 'numToStr/Comment.nvim'
 
@@ -57,9 +57,6 @@ return require('packer').startup(function(use)
 	use 'ap/vim-css-color' -- CSS Color Preview
 	-- use 'neoclide/coc.nvim'  -- Auto Completion
 	use 'ryanoasis/vim-devicons' -- Developer Icons
-
-	-- Syntax highlighting
-	use 'pangloss/vim-javascript'
 
 
 	-- cmp plugins
