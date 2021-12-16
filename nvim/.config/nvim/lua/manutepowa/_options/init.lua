@@ -29,7 +29,7 @@ vim.o.shortmess = vim.o.shortmess .. "c"
 vim.opt.smarttab = true
 vim.opt.mouse = "a"
 vim.opt.ignorecase = true
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.backspace = {'indent', 'eol', 'start'}
 vim.opt.fileencoding = "utf-8"
 vim.opt.hidden = true
@@ -42,12 +42,13 @@ vim.opt.ttimeoutlen = 50
 vim.opt.foldenable = false
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.relativenumber = false
+vim.opt.numberwidth = 4
 vim.opt.number = true
 vim.opt.wrap = false
 vim.opt.autoindent = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
 vim.opt.cursorline = true
 -- MultiCursor
 vim.cmd([[

@@ -9,6 +9,11 @@ if not snip_status_ok then
 	return
 end
 
+if not luasnip then
+  return
+end
+
+require('luasnip').filetype_extend("javascript", { "html", "javascriptreact", "typescriptreact" })
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
@@ -156,6 +161,7 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "emoji" },
 		{ name = "spell" },
+		{ name = "cmp_luasnip" }
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
