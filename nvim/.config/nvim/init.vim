@@ -170,6 +170,8 @@ augroup end
 "     au BufRead,BufNewFile *.theme set filetype=php
 " augroup END
 " Comment.nvim
+
+
 lua << EOF
 require('Comment').setup()
 EOF

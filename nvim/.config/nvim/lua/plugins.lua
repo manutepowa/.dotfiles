@@ -68,6 +68,9 @@ return require('packer').startup(function(use)
   	use "hrsh7th/cmp-nvim-lsp"
   	use "hrsh7th/cmp-emoji"
   	use "hrsh7th/cmp-nvim-lua"
+	use "f3fora/cmp-spell"
+  	-- Icons CMP
+  	use 'onsails/lspkind-nvim'
 
 -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP

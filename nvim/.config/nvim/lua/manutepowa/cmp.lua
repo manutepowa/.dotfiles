@@ -16,34 +16,62 @@ local check_backspace = function()
 	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
 
---   פּ ﯟ   蘒練 some other good icons
-local kind_icons = {
-	Text = "",
-	Method = "m",
-	Function = "",
-	Constructor = "",
-	Field = "",
-	Variable = "",
-	Class = "",
-	Interface = "",
-	Module = "",
-	Property = "",
-	Unit = "",
-	Value = "",
-	Enum = "",
-	Keyword = "",
-	Snippet = "",
-	Color = "",
-	File = "",
-	Reference = "",
-	Folder = "",
-	EnumMember = "",
-	Constant = "",
-	Struct = "",
-	Event = "",
-	Operator = "",
-	TypeParameter = "",
+local lspkind = require "lspkind"
+lspkind.init {
+  with_text = true,
+  symbol_map = {
+    Text = "",
+    Method = "ƒ",
+    Function = "ﬦ",
+    Constructor = "",
+    Variable = "",
+    Class = "",
+    Interface = "ﰮ",
+    Module = "",
+    Property = "",
+    Unit = "",
+    Value = "",
+    Enum = "了",
+    Keyword = "",
+    Snippet = "﬌",
+    Color = "",
+    File = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "",
+  },
 }
+
+
+--   פּ ﯟ   蘒練 some other good icons
+-- local kind_icons = {
+-- 	Text = "",
+-- 	Method = "m",
+-- 	Function = "",
+-- 	Constructor = "",
+-- 	Field = "",
+-- 	Variable = "",
+-- 	Class = "",
+-- 	Interface = "",
+-- 	Module = "",
+-- 	Property = "",
+-- 	Unit = "",
+-- 	Value = "",
+-- 	Enum = "",
+-- 	Keyword = "",
+-- 	Snippet = "",
+-- 	Color = "",
+-- 	File = "",
+-- 	Reference = "",
+-- 	Folder = "",
+-- 	EnumMember = "",
+-- 	Constant = "",
+-- 	Struct = "",
+-- 	Event = "",
+-- 	Operator = "",
+-- 	TypeParameter = "",
+-- }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup({
@@ -57,7 +85,7 @@ cmp.setup({
 		["<C-j>"] = cmp.mapping.select_next_item(),
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-		["<S-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+		["<M-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
 		["<C-e>"] = cmp.mapping({
 			i = cmp.mapping.abort(),
@@ -96,48 +124,49 @@ cmp.setup({
 		}),
 	},
 	formatting = {
-		fields = { "kind", "abbr", "menu" },
-		format = function(entry, vim_item)
-			-- Kind icons
-			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-			-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-			-- NOTE: order matters
-			vim_item.menu = ({
-				-- nvim_lsp = "[LSP]",
-				-- nvim_lua = "[Nvim]",
-				-- luasnip = "[Snippet]",
-				-- buffer = "[Buffer]",
-				-- path = "[Path]",
-				-- emoji = "[Emoji]",
+  	  format = function(entry, vim_item)
+  	    vim_item.kind = string.format("%s %s", lspkind.presets.default[vim_item.kind], vim_item.kind)
+  	    vim_item.menu = ({
+  	      nvim_lsp = "ﲳ",
+  	      nvim_lua = "",
+  	      treesitter = "",
+  	      path = "ﱮ",
+  	      buffer = "﬘",
+  	      zsh = "",
+  	      vsnip = "",
+  	      spell = "暈",
+  	    })[entry.source.name]
 
-				nvim_lsp = "",
-				nvim_lua = "",
-				luasnip = "",
-				buffer = "",
-				path = "",
-				emoji = "",
-			})[entry.source.name]
-			return vim_item
-		end,
-	},
+  	    return vim_item
+  	  end,
+  	},
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
-		{ name = "buffer" },
+		{ name = "treesitter" },
+		{
+	      name = "buffer",
+	      option = {
+	        get_bufnrs = function()
+	          return vim.api.nvim_list_bufs()
+	        end,
+	      },
+	    },
 		{ name = "path" },
 		{ name = "emoji" },
+		{ name = "spell" },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
 	},
-	documentation = false,
-	-- documentation = {
-	-- 	border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-	-- },
+	-- documentation = false,
+	documentation = {
+		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+	},
 	experimental = {
-		ghost_text = false,
+		ghost_text = true,
 		native_menu = false,
 	},
 })

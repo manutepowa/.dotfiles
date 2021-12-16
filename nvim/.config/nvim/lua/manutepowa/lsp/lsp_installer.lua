@@ -21,6 +21,20 @@ lsp_installer.on_server_ready(function(server)
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
 
+	if server.name == "tsserver" then
+		local tsserver = require("manutepowa.lsp.settings.tsserver")
+		opts = vim.tbl_deep_extend("force", tsserver, opts)
+	end
+
+	if server.name == "emmet-ls" then
+		local emmet = require("manutepowa.lsp.settings.emmet")
+		opts = vim.tbl_deep_extend("force", emmet, opts)
+	end
+
+	if server.name == "html" then
+		local html = require("manutepowa.lsp.settings.html")
+		opts = vim.tbl_deep_extend("force", html, opts)
+	end
 	-- This setup() function is exactly the same as lspconfig's setup function.
 	-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 	server:setup(opts)
