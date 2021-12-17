@@ -13,7 +13,8 @@ if not luasnip then
   return
 end
 
-require('luasnip').filetype_extend("javascript", { "html", "javascriptreact", "typescriptreact" })
+require('luasnip').filetype_extend("javascript", { "html" })
+require('luasnip').filetype_extend("javascriptreact", { "html" })
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
@@ -48,36 +49,6 @@ lspkind.init {
   },
 }
 
-
---   פּ ﯟ   蘒練 some other good icons
--- local kind_icons = {
--- 	Text = "",
--- 	Method = "m",
--- 	Function = "",
--- 	Constructor = "",
--- 	Field = "",
--- 	Variable = "",
--- 	Class = "",
--- 	Interface = "",
--- 	Module = "",
--- 	Property = "",
--- 	Unit = "",
--- 	Value = "",
--- 	Enum = "",
--- 	Keyword = "",
--- 	Snippet = "",
--- 	Color = "",
--- 	File = "",
--- 	Reference = "",
--- 	Folder = "",
--- 	EnumMember = "",
--- 	Constant = "",
--- 	Struct = "",
--- 	Event = "",
--- 	Operator = "",
--- 	TypeParameter = "",
--- }
--- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup({
 	snippet = {

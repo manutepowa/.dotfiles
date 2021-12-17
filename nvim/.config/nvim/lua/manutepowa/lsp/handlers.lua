@@ -59,7 +59,7 @@ end
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
@@ -77,22 +77,18 @@ local function lsp_keymaps(bufnr)
 	)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>e", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
+	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting_sync()' ]])
 end
 
 M.on_attach = function(client, bufnr)
 	if client.name == "tsserver" then
-		client.resolved_capabilities.document_formatting = true
+		client.resolved_capabilities.document_formatting = false
 	end
-	-- if client.resolved_capabilities.document_formatting then
- --        vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
- --    end
-	-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#:~:text=eslint%2Dlanguage%2Dserver%3A-,A%20linting,-engine%20for%20JavaScript
+	-- vim.cmd([[
+	-- 	autocmd BufWritePre <buffer> EslintFixAll
+	-- ]])
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
-	vim.cmd([[
-		autocmd BufWritePre <buffer> EslintFixAll
-	]])
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -104,5 +100,34 @@ if not status_ok then
 end
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+
+-- Format document if enable
+function M.enable_format_on_save()
+  vim.cmd [[
+    augroup format_on_save
+      autocmd! 
+      autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
+    augroup end
+  ]]
+  print "Enabled format on save"
+end
+function M.disable_format_on_save()
+  remove_augroup "format_on_save"
+  print "Disabled format on save"
+end
+function M.toggle_format_on_save()
+  if vim.fn.exists "#format_on_save#BufWritePre" == 0 then
+    M.enable_format_on_save()
+  else
+    M.disable_format_on_save()
+  end
+end
+function M.remove_augroup(name)
+  if vim.fn.exists("#" .. name) == 1 then
+    vim.cmd("au! " .. name)
+  end
+end
+
+vim.cmd [[ command! LspToggleAutoFormat execute 'lua require("manutepowa.lsp.handlers").toggle_format_on_save()' ]]
 
 return M
