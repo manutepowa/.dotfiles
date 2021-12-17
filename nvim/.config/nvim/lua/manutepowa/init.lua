@@ -13,9 +13,14 @@ R = function (name)
 end
 
 
-require('manutepowa._options')
-require('manutepowa._mappings')
-require('manutepowa.cmp')
-require('manutepowa.lsp')
-require('manutepowa._telescope')
-require('manutepowa._treesitter')
+require 'manutepowa.options'
+require 'manutepowa.mappings'
+require 'manutepowa.cmp'
+require 'manutepowa.lsp'
+require 'manutepowa.telescope'
+require 'manutepowa.treesitter'
+require 'manutepowa.autopairs'
+require 'manutepowa.gitsigns'
+require 'manutepowa.nvim-tree'
+require 'manutepowa.indentline'
+require 'manutepowa.alpha'

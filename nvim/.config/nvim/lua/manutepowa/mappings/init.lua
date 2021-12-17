@@ -26,10 +26,20 @@ imap('kj', '<ESC>')
 imap('<A-n>', '<Right>')
 
 -- NVIM TREE
-vim.g.NERDTreeQuitOnOpen = 1
-nmap('<C-f>', ':NERDTreeFocus<CR>')
-nmap('<C-n>', ':NERDTree<CR>')
-nmap('<C-e>', ':NERDTreeToggle<CR>')
+vim.g.nvim_tree_quit_on_open = 1
+nmap('<leader>n', ':NvimTreeFindFile<CR>')
+nmap('<C-e>', ':NvimTreeToggle<CR>')
+nmap('<leader>r', ':NvimTreeRefresh<CR>')
 
 -- Tabs resize
 nmap('<t-j>', ':resize -5<CR>')
+
+-- MultiCursor
+vim.cmd([[
+	let g:VM_maps = {}
+	let g:VM_maps['Find Under']         = '<S-M-n>'           
+	let g:VM_maps['Find Subword Under'] = '<S-M-n>'           
+	let g:VM_maps["Select Cursor Down"] = '<S-M-j>'      
+	let g:VM_maps["Select Cursor Up"]   = '<S-M-k>'        
+]])
+

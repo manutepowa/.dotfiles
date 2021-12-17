@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
 
 	-- Themes
 	use 'mhartington/oceanic-next'
-
+	use 'lunarvim/darkplus.nvim'
 	-- Copilot
 	use 'github/copilot.vim'
 
@@ -33,7 +33,8 @@ return require('packer').startup(function(use)
 	use 'romgrk/barbar.nvim'
 
 	-- Git Lines edited
-	use 'mhinz/vim-signify'
+	use 'lewis6991/gitsigns.nvim'
+	-- use 'mhinz/vim-signify'
 
 	-- PHP
 	use 'lumiliet/vim-twig'
@@ -48,29 +49,28 @@ return require('packer').startup(function(use)
 
 	use 'antoinemadec/FixCursorHold.nvim'
 	use 'mattn/emmet-vim'
-	use 'Yggdroot/indentLine' -- Indent lines
-	-- use 'alvan/vim-closetag' -- Close Tag
+	use 'lukas-reineke/indent-blankline.nvim'
 	use 'sheerun/vim-polyglot' -- A collection of language packs for Vim
 	use 'tpope/vim-surround' -- Surrounding ysw)
-	use 'preservim/nerdtree' -- NerdTree
+	use 'kyazdani42/nvim-tree.lua'
 	use 'vim-airline/vim-airline' -- Status bar
 	use 'ap/vim-css-color' -- CSS Color Preview
-	-- use 'neoclide/coc.nvim'  -- Auto Completion
 	use 'ryanoasis/vim-devicons' -- Developer Icons
+	use "goolord/alpha-nvim"
 
 
 	-- cmp plugins
-  	use 'hrsh7th/nvim-cmp' -- The completion plugin
-  	use 'hrsh7th/cmp-buffer' -- buffer completions
-  	use 'hrsh7th/cmp-path' -- path completions
-  	use 'hrsh7th/cmp-cmdline' -- cmdline completions
-  	use 'saadparwaiz1/cmp_luasnip' -- snippet completions
-  	use "hrsh7th/cmp-nvim-lsp"
-  	use "hrsh7th/cmp-emoji"
-  	use "hrsh7th/cmp-nvim-lua"
+  use 'hrsh7th/nvim-cmp' -- The completion plugin
+  use 'hrsh7th/cmp-buffer' -- buffer completions
+  use 'hrsh7th/cmp-path' -- path completions
+  use 'hrsh7th/cmp-cmdline' -- cmdline completions
+  use 'saadparwaiz1/cmp_luasnip' -- snippet completions
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-emoji"
+  use "hrsh7th/cmp-nvim-lua"
 	use "f3fora/cmp-spell"
-  	-- Icons CMP
-  	use 'onsails/lspkind-nvim'
+  -- Icons CMP
+  use 'onsails/lspkind-nvim'
 
 -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP

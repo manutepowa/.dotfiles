@@ -1,17 +1,11 @@
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = {
-      "json",
-      "html",
-      "php",
-      "javascript",
-      "css",
-      "scss",
-      "typescript",
-      "lua"
-    },
+    ensure_installed = "maintained",
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = false,
+    },
+    autopairs = {
+      enable = true,
     },
     indent = { enable = true },
     rainbow = {
@@ -24,9 +18,3 @@ require'nvim-treesitter.configs'.setup {
     }
   }
 
-
-local npairs = require("nvim-autopairs")
-npairs.setup({
-    check_ts = true,
-	enable_moveright = true,
-})

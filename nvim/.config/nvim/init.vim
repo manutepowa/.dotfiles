@@ -5,12 +5,6 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>q :wincmd q<CR>
-" let g:NERDTreeQuitOnOpen = 1
-" nnoremap <C-f> :NERDTreeFocus<CR>
-" nnoremap <C-n> :NERDTree<CR>
-" nnoremap <C-t> :NERDTreeToggle<CR>
-" nnoremap <C-e> :NERDTreeToggle<CR>
-" nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
 " FixCursorHold for better performance
 let g:cursorhold_updatetime = 100
 " Theme
@@ -18,7 +12,7 @@ syntax on
 set termguicolors
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
-colorscheme OceanicNext
+colorscheme darkplus
 " air-line
 let g:airline_theme='oceanicnext'
 let g:airline_powerline_fonts = 1
@@ -26,10 +20,6 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-let g:NERDTreeDirArrowExpandable="+"
-let g:NERDTreeDirArrowCollapsible="~"
-let NERDTreeMapActivateNode='<TAB>'
-let NERDTreeShowHidden=1
 " Encerrar palabra o selección entre .....
 nmap <Leader>" ysiw"
 nmap <Leader>' ysiw'
@@ -50,8 +40,8 @@ else
   set signcolumn=yes
 endif
 " Move to previous/next
-nnoremap <silent> <A-j> :BufferPrevious<CR>
-nnoremap <silent> <A-k> :BufferNext<CR>
+nnoremap <silent> <A-h> :BufferPrevious<CR>
+nnoremap <silent> <A-l> :BufferNext<CR>
 nnoremap <silent>    <A-c> :BufferClose<CR>
 " No auto comment on new line
 augroup NoAutoComment
