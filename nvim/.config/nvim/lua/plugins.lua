@@ -83,6 +83,7 @@ return require('packer').startup(function(use)
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   }
+  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
 	-- snippets
   use 'L3MON4D3/LuaSnip' --snippet engine

@@ -1,6 +1,6 @@
 return {
   codeActionOnSave = {
-    enable = false,
+    enable = true,
     mode = "all"
   },
 }

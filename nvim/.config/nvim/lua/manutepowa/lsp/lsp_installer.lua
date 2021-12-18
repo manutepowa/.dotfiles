@@ -16,14 +16,19 @@ lsp_installer.on_server_ready(function(server)
 		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 	end
 
-	-- if server.name == "eslint" then
-	-- 	local eslint = require("manutepowa.lsp.settings.eslint")
-	-- 	opts = vim.tbl_deep_extend("force", eslint, opts)
-	-- end
-	-- if server.name == "sumneko_lua" then
-	-- 	local sumneko_opts = require("manutepowa.lsp.settings.sumneko_lua")
-	-- 	opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-	-- end
+	if server.name == "sumneko_lua" then
+		local sumneko_opts = require("manutepowa.lsp.settings.sumneko_lua")
+		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+	end
+
+	if server.name == "eslint" then
+		opts.on_attach = function (client, bufnr)
+			-- neovim's LSP client does not currently support dynamic capabilities registration, so we need to set
+			-- the resolved capabilities of the eslint server ourselves!
+			client.resolved_capabilities.document_formatting = true
+			vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+		end
+	end
 
 	-- if server.name == "tsserver" then
 	-- 	local tsserver = require("manutepowa.lsp.settings.tsserver")
