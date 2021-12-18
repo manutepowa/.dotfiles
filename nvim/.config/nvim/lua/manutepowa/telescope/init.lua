@@ -15,8 +15,8 @@ telescope.setup {
 
         mappings = {
             i = {
-                ["<C-j>"] = "move_selection_next",
-                ["<C-k>"] = "move_selection_previous",
+                ["<A-j>"] = "move_selection_next",
+                ["<A-k>"] = "move_selection_previous",
                 ["<C-x>"] = false,
                 ["<C-q>"] = actions.send_to_qflist,
             },
