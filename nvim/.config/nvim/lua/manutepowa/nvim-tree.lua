@@ -74,11 +74,11 @@ nvim_tree.setup {
   },
   git = {
     enable = true,
-    ignore = true,
+    ignore = false,
     timeout = 500,
   },
   view = {
-    width = 30,
+    width = 70,
     height = 30,
     hide_root_folder = false,
     side = "left",
@@ -87,7 +87,7 @@ nvim_tree.setup {
       custom_only = false,
       list = {
         { key = { "<TAB>", "<CR>", "o" }, cb = tree_cb "edit" },
-        { key = "h", cb = tree_cb "close_node" },
+        { key = "c", cb = tree_cb "close_node" },
         { key = "v", cb = tree_cb "vsplit" },
       },
     },

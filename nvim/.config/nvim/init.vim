@@ -11,11 +11,12 @@ nnoremap <leader>q :wincmd q<CR>
 " FixCursorHold for better performance
 let g:cursorhold_updatetime = 100
 " Theme
-syntax on
-set termguicolors
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
-colorscheme darkplus
+" syntax on
+" set termguicolors
+" let g:oceanic_next_terminal_bold = 1
+" let g:oceanic_next_terminal_italic = 1
+" colorscheme darkplus
+
 " air-line
 let g:airline_theme='oceanicnext'
 let g:airline_powerline_fonts = 1

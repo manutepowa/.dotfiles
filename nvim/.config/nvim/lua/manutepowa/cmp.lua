@@ -101,6 +101,7 @@ cmp.setup({
   	  format = function(entry, vim_item)
   	    vim_item.kind = string.format("%s %s", lspkind.presets.default[vim_item.kind], vim_item.kind)
   	    vim_item.menu = ({
+  	      npm = "ﲳ",
   	      nvim_lsp = "ﲳ",
   	      nvim_lua = "",
   	      treesitter = "",
@@ -115,22 +116,22 @@ cmp.setup({
   	  end,
   	},
 	sources = {
+		{ name = "npm" },
+		{
+			name = "buffer",
+			option = {
+				get_bufnrs = function()
+					return vim.api.nvim_list_bufs()
+				end,
+			},
+		},
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
-		{ name = "treesitter" },
-		{
-	      name = "buffer",
-	      option = {
-	        get_bufnrs = function()
-	          return vim.api.nvim_list_bufs()
-	        end,
-	      },
-	    },
+		-- { name = "treesitter" },
 		{ name = "path" },
 		{ name = "emoji" },
-		{ name = "spell" },
-		{ name = "cmp_luasnip" }
+		{ name = "cmp_luasnip" },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,

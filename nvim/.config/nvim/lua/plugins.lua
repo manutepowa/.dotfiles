@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
 	-- Themes
 	use 'mhartington/oceanic-next'
 	use 'lunarvim/darkplus.nvim'
+	use 'navarasu/onedark.nvim'
 	-- Copilot
 	use 'github/copilot.vim'
 
@@ -68,7 +69,12 @@ return require('packer').startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
-	use "f3fora/cmp-spell"
+	use {
+		'David-Kunz/cmp-npm',
+		requires = {
+			'nvim-lua/plenary.nvim'
+		}
+	}
   -- Icons CMP
   use 'onsails/lspkind-nvim'
 
@@ -89,4 +95,9 @@ return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip' --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
+	-- DAP
+  use "mfussenegger/nvim-dap"
+  use "theHamsta/nvim-dap-virtual-text"
+  use "rcarriga/nvim-dap-ui"
+  use "Pocco81/DAPInstall.nvim"
 end)

@@ -14,6 +14,7 @@ end
 
 
 require 'manutepowa.options'
+require 'manutepowa.theme'
 require 'manutepowa.mappings'
 require 'manutepowa.cmp'
 require 'manutepowa.lsp'
@@ -24,3 +25,4 @@ require 'manutepowa.gitsigns'
 require 'manutepowa.nvim-tree'
 require 'manutepowa.indentline'
 require 'manutepowa.alpha'
+require 'manutepowa.dap'
