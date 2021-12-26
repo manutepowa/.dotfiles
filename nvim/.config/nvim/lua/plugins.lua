@@ -24,7 +24,8 @@ return require('packer').startup(function(use)
 
 	-- Themes
 	use 'mhartington/oceanic-next'
-
+	use 'lunarvim/darkplus.nvim'
+	use 'navarasu/onedark.nvim'
 	-- Copilot
 	use 'github/copilot.vim'
 
@@ -33,13 +34,14 @@ return require('packer').startup(function(use)
 	use 'romgrk/barbar.nvim'
 
 	-- Git Lines edited
-	use 'mhinz/vim-signify'
+	use 'lewis6991/gitsigns.nvim'
+	-- use 'mhinz/vim-signify'
 
 	-- PHP
 	use 'lumiliet/vim-twig'
 
 	-- MultiCursor
-	use {'mg979/vim-visual-multi', {branch = 'master'}}
+	use 'mg979/vim-visual-multi'
 
 	use 'numToStr/Comment.nvim'
 
@@ -48,17 +50,54 @@ return require('packer').startup(function(use)
 
 	use 'antoinemadec/FixCursorHold.nvim'
 	use 'mattn/emmet-vim'
-	use 'Yggdroot/indentLine' -- Indent lines
-	-- use 'alvan/vim-closetag' -- Close Tag
+	use 'lukas-reineke/indent-blankline.nvim'
 	use 'sheerun/vim-polyglot' -- A collection of language packs for Vim
 	use 'tpope/vim-surround' -- Surrounding ysw)
-	use 'preservim/nerdtree' -- NerdTree
+	use 'kyazdani42/nvim-tree.lua'
 	use 'vim-airline/vim-airline' -- Status bar
 	use 'ap/vim-css-color' -- CSS Color Preview
-	use 'neoclide/coc.nvim'  -- Auto Completion
 	use 'ryanoasis/vim-devicons' -- Developer Icons
+	use "goolord/alpha-nvim"
 
-	-- Syntax highlighting
-	-- use 'pangloss/vim-javascript'
 
+	-- cmp plugins
+  use 'hrsh7th/nvim-cmp' -- The completion plugin
+  use 'hrsh7th/cmp-buffer' -- buffer completions
+  use 'hrsh7th/cmp-path' -- path completions
+  use 'hrsh7th/cmp-cmdline' -- cmdline completions
+  use 'saadparwaiz1/cmp_luasnip' -- snippet completions
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-emoji"
+  use "hrsh7th/cmp-nvim-lua"
+	use {
+		'David-Kunz/cmp-npm',
+		requires = {
+			'nvim-lua/plenary.nvim'
+		}
+	}
+  -- Icons CMP
+  use 'onsails/lspkind-nvim'
+
+-- LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
+  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  use "filipdutescu/renamer.nvim"
+  use "simrat39/symbols-outline.nvim"
+  use {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  }
+  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+
+	-- snippets
+  use 'L3MON4D3/LuaSnip' --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+
+	-- DAP
+  use "mfussenegger/nvim-dap"
+  use "theHamsta/nvim-dap-virtual-text"
+  use "rcarriga/nvim-dap-ui"
+  use "Pocco81/DAPInstall.nvim"
 end)
