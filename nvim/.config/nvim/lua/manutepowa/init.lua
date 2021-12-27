@@ -15,6 +15,7 @@ end
 
 require 'manutepowa.options'
 require 'manutepowa.theme'
+require 'manutepowa.lualine'
 require 'manutepowa.mappings'
 require 'manutepowa.cmp'
 require 'manutepowa.lsp'

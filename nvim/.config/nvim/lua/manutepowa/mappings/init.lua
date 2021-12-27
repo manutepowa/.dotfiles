@@ -22,6 +22,11 @@ nmap('<Leader>w', ':w<CR>')
 nmap('<Leader>q', ':q<CR>')
 imap('kj', '<ESC>')
 
+-- Apaño para que no vuelva al inicio (autoindent)
+imap('<CR>', '<CR>x<BS>')
+nmap('o', 'ox<BS>')
+nmap('O', 'Ox<BS>')
+
 -- Move right when open autopairs
 imap('<A-n>', '<Right>')
 

@@ -26,6 +26,11 @@ return require('packer').startup(function(use)
 	use 'mhartington/oceanic-next'
 	use 'lunarvim/darkplus.nvim'
 	use 'navarasu/onedark.nvim'
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = {'kyazdani42/nvim-web-devicons', opt = true}
+	}
+
 	-- Copilot
 	use 'github/copilot.vim'
 
@@ -54,7 +59,7 @@ return require('packer').startup(function(use)
 	use 'sheerun/vim-polyglot' -- A collection of language packs for Vim
 	use 'tpope/vim-surround' -- Surrounding ysw)
 	use 'kyazdani42/nvim-tree.lua'
-	use 'vim-airline/vim-airline' -- Status bar
+	-- use 'vim-airline/vim-airline' -- Status bar
 	use 'ap/vim-css-color' -- CSS Color Preview
 	use 'ryanoasis/vim-devicons' -- Developer Icons
 	use "goolord/alpha-nvim"
