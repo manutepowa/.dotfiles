@@ -60,7 +60,7 @@ return require('packer').startup(function(use)
 	use 'tpope/vim-surround' -- Surrounding ysw)
 	use 'kyazdani42/nvim-tree.lua'
 	-- use 'vim-airline/vim-airline' -- Status bar
-	use 'ap/vim-css-color' -- CSS Color Preview
+	use 'norcalli/nvim-colorizer.lua'
 	use 'ryanoasis/vim-devicons' -- Developer Icons
 	use "goolord/alpha-nvim"
 

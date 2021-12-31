@@ -27,3 +27,6 @@ require 'manutepowa.nvim-tree'
 require 'manutepowa.indentline'
 require 'manutepowa.alpha'
 require 'manutepowa.dap'
+
+-- Simple options
+require 'colorizer'.setup()
