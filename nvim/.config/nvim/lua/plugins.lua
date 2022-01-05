@@ -36,8 +36,7 @@ return require('packer').startup(function(use)
 
 	-- Tabs
 	use 'kyazdani42/nvim-web-devicons'
-	use 'romgrk/barbar.nvim'
-
+	use "akinsho/bufferline.nvim"
 	-- Git Lines edited
 	use 'lewis6991/gitsigns.nvim'
 	-- use 'mhinz/vim-signify'

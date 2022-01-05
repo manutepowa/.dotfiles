@@ -23,7 +23,6 @@ nnoremap <silent> <leader>gw :Gwrite<CR>
 nnoremap <silent> <leader>gc :Git commit<CR>
 nnoremap <silent> <leader>gd :Gdiffsplit<CR>
 nnoremap <silent> <leader>gpl :Git pull<CR>
-" Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("nvim-0.5.0") || has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
@@ -31,10 +30,7 @@ if has("nvim-0.5.0") || has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
-" Move to previous/next
-nnoremap <silent> <A-h> :BufferPrevious<CR>
-nnoremap <silent> <A-l> :BufferNext<CR>
-nnoremap <silent>    <A-c> :BufferClose<CR>
+
 " No auto comment on new line
 augroup NoAutoComment
   au!

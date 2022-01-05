@@ -53,3 +53,8 @@ nmap('<A-j>', ":MoveLine(1)<CR>", { noremap = true, silent = true })
 nmap('<A-k>', ":MoveLine(-1)<CR>", { noremap = true, silent = true })
 vmap('<A-j>', ":MoveBlock(1)<CR>", { noremap = true, silent = true })
 vmap('<A-k>', ":MoveBlock(-1)<CR>", { noremap = true, silent = true })
+
+-- BufferLine
+nmap("<A-l>", ":bnext<CR>", { noremap = true, silent = true })
+nmap("<A-h>", ":bprevious<CR>", { noremap = true, silent = true })
+nmap("<A-c>", "<cmd>bdelete!<CR>", { noremap = true, silent = true })
