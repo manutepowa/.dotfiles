@@ -118,3 +118,14 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 # Speed keyboard
 xset r rate 220 40
+
+NPM_PACKAGES="${HOME}/.npm-packages"
+
+export PATH="$PATH:$NPM_PACKAGES/bin"
+export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+
+# TMUX
+if [ "$TMUX" = "" ]; then tmux; fi
+
+bindkey '^[l' forward-word # Move next word in line
+bindkey '^H' backward-kill-word

@@ -48,3 +48,8 @@ vim.cmd([[
 	let g:VM_maps["Select Cursor Up"]   = '<S-M-k>'        
 ]])
 
+-- Move block
+nmap('<A-j>', ":MoveLine(1)<CR>", { noremap = true, silent = true })
+nmap('<A-k>', ":MoveLine(-1)<CR>", { noremap = true, silent = true })
+vmap('<A-j>', ":MoveBlock(1)<CR>", { noremap = true, silent = true })
+vmap('<A-k>', ":MoveBlock(-1)<CR>", { noremap = true, silent = true })

@@ -59,7 +59,7 @@ return require('packer').startup(function(use)
 	use 'sheerun/vim-polyglot' -- A collection of language packs for Vim
 	use 'tpope/vim-surround' -- Surrounding ysw)
 	use 'kyazdani42/nvim-tree.lua'
-	-- use 'vim-airline/vim-airline' -- Status bar
+	use 'fedepujol/move.nvim'
 	use 'norcalli/nvim-colorizer.lua'
 	use 'ryanoasis/vim-devicons' -- Developer Icons
 	use "goolord/alpha-nvim"
@@ -74,12 +74,7 @@ return require('packer').startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
-	use {
-		'David-Kunz/cmp-npm',
-		requires = {
-			'nvim-lua/plenary.nvim'
-		}
-	}
+	
   -- Icons CMP
   use 'onsails/lspkind-nvim'
 

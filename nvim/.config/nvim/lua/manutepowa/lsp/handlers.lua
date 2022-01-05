@@ -70,8 +70,8 @@ local function lsp_keymaps(bufnr)
 	vim.api.nvim_buf_set_keymap(
 		bufnr,
 		"n",
-		"gl",
-		'<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
+		"<S-l>",
+		'<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>',
 		opts
 	)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)

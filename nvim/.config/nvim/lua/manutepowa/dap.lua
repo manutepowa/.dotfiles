@@ -37,7 +37,7 @@ end
 map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
 map('n', '<leader>dso', ':lua require"dap".step_out()<CR>')
 map('n', '<leader>dsi', ':lua require"dap".step_into()<CR>')
-map('n', '<A-j>', ':lua require"dap".step_over()<CR>')
+-- map('n', '<A-j>', ':lua require"dap".step_over()<CR>')
 map('n', '<leader>ds', ':lua require"dap".continue()<CR>')
 map('n', '<leader>dt', ':lua require"dap".terminate()<CR>')
 
