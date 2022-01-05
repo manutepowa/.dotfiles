@@ -91,7 +91,6 @@ cmp.setup({
   	},
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "nvim_lua" },
 		{ name = "luasnip" },
 		{
 			name = "buffer",
@@ -101,6 +100,7 @@ cmp.setup({
 				end,
 			},
 		},
+		{ name = "nvim_lua" },
 		-- { name = "treesitter" },
 		{ name = "path" },
 		{ name = "emoji" },
