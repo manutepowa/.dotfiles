@@ -1,7 +1,7 @@
 return {
   settings = {
     tailwindCSS = {
-        classAttributes = { 'class' , 'className' , 'classList', 'tw', '' },
+        classAttributes = { 'class' , 'className' , 'classList', 'tw', '``' },
         lint = {
           cssConflict = "warning",
           invalidApply = "error",
