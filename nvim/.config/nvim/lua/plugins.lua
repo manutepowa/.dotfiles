@@ -62,6 +62,10 @@ return require('packer').startup(function(use)
 	use 'norcalli/nvim-colorizer.lua'
 	use 'ryanoasis/vim-devicons' -- Developer Icons
 	use "goolord/alpha-nvim"
+	use({
+    "vuki656/package-info.nvim",
+    requires = "MunifTanjim/nui.nvim",
+	})
 
 
 	-- cmp plugins
@@ -73,7 +77,7 @@ return require('packer').startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
-	
+
   -- Icons CMP
   use 'onsails/lspkind-nvim'
 

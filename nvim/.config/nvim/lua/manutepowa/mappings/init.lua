@@ -37,7 +37,10 @@ nmap('<A-e>', ':NvimTreeToggle<CR>')
 nmap('<leader>r', ':NvimTreeRefresh<CR>')
 
 -- Tabs resize
-nmap('<t-j>', ':resize -5<CR>')
+nmap('<A-Down>', ':resize -5<CR>', { noremap = true, silent = true })
+nmap('<A-Up>', ':resize +5<CR>', { noremap = true, silent = true })
+nmap('<A-Left>', ':vertical resize -5<CR>', { noremap = true, silent = true })
+nmap('<A-Right>', ':vertical resize +5<CR>', { noremap = true, silent = true })
 
 -- MultiCursor
 vim.cmd([[

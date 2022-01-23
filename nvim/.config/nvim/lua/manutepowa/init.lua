@@ -28,6 +28,7 @@ require 'manutepowa.bufferline'
 require 'manutepowa.indentline'
 require 'manutepowa.alpha'
 require 'manutepowa.dap'
+require 'manutepowa.packer-info'
 
 -- Simple options
 require 'colorizer'.setup()
