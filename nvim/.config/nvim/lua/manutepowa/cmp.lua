@@ -104,7 +104,6 @@ cmp.setup({
 		-- { name = "treesitter" },
 		{ name = "path" },
 		{ name = "emoji" },
-		{ name = "cmp_luasnip" },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
