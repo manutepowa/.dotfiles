@@ -21,12 +21,6 @@ lsp_installer.on_server_ready(function(server)
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
 
-	if server.name == "eslint" then
-		opts.on_attach = function (client, bufnr)
-			client.resolved_capabilities.document_formatting = true
-			vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-		end
-	end
 
 	if server.name == "tsserver" then
 		local tsserver = require("manutepowa.lsp.settings.tsserver")

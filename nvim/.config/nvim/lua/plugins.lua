@@ -75,7 +75,6 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-cmdline' -- cmdline completions
   use 'saadparwaiz1/cmp_luasnip' -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
 
   -- Icons CMP
@@ -92,7 +91,7 @@ return require('packer').startup(function(use)
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   }
-  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+	use "ray-x/lsp_signature.nvim"
 
 	-- snippets
   use 'L3MON4D3/LuaSnip' --snippet engine

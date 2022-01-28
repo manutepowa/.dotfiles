@@ -13,10 +13,16 @@ if not luasnip then
   return
 end
 
-require('luasnip').filetype_extend("javascript", { "html" })
-require('luasnip').filetype_extend("javascriptreact", { "html" })
-require('luasnip').filetype_extend("typescript", { "html" })
-require('luasnip').filetype_extend("typescriptreact", { "html" })
+-- html snippets in javascript and javascriptreact
+luasnip.snippets = {
+  html = {}
+}
+luasnip.snippets.javascript = luasnip.snippets.html
+luasnip.snippets.typescript = luasnip.snippets.html
+luasnip.snippets.javascriptreact = luasnip.snippets.html
+luasnip.snippets.typescriptreact = luasnip.snippets.html
+
+require("luasnip/loaders/from_vscode").load({include = {"html"}})
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
@@ -59,10 +65,8 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
 		["<A-k>"] = cmp.mapping.select_prev_item(),
-		['<A-j>'] = function(fallback)
+		['<A-j>'] = function()
       if cmp.visible() then
         cmp.select_next_item()
       else
@@ -103,7 +107,6 @@ cmp.setup({
 		{ name = "nvim_lua" },
 		-- { name = "treesitter" },
 		{ name = "path" },
-		{ name = "emoji" },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
