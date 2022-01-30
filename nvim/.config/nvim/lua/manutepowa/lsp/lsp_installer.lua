@@ -21,11 +21,10 @@ lsp_installer.on_server_ready(function(server)
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
 
-
-	if server.name == "tsserver" then
-		local tsserver = require("manutepowa.lsp.settings.tsserver")
-		opts = vim.tbl_deep_extend("force", tsserver, opts)
-	end
+	-- if server.name == "tsserver" then
+	-- 	local tsserver = require("manutepowa.lsp.settings.tsserver")
+	-- 	opts = vim.tbl_deep_extend("force", tsserver, opts)
+	-- end
 
 	if server.name == "tailwindcss" then
 		local tsserver = require("manutepowa.lsp.settings.tailwindcss")
