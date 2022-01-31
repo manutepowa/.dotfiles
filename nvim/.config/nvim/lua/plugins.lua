@@ -39,6 +39,7 @@ return require('packer').startup(function(use)
 	use "akinsho/bufferline.nvim"
 	-- Git Lines edited
 	use 'lewis6991/gitsigns.nvim'
+	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 	-- use 'mhinz/vim-signify'
 
 	-- PHP

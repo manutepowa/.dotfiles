@@ -12,23 +12,23 @@ R = function (name)
     return require(name)
 end
 
-
-require 'manutepowa.options'
-require 'manutepowa.theme'
-require 'manutepowa.lualine'
-require 'manutepowa.mappings'
-require 'manutepowa.cmp'
-require 'manutepowa.lsp'
-require 'manutepowa.telescope'
-require 'manutepowa.treesitter'
-require 'manutepowa.autopairs'
-require 'manutepowa.gitsigns'
-require 'manutepowa.nvim-tree'
-require 'manutepowa.bufferline'
-require 'manutepowa.indentline'
-require 'manutepowa.alpha'
-require 'manutepowa.dap'
-require 'manutepowa.packer-info'
+require'manutepowa.options'
+require'manutepowa.theme'
+require'manutepowa.lualine'
+require'manutepowa.mappings'
+require'manutepowa.cmp'
+require'manutepowa.lsp'
+require'manutepowa.telescope'
+require'manutepowa.treesitter'
+require'manutepowa.autopairs'
+require'manutepowa.gitsigns'
+require'manutepowa.nvim-tree'
+require'manutepowa.bufferline'
+require'manutepowa.indentline'
+require'manutepowa.alpha'
+require'manutepowa.dap'
+require'manutepowa.packer-info'
+require'manutepowa.diff-git'
 
 -- Simple options
 require 'colorizer'.setup()
