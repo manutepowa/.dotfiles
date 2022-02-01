@@ -67,8 +67,6 @@ require'diffview'.setup {
       ["X"]             = cb("restore_entry"),        -- Restore entry to the state on the left side.
       ["R"]             = cb("refresh_files"),        -- Update stats and entries in the file list.
       ["gf"]            = cb("goto_file"),
-      ["<C-w><C-f>"]    = cb("goto_file_split"),
-      ["<C-w>gf"]       = cb("goto_file_tab"),
       ["i"]             = cb("listing_style"),        -- Toggle between 'list' and 'tree' views
       ["f"]             = cb("toggle_flatten_dirs"),  -- Flatten empty subdirectories in tree listing style.
       ["<leader>e"]     = cb("focus_files"),

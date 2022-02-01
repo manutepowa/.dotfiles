@@ -11,7 +11,7 @@ dap.adapters.php = {
     command = 'node',
     args = { vim.fn.stdpath("data") .. "/dapinstall/php/vscode-php-debug/out/phpDebug.js" }
 }
-print(vim.fn.stdpath("data") .. "/dapinstall/php/vscode-php-debug/out/phpDebug.js")
+print(os.getenv('HOME') .. "/dapinstall/php/vscode-php-debug/out/phpDebug.js")
 dap.configurations.php = {
   {
     type = 'php',
@@ -40,6 +40,7 @@ map('n', '<leader>dsi', ':lua require"dap".step_into()<CR>')
 map('n', '<A-CR>', ':lua require"dap".step_over()<CR>')
 map('n', '<leader>ds', ':lua require"dap".continue()<CR>')
 map('n', '<leader>dt', ':lua require"dap".terminate()<CR>')
+map('n', '<F2>', ':lua require("dapui").eval()<CR>')
 
 map('n', '<leader>dui', '<cmd>lua require"dapui".toggle()<CR>')
 map('n', '<leader>dsc', '<cmd>lua require"dapui.variables".scopes()<CR>')
@@ -86,15 +87,15 @@ dap_ui.setup({
     size = 10,
     position = "bottom", -- Can be "left", "right", "top", "bottom"
   },
-  -- floating = {
-  --   max_height = nil, -- These can be integers or a float between 0 and 1.
-  --   max_width = nil, -- Floats will be treated as percentage of your screen.
-  --   border = "single", -- Border style. Can be "single", "double" or "rounded"
-  --   mappings = {
-  --     close = { "q", "<Esc>" },
-  --   },
-  -- },
-  -- windows = { indent = 1 },
+  floating = {
+    max_height = nil, -- These can be integers or a float between 0 and 1.
+    max_width = nil, -- Floats will be treated as percentage of your screen.
+    border = "single", -- Border style. Can be "single", "double" or "rounded"
+    mappings = {
+      close = { "q", "<Esc>" },
+    },
+  },
+  windows = { indent = 1 },
 })
 
 
@@ -102,7 +103,7 @@ dap.listeners.after.event_initialized["dapui_config"] = function()
   dap_ui.toggle()
 end
 
-dap.listeners.after["event_terminate"]["dapui_config"] = function()
+dap.listeners.after.event_terminated["dapui_config"] = function()
   dap_ui.close()
 end
 
