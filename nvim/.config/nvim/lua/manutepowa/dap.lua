@@ -11,7 +11,7 @@ dap.adapters.php = {
     command = 'node',
     args = { vim.fn.stdpath("data") .. "/dapinstall/php/vscode-php-debug/out/phpDebug.js" }
 }
-print(os.getenv('HOME') .. "/dapinstall/php/vscode-php-debug/out/phpDebug.js")
+-- print(os.getenv('HOME') .. "/dapinstall/php/vscode-php-debug/out/phpDebug.js")
 dap.configurations.php = {
   {
     type = 'php',
@@ -40,6 +40,7 @@ map('n', '<leader>dsi', ':lua require"dap".step_into()<CR>')
 map('n', '<A-CR>', ':lua require"dap".step_over()<CR>')
 map('n', '<leader>ds', ':lua require"dap".continue()<CR>')
 map('n', '<leader>dt', ':lua require"dap".terminate()<CR>')
+-- map('n', '<leader>dt', ':lua require"dap".terminate()<CR><cmd>lua require"dapui".toggle()<CR>')
 map('n', '<F2>', ':lua require("dapui").eval()<CR>')
 
 map('n', '<leader>dui', '<cmd>lua require"dapui".toggle()<CR>')
@@ -47,14 +48,19 @@ map('n', '<leader>dsc', '<cmd>lua require"dapui.variables".scopes()<CR>')
 map('n', '<leader>dhh', '<cmd>lua require"dapui.variables".hover()<CR>')
 map('v', '<leader>dhv', '<cmd>lua require"dapui.variables".visual_hover()<CR>')
 
-
+-- vim.api.nvim_set_keymap('n', '<leader>db', ':lua require\'dap\'.toggle_breakpoint()<cr>', {noremap = true})
+-- vim.api.nvim_set_keymap('n', '<leader>ds', ':lua require\'dap\'.continue()<cr>', {noremap = true})
+-- vim.api.nvim_set_keymap('n', '<leader>dt', ':lua require"dap".terminate()<cr>', {noremap = true})
+-- vim.api.nvim_set_keymap('n', '<leader>dsi', ':lua require\'dap\'.step_into()<cr>', {noremap = true})
+-- vim.api.nvim_set_keymap('n', '<A-CR>', ':lua require\'dap\'.step_over()<cr>', {noremap = true})
+-- vim.api.nvim_set_keymap('n', '<leader>dso', ':lua require\'dap\'.step_out()<cr>', {noremap = true})
+-- vim.api.nvim_set_keymap('n', '<leader>dbl', ':lua require\'dap\'.list_breakpoints()<cr>', {noremap = true})
+-- vim.api.nvim_set_keymap('n', '<leader>dbc', ':lua require\'dap\'.clear_breakpoints()<cr>', {noremap = true})
 vim.api.nvim_exec([[
   augroup DapRepl
-  au!
-  au FileType dap-repl lua require('dap.ext.autocompl').attach()
+    au FileType dap-repl lua require('dap.ext.autocompl').attach()
   augroup END
 ]], false)
-
 
 local dap_ui = require "dapui"
 dap_ui.setup({
@@ -99,14 +105,10 @@ dap_ui.setup({
 })
 
 
-dap.listeners.after.event_initialized["dapui_config"] = function()
+dap.listeners.after["event_initialized"]["manutepowa"] = function()
   dap_ui.toggle()
 end
 
-dap.listeners.after.event_terminated["dapui_config"] = function()
-  dap_ui.close()
-end
-
-dap.listeners.before.event_exited["dapui_config"] = function()
+dap.listeners.after['event_terminated']["manutepowa"] = function()
   dap_ui.close()
 end
