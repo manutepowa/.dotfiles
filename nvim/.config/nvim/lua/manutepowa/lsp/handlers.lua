@@ -78,6 +78,25 @@ local function lsp_keymaps(bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>e", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting_sync()' ]])
 end
+--
+local function filter(arr, fn)
+  if type(arr) ~= "table" then
+    return arr
+  end
+
+  local filtered = {}
+  for k, v in pairs(arr) do
+    if fn(v, k, arr) then
+      table.insert(filtered, v)
+    end
+  end
+
+  return filtered
+end
+
+local function filterReactDTS(value)
+  return string.match(value.uri, 'react/index.d.ts') == nil
+end
 
 M.on_attach = function(client, bufnr)
 	if client.name == "tsserver" then
@@ -101,6 +120,6 @@ end
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 
-vim.cmd [[ command! LspToggleAutoFormat execute 'lua require("manutepowa.lsp.handlers").toggle_format_on_save()' ]]
+-- vim.cmd [[ command! LspToggleAutoFormat execute 'lua require("manutepowa.lsp.handlers").toggle_format_on_save()' ]]
 
 return M

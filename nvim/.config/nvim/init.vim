@@ -1,7 +1,7 @@
 let mapleader=" "
 
-vnoremap <Tab> >gv
-vnoremap <S-Tab> <gv
+" vnoremap <Tab> >gv
+" vnoremap <S-Tab> <gv
 
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>

@@ -4,6 +4,11 @@ local function map(mode)
   end
 end
 
+-- Documentació
+-- * para buscar la palabra seleccionada
+-- gv para seleccionar lo último que seleccionó de nuevo
+-- vit and vat seleccionar bloque completo por fuera o por dentro
+
 local nmap = map('n')
 local vmap = map('v')
 local imap = map('i')

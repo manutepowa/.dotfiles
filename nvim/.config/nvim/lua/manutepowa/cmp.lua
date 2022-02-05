@@ -25,38 +25,37 @@ luasnip.snippets.typescriptreact = luasnip.snippets.html
 require("luasnip/loaders/from_vscode").load({include = {"html"}})
 require("luasnip/loaders/from_vscode").lazy_load()
 
-local check_backspace = function()
-	local col = vim.fn.col(".") - 1
-	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
-end
-
+-- local check_backspace = function()
+-- 	local col = vim.fn.col(".") - 1
+-- 	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
+-- end
 local lspkind = require "lspkind"
-lspkind.init {
-  with_text = true,
-  symbol_map = {
-    Text = "",
-    Method = "ƒ",
-    Function = "ﬦ",
-    Constructor = "",
-    Variable = "",
-    Class = "",
-    Interface = "ﰮ",
-    Module = "",
-    Property = "",
-    Unit = "",
-    Value = "",
-    Enum = "了",
-    Keyword = "",
-    Snippet = "﬌",
-    Color = "",
-    File = "",
-    Folder = "",
-    EnumMember = "",
-    Constant = "",
-    Struct = "",
-  },
-}
-
+-- lspkind.init {
+--   mode = "symbol",
+--   symbol_map = {
+--     Text = "",
+--     Method = "ƒ",
+--     Function = "ﬦ",
+--     Constructor = "",
+--     Variable = "",
+--     Class = "",
+--     Interface = "ﰮ",
+--     Module = "",
+--     Property = "",
+--     Unit = "",
+--     Value = "",
+--     Enum = "了",
+--     Keyword = "",
+--     Snippet = "﬌",
+--     Color = "",
+--     File = "",
+--     Folder = "",
+--     EnumMember = "",
+--     Constant = "",
+--     Struct = "",
+--   },
+-- }
+--
 
 cmp.setup({
 	snippet = {
@@ -76,23 +75,17 @@ cmp.setup({
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
 	},
 	formatting = {
-  	  format = function(entry, vim_item)
-  	    vim_item.kind = string.format("%s %s", lspkind.presets.default[vim_item.kind], vim_item.kind)
-  	    vim_item.menu = ({
-  	      npm = "ﲳ",
-  	      nvim_lsp = "ﲳ",
-  	      nvim_lua = "",
-  	      treesitter = "",
-  	      path = "ﱮ",
-  	      buffer = "﬘",
-  	      zsh = "",
-  	      vsnip = "",
-  	      spell = "暈",
-  	    })[entry.source.name]
+		format = lspkind.cmp_format({
+      mode = 'text_symbol', -- show only symbol annotations
+      maxwidth = 80, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 
-  	    return vim_item
-  	  end,
-  	},
+      -- The function below will be called before any actual modifications from lspkind
+      -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+      before = function (entry, vim_item)
+        return vim_item
+      end
+    })
+	},
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
