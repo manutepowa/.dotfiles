@@ -130,4 +130,5 @@ if [ "$TMUX" = "" ]; then tmux; fi
 bindkey '^[l' forward-word # Move next word in line
 bindkey '^H' backward-kill-word
 bindkey "^[h" backward-char
-
+bindkey "^[k" up-line-or-history
+bindkey "^[j" down-line-or-history
