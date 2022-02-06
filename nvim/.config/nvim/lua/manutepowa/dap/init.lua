@@ -44,7 +44,6 @@ map('n', '<leader>dt', ':lua require\'manutepowa.dap.dap-fn\'.stop()<cr>')
 map('n', '<F2>', ':lua require("dapui").eval()<CR>')
 
 map('n', '<leader>dui', '<cmd>lua require"dapui".toggle()<CR>')
-map('n', '<leader>dsc', '<cmd>lua require"dapui.variables".scopes()<CR>')
 map('n', '<leader>dhh', '<cmd>lua require"dapui.variables".hover()<CR>')
 map('v', '<leader>dhv', '<cmd>lua require"dapui.variables".visual_hover()<CR>')
 
@@ -79,11 +78,17 @@ dap_ui.setup({
       -- Provide as ID strings or tables with "id" and "size" keys
       {
         id = "scopes",
-        size = 1, -- Can be float or integer > 1
+        size = 0.75, -- Can be float or integer > 1
+        expand = { "<TAB>", "<2-LeftMouse>" },
+        repl = "r",
       },
-      -- { id = "breakpoints", size = 0.25 },
-      -- { id = "stacks", size = 0.25 },
-      -- { id = "watches", size = 00.25 },
+      {
+        id = "watches",
+        size = 0.25,
+        expand = { "<TAB>", "<2-LeftMouse>" },
+        remove = "d",
+        repl = "r",
+      },
     },
     size = 50,
     position = "left", -- Can be "left", "right", "top", "bottom"
