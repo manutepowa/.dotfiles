@@ -55,9 +55,16 @@ map('v', '<leader>dhv', '<cmd>lua require"dapui.variables".visual_hover()<CR>')
 -- vim.api.nvim_set_keymap('n', '<leader>dso', ':lua require\'dap\'.step_out()<cr>', {noremap = true})
 -- vim.api.nvim_set_keymap('n', '<leader>dbl', ':lua require\'dap\'.list_breakpoints()<cr>', {noremap = true})
 -- vim.api.nvim_set_keymap('n', '<leader>dbc', ':lua require\'dap\'.clear_breakpoints()<cr>', {noremap = true})
+-- vim.api.nvim_exec([[
+--   augroup DapRepl
+--     autocmd!
+--     au FileType dap-repl lua require('dap.ext.autocompl').attach()
+--   augroup END
+-- ]], false)
+
 vim.api.nvim_exec([[
-  augroup DapRepl
-    au FileType dap-repl lua require('dap.ext.autocompl').attach()
+  augroup dapcmp
+    autocmd FileType dap-repl lua require('dap.ext.autocompl').attach()
   augroup END
 ]], false)
 
