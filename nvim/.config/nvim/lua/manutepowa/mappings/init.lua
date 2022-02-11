@@ -27,6 +27,11 @@ nmap('<Leader>w', ':w<CR>')
 nmap('<Leader>q', ':q<CR>')
 imap('kj', '<ESC>')
 
+-- Copy and paste without clipboard
+nmap('d', '"_d', { noremap = true })
+xmap('d', '"_d', { noremap = true })
+xmap('p', '"_dP', { noremap = true })
+
 -- Apaño para que no vuelva al inicio (autoindent)
 imap('<CR>', '<CR>x<BS>')
 nmap('o', 'ox<BS>')
