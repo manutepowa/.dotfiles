@@ -46,12 +46,12 @@ nvim_tree.setup {
   open_on_tab = false,
   hijack_cursor = false,
   update_cwd = true,
-  update_to_buf_dir = {
+  hijack_directories = {
     enable = true,
     auto_open = true,
   },
   diagnostics = {
-    enable = true,
+    enable = false,
     icons = {
       hint = "",
       info = "",
@@ -98,7 +98,14 @@ nvim_tree.setup {
     cmd = "trash",
     require_confirm = true,
   },
-  quit_on_open = 0,
+  actions = {
+    change_dir = {
+      global = false,
+    },
+    open_file = {
+      quit_on_open = true,
+    }
+  },
   git_hl = 1,
   disable_window_picker = 0,
   root_folder_modifier = ":t",

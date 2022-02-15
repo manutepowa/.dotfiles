@@ -114,3 +114,8 @@ cmp.setup({
 		native_menu = false,
 	},
 })
+
+vim.cmd[[
+  highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+  highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
+]]
