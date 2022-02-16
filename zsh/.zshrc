@@ -111,7 +111,6 @@ source $ZSH/oh-my-zsh.sh
 alias m3ssh="cd /home/manuel/Desarrollo/m3ssh/ && ./m3ssh.sh"
 alias v="nvim"
 
-
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
@@ -132,3 +131,4 @@ bindkey '^H' backward-kill-word
 bindkey "^[h" backward-char
 bindkey "^[k" up-line-or-history
 bindkey "^[j" down-line-or-history
+bindkey "^[p" paste
