@@ -31,12 +31,13 @@ else
   set signcolumn=yes
 endif
 
+
 " No auto comment on new line
 augroup NoAutoComment
   au!
   au FileType * setlocal formatoptions-=cro
 augroup end
-
+autocmd BufNewFile,BufRead *.theme set syntax=php
 lua << EOF
 require('Comment').setup()
 EOF

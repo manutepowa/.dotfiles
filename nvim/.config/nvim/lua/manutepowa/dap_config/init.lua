@@ -18,12 +18,12 @@ dap.configurations.php = {
     request = 'launch',
     name = 'Listen for Xdebug',
     port = 9000,
-    serverSourceRoot = '/var/www/html/httpdocs/web/',
-    localSourceRoot = '${workspaceFolder}/httpdocs/web/',
-    -- pathMappings = {
-    --     localRoot = "${workspaceFolder}/httpdocs/web/",
-    --     remoteRoot = "/var/www/html/httpdocs/web/"
-    -- }
+    -- serverSourceRoot = '/var/www/html/httpdocs/',
+    -- localSourceRoot = '${workspaceFolder}/httpdocs/',
+    pathMappings = {
+      ["/var/www/html/httpdocs/"] = "${workspaceFolder}/httpdocs/",
+      ["/var/www/html/httpdocs/web/"] = "${workspaceFolder}/httpdocs/web/"
+    }
   }
 }
 
@@ -34,18 +34,8 @@ local function map(mode, lhs, rhs, opts)
   if opts then options = vim.tbl_extend('force', options, opts) end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
-map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
-map('n', '<leader>dso', ':lua require"dap".step_out()<CR>')
-map('n', '<leader>dsi', ':lua require"dap".step_into()<CR>')
-map('n', '<A-CR>', ':lua require"dap".step_over()<CR>')
-map('n', '<leader>ds', ':lua require"dap".continue()<CR>')
--- map('n', '<leader>dt', ':lua require"dap".terminate()<CR>')
-map('n', '<leader>dt', ':lua require("manutepowa.dap_config.dap-fn").stop()<cr>')
-map('n', '<F2>', ':lua require("dapui").eval()<CR>')
 
-map('n', '<leader>dui', '<cmd>lua require"dapui".toggle()<CR>')
-map('n', '<leader>dhh', '<cmd>lua require"dapui.variables".hover()<CR>')
-map('v', '<leader>dhv', '<cmd>lua require"dapui.variables".visual_hover()<CR>')
+
 
 -- vim.api.nvim_set_keymap('n', '<leader>db', ':lua require\'dap\'.toggle_breakpoint()<cr>', {noremap = true})
 -- vim.api.nvim_set_keymap('n', '<leader>ds', ':lua require\'dap\'.continue()<cr>', {noremap = true})
@@ -62,11 +52,12 @@ map('v', '<leader>dhv', '<cmd>lua require"dapui.variables".visual_hover()<CR>')
 --   augroup END
 -- ]], false)
 
-vim.api.nvim_exec([[
-  augroup dapcmp
-    autocmd FileType dap-repl lua require('dap.ext.autocompl').attach()
-  augroup END
-]], false)
+-- vim.api.nvim_exec([[
+--   augroup NvimDap
+--     autocmd!
+--     au FileType dap-repl lua require('dap.ext.autocompl').attach()
+--   augroup END 
+-- ]], false)
 
 local dap_ui = require "dapui"
 dap_ui.setup({
@@ -120,3 +111,19 @@ dap_ui.setup({
 dap.listeners.after["event_initialized"]["manutepowa"] = function()
   dap_ui.open()
 end
+
+
+
+vim.cmd([[au FileType dap-repl lua require('dap.ext.autocompl').attach()]])
+map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
+map('n', '<leader>dso', ':lua require"dap".step_out()<CR>')
+map('n', '<leader>dsi', ':lua require"dap".step_into()<CR>')
+map('n', '<A-CR>', ':lua require"dap".step_over()<CR>')
+map('n', '<leader>ds', ':lua require"dap".continue()<CR>')
+-- map('n', '<leader>dt', ':lua require"dap".terminate()<CR>')
+map('n', '<leader>dt', ':lua require("manutepowa.dap_config.dap-fn").stop()<cr>')
+map('n', '<F2>', ':lua require("dapui").eval()<CR>')
+
+map('n', '<leader>dui', '<cmd>lua require"dapui".toggle()<CR>')
+map('n', '<leader>dhh', '<cmd>lua require"dapui.variables".hover()<CR>')
+map('v', '<leader>dhv', '<cmd>lua require"dapui.variables".visual_hover()<CR>')
