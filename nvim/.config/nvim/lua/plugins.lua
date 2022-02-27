@@ -68,6 +68,7 @@ return require('packer').startup(function(use)
     requires = "MunifTanjim/nui.nvim",
 	})
 	use "tpope/vim-repeat"
+	use "RRethy/vim-illuminate"
 
 
 	-- cmp plugins
