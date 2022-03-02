@@ -20,7 +20,14 @@ lsp_installer.on_server_ready(function(server)
 		local sumneko_opts = require("manutepowa.lsp.settings.sumneko_lua")
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
+	
 
+	-- if server.name == "intelephense" then
+	-- 	local phpopts = require("manutepowa.lsp.settings.intelephense")
+	-- 	opts = vim.tbl_deep_extend("force", phpopts, opts)
+	-- end
+
+	
 	-- if server.name == "tsserver" then
 	-- 	local tsserver = require("manutepowa.lsp.settings.tsserver")
 	-- 	opts = vim.tbl_deep_extend("force", tsserver, opts)

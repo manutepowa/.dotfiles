@@ -4,9 +4,11 @@ local dapui = require("dapui")
 local M = {}
 
 M.stop = function ()
-    dap.terminate()
-    dapui.close()
-    -- dap.clear_breakpoints()
+    dap.disconnect()
+    dap.repl.close()
+    if dapui then
+       dapui.close()
+    end
 end
 
 

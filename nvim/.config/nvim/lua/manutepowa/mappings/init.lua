@@ -41,7 +41,6 @@ nmap('O', 'Ox<BS>')
 imap('<A-n>', '<Right>')
 
 -- NVIM TREE
-vim.g.nvim_tree_quit_on_open = 1
 nmap('<leader>n', ':NvimTreeFindFile<CR>')
 nmap('<A-e>', ':NvimTreeToggle<CR>')
 nmap('<leader>r', ':NvimTreeRefresh<CR>')

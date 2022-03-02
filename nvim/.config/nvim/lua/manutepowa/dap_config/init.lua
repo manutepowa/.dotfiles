@@ -127,3 +127,6 @@ map('n', '<F2>', ':lua require("dapui").eval()<CR>')
 map('n', '<leader>dui', '<cmd>lua require"dapui".toggle()<CR>')
 map('n', '<leader>dhh', '<cmd>lua require"dapui.variables".hover()<CR>')
 map('v', '<leader>dhv', '<cmd>lua require"dapui.variables".visual_hover()<CR>')
+
+
+-- require('dap.ext.vscode').load_launchjs()
