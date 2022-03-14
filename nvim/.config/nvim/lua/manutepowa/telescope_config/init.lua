@@ -2,13 +2,20 @@ local telescope = require('telescope')
 local actions = require('telescope.actions')
 local previewers = require('telescope.previewers')
 
+
+
 telescope.setup {
     defaults = {
         file_sorter = require('telescope.sorters').get_fzy_sorter,
         prompt_prefix = "$ ",
-        use_less = false,
+        use_less = true,
+        color_devicons = true,
         set_env = { ['COLORTERM'] = 'truecolor' },
-
+        winblend = 0,
+        selection_strategy = "reset",
+        sorting_strategy = "descending",
+        layout_strategy = "horizontal",
+        file_sorter = require("telescope.sorters").get_generic_sorter,
         file_previewer   = previewers.vim_buffer_cat.new,
         grep_previewer   = previewers.vim_buffer_vimgrep.new,
         qflist_previewer = previewers.vim_buffer_qflist.new,
@@ -34,4 +41,4 @@ telescope.setup {
     }
 }
 
-telescope.load_extension('fzy_native')
+telescope.load_extension 'fzy_native'

@@ -64,14 +64,18 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		["<A-k>"] = cmp.mapping.select_prev_item(),
-		['<A-j>'] = function()
+		["<A-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), {"i", "s", "c" }),
+		['<A-j>'] = cmp.mapping(function()
       if cmp.visible() then
         cmp.select_next_item()
       else
 				cmp.mapping(cmp.complete(), { 'i', 'c' })
       end
-    end,
+    end, {
+      "i",
+      "s",
+      "c"
+    }),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
 	},
 	formatting = {

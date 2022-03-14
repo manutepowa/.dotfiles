@@ -4,7 +4,7 @@ local dapui = require("dapui")
 local M = {}
 
 M.stop = function ()
-    dap.disconnect()
+    dap.close()
     dap.repl.close()
     if dapui then
        dapui.close()

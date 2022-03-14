@@ -3,6 +3,9 @@ let mapleader=" "
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
+nnoremap <leader>so :so %<CR>
+
+
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>

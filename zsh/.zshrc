@@ -109,6 +109,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias m3ssh="cd /home/manuel/Desarrollo/m3ssh/ && ./m3ssh.sh"
+alias devtest="cd /home/manuel/Desarrollo/devtest"
 alias v="nvim"
 
 # set PATH so it includes user's private bin if it exists

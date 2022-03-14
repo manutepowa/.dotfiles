@@ -40,6 +40,7 @@ nmap('O', 'Ox<BS>')
 -- Move right when open autopairs
 imap('<A-n>', '<Right>')
 
+
 -- NVIM TREE
 nmap('<leader>n', ':NvimTreeFindFile<CR>')
 nmap('<A-e>', ':NvimTreeToggle<CR>')

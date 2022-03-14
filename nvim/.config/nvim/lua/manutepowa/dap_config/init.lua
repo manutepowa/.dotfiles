@@ -116,12 +116,13 @@ end
 
 vim.cmd([[au FileType dap-repl lua require('dap.ext.autocompl').attach()]])
 map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
+map('n', '<leader>dcb', ':lua require"dap".clear_breakpoints()<CR>')
 map('n', '<leader>dso', ':lua require"dap".step_out()<CR>')
 map('n', '<leader>dsi', ':lua require"dap".step_into()<CR>')
 map('n', '<A-CR>', ':lua require"dap".step_over()<CR>')
 map('n', '<leader>ds', ':lua require"dap".continue()<CR>')
 -- map('n', '<leader>dt', ':lua require"dap".terminate()<CR>')
-map('n', '<leader>dt', ':lua require("manutepowa.dap_config.dap-fn").stop()<cr>')
+map('n', '<leader>dt', ':lua require("manutepowa.dap_config.dap-fn").stop()<cr>', {noremap = true})
 map('n', '<F2>', ':lua require("dapui").eval()<CR>')
 
 map('n', '<leader>dui', '<cmd>lua require"dapui".toggle()<CR>')
