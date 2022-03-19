@@ -30,6 +30,7 @@ local options = {
   wrap = false,                            -- display lines as one long line
   scrolloff = 4,                           -- is one of my fav
   sidescrolloff = 4,
+  laststatus = 3,                          -- show the last status line
   -- guifont = "monospace:h17",               -- the font used in graphical neovim applications
 }
 

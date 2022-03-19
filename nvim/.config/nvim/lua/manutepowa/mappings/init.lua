@@ -42,7 +42,6 @@ imap('<A-n>', '<Right>')
 
 
 -- NVIM TREE
-nmap('<leader>n', ':NvimTreeFindFile<CR>')
 nmap('<A-e>', ':NvimTreeToggle<CR>')
 nmap('<leader>r', ':NvimTreeRefresh<CR>')
 

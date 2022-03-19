@@ -105,4 +105,6 @@ return require('packer').startup(function(use)
   use "theHamsta/nvim-dap-virtual-text"
   use "rcarriga/nvim-dap-ui"
   use "Pocco81/DAPInstall.nvim"
+	
+	use { "NTBBloodbath/rest.nvim", requires = { "nvim-lua/plenary.nvim" }}
 end)

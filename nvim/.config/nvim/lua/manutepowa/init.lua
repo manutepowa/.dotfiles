@@ -29,6 +29,7 @@ require'manutepowa.indentline'
 require'manutepowa.dap_config'
 require'manutepowa.packer-info'
 require'manutepowa.diff_git'
+require'manutepowa.restclient'
 
 -- Simple options
 require 'colorizer'.setup()
