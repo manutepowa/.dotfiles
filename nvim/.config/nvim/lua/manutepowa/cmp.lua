@@ -30,32 +30,6 @@ require("luasnip/loaders/from_vscode").lazy_load()
 -- 	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 -- end
 local lspkind = require "lspkind"
--- lspkind.init {
---   mode = "symbol",
---   symbol_map = {
---     Text = "",
---     Method = "ƒ",
---     Function = "ﬦ",
---     Constructor = "",
---     Variable = "",
---     Class = "",
---     Interface = "ﰮ",
---     Module = "",
---     Property = "",
---     Unit = "",
---     Value = "",
---     Enum = "了",
---     Keyword = "",
---     Snippet = "﬌",
---     Color = "",
---     File = "",
---     Folder = "",
---     EnumMember = "",
---     Constant = "",
---     Struct = "",
---   },
--- }
---
 
 cmp.setup({
 	snippet = {
@@ -80,7 +54,7 @@ cmp.setup({
 	},
 	formatting = {
 		format = lspkind.cmp_format({
-      mode = 'text_symbol', -- show only symbol annotations
+      mode = 'symbol_text', -- show only symbol annotations
       maxwidth = 80, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 
       -- The function below will be called before any actual modifications from lspkind
@@ -92,6 +66,7 @@ cmp.setup({
 	},
 	sources = {
 		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
 		{ name = "luasnip" },
 		{
 			name = "buffer",
@@ -101,9 +76,9 @@ cmp.setup({
 				end,
 			},
 		},
-		{ name = "nvim_lua" },
 		-- { name = "treesitter" },
 		{ name = "path" },
+		{ name = "omni" },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,

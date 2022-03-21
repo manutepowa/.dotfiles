@@ -79,6 +79,7 @@ return require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip' -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
+  use "hrsh7th/cmp-omni"
 
   -- Icons CMP
   use 'onsails/lspkind-nvim'
@@ -106,5 +107,5 @@ return require('packer').startup(function(use)
   use "rcarriga/nvim-dap-ui"
   use "Pocco81/DAPInstall.nvim"
 	
-	use { "NTBBloodbath/rest.nvim", requires = { "nvim-lua/plenary.nvim" }}
+use { "NTBBloodbath/rest.nvim", requires = { "nvim-lua/plenary.nvim" },}
 end)

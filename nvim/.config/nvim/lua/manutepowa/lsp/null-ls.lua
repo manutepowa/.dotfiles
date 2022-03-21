@@ -14,6 +14,14 @@ null_ls.setup {
   sources = {
     -- diagnostics.php,
     formatting.stylua,
+    diagnostics.phpstan,
+    null_ls.builtins.hover.dictionary
   },
+  -- on_attach = function(client)
+  --          if client.resolved_capabilities.document_formatting then
+  --            
+  --     vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+  --   end
+  -- end,
 }
 

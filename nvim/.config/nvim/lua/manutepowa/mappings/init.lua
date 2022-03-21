@@ -60,6 +60,11 @@ vim.cmd([[
 	let g:VM_maps["Select Cursor Up"]   = '<S-M-k>'        
 ]])
 
+-- No comment on new line
+vim.cmd([[autocmd BufWinEnter * :set formatoptions-=c formatoptions-=r formatoptions-=o]])
+
+
+-- 
 -- Move block
 nmap('<A-j>', ":MoveLine(1)<CR>", { noremap = true, silent = true })
 nmap('<A-k>', ":MoveLine(-1)<CR>", { noremap = true, silent = true })
