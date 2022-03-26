@@ -1,39 +1,89 @@
--- following options are the default
--- each of these are documented in `:help nvim-tree.OPTION_NAME`
+local present, nvimtree = pcall(require, "nvim-tree")
+if not present then
+	return
+end
 
-vim.g.nvim_tree_icons = {
-  default = "",
-  symlink = "",
-  git = {
-    unstaged = "",
-    staged = "S",
-    unmerged = "",
-    renamed = "➜",
-    deleted = "",
-    untracked = "U",
-    ignored = "◌",
-  },
-  folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-  },
+local g = vim.g
+
+vim.o.termguicolors = true
+
+g.nvim_tree_disable_default_keybinding = 1
+-- g.nvim_tree_gitignore = 1
+-- g.nvim_tree_hide_dotfiles = 0
+g.nvim_tree_git_hl = 1
+g.nvim_tree_highlight_opened_files = 1
+g.nvim_tree_root_folder_modifier = ":t"
+g.nvim_tree_add_trailing = 0
+
+g.nvim_tree_show_icons = {
+	git = 1,
+	folders = 1,
+	files = 1,
+	-- folder_arrows= 1
 }
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
-if not status_ok then
-  return
-end
+g.nvim_tree_icons = {
+	default = "",
+	symlink = "",
+	git = {
+		unstaged = "",
+		staged = "",
+		unmerged = "",
+		renamed = "",
+		untracked = "",
+		deleted = "﯊",
+		ignored = "",
+	},
+	folder = {
+		arrow_open = "",
+		arrow_closed = "",
+		default = "",
+		open = "",
+		empty = "", -- 
+		empty_open = "",
+		symlink = "",
+		symlink_open = "",
+	},
+	lsp = {
+		hint = "",
+		info = "",
+		warning = "",
+		error = ""
+	}
+}
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-  return
-end
+local tree_cb = require("nvim-tree.config").nvim_tree_callback
+local key_bindings = {
+	{ key = "<CR>", cb = tree_cb("preview") },
+	{ key = { "<Tab>", "o" }, cb = tree_cb("edit") },
+	{ key = { "<2-RightMouse>", "<C-]>" }, cb = tree_cb("cd") },
+	{ key = "q", cb = tree_cb("close") },
+	{ key = "<", cb = tree_cb("prev_sibling") },
+	{ key = ">", cb = tree_cb("next_sibling") },
+	{ key = "x", cb = tree_cb("cut") },
+	{ key = "c", cb = tree_cb("copy") },
+	{ key = "ca", cb = tree_cb("copy_absolute_path") },
+	{ key = "p", cb = tree_cb("paste") },
+	{ key = "y", cb = tree_cb("copy_name") },
+	{ key = "Y", cb = tree_cb("copy_path") },
+	{ key = "v", cb = tree_cb("vsplit") },
+	{ key = "s", cb = tree_cb("split") },
+	{ key = "S", cb = tree_cb("system_open") },
+	{ key = "a", cb = tree_cb("create") },
+	{ key = "d", cb = tree_cb("remove") },
+	{ key = "r", cb = tree_cb("rename") },
+	{ key = "?", cb = tree_cb("toggle_help") },
+	{ key = "K", cb = tree_cb("first_sibling") },
+	{ key = "J", cb = tree_cb("last_sibling") },
+	{ key = "t", cb = tree_cb("tabnew") },
+	{ key = "[c", cb = tree_cb("prev_git_item") },
+	{ key = "]c", cb = tree_cb("next_git_item") },
+	{ key = "<C-r>", cb = tree_cb("full_rename") },
+	{ key = "R", cb = tree_cb("refresh") },
+	{ key = "I", cb = tree_cb("toggle_ignored") },
+	{ key = "-", cb = tree_cb("dir_up") },
+}
 
-local tree_cb = nvim_tree_config.nvim_tree_callback
-
-nvim_tree.setup {
+nvimtree.setup {
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,
@@ -67,6 +117,7 @@ nvim_tree.setup {
   filters = {
     dotfiles = false,
     custom = {},
+		hide_dotfiles = false
   },
   git = {
     enable = true,
@@ -81,11 +132,7 @@ nvim_tree.setup {
     auto_resize = true,
     mappings = {
       custom_only = false,
-      list = {
-        { key = { "<TAB>", "<CR>", "o" }, cb = tree_cb "edit" },
-        { key = "c", cb = tree_cb "close_node" },
-        { key = "v", cb = tree_cb "vsplit" },
-      },
+      list = key_bindings,
     },
     number = false,
     relativenumber = false,

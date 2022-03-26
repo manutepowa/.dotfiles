@@ -43,7 +43,6 @@ imap('<A-n>', '<Right>')
 
 -- NVIM TREE
 nmap('<A-e>', ':NvimTreeToggle<CR>')
-nmap('<leader>r', ':NvimTreeRefresh<CR>')
 
 -- Tabs resize
 nmap('<A-Down>', ':resize -5<CR>', { noremap = true, silent = true })
@@ -79,4 +78,4 @@ nmap("<A-c>", "<cmd>bdelete!<CR>", { noremap = true, silent = true })
 -- DiffGit
 nmap("<leader>dd", ":DiffviewOpen<CR>", { noremap = true, silent = true })
 nmap("<leader>df", ":DiffviewFileHistory<CR>", { noremap = true, silent = true })
-nmap("<leader>dc", ":DiffviewClose<CR>", { noremap = true, silent = true })
+nmap("<leader>dc", ":DiffviewClose<CR>", { noremap = true })
