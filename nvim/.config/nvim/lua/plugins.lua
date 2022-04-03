@@ -62,7 +62,6 @@ return require('packer').startup(function(use)
 	use 'fedepujol/move.nvim'
 	use 'norcalli/nvim-colorizer.lua'
 	use 'ryanoasis/vim-devicons' -- Developer Icons
-	use "goolord/alpha-nvim"
 	use({
     "vuki656/package-info.nvim",
     requires = "MunifTanjim/nui.nvim",
