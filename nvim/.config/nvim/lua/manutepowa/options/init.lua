@@ -35,6 +35,7 @@ local options = {
 }
 
 vim.opt.shortmess:append "c"
+vim.opt.fillchars = vim.opt.fillchars + "diff:╱" 
 
 for k, v in pairs(options) do
   vim.opt[k] = v
