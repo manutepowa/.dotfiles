@@ -78,4 +78,4 @@ nmap("<A-c>", "<cmd>bdelete!<CR>", { noremap = true, silent = true })
 -- DiffGit
 nmap("<leader>dd", ":DiffviewOpen<CR>", { noremap = true, silent = true })
 nmap("<leader>df", ":DiffviewFileHistory<CR>", { noremap = true, silent = true })
-nmap("<leader>dc", ":DiffviewClose<CR>", { noremap = true })
+nmap("gq", ":DiffviewClose<CR>", { noremap = true })
