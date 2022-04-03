@@ -107,5 +107,8 @@ return require('packer').startup(function(use)
   use "rcarriga/nvim-dap-ui"
   use "Pocco81/DAPInstall.nvim"
 	
-use { "NTBBloodbath/rest.nvim", requires = { "nvim-lua/plenary.nvim" },}
+	use { "NTBBloodbath/rest.nvim", requires = { "nvim-lua/plenary.nvim" },}
+	
+	-- Markdown
+	use {"ellisonleao/glow.nvim"}
 end)
