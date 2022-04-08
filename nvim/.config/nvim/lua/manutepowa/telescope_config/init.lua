@@ -18,7 +18,8 @@ telescope.setup {
         initial_mode = "insert",
         selection_strategy = "reset",
         sorting_strategy = "descending",
-        layout_strategy = "horizontal",
+        layout_strategy = "vertical",
+        previewer = true,
         mappings = {
             i = {
                 ["<A-j>"] = "move_selection_next",
@@ -28,8 +29,10 @@ telescope.setup {
             },
         },
         layout_config = {
-          horizontal = { width = 0.95 },
-          preview_width = 0.4
+            height = 0.95,
+            width = 0.95,
+            preview_cutoff = 1,
+            preview_height = 0.65,
         },
         file_sorter = require("telescope.sorters").get_fuzzy_file,
         file_ignore_patterns = {},
