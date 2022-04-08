@@ -34,8 +34,12 @@ else
   set signcolumn=yes
 endif
 
+hi DiffAdd guifg=NONE guibg=#4b5632
+hi DiffDelete guifg=NONE guibg=#d74f56
+hi DiffChange guifg=NONE guibg=#63c1e6
 
 autocmd BufNewFile,BufRead *.theme set syntax=php
+
 lua << EOF
 require('Comment').setup()
 EOF

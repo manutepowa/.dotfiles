@@ -5,7 +5,7 @@ end
 
 local g = vim.g
 
-vim.o.termguicolors = true
+-- vim.o.termguicolors = true
 
 g.nvim_tree_disable_default_keybinding = 1
 -- g.nvim_tree_gitignore = 1

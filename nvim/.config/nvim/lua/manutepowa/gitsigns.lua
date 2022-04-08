@@ -2,9 +2,7 @@ local status_ok, gitsigns = pcall(require, "gitsigns")
 if not status_ok then
   return
 end
-vim.cmd([[:highlight GitSignsAdd guifg=#a4cf69]])
-vim.cmd([[:highlight GitSignsChange guifg=#63c1e6]])
-vim.cmd([[:highlight GitSignsDelete guifg=#d74f56]])
+
 
 gitsigns.setup {
   signs = {
