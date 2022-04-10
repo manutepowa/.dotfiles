@@ -37,9 +37,11 @@ imap('<CR>', '<CR>x<BS>')
 nmap('o', 'ox<BS>')
 nmap('O', 'Ox<BS>')
 
+-- Not select after line character
+vmap('$', '$h')
+
 -- Move right when open autopairs
 imap('<A-n>', '<Right>')
-
 
 -- NVIM TREE
 nmap('<A-e>', ':NvimTreeToggle<CR>')
@@ -50,20 +52,7 @@ nmap('<A-Up>', ':resize +5<CR>', { noremap = true, silent = true })
 nmap('<A-Left>', ':vertical resize -5<CR>', { noremap = true, silent = true })
 nmap('<A-Right>', ':vertical resize +5<CR>', { noremap = true, silent = true })
 
--- MultiCursor
-vim.cmd([[
-	let g:VM_maps = {}
-	let g:VM_maps['Find Under']         = '<S-M-n>'           
-	let g:VM_maps['Find Subword Under'] = '<S-M-n>'           
-	let g:VM_maps["Select Cursor Down"] = '<S-M-j>'      
-	let g:VM_maps["Select Cursor Up"]   = '<S-M-k>'        
-]])
 
--- No comment on new line
-vim.cmd([[autocmd BufWinEnter * :set formatoptions-=c formatoptions-=r formatoptions-=o]])
-
-
--- 
 -- Move block
 nmap('<A-j>', ":MoveLine(1)<CR>", { noremap = true, silent = true })
 nmap('<A-k>', ":MoveLine(-1)<CR>", { noremap = true, silent = true })

@@ -19,7 +19,6 @@ telescope.setup {
         selection_strategy = "reset",
         sorting_strategy = "descending",
         layout_strategy = "vertical",
-        previewer = true,
         mappings = {
             i = {
                 ["<A-j>"] = "move_selection_next",
@@ -29,13 +28,12 @@ telescope.setup {
             },
         },
         layout_config = {
-            height = 0.95,
+            height = 0.99,
             width = 0.95,
             preview_cutoff = 1,
-            preview_height = 0.65,
+            preview_height = 0.5,
         },
         file_sorter = require("telescope.sorters").get_fuzzy_file,
-        file_ignore_patterns = {},
         generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
         path_display = {"absolute"},
         winblend = 0,

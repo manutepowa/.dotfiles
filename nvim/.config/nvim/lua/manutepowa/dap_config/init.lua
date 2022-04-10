@@ -5,12 +5,12 @@ vim.fn.sign_define('DapBreakpointRejected', {text='🟦', texthl='', linehl='', 
 vim.fn.sign_define('DapStopped', {text='⭐️', texthl='', linehl='', numhl=''})
 
 
-
 dap.adapters.php = {
     type = 'executable',
     command = 'node',
     args = { vim.fn.stdpath("data") .. "/dapinstall/php/vscode-php-debug/out/phpDebug.js" }
 }
+
 -- print(os.getenv('HOME') .. "/dapinstall/php/vscode-php-debug/out/phpDebug.js")
 dap.configurations.php = {
   {
@@ -29,6 +29,27 @@ dap.configurations.php = {
   }
 }
 
+dap.adapters.node = {
+    type = 'executable',
+    command = 'node',
+    args = { vim.fn.stdpath("data") .. "/dapinstall/jsnode/vscode-node-debug2/out/src/nodeDebug.js" }
+}
+-- Nodejs
+-- dap.adapters.chrome = {
+--     type = 'executable',
+--     command = 'node',
+--     args = { vim.fn.stdpath("data") .. "/dapinstall/chrome/vscode-chrome-debug/out/src/chromeDebug.js" }
+-- }
+dap.configurations.javascript = {
+  {
+    type = "node",
+    request = "attach",
+    cwd = vim.fn.getcwd(),
+    protocol = "inspector",
+    localRoot = "${workspaceFolder}/httpdocs/",
+    remoteRoot = "/var/www/html/httpdocs/",
+  }
+}
 
 -- Mappings
 local function map(mode, lhs, rhs, opts)

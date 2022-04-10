@@ -33,7 +33,7 @@ return require('packer').startup(function(use)
 
 	-- Copilot
 	use 'github/copilot.vim'
-
+	
 	-- Tabs
 	use 'kyazdani42/nvim-web-devicons'
 	use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}

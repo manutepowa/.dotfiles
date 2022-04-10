@@ -34,9 +34,39 @@ local options = {
   -- guifont = "monospace:h17",               -- the font used in graphical neovim applications
 }
 
-vim.opt.shortmess:append "c"
-vim.opt.fillchars = vim.opt.fillchars + "diff:╱"
-
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+
+
+vim.opt.shortmess:append "c"
+vim.opt.fillchars = vim.opt.fillchars + "diff:╱"
+
+vim.g.copilot_filetypes = {
+  ["*"] = false,
+  ["javascript"] = true,
+  ["javascriptreact"] = true,
+  ["typescript"] = true,
+  ["typescriptreact"] = true,
+  ["lua"] = false,
+  ["php"] = true,
+}
+
+vim.api.nvim_exec([[
+  augroup YankHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=300}
+  augroup end
+]], false) 
+
+-- MultiCursor
+vim.cmd([[
+	let g:VM_maps = {}
+	let g:VM_maps['Find Under']         = '<S-M-n>'           
+	let g:VM_maps['Find Subword Under'] = '<S-M-n>'           
+	let g:VM_maps["Select Cursor Down"] = '<S-M-j>'      
+	let g:VM_maps["Select Cursor Up"]   = '<S-M-k>'        
+]])
+
+-- No comment on new line
+vim.cmd([[autocmd BufWinEnter * :set formatoptions-=c formatoptions-=r formatoptions-=o]])
