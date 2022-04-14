@@ -39,11 +39,11 @@ cmp.setup({
 	},
 	mapping = {
 		["<A-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), {"i", "s", "c" }),
-		['<A-j>'] = cmp.mapping(function()
+		['<A-j>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       else
-				cmp.mapping(cmp.complete(), { 'i', 'c' })
+				cmp.mapping(cmp.complete(), { 'i', 'c', 's' })
       end
     end, {
       "i",
@@ -84,9 +84,10 @@ cmp.setup({
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
 	},
-	-- documentation = false,
-	documentation = {
-		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+	window = {
+		documentation = {
+			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+		},
 	},
 	experimental = {
 		ghost_text = true,
