@@ -32,6 +32,7 @@ _map('<esc>', ':noh<CR>')
 nmap('<Leader>w', ':w<CR>')
 nmap('<Leader>q', ':q<CR>')
 imap('kj', '<ESC>')
+imap('<A-BS>', '<c-w>', { noremap = true })
 
 -- Copy and paste without clipboard
 nmap('d', '"_d', { noremap = true })
