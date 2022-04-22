@@ -51,6 +51,7 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fh <cmd>Telescope oldfiles<cr>
 nnoremap <leader>'' <cmd>Telescope help_tags<cr>
 nnoremap <leader>fG <cmd>Telescope grep_string<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
 
 lua require('plugins')
 lua require('manutepowa')

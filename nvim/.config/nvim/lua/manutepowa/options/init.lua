@@ -52,12 +52,9 @@ vim.g.copilot_filetypes = {
   ["php"] = true,
 }
 
-vim.api.nvim_exec([[
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=300}
-  augroup end
-]], false) 
+vim.api.nvim_create_autocmd({"TextYankPost"}, {
+  callback = function() vim.highlight.on_yank({higroup = 'IncSearch', timeout = 200}) end,  -- Or myvimfun
+})
 
 -- MultiCursor
 vim.cmd([[

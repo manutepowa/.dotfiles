@@ -14,7 +14,7 @@ null_ls.setup {
   sources = {
     -- diagnostics.php,
     formatting.stylua,
-    diagnostics.phpstan,
+    -- diagnostics.phpstan,
     null_ls.builtins.hover.dictionary
   },
   -- on_attach = function(client)

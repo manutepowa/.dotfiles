@@ -9,39 +9,27 @@ if not snip_status_ok then
 	return
 end
 
-if not luasnip then
-  return
-end
-
--- html snippets in javascript and javascriptreact
-luasnip.snippets = {
-  html = {}
-}
-luasnip.snippets.javascript = luasnip.snippets.html
-luasnip.snippets.typescript = luasnip.snippets.html
-luasnip.snippets.javascriptreact = luasnip.snippets.html
-luasnip.snippets.typescriptreact = luasnip.snippets.html
-
-require("luasnip/loaders/from_vscode").load({include = {"html"}})
+luasnip.filetype_extend("javascript", { "html" })
+luasnip.filetype_extend("javascriptreact", { "html" })
 require("luasnip/loaders/from_vscode").lazy_load()
 
--- local check_backspace = function()
--- 	local col = vim.fn.col(".") - 1
--- 	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
--- end
 local lspkind = require "lspkind"
 
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			luasnip.lsp_expand(args.body) -- For `luasnip` users.
-		end,
+			luasnip.lsp_expand(args.body)
+		end
 	},
-	mapping = {
+	mapping = cmp.mapping.preset.insert {
 		["<A-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), {"i", "s", "c" }),
 		['<A-j>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
+			elseif luasnip.expandable() then
+        luasnip.expand()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
       else
 				cmp.mapping(cmp.complete(), { 'i', 'c', 's' })
       end
