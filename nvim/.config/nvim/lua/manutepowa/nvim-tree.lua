@@ -12,7 +12,7 @@ g.nvim_tree_disable_default_keybinding = 1
 -- g.nvim_tree_hide_dotfiles = 0
 g.nvim_tree_git_hl = 1
 g.nvim_tree_highlight_opened_files = 1
-g.nvim_tree_root_folder_modifier = ":t"
+-- g.nvim_tree_root_folder_modifier = ":t"
 g.nvim_tree_add_trailing = 0
 
 g.nvim_tree_show_icons = {
@@ -116,7 +116,7 @@ nvimtree.setup {
   filters = {
     dotfiles = false,
     custom = {},
-		hide_dotfiles = false
+		-- hide_dotfiles = false
   },
   git = {
     enable = true,
@@ -128,7 +128,7 @@ nvimtree.setup {
     height = 30,
     hide_root_folder = false,
     side = "left",
-    auto_resize = true,
+    -- auto_resize = true,
     mappings = {
       custom_only = false,
       list = key_bindings,
@@ -148,6 +148,6 @@ nvimtree.setup {
       quit_on_open = true,
     }
   },
-  disable_window_picker = 0,
-  root_folder_modifier = ":t",
+  -- disable_window_picker = 0,
+  -- root_folder_modifier = ":t",
 }
