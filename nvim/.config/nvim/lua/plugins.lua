@@ -19,6 +19,8 @@ return require('packer').startup(function(use)
 	use { 'windwp/nvim-ts-autotag' }
 	use { 'windwp/nvim-autopairs' }
 
+	use { 'uga-rosa/translate.nvim' }
+	
 	-- Vim fugitive
 	use 'tpope/vim-fugitive'
 
