@@ -6,4 +6,4 @@
 require "manutepowa.lsp.lsp_signature"
 require "manutepowa.lsp.lsp_installer"
 require("manutepowa.lsp.handlers").setup()
-require "manutepowa.lsp.null-ls"
+-- require "manutepowa.lsp.null-ls"

@@ -9,11 +9,11 @@ local servers = {
   "cssls",
   "diagnosticls",
   "emmet_ls",
-  "graphql",
   "html",
   "jsonls",
   "prismals",
   "tsserver",
+  "eslint"
 }
 
 local settings = {
@@ -51,20 +51,19 @@ if not lspconfig_status_ok then
   return
 end
 
-local opts = {}
 
 for _, server in pairs(servers) do
-  opts = {
+  local opts = {
     on_attach = require("manutepowa.lsp.handlers").on_attach,
     capabilities = require("manutepowa.lsp.handlers").capabilities,
   }
 
-  -- if server.name == "sumneko_lua" then
-  --   local sumneko_opts = require("manutepowa.lsp.settings.sumneko_lua")
-  --   opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-  -- end
+  if server == "sumneko_lua" then
+    local sumneko_opts = require("manutepowa.lsp.settings.sumneko_lua")
+    opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+  end
 
-  if server.name == "tailwindcss" then
+  if server == "tailwindcss" then
     local tsserver = require("manutepowa.lsp.settings.tailwindcss")
     opts = vim.tbl_deep_extend("force", tsserver, opts)
   end
