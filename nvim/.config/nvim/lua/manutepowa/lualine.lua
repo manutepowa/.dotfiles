@@ -71,6 +71,7 @@ end
 
 lualine.setup({
 	options = {
+		globalstatus = true,
 		icons_enabled = true,
 		theme = "onedark",
 		component_separators = { left = "", right = "" },

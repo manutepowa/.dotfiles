@@ -1,43 +1,73 @@
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not status_ok then
-	return
+  return
 end
 
--- Register a handler that will be called for all installed servers.
--- Alternatively, you may also register handlers on specific server instances instead (see example below).
-lsp_installer.on_server_ready(function(server)
-	local opts = {
-		on_attach = require("manutepowa.lsp.handlers").on_attach,
-		capabilities = require("manutepowa.lsp.handlers").capabilities,
-	}
+local servers = {
+  "sumneko_lua",
+  "tailwindcss",
+  "cssls",
+  "diagnosticls",
+  "emmet_ls",
+  "graphql",
+  "html",
+  "jsonls",
+  "prismals",
+  "tsserver",
+}
 
-	-- if server.name == "jsonls" then
-	-- 	local jsonls_opts = require("manutepowa.lsp.settings.jsonls")
-	-- 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
-	-- end
+local settings = {
+  ensure_installed = servers,
+  -- automatic_installation = false,
+  ui = {
+    icons = {
+      -- server_installed = "◍",
+      -- server_pending = "◍",
+      -- server_uninstalled = "◍",
+      -- server_installed = "✓",
+      -- server_pending = "➜",
+      -- server_uninstalled = "✗",
+    },
+    keymaps = {
+      toggle_server_expand = "<CR>",
+      install_server = "i",
+      update_server = "u",
+      check_server_version = "c",
+      update_all_servers = "U",
+      check_outdated_servers = "C",
+      uninstall_server = "X",
+    },
+  },
 
-	if server.name == "sumneko_lua" then
-		local sumneko_opts = require("manutepowa.lsp.settings.sumneko_lua")
-		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-	end
-	
+  log_level = vim.log.levels.INFO,
+  -- max_concurrent_installers = 4,
+  -- install_root_dir = path.concat { vim.fn.stdpath "data", "lsp_servers" },
+}
 
-	-- if server.name == "intelephense" then
-	-- 	local phpopts = require("manutepowa.lsp.settings.intelephense")
-	-- 	opts = vim.tbl_deep_extend("force", phpopts, opts)
-	-- end
+lsp_installer.setup(settings)
 
-	
-	-- if server.name == "tsserver" then
-	-- 	local tsserver = require("manutepowa.lsp.settings.tsserver")
-	-- 	opts = vim.tbl_deep_extend("force", tsserver, opts)
-	-- end
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status_ok then
+  return
+end
 
-	if server.name == "tailwindcss" then
-		local tsserver = require("manutepowa.lsp.settings.tailwindcss")
-		opts = vim.tbl_deep_extend("force", tsserver, opts)
-	end
-	-- This setup() function is exactly the same as lspconfig's setup function.
-	-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-	server:setup(opts)
-end)
+local opts = {}
+
+for _, server in pairs(servers) do
+  opts = {
+    on_attach = require("manutepowa.lsp.handlers").on_attach,
+    capabilities = require("manutepowa.lsp.handlers").capabilities,
+  }
+
+  -- if server.name == "sumneko_lua" then
+  --   local sumneko_opts = require("manutepowa.lsp.settings.sumneko_lua")
+  --   opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+  -- end
+
+  if server.name == "tailwindcss" then
+    local tsserver = require("manutepowa.lsp.settings.tailwindcss")
+    opts = vim.tbl_deep_extend("force", tsserver, opts)
+  end
+
+  lspconfig[server].setup(opts)
+end
