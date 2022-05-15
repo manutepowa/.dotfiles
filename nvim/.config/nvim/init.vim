@@ -34,6 +34,8 @@ else
   set signcolumn=yes
 endif
 
+
+
 hi DiffAdd guifg=NONE guibg=#4b5632
 hi DiffDelete guifg=NONE guibg=#d74f56
 hi DiffChange guifg=NONE guibg=#63c1e6
@@ -47,6 +49,8 @@ lua << EOF
 require('Comment').setup()
 EOF
 
+" Codi test
+nmap <leader>c :Codi!!
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope git_files<cr>
@@ -59,3 +63,5 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 lua require('plugins')
 lua require('manutepowa')
 set secure
+
+

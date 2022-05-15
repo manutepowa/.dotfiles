@@ -5,14 +5,14 @@ return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
 	use {
-        'nvim-telescope/telescope.nvim',
-        requires = {
-            { 'nvim-lua/plenary.nvim'},
-            { 'nvim-lua/popup.nvim' },
-            { 'nvim-telescope/telescope-fzy-native.nvim' },
-            { 'kyazdani42/nvim-web-devicons' }
-        }
-    }
+		'nvim-telescope/telescope.nvim',
+		requires = {
+			{ 'nvim-lua/plenary.nvim' },
+			{ 'nvim-lua/popup.nvim' },
+			{ 'nvim-telescope/telescope-fzy-native.nvim' },
+			{ 'kyazdani42/nvim-web-devicons' }
+		}
+	}
 
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 	use { 'p00f/nvim-ts-rainbow' }
@@ -20,7 +20,7 @@ return require('packer').startup(function(use)
 	use { 'windwp/nvim-autopairs' }
 
 	use { 'uga-rosa/translate.nvim' }
-	
+
 	-- Vim fugitive
 	use 'tpope/vim-fugitive'
 
@@ -30,15 +30,15 @@ return require('packer').startup(function(use)
 	use 'navarasu/onedark.nvim'
 	use {
 		'nvim-lualine/lualine.nvim',
-		requires = {'kyazdani42/nvim-web-devicons', opt = true}
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 	}
 
 	-- Copilot
 	use 'github/copilot.vim'
-	
+
 	-- Tabs
 	use 'kyazdani42/nvim-web-devicons'
-	use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
+	use { 'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons' }
 	-- Git Lines edited
 	use 'lewis6991/gitsigns.nvim'
 	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
@@ -65,51 +65,54 @@ return require('packer').startup(function(use)
 	use 'norcalli/nvim-colorizer.lua'
 	use 'ryanoasis/vim-devicons' -- Developer Icons
 	use({
-    "vuki656/package-info.nvim",
-    requires = "MunifTanjim/nui.nvim",
+		"vuki656/package-info.nvim",
+		requires = "MunifTanjim/nui.nvim",
 	})
 	use "tpope/vim-repeat"
 	use "RRethy/vim-illuminate"
 
 
 	-- cmp plugins
-  use 'hrsh7th/nvim-cmp' -- The completion plugin
-  use 'hrsh7th/cmp-buffer' -- buffer completions
-  use 'hrsh7th/cmp-path' -- path completions
-  use 'hrsh7th/cmp-cmdline' -- cmdline completions
-  use 'saadparwaiz1/cmp_luasnip' -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-nvim-lua"
-  use "hrsh7th/cmp-omni"
+	use 'hrsh7th/nvim-cmp' -- The completion plugin
+	use 'hrsh7th/cmp-buffer' -- buffer completions
+	use 'hrsh7th/cmp-path' -- path completions
+	use 'hrsh7th/cmp-cmdline' -- cmdline completions
+	use 'saadparwaiz1/cmp_luasnip' -- snippet completions
+	use "hrsh7th/cmp-nvim-lsp"
+	use "hrsh7th/cmp-nvim-lua"
+	use "hrsh7th/cmp-omni"
 
-  -- Icons CMP
-  use 'onsails/lspkind-nvim'
+	-- Icons CMP
+	use 'onsails/lspkind-nvim'
 
--- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  use "filipdutescu/renamer.nvim"
-  use "simrat39/symbols-outline.nvim"
-  use {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-  }
+	-- LSP
+	use "neovim/nvim-lspconfig" -- enable LSP
+	use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+	use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+	use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+	use "filipdutescu/renamer.nvim"
+	use "simrat39/symbols-outline.nvim"
+	use {
+		"folke/trouble.nvim",
+		cmd = "TroubleToggle",
+	}
 	use "ray-x/lsp_signature.nvim"
 
 	-- snippets
-  use 'L3MON4D3/LuaSnip' --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+	use 'L3MON4D3/LuaSnip' --snippet engine
+	use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
 	-- DAP
-  use "mfussenegger/nvim-dap"
-  use "theHamsta/nvim-dap-virtual-text"
-  use "rcarriga/nvim-dap-ui"
-  use "Pocco81/DAPInstall.nvim"
-	
-	use { "NTBBloodbath/rest.nvim", requires = { "nvim-lua/plenary.nvim" },}
-	
+	use "mfussenegger/nvim-dap"
+	use "theHamsta/nvim-dap-virtual-text"
+	use "rcarriga/nvim-dap-ui"
+	use "Pocco81/DAPInstall.nvim"
+
+	use { "NTBBloodbath/rest.nvim", requires = { "nvim-lua/plenary.nvim" }, }
+
 	-- Markdown
-	use {"ellisonleao/glow.nvim"}
+	use { "ellisonleao/glow.nvim" }
+
+	-- Same that RunJS
+	use { "metakirby5/codi.vim" }
 end)

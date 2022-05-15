@@ -13,7 +13,9 @@ local servers = {
   "jsonls",
   "prismals",
   "tsserver",
-  "eslint"
+  "eslint",
+  "intelephense",
+  "phpactor"
 }
 
 local settings = {
