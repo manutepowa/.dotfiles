@@ -1,14 +1,19 @@
 local dap = require "dap"
+local g = vim.g
+
+-- Enable DAP virtual text
+g.dap_virtual_text = true
+
 dap.defaults.fallback.terminal_win_cmd = '80vsplit new'
-vim.fn.sign_define('DapBreakpoint', {text='🟥', texthl='', linehl='', numhl=''})
-vim.fn.sign_define('DapBreakpointRejected', {text='🟦', texthl='', linehl='', numhl=''})
-vim.fn.sign_define('DapStopped', {text='⭐️', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpoint', { text = '🟥', texthl = '', linehl = '', numhl = '' })
+vim.fn.sign_define('DapBreakpointRejected', { text = '🟦', texthl = '', linehl = '', numhl = '' })
+vim.fn.sign_define('DapStopped', { text = '⭐️', texthl = '', linehl = '', numhl = '' })
 
 
 dap.adapters.php = {
-    type = 'executable',
-    command = 'node',
-    args = { vim.fn.stdpath("data") .. "/dapinstall/php/vscode-php-debug/out/phpDebug.js" }
+  type = 'executable',
+  command = 'node',
+  args = { vim.fn.stdpath("data") .. "/dapinstall/php/vscode-php-debug/out/phpDebug.js" }
 }
 
 -- print(os.getenv('HOME') .. "/dapinstall/php/vscode-php-debug/out/phpDebug.js")
@@ -30,9 +35,9 @@ dap.configurations.php = {
 }
 
 dap.adapters.node = {
-    type = 'executable',
-    command = 'node',
-    args = { vim.fn.stdpath("data") .. "/dapinstall/jsnode/vscode-node-debug2/out/src/nodeDebug.js" }
+  type = 'executable',
+  command = 'node',
+  args = { vim.fn.stdpath("data") .. "/dapinstall/jsnode/vscode-node-debug2/out/src/nodeDebug.js" }
 }
 -- Nodejs
 -- dap.adapters.chrome = {
@@ -53,12 +58,10 @@ dap.configurations.javascript = {
 
 -- Mappings
 local function map(mode, lhs, rhs, opts)
-  local options = {noremap = true}
+  local options = { noremap = true }
   if opts then options = vim.tbl_extend('force', options, opts) end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
-
-
 
 -- vim.api.nvim_set_keymap('n', '<leader>db', ':lua require\'dap\'.toggle_breakpoint()<cr>', {noremap = true})
 -- vim.api.nvim_set_keymap('n', '<leader>ds', ':lua require\'dap\'.continue()<cr>', {noremap = true})
@@ -79,7 +82,7 @@ end
 --   augroup NvimDap
 --     autocmd!
 --     au FileType dap-repl lua require('dap.ext.autocompl').attach()
---   augroup END 
+--   augroup END
 -- ]], false)
 
 local dap_ui = require "dapui"
@@ -136,8 +139,14 @@ dap.listeners.after["event_initialized"]["manutepowa"] = function()
 end
 
 
-
-vim.cmd([[au FileType dap-repl lua require('dap.ext.autocompl').attach()]])
+-- vim.cmd([[au FileType dap-repl lua require('dap.ext.autocompl').attach()]])
+-- require("dap.ext.autocompl").attach()
+vim.api.nvim_create_autocmd("Filetype", {
+  pattern = { "dap-repl" },
+  callback = function()
+    require 'dap.ext.autocompl'.attach()
+  end
+})
 map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
 map('n', '<leader>dcb', ':lua require"dap".clear_breakpoints()<CR>')
 map('n', '<leader>dso', ':lua require"dap".step_out()<CR>')
@@ -145,7 +154,7 @@ map('n', '<leader>dsi', ':lua require"dap".step_into()<CR>')
 map('n', '<A-CR>', ':lua require"dap".step_over()<CR>')
 map('n', '<leader>ds', ':lua require"dap".continue()<CR>')
 -- map('n', '<leader>dt', ':lua require"dap".terminate()<CR>')
-map('n', '<leader>dt', ':lua require("manutepowa.dap_config.dap-fn").stop()<cr>', {noremap = true})
+map('n', '<leader>dt', ':lua require("manutepowa.dap_config.dap-fn").stop()<cr>', { noremap = true })
 map('n', '<F2>', ':lua require("dapui").eval()<CR>')
 
 map('n', '<leader>dui', '<cmd>lua require"dapui".toggle()<CR>')

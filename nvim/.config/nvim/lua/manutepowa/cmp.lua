@@ -4,9 +4,19 @@ if not cmp_status_ok then
 	return
 end
 
+local cmp_dap_status_ok, cmp_dap = pcall(require, "cmp_dap")
+if not cmp_dap_status_ok then
+	return
+end
+
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
 	return
+end
+
+local check_backspace = function()
+	local col = vim.fn.col "." - 1
+	return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
 luasnip.filetype_extend("javascript", { "html" })
@@ -23,36 +33,43 @@ cmp.setup({
 			luasnip.lsp_expand(args.body)
 		end
 	},
+	enabled = function()
+		return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or cmp_dap.is_dap_buffer()
+	end,
 	mapping = cmp.mapping.preset.insert {
-		["<A-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), {"i", "s", "c" }),
+		["<A-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s", "c" }),
 		['<A-j>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-			elseif luasnip.expandable() then
-        luasnip.expand()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      else
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif not cmp.visible() then
 				cmp.mapping(cmp.complete(), { 'i', 'c', 's' })
-      end
-    end, {
-      "i",
-      "s",
-      "c"
-    }),
+			elseif luasnip.expandable() then
+				luasnip.expand()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			elseif check_backspace() then
+				fallback()
+			else
+				fallback()
+			end
+		end, {
+			"i",
+			"s",
+			"c"
+		}),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
 	},
 	formatting = {
 		format = lspkind.cmp_format({
-      mode = 'symbol_text', -- show only symbol annotations
-      maxwidth = 80, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+			mode = 'symbol_text', -- show only symbol annotations
+			maxwidth = 80, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 
-      -- The function below will be called before any actual modifications from lspkind
-      -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-      before = function (entry, vim_item)
-        return vim_item
-      end
-    })
+			-- The function below will be called before any actual modifications from lspkind
+			-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+			before = function(entry, vim_item)
+				return vim_item
+			end
+		})
 	},
 	sources = {
 		{ name = "nvim_lsp" },
@@ -66,9 +83,9 @@ cmp.setup({
 				end,
 			},
 		},
-		-- { name = "treesitter" },
 		{ name = "path" },
 		{ name = "omni" },
+		{ name = "dap" },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
@@ -82,7 +99,7 @@ cmp.setup({
 	experimental = {
 		ghost_text = true,
 	},
-	
+
 })
 
 cmp.setup.cmdline("/", {
@@ -99,7 +116,7 @@ cmp.setup.cmdline(":", {
 	}),
 })
 
-vim.cmd[[
+vim.cmd [[
   highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
   highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
 ]]

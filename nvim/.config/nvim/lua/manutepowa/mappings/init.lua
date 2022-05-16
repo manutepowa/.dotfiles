@@ -46,6 +46,7 @@ nmap('O', 'Ox<BS>')
 
 -- Not select after line character
 vmap('$', '$h')
+nmap('0', '0e')
 
 -- Move right when open autopairs
 imap('<A-n>', '<Right>')

@@ -81,6 +81,7 @@ return require('packer').startup(function(use)
 	use "hrsh7th/cmp-nvim-lsp"
 	use "hrsh7th/cmp-nvim-lua"
 	use "hrsh7th/cmp-omni"
+	use "rcarriga/cmp-dap"
 
 	-- Icons CMP
 	use 'onsails/lspkind-nvim'
