@@ -54,10 +54,10 @@ local function lsp_highlight_document(client)
 		-- 	augroup END
 		-- ]], false)
 		local status_ok, illuminate = pcall(require, "illuminate")
-    if not status_ok then
-      return
-    end
-    illuminate.on_attach(client)
+		if not status_ok then
+			return
+		end
+		illuminate.on_attach(client)
 	end
 
 	if client.resolved_capabilities.document_formatting then
@@ -67,6 +67,10 @@ end
 
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
+
+	-- Enable completion triggered by <c-x><c-o>
+	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
@@ -83,24 +87,25 @@ local function lsp_keymaps(bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>e", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting_sync()' ]])
 end
+
 --
 local function filter(arr, fn)
-  if type(arr) ~= "table" then
-    return arr
-  end
+	if type(arr) ~= "table" then
+		return arr
+	end
 
-  local filtered = {}
-  for k, v in pairs(arr) do
-    if fn(v, k, arr) then
-      table.insert(filtered, v)
-    end
-  end
+	local filtered = {}
+	for k, v in pairs(arr) do
+		if fn(v, k, arr) then
+			table.insert(filtered, v)
+		end
+	end
 
-  return filtered
+	return filtered
 end
 
 local function filterReactDTS(value)
-  return string.match(value.uri, 'react/index.d.ts') == nil
+	return string.match(value.uri, 'react/index.d.ts') == nil
 end
 
 M.on_attach = function(client, bufnr)
@@ -108,7 +113,7 @@ M.on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false
 	end
 	if client.name == "eslint" then
-			client.resolved_capabilities.document_formatting = true
+		client.resolved_capabilities.document_formatting = true
 	end
 
 	lsp_keymaps(bufnr)

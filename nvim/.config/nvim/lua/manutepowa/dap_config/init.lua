@@ -1,6 +1,34 @@
 local dap = require "dap"
 local g = vim.g
 
+-- Mappings
+local function map(mode, lhs, rhs, opts)
+  local options = { noremap = true }
+  if opts then options = vim.tbl_extend('force', options, opts) end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+-- vim.cmd([[au FileType dap-repl lua require('dap.ext.autocompl').attach()]])
+-- require("dap.ext.autocompl").attach()
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "dap-repl",
+  callback = function()
+    require("dap.ext.autocompl").attach()
+  end,
+})
+map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
+map('n', '<leader>dcb', ':lua require"dap".clear_breakpoints()<CR>')
+map('n', '<leader>dso', ':lua require"dap".step_out()<CR>')
+map('n', '<leader>dsi', ':lua require"dap".step_into()<CR>')
+map('n', '<A-CR>', ':lua require"dap".step_over()<CR>')
+map('n', '<leader>ds', ':lua require"dap".continue()<CR>')
+-- map('n', '<leader>dt', ':lua require"dap".terminate()<CR>')
+map('n', '<leader>dt', ':lua require("manutepowa.dap_config.dap-fn").stop()<cr>', { noremap = true })
+map('n', '<F2>', ':lua require("dapui").eval()<CR>')
+
+map('n', '<leader>dui', '<cmd>lua require"dapui".toggle()<CR>')
+map('n', '<leader>dhh', '<cmd>lua require"dapui.variables".hover()<CR>')
+map('v', '<leader>dhv', '<cmd>lua require"dapui.variables".visual_hover()<CR>')
 -- Enable DAP virtual text
 g.dap_virtual_text = true
 
@@ -56,34 +84,7 @@ dap.configurations.javascript = {
   }
 }
 
--- Mappings
-local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true }
-  if opts then options = vim.tbl_extend('force', options, opts) end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
 
--- vim.api.nvim_set_keymap('n', '<leader>db', ':lua require\'dap\'.toggle_breakpoint()<cr>', {noremap = true})
--- vim.api.nvim_set_keymap('n', '<leader>ds', ':lua require\'dap\'.continue()<cr>', {noremap = true})
--- vim.api.nvim_set_keymap('n', '<leader>dt', ':lua require"dap".terminate()<cr>', {noremap = true})
--- vim.api.nvim_set_keymap('n', '<leader>dsi', ':lua require\'dap\'.step_into()<cr>', {noremap = true})
--- vim.api.nvim_set_keymap('n', '<A-CR>', ':lua require\'dap\'.step_over()<cr>', {noremap = true})
--- vim.api.nvim_set_keymap('n', '<leader>dso', ':lua require\'dap\'.step_out()<cr>', {noremap = true})
--- vim.api.nvim_set_keymap('n', '<leader>dbl', ':lua require\'dap\'.list_breakpoints()<cr>', {noremap = true})
--- vim.api.nvim_set_keymap('n', '<leader>dbc', ':lua require\'dap\'.clear_breakpoints()<cr>', {noremap = true})
--- vim.api.nvim_exec([[
---   augroup DapRepl
---     autocmd!
---     au FileType dap-repl lua require('dap.ext.autocompl').attach()
---   augroup END
--- ]], false)
-
--- vim.api.nvim_exec([[
---   augroup NvimDap
---     autocmd!
---     au FileType dap-repl lua require('dap.ext.autocompl').attach()
---   augroup END
--- ]], false)
 
 local dap_ui = require "dapui"
 dap_ui.setup({
@@ -139,27 +140,7 @@ dap.listeners.after["event_initialized"]["manutepowa"] = function()
 end
 
 
--- vim.cmd([[au FileType dap-repl lua require('dap.ext.autocompl').attach()]])
--- require("dap.ext.autocompl").attach()
-vim.api.nvim_create_autocmd("Filetype", {
-  pattern = { "dap-repl" },
-  callback = function()
-    require 'dap.ext.autocompl'.attach()
-  end
-})
-map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
-map('n', '<leader>dcb', ':lua require"dap".clear_breakpoints()<CR>')
-map('n', '<leader>dso', ':lua require"dap".step_out()<CR>')
-map('n', '<leader>dsi', ':lua require"dap".step_into()<CR>')
-map('n', '<A-CR>', ':lua require"dap".step_over()<CR>')
-map('n', '<leader>ds', ':lua require"dap".continue()<CR>')
--- map('n', '<leader>dt', ':lua require"dap".terminate()<CR>')
-map('n', '<leader>dt', ':lua require("manutepowa.dap_config.dap-fn").stop()<cr>', { noremap = true })
-map('n', '<F2>', ':lua require("dapui").eval()<CR>')
 
-map('n', '<leader>dui', '<cmd>lua require"dapui".toggle()<CR>')
-map('n', '<leader>dhh', '<cmd>lua require"dapui.variables".hover()<CR>')
-map('v', '<leader>dhv', '<cmd>lua require"dapui.variables".visual_hover()<CR>')
 
 
 -- require('dap.ext.vscode').load_launchjs()

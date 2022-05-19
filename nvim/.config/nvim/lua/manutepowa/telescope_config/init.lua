@@ -23,7 +23,7 @@ telescope.setup {
             i = {
                 ["<A-j>"] = "move_selection_next",
                 ["<A-k>"] = "move_selection_previous",
-                ["<C-x>"] = false,
+                -- ["<C-x>"] = false,
                 ["<C-q>"] = actions.send_to_qflist,
             },
         },
@@ -35,13 +35,13 @@ telescope.setup {
         },
         file_sorter = require("telescope.sorters").get_fuzzy_file,
         generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-        path_display = {"absolute"},
+        path_display = { "absolute" },
         winblend = 0,
         border = {},
-        borderchars = {"─", "│", "─", "│", "╭", "╮", "╯", "╰"},
+        borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
         color_devicons = true,
         use_less = true,
-        set_env = {["COLORTERM"] = "truecolor"}, -- default = nil,
+        set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
         file_previewer = require("telescope.previewers").vim_buffer_cat.new,
         grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
         qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
@@ -49,12 +49,14 @@ telescope.setup {
         buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker
     },
     extensions = {
-        fzf = {
-            fuzzy = true, -- false will only do exact matching
-            override_generic_sorter = false, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
-            case_mode = "smart_case" -- or "ignore_case" or "respect_case"
-        }
+        -- fzy_native = {
+        --     fuzzy = true, -- false will only do exact matching
+        --     override_generic_sorter = false, -- override the generic sorter
+        --     override_file_sorter = true, -- override the file sorter
+        --     case_mode = "smart_case" -- or "ignore_case" or "respect_case"
+        -- }
     }
 }
 
+
+-- telescope.load_extension('fzy_native')
