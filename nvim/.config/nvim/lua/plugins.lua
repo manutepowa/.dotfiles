@@ -4,6 +4,8 @@ vim.cmd([[autocmd BufWritePost plugins.lua source <afile> | PackerCompile]])
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
+	use { 'lewis6991/impatient.nvim' }
+
 	use {
 		'nvim-telescope/telescope.nvim',
 		requires = {
@@ -23,6 +25,7 @@ return require('packer').startup(function(use)
 
 	-- Vim fugitive
 	use 'tpope/vim-fugitive'
+	use({ "rbong/vim-flog", requires = "tpope/vim-fugitive", cmd = { "Flog" } })
 
 	-- Themes
 	use 'mhartington/oceanic-next'
@@ -51,6 +54,7 @@ return require('packer').startup(function(use)
 	use 'mg979/vim-visual-multi'
 
 	use 'numToStr/Comment.nvim'
+	use "JoosepAlviste/nvim-ts-context-commentstring"
 
 	-- Replace delete and change di', ci(
 	use 'wellle/targets.vim'

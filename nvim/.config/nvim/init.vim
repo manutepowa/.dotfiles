@@ -20,7 +20,8 @@ nmap <Leader>" ysiw"
 nmap <Leader>' ysiw'
 nmap <Leader>{ ysiw{
 nmap <Leader>[ ysiw[
-"""""""""""""""""""""""""vim-fugitive settings""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""vim-fugitive settings and flog""""""""""""""""""""""""""""""
+nnoremap <silent> <leader>gl :Flog<CR>
 nnoremap <silent> <leader>gs :Git<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
 nnoremap <silent> <leader>gc :Git commit<CR>
@@ -44,10 +45,6 @@ hi DiffChange guifg=NONE guibg=#63c1e6
 " hi Visual guifg=#000000 guibg=#FFFFFF gui=none
 
 autocmd BufNewFile,BufRead *.theme set syntax=php
-
-lua << EOF
-require('Comment').setup()
-EOF
 
 " Codi test
 nmap <leader>c :Codi!!

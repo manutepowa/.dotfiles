@@ -15,7 +15,8 @@ local servers = {
   "tsserver",
   "eslint",
   "intelephense",
-  "phpactor"
+  "phpactor",
+  "yamlls"
 }
 
 local settings = {
