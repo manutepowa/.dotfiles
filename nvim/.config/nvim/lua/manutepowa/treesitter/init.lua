@@ -14,7 +14,7 @@ require 'nvim-treesitter.configs'.setup {
       -- return lang == "cpp" and vim.api.nvim_buf_line_count(bufnr) > 50000
     end,
     -- disable = { "css" }, -- list of language that will be disabled
-    additional_vim_regex_highlighting = true,
+    -- additional_vim_regex_highlighting = true,
   },
   autopairs = {
     enable = true,

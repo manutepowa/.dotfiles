@@ -89,24 +89,24 @@ local function lsp_keymaps(bufnr)
 end
 
 --
-local function filter(arr, fn)
-	if type(arr) ~= "table" then
-		return arr
-	end
-
-	local filtered = {}
-	for k, v in pairs(arr) do
-		if fn(v, k, arr) then
-			table.insert(filtered, v)
-		end
-	end
-
-	return filtered
-end
-
-local function filterReactDTS(value)
-	return string.match(value.uri, 'react/index.d.ts') == nil
-end
+-- local function filter(arr, fn)
+-- 	if type(arr) ~= "table" then
+-- 		return arr
+-- 	end
+--
+-- 	local filtered = {}
+-- 	for k, v in pairs(arr) do
+-- 		if fn(v, k, arr) then
+-- 			table.insert(filtered, v)
+-- 		end
+-- 	end
+--
+-- 	return filtered
+-- end
+--
+-- local function filterReactDTS(value)
+-- 	return string.match(value.uri, 'react/index.d.ts') == nil
+-- end
 
 M.on_attach = function(client, bufnr)
 	if client.name == "tsserver" then
