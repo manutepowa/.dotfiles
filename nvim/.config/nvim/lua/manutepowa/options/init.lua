@@ -11,7 +11,7 @@ local options = {
   showmode = false, -- we don't need to see things like -- INSERT -- anymore
   showtabline = 2, -- always show tabs
   smartcase = true, -- smart case
-  autoindent = true, -- make indenting smarter again
+  -- autoindent = true, -- make indenting smarter again
   splitbelow = true, -- force all horizontal splits to go below current window
   splitright = true, -- force all vertical splits to go to the right of current window
   swapfile = false, -- creates a swapfile
@@ -53,7 +53,7 @@ vim.g.copilot_filetypes = {
 }
 
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
-  callback = function() vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 200 }) end, -- Or myvimfun
+  callback = function() vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 200, on_visual = true }) end, -- Or myvimfun
 })
 
 -- MultiCursor
@@ -70,5 +70,5 @@ vim.cmd([[autocmd BufWinEnter * :set formatoptions-=c formatoptions-=r formatopt
 
 -- Change match colors rainbow
 vim.cmd [[
-  highlight! MatchParen ctermbg=233 guibg=#8898ab
+  highlight! MatchParen ctermbg=0 guibg=#152f6a
 ]]

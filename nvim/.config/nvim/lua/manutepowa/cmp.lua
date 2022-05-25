@@ -34,7 +34,8 @@ cmp.setup({
 		end
 	},
 	enabled = function()
-		return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or cmp_dap.is_dap_buffer()
+		return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+				or require("cmp_dap").is_dap_buffer()
 	end,
 	mapping = cmp.mapping.preset.insert {
 		["<A-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s", "c" }),
@@ -75,16 +76,16 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
-		{
-			name = "buffer",
-			option = {
-				get_bufnrs = function()
-					return vim.api.nvim_list_bufs()
-				end,
-			},
-		},
+		{ name = "buffer" },
+		-- {
+		-- 	name = "buffer",
+		-- 	option = {
+		-- 		get_bufnrs = function()
+		-- 			return vim.api.nvim_list_bufs()
+		-- 		end,
+		-- 	},
+		-- },
 		{ name = "path" },
-		{ name = "omni" },
 		{ name = "dap" },
 	},
 	confirm_opts = {
