@@ -3,54 +3,6 @@ if not present then
 	return
 end
 
-local g = vim.g
-
--- vim.o.termguicolors = true
-
-g.nvim_tree_disable_default_keybinding = 1
--- g.nvim_tree_gitignore = 1
--- g.nvim_tree_hide_dotfiles = 0
-g.nvim_tree_git_hl = 1
-g.nvim_tree_highlight_opened_files = 1
--- g.nvim_tree_root_folder_modifier = ":t"
-g.nvim_tree_add_trailing = 0
-
-g.nvim_tree_show_icons = {
-	git = 1,
-	folders = 1,
-	files = 1,
-	-- folder_arrows= 1
-}
-g.nvim_tree_icons = {
-	default = "",
-	symlink = "",
-	git = {
-		unstaged = "",
-		staged = "",
-		unmerged = "",
-		renamed = "",
-		untracked = "",
-		deleted = "﯊",
-		ignored = "",
-	},
-	folder = {
-		arrow_open = "",
-		arrow_closed = "",
-		default = "",
-		open = "",
-		empty = "", -- 
-		empty_open = "",
-		symlink = "",
-		symlink_open = "",
-	},
-	lsp = {
-		hint = "",
-		info = "",
-		warning = "",
-		error = ""
-	}
-}
-
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 local key_bindings = {
 	{ key = "<CR>", cb = tree_cb("preview") },
@@ -84,70 +36,109 @@ local key_bindings = {
 }
 
 nvimtree.setup {
-  disable_netrw = true,
-  hijack_netrw = true,
-  open_on_setup = false,
-  ignore_ft_on_setup = {},
-  open_on_tab = false,
-  hijack_cursor = false,
-  update_cwd = true,
-  hijack_directories = {
-    enable = true,
-    auto_open = true,
-  },
-  diagnostics = {
-    enable = false,
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
-    },
-  },
-  update_focused_file = {
-    enable = true,
-    update_cwd = true,
-    ignore_list = {},
-  },
-  system_open = {
-    cmd = nil,
-    args = {},
-  },
-  filters = {
-    dotfiles = false,
-    custom = {},
-		-- hide_dotfiles = false
-  },
-  git = {
-    enable = true,
-    ignore = false,
-    timeout = 500,
-  },
-  view = {
-    width = 50,
-    height = 30,
-    hide_root_folder = false,
-    side = "left",
-    -- auto_resize = true,
-    mappings = {
-      custom_only = false,
-      list = key_bindings,
-    },
-    number = false,
-    relativenumber = false,
-  },
-  trash = {
-    cmd = "trash",
-    require_confirm = true,
-  },
-  actions = {
-    change_dir = {
-      global = false,
-    },
-    open_file = {
-      quit_on_open = true,
-    }
-  },
-  -- disable_window_picker = 0,
-  -- root_folder_modifier = ":t",
+	disable_netrw = true,
+	hijack_netrw = true,
+	open_on_setup = false,
+	ignore_ft_on_setup = {},
+	open_on_tab = false,
+	hijack_cursor = false,
+	update_cwd = true,
+	renderer = {
+		add_trailing = false,
+		highlight_opened_files = 'icon',
+		highlight_git = true,
+		indent_markers = {
+			enable = false,
+			icons = {
+				corner = "└ ",
+				edge = "│ ",
+				none = "  ",
+			},
+		},
+		icons = {
+			show = {
+				git = true,
+				folder = true,
+				file = true
+			},
+			glyphs = {
+				default = "",
+				symlink = "",
+				git = {
+					unstaged = "",
+					staged = "",
+					unmerged = "",
+					renamed = "",
+					untracked = "",
+					deleted = "﯊",
+					ignored = "",
+				},
+				folder = {
+					arrow_open = "",
+					arrow_closed = "",
+					default = "",
+					open = "",
+					empty = "", -- 
+					empty_open = "",
+					symlink = "",
+					symlink_open = "",
+				}
+			}
+		},
+	},
+	hijack_directories = {
+		enable = true,
+		auto_open = true,
+	},
+	diagnostics = {
+		enable = false,
+		icons = {
+			hint = "",
+			info = "",
+			warning = "",
+			error = "",
+		},
+	},
+	update_focused_file = {
+		enable = true,
+		update_cwd = true,
+		ignore_list = {},
+	},
+	system_open = {
+		cmd = nil,
+		args = {},
+	},
+	filters = {
+		dotfiles = false,
+		custom = {},
+	},
+	git = {
+		enable = true,
+		ignore = false,
+		timeout = 500,
+	},
+	view = {
+		width = 50,
+		height = 30,
+		hide_root_folder = false,
+		side = "left",
+		mappings = {
+			custom_only = false,
+			list = key_bindings,
+		},
+		number = false,
+		relativenumber = false,
+	},
+	trash = {
+		cmd = "trash",
+		require_confirm = true,
+	},
+	actions = {
+		change_dir = {
+			global = false,
+		},
+		open_file = {
+			quit_on_open = true,
+		}
+	},
 }
