@@ -33,11 +33,7 @@ require('diffview').setup {
       multi_file = {
         max_count = 256, -- Limit the number of commits
         diff_merges = "first-parent",
-      },
-      win_config = {
-        position = "bottom", -- One of 'left', 'right', 'top', 'bottom'
-        width = 16, -- Only applies when position is 'left' or 'right'
-      },
+      }
     },
   },
   default_args = { -- Default args prepended to the arg-list for the listed commands
