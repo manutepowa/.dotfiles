@@ -26,6 +26,7 @@ return require('packer').startup(function(use)
 	-- Vim fugitive
 	use 'tpope/vim-fugitive'
 	use({ "rbong/vim-flog", requires = "tpope/vim-fugitive", cmd = { "Flog" } })
+	use 'rhysd/git-messenger.vim'
 
 	-- Themes
 	use 'mhartington/oceanic-next'
@@ -44,7 +45,9 @@ return require('packer').startup(function(use)
 	use { 'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons' }
 	-- Git Lines edited
 	use 'lewis6991/gitsigns.nvim'
-	use { 'sindrets/diffview.nvim', commit = "3ffe4a70c4b434ee933cb869b1706632c4407495", requires = 'nvim-lua/plenary.nvim' }
+	use { 'sindrets/diffview.nvim',
+		commit = "3ffe4a70c4b434ee933cb869b1706632c4407495",
+		requires = 'nvim-lua/plenary.nvim' }
 	-- use 'mhinz/vim-signify'
 
 	-- PHP
@@ -112,7 +115,7 @@ return require('packer').startup(function(use)
 	use "rcarriga/nvim-dap-ui"
 	use "Pocco81/DAPInstall.nvim"
 
-	use { "NTBBloodbath/rest.nvim", requires = { "nvim-lua/plenary.nvim" }, }
+	use { "NTBBloodbath/rest.nvim", requires = { "nvim-lua/plenary.nvim" } }
 
 	-- Markdown
 	use { "ellisonleao/glow.nvim" }
