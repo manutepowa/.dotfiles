@@ -66,7 +66,11 @@ vim.cmd([[
 ]])
 
 -- No comment on new line
-vim.cmd([[autocmd BufWinEnter * :set formatoptions-=c formatoptions-=r formatoptions-=o]])
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+  callback = function()
+    vim.cmd "set formatoptions-=cro"
+  end
+})
 
 -- Change match colors rainbow
 vim.cmd [[

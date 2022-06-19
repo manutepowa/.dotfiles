@@ -98,31 +98,34 @@ dap_ui.setup({
     edit = "e",
     repl = "r",
   },
-  sidebar = {
-    -- You can change the order of elements in the sidebar
-    elements = {
-      -- Provide as ID strings or tables with "id" and "size" keys
-      {
-        id = "scopes",
-        size = 0.75, -- Can be float or integer > 1
-        expand = { "<TAB>", "<2-LeftMouse>" },
-        repl = "r",
+  layouts = {
+    {
+      elements = {
+        {
+          id = "scopes",
+          size = 0.73, -- Can be float or integer > 1
+          expand = { "<TAB>", "<2-LeftMouse>" },
+          repl = "r",
+        },
+        {
+          id = "watches",
+          size = 0.27,
+          expand = { "<TAB>", "<2-LeftMouse>" },
+          remove = "d",
+          repl = "r",
+        },
       },
-      {
-        id = "watches",
-        size = 0.25,
-        expand = { "<TAB>", "<2-LeftMouse>" },
-        remove = "d",
-        repl = "r",
-      },
+      size = 50,
+      position = 'left',
     },
-    size = 50,
-    position = "left", -- Can be "left", "right", "top", "bottom"
-  },
-  tray = {
-    elements = { "repl" },
-    size = 10,
-    position = "bottom", -- Can be "left", "right", "top", "bottom"
+    {
+      elements = {
+        'repl',
+        -- 'console',
+      },
+      size = 10,
+      position = 'bottom',
+    },
   },
   floating = {
     max_height = nil, -- These can be integers or a float between 0 and 1.

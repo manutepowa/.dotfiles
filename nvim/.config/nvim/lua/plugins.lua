@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
 	use { 'p00f/nvim-ts-rainbow' }
 	use { 'windwp/nvim-ts-autotag' }
 	use { 'windwp/nvim-autopairs' }
+	use { 'pantharshit00/vim-prisma' }
 
 	use { 'uga-rosa/translate.nvim' }
 
