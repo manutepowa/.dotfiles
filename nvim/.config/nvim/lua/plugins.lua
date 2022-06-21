@@ -26,7 +26,8 @@ return require('packer').startup(function(use)
 
 	-- Vim fugitive
 	use 'tpope/vim-fugitive'
-	use({ "rbong/vim-flog", requires = "tpope/vim-fugitive", cmd = { "Flog" } })
+	-- use 'rbong/vim-flog' -- Cambiar por el de abajo cuando mergeen
+	use 'AchmadFathoni/vim-flog'
 	use 'rhysd/git-messenger.vim'
 
 	-- Themes
@@ -39,7 +40,7 @@ return require('packer').startup(function(use)
 	}
 
 	-- Copilot
-	use 'github/copilot.vim'
+	-- use 'github/copilot.vim'
 
 	-- Tabs
 	use 'kyazdani42/nvim-web-devicons'
