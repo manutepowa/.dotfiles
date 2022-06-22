@@ -42,15 +42,16 @@ end
 vim.opt.shortmess:append "c"
 vim.opt.fillchars = vim.opt.fillchars + "diff:╱"
 
--- vim.g.copilot_filetypes = {
---   ["*"] = false,
---   ["javascript"] = true,
---   ["javascriptreact"] = true,
---   ["typescript"] = true,
---   ["typescriptreact"] = true,
---   ["lua"] = false,
---   ["php"] = true,
--- }
+vim.g.copilot_filetypes = {
+  ["*"] = false,
+  ["javascript"] = true,
+  ["javascriptreact"] = true,
+  ["typescript"] = true,
+  ["typescriptreact"] = true,
+  ["lua"] = true,
+  ["php"] = true,
+}
+
 
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   callback = function() vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 200, on_visual = true }) end, -- Or myvimfun

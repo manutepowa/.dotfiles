@@ -40,7 +40,7 @@ return require('packer').startup(function(use)
 	}
 
 	-- Copilot
-	-- use 'github/copilot.vim'
+	use 'github/copilot.vim'
 
 	-- Tabs
 	use 'kyazdani42/nvim-web-devicons'
@@ -48,7 +48,7 @@ return require('packer').startup(function(use)
 	-- Git Lines edited
 	use 'lewis6991/gitsigns.nvim'
 	use { 'sindrets/diffview.nvim',
-		commit = "3ffe4a70c4b434ee933cb869b1706632c4407495",
+		-- commit = "3ffe4a70c4b434ee933cb869b1706632c4407495",
 		requires = 'nvim-lua/plenary.nvim' }
 	-- use 'mhinz/vim-signify'
 
