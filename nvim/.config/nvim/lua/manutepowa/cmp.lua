@@ -25,7 +25,10 @@ luasnip.filetype_extend("typescript", { "html" })
 luasnip.filetype_extend("typescriptreact", { "html" })
 require("luasnip/loaders/from_vscode").lazy_load()
 
-local lspkind = require "lspkind"
+local icons = require "manutepowa.icons"
+local kind_icons = icons.kind
+-- local lspkind = require "lspkind"
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
 cmp.setup({
 	snippet = {
@@ -72,16 +75,25 @@ cmp.setup({
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
 	},
 	formatting = {
-		format = lspkind.cmp_format({
-			mode = 'symbol_text', -- show only symbol annotations
-			maxwidth = 80, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-
-			-- The function below will be called before any actual modifications from lspkind
-			-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-			before = function(entry, vim_item)
-				return vim_item
+		fields = { "kind", "abbr", "menu" },
+		format = function(entry, vim_item)
+			vim_item.kind = kind_icons[vim_item.kind]
+			if entry.source.name == "copilot" then
+				vim_item.kind = icons.git.Octoface
+				vim_item.kind_hl_group = "CmpItemKindCopilot"
 			end
-		})
+
+			-- NOTE: order matters
+			vim_item.menu = ({
+				nvim_lsp = "",
+				nvim_lua = "",
+				luasnip = "",
+				buffer = "",
+				path = "",
+				dap = ""
+			})[entry.source.name]
+			return vim_item
+		end,
 	},
 	sources = {
 		{ name = "nvim_lsp" },
