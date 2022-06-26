@@ -67,7 +67,7 @@ return require('packer').startup(function(use)
 	use 'antoinemadec/FixCursorHold.nvim'
 	use 'mattn/emmet-vim'
 	use 'lukas-reineke/indent-blankline.nvim'
-	use 'sheerun/vim-polyglot' -- A collection of language packs for Vim
+	-- use 'sheerun/vim-polyglot' -- A collection of language packs for Vim
 	use 'tpope/vim-surround' -- Surrounding ysw)
 	use 'kyazdani42/nvim-tree.lua'
 	use 'fedepujol/move.nvim'
