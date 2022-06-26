@@ -120,6 +120,8 @@ return require('packer').startup(function(use)
 	use { "NTBBloodbath/rest.nvim", requires = { "nvim-lua/plenary.nvim" },
 		commit = "e5f68db73276c4d4d255f75a77bbe6eff7a476ef" }
 
+	-- Terminal
+	use "akinsho/toggleterm.nvim"
 	-- Markdown
 	use { "ellisonleao/glow.nvim" }
 
