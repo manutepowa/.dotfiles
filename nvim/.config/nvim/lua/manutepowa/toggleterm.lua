@@ -4,13 +4,18 @@ if not status_ok then
 end
 
 toggleterm.setup({
-  size = 30,
+  -- size = 30,
   open_mapping = [[<A-->]],
   hide_numbers = true,
   shade_filetypes = {},
   shade_terminals = true,
-  shading_factor = 2,
+  shading_factor = 1,
   start_in_insert = true,
+  highlights = {
+    FloatBorder = {
+      guifg = "#AEEEEE",
+    },
+  },
   insert_mappings = true,
   persist_size = true,
   direction = "float",
