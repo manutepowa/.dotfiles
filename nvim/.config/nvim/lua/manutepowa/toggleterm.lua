@@ -11,11 +11,11 @@ toggleterm.setup({
   shade_terminals = true,
   shading_factor = 1,
   start_in_insert = true,
-  highlights = {
-    FloatBorder = {
-      guifg = "#AEEEEE",
-    },
-  },
+  -- highlights = {
+  --   FloatBorder = {
+  --     guifg = "#06b6d4",
+  --   },
+  -- },
   insert_mappings = true,
   persist_size = true,
   direction = "float",
