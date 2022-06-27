@@ -2,7 +2,7 @@ local cb = require('diffview.config').diffview_callback
 
 require('diffview').setup {
   diff_binaries = false, -- Show diffs for binaries
-  enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'
+  enhanced_diff_hl = true, -- See ':h diffview-config-enhanced_diff_hl'
   git_cmd = { "git" },
   use_icons = true, -- Requires nvim-web-devicons
   icons = { -- Only applies when use_icons is true.
@@ -19,10 +19,16 @@ require('diffview').setup {
       flatten_dirs = true, -- Flatten dirs that only contain one single dir
       folder_statuses = "only_folded", -- One of 'never', 'only_folded' or 'always'.
     },
-    win_config = {
-      position = "left", -- One of 'left', 'right', 'top', 'bottom'
-      width = 35, -- Only applies when position is 'left' or 'right'
-    },
+    win_config = function()
+      local c = { type = "float" }
+      local editor_width = vim.o.columns
+      local editor_height = vim.o.lines
+      c.width = math.min(100, editor_width)
+      c.height = math.min(24, editor_height)
+      c.col = math.floor(editor_width * 0.5 - c.width * 0.5)
+      c.row = math.floor(editor_height * 0.5 - c.height * 0.5)
+      return c
+    end,
   },
   file_history_panel = {
     log_options = {
@@ -41,9 +47,9 @@ require('diffview').setup {
     DiffviewOpen = {},
     DiffviewFileHistory = {},
   },
-  hooks = {}, -- See ':h diffview-config-hooks'
+  hooks = {},
   key_bindings = {
-    disable_defaults = false, -- Disable the default key bindings
+    disable_defaults = true, -- Disable the default key bindings
     -- The `view` bindings are active in the diff buffers, only when the current
     -- tabpage is a Diffview.
     view = {
@@ -91,7 +97,7 @@ require('diffview').setup {
     },
     option_panel = {
       ["<tab>"] = cb("select"),
-      ["q"]     = cb("close"),
+      ["q"] = cb("close"),
     },
   },
 }
