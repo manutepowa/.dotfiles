@@ -16,7 +16,8 @@ local servers = {
   "eslint",
   "intelephense",
   "phpactor",
-  "yamlls"
+  "yamlls",
+  "rust_analyzer",
 }
 
 local settings = {

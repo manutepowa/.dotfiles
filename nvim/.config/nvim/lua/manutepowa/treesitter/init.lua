@@ -34,6 +34,7 @@ require 'nvim-treesitter.configs'.setup {
     max_file_lines = nil,
   },
   autotag = {
-    enable = true
+    enable = true,
+    disable = { "xml", "markdown" },
   }
 }
