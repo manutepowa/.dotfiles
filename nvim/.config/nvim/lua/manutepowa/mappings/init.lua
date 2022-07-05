@@ -24,10 +24,10 @@ local _map = map('')
 vim.g.mapleader = ' '
 
 -- Basic vim
-nmap('<c-j>', '5j')
-nmap('<c-k>', '5k')
-xmap('<c-j>', '5j')
-xmap('<c-k>', '5k')
+nmap('<A-j>', '5j')
+nmap('<A-k>', '5k')
+xmap('<A-j>', '5j')
+xmap('<A-k>', '5k')
 _map('<esc>', ':noh<CR>')
 nmap('<Leader>w', ':w<CR>')
 nmap('<Leader>q', ':q<CR>')
@@ -62,10 +62,10 @@ nmap('<A-Right>', ':vertical resize +5<CR>', { noremap = true, silent = true })
 
 
 -- Move block
-nmap('<A-j>', ":MoveLine(1)<CR>", { noremap = true, silent = true })
-nmap('<A-k>', ":MoveLine(-1)<CR>", { noremap = true, silent = true })
-vmap('<A-j>', ":MoveBlock(1)<CR>", { noremap = true, silent = true })
-vmap('<A-k>', ":MoveBlock(-1)<CR>", { noremap = true, silent = true })
+nmap('<C-j>', ":MoveLine(1)<CR>", { noremap = true, silent = true })
+nmap('<C-k>', ":MoveLine(-1)<CR>", { noremap = true, silent = true })
+vmap('<C-j>', ":MoveBlock(1)<CR>", { noremap = true, silent = true })
+vmap('<C-k>', ":MoveBlock(-1)<CR>", { noremap = true, silent = true })
 
 -- BufferLine
 nmap("<A-l>", ":bnext<CR>", { noremap = true, silent = true })
