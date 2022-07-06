@@ -40,7 +40,8 @@ end
 
 
 vim.opt.shortmess:append "c"
-vim.opt.fillchars = vim.opt.fillchars + "diff:╱"
+-- vim.opt.fillchars = vim.opt.fillchars + "diff:╱"
+-- vim.opt.fillchars = vim.opt.fillchars + 'eob: '
 
 vim.g.copilot_filetypes = {
   ["*"] = false,
