@@ -24,10 +24,10 @@ local _map = map('')
 vim.g.mapleader = ' '
 
 -- Basic vim
-nmap('<A-j>', '5j')
-nmap('<A-k>', '5k')
-xmap('<A-j>', '5j')
-xmap('<A-k>', '5k')
+nmap('<A-j>', '5j', { noremap = true })
+nmap('<A-k>', '5k', { noremap = true })
+xmap('<A-j>', '5j', { noremap = true })
+xmap('<A-k>', '5k', { noremap = true })
 _map('<esc>', ':noh<CR>')
 nmap('<Leader>w', ':w<CR>')
 nmap('<Leader>q', ':q<CR>')
