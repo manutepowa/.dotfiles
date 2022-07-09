@@ -8,8 +8,8 @@ toggleterm.setup({
   open_mapping = [[<A-->]],
   hide_numbers = true,
   shade_filetypes = {},
-  shade_terminals = false,
-  shading_factor = 0,
+  shade_terminals = true,
+  shading_factor = 2,
   start_in_insert = true,
   -- highlights = {
   --   FloatBorder = {
@@ -43,6 +43,14 @@ function _G.set_terminal_keymaps()
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "toggleterm" },
+  callback = function()
+    vim.cmd [[
+      set cmdheight=1 
+    ]]
+  end,
+})
 
 local Terminal = require("toggleterm.terminal").Terminal
 
@@ -51,3 +59,19 @@ local htop = Terminal:new({ cmd = "htop", hidden = true })
 function _HTOP_TOGGLE()
   htop:toggle()
 end
+
+local opts = { silent = true }
+local keymap = vim.keymap.set
+
+
+keymap("n", "<A-1>", "<cmd>1ToggleTerm direction=float<cr>", opts)
+keymap("t", "<A-1>", "<cmd>1ToggleTerm direction=float<cr>", opts)
+keymap("i", "<A-1>", "<cmd>1ToggleTerm direction=float<cr>", opts)
+
+keymap("n", "<A-2>", "<cmd>2ToggleTerm direction=float<cr>", opts)
+keymap("t", "<A-2>", "<cmd>2ToggleTerm direction=float<cr>", opts)
+keymap("i", "<A-2>", "<cmd>2ToggleTerm direction=float<cr>", opts)
+
+keymap("n", "<A-3>", "<cmd>3ToggleTerm direction=float<cr>", opts)
+keymap("t", "<A-3>", "<cmd>3ToggleTerm direction=float<cr>", opts)
+keymap("i", "<A-3>", "<cmd>3ToggleTerm direction=float<cr>", opts)

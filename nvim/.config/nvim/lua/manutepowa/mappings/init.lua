@@ -82,3 +82,8 @@ nmap("<leader>m", ":Glow<CR>", { noremap = true, silent = true })
 
 -- Codi inspector | Same that RunJS
 -- nmap("<leader>c", ":Codi!!<CR>", { noremap = true, silent = true })
+
+-- Telescope
+nmap("<leader>ff",
+  "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+  { silent = true })

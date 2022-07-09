@@ -30,7 +30,7 @@ require 'nvim-treesitter.configs'.setup {
       "LawnGreen",
     },
     disable = { "html" },
-    extended_mode = true, -- Highlight also non-parentheses delimiters
+    extended_mode = false, -- Highlight also non-parentheses delimiters
     max_file_lines = nil,
   },
   autotag = {
