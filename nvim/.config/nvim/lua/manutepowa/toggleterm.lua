@@ -75,3 +75,8 @@ keymap("i", "<A-2>", "<cmd>2ToggleTerm direction=float<cr>", opts)
 keymap("n", "<A-3>", "<cmd>3ToggleTerm direction=float<cr>", opts)
 keymap("t", "<A-3>", "<cmd>3ToggleTerm direction=float<cr>", opts)
 keymap("i", "<A-3>", "<cmd>3ToggleTerm direction=float<cr>", opts)
+
+keymap("t", "<A-k>", "<up>", opts)
+keymap("t", "<A-j>", "<down>", opts)
+keymap("t", "<A-l>", "<C-right>", opts)
+keymap("t", "<A-h>", "<C-left>", opts)
