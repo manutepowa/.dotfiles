@@ -6,7 +6,7 @@
 -- vim.g.onedark_hide_ending_tildes = true
 -- commnet
 require('onedark').setup({
-  style = 'light', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+  style = 'dark', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
   transparent = false, -- Show/hide background
   term_colors = true, -- Use terminal colors
   ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
