@@ -99,16 +99,7 @@ cmp.setup({
     { name = "nvim_lua" },
     { name = "luasnip" },
     { name = "buffer" },
-    -- {
-    -- 	name = "buffer",
-    -- 	option = {
-    -- 		get_bufnrs = function()
-    -- 			return vim.api.nvim_list_bufs()
-    -- 		end,
-    -- 	},
-    -- },
-    { name = "path" },
-    { name = "dap" },
+    { name = "path" }
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
@@ -128,6 +119,13 @@ cmp.setup({
     ghost_text = true,
   },
 
+})
+
+
+cmp.setup.filetype({ "dap-repl", "dapui_watches" }, {
+  sources = {
+    { name = "dap" },
+  },
 })
 
 cmp.setup.cmdline("/", {

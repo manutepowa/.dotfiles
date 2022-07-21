@@ -5,12 +5,6 @@ telescope.setup {
   defaults = {
     vimgrep_arguments = {
       "rg",
-      "--color=never",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-      "--smart-case"
     },
     prompt_prefix = "   ",
     selection_caret = "  ",
@@ -19,27 +13,6 @@ telescope.setup {
     selection_strategy = "reset",
     sorting_strategy = "descending",
     layout_strategy = "vertical",
-    -- file_ignore_patterns = {
-    --   ".git/",
-    --   "target/",
-    --   "docs/",
-    --   "%.lock",
-    --   "__pycache__/*",
-    --   "%.sqlite3",
-    --   "%.ipynb",
-    --   "node_modules/*",
-    --   ".dart_tool/",
-    --   ".github/",
-    --   ".gradle/",
-    --   ".idea/",
-    --   ".settings/",
-    --   ".vscode/",
-    --   "__pycache__/",
-    --   "build/",
-    --   "gradle/",
-    --   "smalljre_*/*",
-    --   ".vale/",
-    -- },
     mappings = {
       i = {
         ["<esc>"] = require('telescope.actions').close,
@@ -81,4 +54,52 @@ telescope.setup {
 }
 
 
--- telescope.load_extension('fzy_native')
+-- Telescope
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>ff",
+  "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false, hidden = true})<cr>"
+  ,
+  { silent = true }
+)
+
+local ignore_patterns = {
+  'docker_volumes_data/',
+  'node_modules/',
+  'data/',
+  '.data/',
+  'test/',
+  '__mocks__/',
+  '.git/',
+
+  'package-lock.json',
+  'yarn.lock',
+  '*.log',
+  '.gitignore',
+  '*.md',
+}
+vim.keymap.set('n', '<leader>fg', function()
+  require 'telescope.builtin'.live_grep {
+    hidden = true,
+    disable_coordinates = true,
+    additional_args = function()
+      local vimgrep_arguments = {
+        '--color=never',
+        '--no-heading',
+        '--with-filename',
+        '--line-number',
+        '--column',
+        '--smart-case',
+        '--trim',
+        '--hidden',
+      }
+
+      for _, pattern in pairs(ignore_patterns) do
+        table.insert(vimgrep_arguments, '-g')
+        table.insert(vimgrep_arguments, '!' .. pattern)
+      end
+
+      return vimgrep_arguments
+    end
+  }
+end)

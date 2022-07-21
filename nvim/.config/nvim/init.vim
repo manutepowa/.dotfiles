@@ -51,7 +51,7 @@ nmap <leader>c :Codi!!
 
 " Find files using Telescope command-line sugar.
 " nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fh <cmd>Telescope oldfiles<cr>
 nnoremap <leader>'' <cmd>Telescope help_tags<cr>
 nnoremap <leader>fG <cmd>Telescope grep_string<cr>
