@@ -13,9 +13,11 @@ null_ls.setup {
   debug = false,
   sources = {
     -- diagnostics.php,
-    formatting.stylua,
+    -- formatting.stylua,
     -- diagnostics.phpstan,
-    null_ls.builtins.hover.dictionary
+    formatting.prettier.with({
+      filetypes = { "css", "yaml", "json" },
+    }),
   },
   -- on_attach = function(client)
   --          if client.resolved_capabilities.document_formatting then

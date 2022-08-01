@@ -7,6 +7,7 @@ local servers = {
   "sumneko_lua",
   "tailwindcss",
   "cssls",
+  "cssmodules_ls",
   "diagnosticls",
   "emmet_ls",
   "html",

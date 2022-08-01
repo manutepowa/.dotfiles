@@ -5,6 +5,12 @@ telescope.setup {
   defaults = {
     vimgrep_arguments = {
       "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case"
     },
     prompt_prefix = "   ",
     selection_caret = "  ",
@@ -26,7 +32,7 @@ telescope.setup {
       height = 0.99,
       width = 0.95,
       preview_cutoff = 1,
-      preview_height = 0.5,
+      -- preview_height = 0.5,
     },
     file_sorter = require("telescope.sorters").get_fuzzy_file,
     generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
@@ -62,44 +68,3 @@ vim.api.nvim_set_keymap(
   ,
   { silent = true }
 )
-
-local ignore_patterns = {
-  'docker_volumes_data/',
-  'node_modules/',
-  'data/',
-  '.data/',
-  'test/',
-  '__mocks__/',
-  '.git/',
-
-  'package-lock.json',
-  'yarn.lock',
-  '*.log',
-  '.gitignore',
-  '*.md',
-}
-vim.keymap.set('n', '<leader>fg', function()
-  require 'telescope.builtin'.live_grep {
-    hidden = true,
-    disable_coordinates = true,
-    additional_args = function()
-      local vimgrep_arguments = {
-        '--color=never',
-        '--no-heading',
-        '--with-filename',
-        '--line-number',
-        '--column',
-        '--smart-case',
-        '--trim',
-        '--hidden',
-      }
-
-      for _, pattern in pairs(ignore_patterns) do
-        table.insert(vimgrep_arguments, '-g')
-        table.insert(vimgrep_arguments, '!' .. pattern)
-      end
-
-      return vimgrep_arguments
-    end
-  }
-end)
