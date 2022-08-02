@@ -3,12 +3,13 @@ local dapui = require("dapui")
 
 local M = {}
 
-M.stop = function ()
-    dap.close()
-    dap.repl.close()
-    if dapui then
-       dapui.close()
-    end
+M.stop = function()
+  -- dap.close()
+  dap.terminate()
+  dap.repl.close()
+  if dapui then
+    dapui.close()
+  end
 end
 
 
