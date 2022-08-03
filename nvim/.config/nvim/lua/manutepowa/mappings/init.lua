@@ -49,7 +49,8 @@ vmap('$', '$h')
 nmap('0', '^')
 
 -- Move right when open autopairs
-imap('<A-n>', '<Right>')
+imap('<A-l>', '<Right>')
+imap('<A-h>', '<Left>')
 
 -- NVIM TREE
 nmap('<A-e>', ':NvimTreeToggle<CR>')
