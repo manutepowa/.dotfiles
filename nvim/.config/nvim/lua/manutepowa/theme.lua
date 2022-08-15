@@ -6,7 +6,7 @@
 -- vim.g.onedark_hide_ending_tildes = true
 -- commnet
 require('onedark').setup({
-  style = 'dark', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+  style = 'warm', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
   transparent = false, -- Show/hide background
   term_colors = true, -- Use terminal colors
   ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
@@ -21,9 +21,9 @@ require('onedark').setup({
   },
   -- Plugins Config --
   diagnostics = {
-    darker = true, -- darker colors for diagnostic
+    darker = false, -- darker colors for diagnostic
     undercurl = true, -- use undercurl instead of underline for diagnostics
-    background = true, -- use background color for virtual text
+    background = false, -- use background color for virtual text
   },
 })
 require('onedark').load()
