@@ -4,6 +4,6 @@
 -- end
 
 require "manutepowa.lsp.lsp_signature"
-require "manutepowa.lsp.lsp_installer"
+require "manutepowa.lsp.mason"
 require("manutepowa.lsp.handlers").setup()
 -- require "manutepowa.lsp.null-ls"
