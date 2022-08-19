@@ -38,8 +38,9 @@ cmp.setup({
     end
   },
   enabled = function()
-    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or cmp_dap.is_dap_buffer()
+    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or vim.g.cmp_active
   end,
+  preselect = cmp.PreselectMode.None,
   mapping = cmp.mapping.preset.insert {
     ["<A-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s", "c" }),
     ['<A-j>'] = cmp.mapping(function(fallback)
@@ -120,7 +121,6 @@ cmp.setup({
   experimental = {
     ghost_text = true,
   },
-
 })
 
 
