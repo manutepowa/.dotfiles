@@ -8,14 +8,6 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- vim.cmd([[au FileType dap-repl lua require('dap.ext.autocompl').attach()]])
--- require("dap.ext.autocompl").attach()
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "dap-repl",
-  callback = function()
-    require("dap.ext.autocompl").attach()
-  end,
-})
 map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
 map('n', '<leader>dcb', ':lua require"dap".clear_breakpoints()<CR>')
 map('n', '<leader>dso', ':lua require"dap".step_out()<CR>')
@@ -42,7 +34,7 @@ vim.fn.sign_define('DapStopped', { text = '⭐️', texthl = '', linehl = '', nu
 dap.adapters.php = {
   type = 'executable',
   command = 'node',
-  args = { vim.fn.stdpath("data") .. "/dapinstall/php/vscode-php-debug/out/phpDebug.js" }
+  args = { vim.fn.stdpath("data") .. "/mason/packages/php-debug-adapter/extension/out/phpDebug.js" }
 }
 
 -- print(os.getenv('HOME') .. "/dapinstall/php/vscode-php-debug/out/phpDebug.js")
@@ -143,8 +135,10 @@ dap.listeners.after["event_initialized"]["manutepowa"] = function()
   dap_ui.open()
 end
 
-
-
-
-
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "dap-repl",
+  callback = function()
+    require("dap.ext.autocompl").attach()
+  end,
+})
 -- require('dap.ext.vscode').load_launchjs()
