@@ -13,7 +13,6 @@ local servers = {
   "tailwindcss",
   "cssls",
   "cssmodules_ls",
-  "diagnosticls",
   "emmet_ls",
   "html",
   "jsonls",
