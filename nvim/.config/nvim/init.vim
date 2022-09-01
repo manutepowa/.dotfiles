@@ -48,7 +48,30 @@ autocmd BufNewFile,BufRead *.theme set syntax=php
 autocmd BufRead,BufNewFile *.mdx set filetype=markdown
 
 " Codi test
-nmap <leader>c :Codi!!
+nnoremap <leader>c :call ToggleCodi()<cr>
+" nnoremap <F8> :Codi!!<cr>
+
+let g:codi#raw = 0
+let g:codi#width = 60
+let g:codi#rightsplit = 1
+let g:codi#rightalign = 0
+let g:codi#virtual_text = 0
+let g:codi#use_buffer_dir = 0
+
+" let g:codi#autocmd = "InsertLeave"
+" let g:codi#virtual_text_prefix = "➡️ "
+function! ToggleCodi()
+    if !exists("b:codi_is_open") || !b:codi_is_open 
+        let b:codi_is_open = 1
+        echo "Starting Codi"
+        execute 'Codi '.&filetype
+    else
+        let b:codi_is_open = 0
+        echo "Stopping Codi"
+        execute 'Codi!'
+    endif
+endfunction
+
 
 " Find files using Telescope command-line sugar.
 " nnoremap <leader>ff <cmd>Telescope find_files<cr>
