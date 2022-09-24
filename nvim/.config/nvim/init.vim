@@ -46,6 +46,7 @@ hi DiffChange guifg=NONE guibg=#63c1e6
 
 autocmd BufNewFile,BufRead *.theme set syntax=php
 autocmd BufRead,BufNewFile *.mdx set filetype=markdown
+autocmd BufRead,BufNewFile *.astro set filetype=astro
 
 " Codi test
 nnoremap <leader>c :call ToggleCodi()<cr>

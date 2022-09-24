@@ -10,6 +10,7 @@ end
 
 local servers = {
   "sumneko_lua",
+  "astro",
   "tailwindcss",
   "cssls",
   "cssmodules_ls",
@@ -68,6 +69,11 @@ for _, server in pairs(servers) do
   if server == "tailwindcss" then
     local tsserver = require("manutepowa.lsp.settings.tailwindcss")
     opts = vim.tbl_deep_extend("force", tsserver, opts)
+  end
+
+  if server == "tsserver" then
+    require("typescript").setup({ server = opts })
+    goto continue
   end
 
   lspconfig[server].setup(opts)

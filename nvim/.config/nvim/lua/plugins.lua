@@ -105,6 +105,7 @@ return require('packer').startup(function(use)
   use "simrat39/symbols-outline.nvim"
   use { "folke/trouble.nvim" }
   use "ray-x/lsp_signature.nvim"
+  use "jose-elias-alvarez/typescript.nvim"
 
   -- snippets
   use 'L3MON4D3/LuaSnip' --snippet engine
