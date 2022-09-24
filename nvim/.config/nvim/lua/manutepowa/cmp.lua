@@ -113,7 +113,7 @@ cmp.setup({
       winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
     },
     completion = {
-      border = "single",
+      border = "rounded",
       winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
     },
   },
@@ -121,13 +121,6 @@ cmp.setup({
     ghost_text = true,
   },
 })
-
---[[ cmp.setup.filetype("dap-repl", { ]]
---[[   sources = cmp.config.sources({ ]]
---[[     { name = "nvim_lsp" }, ]]
---[[     { name = "buffer" }, ]]
---[[   }) ]]
---[[ }) ]]
 
 cmp.setup.cmdline("/", {
   sources = {
