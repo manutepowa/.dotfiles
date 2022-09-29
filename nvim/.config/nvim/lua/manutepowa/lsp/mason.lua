@@ -14,7 +14,6 @@ local servers = {
   "tailwindcss",
   "cssls",
   "cssmodules_ls",
-  "emmet_ls",
   "html",
   "jsonls",
   "prismals",
