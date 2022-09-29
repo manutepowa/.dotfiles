@@ -37,9 +37,9 @@ endif
 
 
 
-hi DiffAdd guifg=NONE guibg=#4b5632
-hi DiffDelete guifg=NONE guibg=#d74f56
-hi DiffChange guifg=NONE guibg=#63c1e6
+" hi DiffAdd guifg=NONE guibg=#4b5632
+" hi DiffDelete guifg=NONE guibg=#d74f56
+" hi DiffChange guifg=NONE guibg=#63c1e6
 
 " Visual selection color
 " hi Visual guifg=#000000 guibg=#FFFFFF gui=none

@@ -1,7 +1,6 @@
 local cb = require('diffview.config').diffview_callback
 
 require('diffview').setup {
-  diff_binaries = false, -- Show diffs for binaries
   enhanced_diff_hl = true, -- See ':h diffview-config-enhanced_diff_hl'
   git_cmd = { "git" },
   use_icons = true, -- Requires nvim-web-devicons
