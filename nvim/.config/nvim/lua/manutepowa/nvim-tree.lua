@@ -17,7 +17,7 @@ local key_bindings = {
   { key = "p", cb = tree_cb("paste") },
   { key = "y", cb = tree_cb("copy_name") },
   { key = "Y", cb = tree_cb("copy_path") },
-  { key = "v", cb = tree_cb("vsplit") },
+  -- { key = "v", cb = tree_cb("vsplit") },
   { key = "s", cb = tree_cb("split") },
   { key = "S", cb = tree_cb("system_open") },
   { key = "a", cb = tree_cb("create") },
