@@ -126,4 +126,6 @@ return require('packer').startup(function(use)
 
   -- Same that RunJS
   use { "metakirby5/codi.vim" }
+
+  use { "moll/vim-bbye" }
 end)

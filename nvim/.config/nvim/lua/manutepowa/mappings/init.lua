@@ -67,7 +67,7 @@ vim.keymap.set("v", '<C-k>', ":MoveBlock(-1)<CR>", { noremap = true, silent = tr
 -- BufferLine
 vim.keymap.set("n", "<A-l>", ":bnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<A-h>", ":bprevious<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<A-c>", "<cmd>bdelete!<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-c>", "<cmd>Bdelete!<CR>", { noremap = true, silent = true })
 
 -- DiffGit
 vim.keymap.set("n", "<leader>dd", ":DiffviewOpen<CR>", { noremap = true, silent = true })
