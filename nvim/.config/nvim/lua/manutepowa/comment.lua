@@ -4,7 +4,10 @@ if not status_ok then
 end
 
 comment.setup {
+  ignore = "^$",
   pre_hook = function(ctx)
+    require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
+
     if vim.bo.filetype == "javascript" or vim.bo.filetype == "typescript" then
       local U = require "Comment.utils"
 
@@ -24,5 +27,5 @@ comment.setup {
         location = location,
       }
     end
-  end,
+  end
 }
