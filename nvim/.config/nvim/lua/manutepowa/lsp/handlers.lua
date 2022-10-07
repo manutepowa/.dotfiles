@@ -46,14 +46,7 @@ end
 
 local function lsp_highlight_document(client)
   -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
-    -- vim.api.nvim_exec([[
-    -- 	augroup lsp_document_highlight
-    -- 		autocmd! * <buffer>
-    -- 		autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-    -- 		autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-    -- 	augroup END
-    -- ]], false)
+  if client.server_capabilities.documentFormattingProvider then
     local status_ok, illuminate = pcall(require, "illuminate")
     if not status_ok then
       return
@@ -61,8 +54,8 @@ local function lsp_highlight_document(client)
     illuminate.on_attach(client)
   end
 
-  if client.resolved_capabilities.document_formatting then
-    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+  if client.server_capabilities.documentFormattingProvider then
+    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
   end
 end
 
@@ -87,7 +80,7 @@ local function lsp_keymaps(bufnr)
   )
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>e", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-  vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting_sync()' ]])
+  vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
 end
 
 --
@@ -112,14 +105,14 @@ end
 
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
   end
   if client.name == "eslint" then
-    client.resolved_capabilities.document_formatting = true
+    client.server_capabilities.documentFormattingProvider = true
   end
   -- print("lsp_on_attach", client.name, client.resolved_capabilities.document_formatting)
   if client.name == "cssls" then
-    client.resolved_capabilities.document_formatting = true
+    client.server_capabilities.documentFormattingProvider = true
   end
 
   lsp_keymaps(bufnr)
