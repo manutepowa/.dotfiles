@@ -40,6 +40,7 @@ require 'manutepowa.packer-info'
 require 'manutepowa.diff_git'
 require 'manutepowa.restclient'
 require 'manutepowa.options'
+require 'manutepowa.dadbod'
 
 -- Simple options
 require 'colorizer'.setup({
