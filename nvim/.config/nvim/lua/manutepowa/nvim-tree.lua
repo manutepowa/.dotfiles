@@ -113,6 +113,10 @@ nvimtree.setup {
     dotfiles = false,
     custom = {},
   },
+  live_filter = {
+    prefix = "[SEARCH]: ",
+    always_show_folders = false,
+  },
   git = {
     enable = true,
     ignore = false,
