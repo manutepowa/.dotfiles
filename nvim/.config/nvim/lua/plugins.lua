@@ -9,6 +9,7 @@ return require('packer').startup(function(use)
     requires = {
       "kristijanhusak/vim-dadbod-ui",
       "kristijanhusak/vim-dadbod-completion",
+      "tpope/vim-dotenv"
     },
     cmd = { "DB", "DBUI", "DBUIToggle", "DBUIAddConnection", "DBUIFindBuffer", "DBUIRenameBuffer", },
   }

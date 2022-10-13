@@ -4,6 +4,12 @@ vim.g.db_ui_force_echo_notifications = 1
 vim.g.db_ui_win_position = 'right'
 vim.g.db_ui_winwidth = 40
 
+vim.g.db_ui_table_helpers = {
+  mongo = {
+    List = "{table}.find()",
+  }
+}
+
 vim.g.db_ui_save_location = "~/db_connections"
 
 vim.g.db_ui_icons = {
