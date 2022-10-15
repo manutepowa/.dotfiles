@@ -81,9 +81,9 @@ cmp.setup({
   },
   sources = {
     { name = "nvim_lsp" },
-    { name = "luasnip" },
     { name = "nvim_lua" },
     { name = "buffer" },
+    { name = "luasnip" },
     { name = "path" }
   },
   sorting = {
@@ -91,16 +91,12 @@ cmp.setup({
     comparators = {
       compare.offset,
       compare.exact,
-      -- compare.scopes,
       compare.score,
       compare.recently_used,
       compare.locality,
-      -- compare.kind,
       compare.sort_text,
       compare.length,
       compare.order,
-      -- require("copilot_cmp.comparators").prioritize,
-      -- require("copilot_cmp.comparators").score,
     },
   },
   confirm_opts = {

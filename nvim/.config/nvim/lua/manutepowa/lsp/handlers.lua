@@ -127,7 +127,7 @@ if not status_ok then
   return
 end
 
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 
 -- vim.cmd [[ command! LspToggleAutoFormat execute 'lua require("manutepowa.lsp.handlers").toggle_format_on_save()' ]]
