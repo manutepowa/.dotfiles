@@ -138,4 +138,14 @@ return require('packer').startup(function(use)
   use { "metakirby5/codi.vim" }
 
   use { "moll/vim-bbye" }
+  use {
+    'jinh0/eyeliner.nvim',
+    config = function()
+      require 'eyeliner'.setup {
+        highlight_on_key = true
+      }
+      vim.api.nvim_set_hl(0, 'EyelinerPrimary', { fg = '#FFFFFF', bold = true, underline = true })
+      vim.api.nvim_set_hl(0, 'EyelinerSecondary', { fg = '#FFFFFF', underline = true })
+    end
+  }
 end)
