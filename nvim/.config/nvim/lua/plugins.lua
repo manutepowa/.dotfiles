@@ -43,7 +43,6 @@ return require('packer').startup(function(use)
   -- Themes
   use 'mhartington/oceanic-next'
   use 'lunarvim/darkplus.nvim'
-  use 'navarasu/onedark.nvim'
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
