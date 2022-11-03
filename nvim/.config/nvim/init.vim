@@ -46,7 +46,7 @@ endif
 
 autocmd BufNewFile,BufRead *.theme set syntax=php
 autocmd BufRead,BufNewFile *.mdx set filetype=markdown
-autocmd BufRead,BufNewFile *.astro set filetype=astro
+" autocmd BufRead,BufNewFile *.astro set filetype=astro
 
 " Codi test
 nnoremap <leader>c :call ToggleCodi()<cr>

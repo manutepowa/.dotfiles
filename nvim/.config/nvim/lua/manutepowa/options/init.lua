@@ -83,3 +83,9 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 vim.cmd [[
   highlight! MatchParen ctermbg=0 guibg=#152f6a
 ]]
+
+vim.filetype.add({
+  extension = {
+    astro = "astro",
+  },
+})
