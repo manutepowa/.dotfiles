@@ -118,20 +118,24 @@ cmp.setup({
   },
 })
 
-cmp.setup.cmdline("/", {
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = "buffer" },
-  },
+    { name = 'buffer' }
+  }
 })
 
-cmp.setup.cmdline(":", {
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
-    { name = "path" },
+    { name = 'path' }
   }, {
-    { name = "cmdline" },
-  }),
+    {
+      name = 'cmdline',
+      option = {}
+    }
+  })
 })
-
 vim.cmd [[
   highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
   highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
