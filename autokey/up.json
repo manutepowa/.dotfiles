@@ -1,11 +1,11 @@
 {
     "type": "script",
-    "description": "paste",
+    "description": "up",
     "store": {},
     "modes": [
         3
     ],
-    "usageCount": 0,
+    "usageCount": 136,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,
@@ -21,7 +21,7 @@
         "modifiers": [
             "<alt>"
         ],
-        "hotKey": "p"
+        "hotKey": "k"
     },
     "filter": {
         "regex": "google-chrome.Google-chrome",
