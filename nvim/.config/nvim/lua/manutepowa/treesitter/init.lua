@@ -10,7 +10,7 @@ require 'nvim-treesitter.configs'.setup {
     enable = true, -- false will disable the whole extension
     disable = function(lang, bufnr) -- Disable in large C++ buffers
       -- disable highlight if file has > 6000 LOC
-      return lang == "css" or vim.api.nvim_buf_line_count(bufnr) > 6000
+      return lang == "css" or vim.api.nvim_buf_line_count(bufnr) > 60000
       -- return lang == "cpp" and vim.api.nvim_buf_line_count(bufnr) > 50000
     end,
     -- disable = { "css" }, -- list of language that will be disabled
