@@ -17,6 +17,7 @@ local servers = {
   "html",
   "jsonls",
   "prismals",
+  "dockerls",
   "tsserver",
   "eslint",
   "intelephense",

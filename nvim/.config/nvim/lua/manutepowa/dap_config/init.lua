@@ -30,7 +30,6 @@ vim.fn.sign_define('DapBreakpoint', { text = '🟥', texthl = '', linehl = '', n
 vim.fn.sign_define('DapBreakpointRejected', { text = '🟦', texthl = '', linehl = '', numhl = '' })
 vim.fn.sign_define('DapStopped', { text = '⭐️', texthl = '', linehl = '', numhl = '' })
 
-
 dap.adapters.php = {
   type = 'executable',
   command = 'node',
