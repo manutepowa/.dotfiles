@@ -1,23 +1,60 @@
-local function map(mode)
-  return function(lhs, rhs, opt)
-    vim.api.nvim_set_keymap(mode, lhs, rhs, opt or {})
-  end
-end
+--[[ local function map(mode) ]]
+--[[   return function(lhs, rhs, opt) ]]
+--[[     vim.api.nvim_set_keymap(mode, lhs, rhs, opt or {}) ]]
+--[[   end ]]
+--[[ end ]]
 
 -- Documentació
 -- * para buscar la palabra seleccionada
 -- gv para seleccionar lo último que seleccionó de nuevo
 -- vit and vat seleccionar bloque completo por fuera o por dentro
 
--- don't use arrow keys
-map('', '<up>', '<nop>', { noremap = true })
-map('', '<down>', '<nop>', { noremap = true })
-map('', '<left>', '<nop>', { noremap = true })
-map('', '<right>', '<nop>', { noremap = true })
+--[[ -- don't use arrow keys ]]
+--[[ map('', '<up>', '<nop>', { noremap = true }) ]]
+--[[ map('', '<down>', '<nop>', { noremap = true }) ]]
+--[[ map('', '<left>', '<nop>', { noremap = true }) ]]
+--[[ map('', '<right>', '<nop>', { noremap = true }) ]]
 
 --[[ local nmap = map('n') ]]
 
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
+
+
+
+vim.keymap.set("v", '<Tab>', '>gv', { noremap = true })
+vim.keymap.set("v", '<S-Tab>', '<gv', { noremap = true })
+vim.keymap.set("n", '<Leader>so', ':so %<cr>', { noremap = true })
+
+
+vim.keymap.set("n", '<Leader>h', ':wincmd h<cr>', { noremap = true })
+vim.keymap.set("n", '<Leader>j', ':wincmd j<cr>', { noremap = true })
+vim.keymap.set("n", '<Leader>k', ':wincmd k<cr>', { noremap = true })
+vim.keymap.set("n", '<Leader>l', ':wincmd l<cr>', { noremap = true })
+vim.keymap.set("n", '<Leader>q', ':wincmd q<cr>', { noremap = true })
+
+-- git
+vim.keymap.set("n", '<Leader>gl', ':Flog<cr>', { noremap = true })
+vim.keymap.set("n", '<Leader>gs', ':Git<cr>', { noremap = true })
+vim.keymap.set("n", '<Leader>gw', ':Gwrite<cr>', { noremap = true })
+vim.keymap.set("n", '<Leader>gc', ':Git commit<cr>', { noremap = true })
+vim.keymap.set("n", '<Leader>gd', ':Gdiffsplit<cr>', { noremap = true })
+vim.keymap.set("n", '<Leader>gpl', ':Git pull<cr>', { noremap = true })
+
+
+vim.cmd [[
+  nmap <Leader>" ysiw"
+  nmap <Leader>' ysiw'
+  nmap <Leader>{ ysiw{
+  nmap <Leader>[ ysiw[
+]]
+
+-- Telescope
+vim.keymap.set("n", '<Leader>fg', ':Telescope live_grep<cr>', { noremap = true })
+vim.keymap.set("n", '<Leader>fh', ':Telescope oldfiles<cr>', { noremap = true })
+vim.keymap.set("n", "<Leader>''", ':Telescope help_tags<cr>', { noremap = true })
+vim.keymap.set("n", '<Leader>fG', ':Telescope grep_string<cr>', { noremap = true })
+vim.keymap.set("n", '<Leader>fb', ':Telescope buffers<cr>', { noremap = true })
+
 
 -- Basic vim
 vim.keymap.set("n", '<A-j>', '5j', { noremap = true })

@@ -72,6 +72,16 @@ vim.cmd([[
 	let g:VM_maps["Add Cursor Up"]   = '<S-M-k>'        
 ]])
 
+-- codi
+vim.cmd([[
+  let g:codi#raw = 0
+  let g:codi#width = 60
+  let g:codi#rightsplit = 1
+  let g:codi#rightalign = 0
+  let g:codi#virtual_text = 0
+  let g:codi#use_buffer_dir = 0
+]])
+
 -- No comment on new line
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
@@ -82,6 +92,8 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 -- Change match colors rainbow
 vim.cmd [[
   highlight! MatchParen ctermbg=0 guibg=#152f6a
+  autocmd BufNewFile,BufRead *.theme set syntax=php
+  autocmd BufRead,BufNewFile *.mdx set filetype=markdown
 ]]
 
 vim.filetype.add({

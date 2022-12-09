@@ -20,9 +20,11 @@ end
 --
 -- impatient.enable_profile()
 
+require 'plugins'
+require 'manutepowa.options'
+require 'manutepowa.mappings'
 require 'manutepowa.theme'
 require 'manutepowa.lualine'
-require 'manutepowa.mappings'
 require 'manutepowa.cmp'
 require 'manutepowa.lsp'
 require 'manutepowa.telescope_config'
@@ -39,7 +41,6 @@ require 'manutepowa.translate'
 require 'manutepowa.packer-info'
 require 'manutepowa.diff_git'
 require 'manutepowa.restclient'
-require 'manutepowa.options'
 require 'manutepowa.dadbod'
 
 -- Simple options
