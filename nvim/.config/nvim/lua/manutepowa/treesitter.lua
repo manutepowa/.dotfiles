@@ -38,3 +38,4 @@ require 'nvim-treesitter.configs'.setup {
     disable = { "xml", "markdown" },
   }
 }
+

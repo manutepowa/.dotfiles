@@ -1,22 +1,3 @@
---[[ local function map(mode) ]]
---[[   return function(lhs, rhs, opt) ]]
---[[     vim.api.nvim_set_keymap(mode, lhs, rhs, opt or {}) ]]
---[[   end ]]
---[[ end ]]
-
--- Documentació
--- * para buscar la palabra seleccionada
--- gv para seleccionar lo último que seleccionó de nuevo
--- vit and vat seleccionar bloque completo por fuera o por dentro
-
---[[ -- don't use arrow keys ]]
---[[ map('', '<up>', '<nop>', { noremap = true }) ]]
---[[ map('', '<down>', '<nop>', { noremap = true }) ]]
---[[ map('', '<left>', '<nop>', { noremap = true }) ]]
---[[ map('', '<right>', '<nop>', { noremap = true }) ]]
-
---[[ local nmap = map('n') ]]
-
 vim.g.mapleader = " "
 
 
