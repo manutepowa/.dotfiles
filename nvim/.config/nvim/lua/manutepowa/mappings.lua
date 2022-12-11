@@ -95,7 +95,7 @@ vim.keymap.set("n", "<leader>df", ":DiffviewFileHistory %<CR>", { noremap = true
 vim.keymap.set("n", "gq", ":tabclose<CR>", { noremap = true })
 
 -- Markdown viewer
-vim.keymap.set("n", "<leader>m", ":Glow<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>m", ":MarkdownPreview<CR>", { noremap = true, silent = true })
 
 -- Codi inspector | Same that RunJS
 -- vim.keymap.set("n","<leader>c", ":Codi!!<CR>", { noremap = true, silent = true })

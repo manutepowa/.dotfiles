@@ -63,14 +63,15 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 
 -- MultiCursor
-vim.cmd([[
-	let g:VM_maps = {}
-	let g:VM_maps['Exit']         = '<esc>'           
-	let g:VM_maps['Find Under']         = '<S-M-n>'           
-	let g:VM_maps['Find Subword Under'] = '<S-M-n>'           
-	let g:VM_maps["Add Cursor Down"] = '<S-M-j>'      
-	let g:VM_maps["Add Cursor Up"]   = '<S-M-k>'        
-]])
+vim.g.VM_maps = {
+  ['Exit']               = '<esc>',
+  ['Find Under']         = '<S-M-n>',
+  ['Find Subword Under'] = '<S-M-n>',
+  ['Add Cursor Down']    = '<S-M-j>',
+  ['Add Cursor Up']      = '<S-M-k>',
+  ['Select All']         = '<M-n>',
+  ['Visual All']         = '<M-n>'
+}
 
 -- codi
 vim.cmd([[
