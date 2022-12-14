@@ -19,7 +19,7 @@ end
 -- end
 --
 -- impatient.enable_profile()
-
+require("impatient")
 require 'plugins'
 require 'manutepowa.options'
 require 'manutepowa.mappings'
