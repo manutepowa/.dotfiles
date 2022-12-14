@@ -152,4 +152,7 @@ return require('packer').startup(function(use)
       vim.api.nvim_set_hl(0, 'EyelinerSecondary', { fg = '#FFFFFF', underline = true })
     end
   }
+
+  -- Kitty highlight
+  use 'fladson/vim-kitty'
 end)
