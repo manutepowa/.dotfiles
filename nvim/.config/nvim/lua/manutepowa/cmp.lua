@@ -38,7 +38,7 @@ cmp.setup({
     end
   },
   enabled = function()
-    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or vim.g.cmp_active or cmp_dap.is_dap_buffer()
+    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or cmp_dap.is_dap_buffer()
   end,
   preselect = cmp.PreselectMode.None,
   mapping = cmp.mapping.preset.insert {
@@ -109,6 +109,14 @@ cmp.setup({
   },
   experimental = {
     ghost_text = true,
+  },
+})
+
+cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+  sources = {
+    { name = "nvim_lsp" },
+    { name = "buffer" },
+    { name = "dap" },
   },
 })
 

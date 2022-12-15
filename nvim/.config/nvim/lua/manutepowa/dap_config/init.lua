@@ -1,4 +1,5 @@
 local dap = require "dap"
+local icons = require "manutepowa.icons"
 
 -- Enable DAP virtual text
 require("nvim-dap-virtual-text").setup {
@@ -38,6 +39,7 @@ dap.defaults.fallback.terminal_win_cmd = '80vsplit new'
 vim.fn.sign_define('DapBreakpoint', { text = '🟥', texthl = '', linehl = '', numhl = '' })
 vim.fn.sign_define('DapBreakpointRejected', { text = '🟦', texthl = '', linehl = '', numhl = '' })
 vim.fn.sign_define('DapStopped', { text = '⭐️', texthl = '', linehl = '', numhl = '' })
+vim.fn.sign_define("DapLogPoint", { text = icons.dap.LogPoint, texthl = "DapLogPoint", linehl = "", numhl = "" })
 
 dap.adapters.php = {
   type = 'executable',
@@ -89,7 +91,8 @@ dap.configurations.javascript = {
 
 local dap_ui = require "dapui"
 dap_ui.setup({
-  icons = { expanded = "▾", collapsed = "▸" },
+  -- icons = { expanded = "▾", collapsed = "▸" },
+  icons = { expanded = icons.ui.ArrowOpen, collapsed = icons.ui.ArrowClosed, current_frame = icons.ui.Indicator },
   mappings = {
     -- Use a table to apply multiple mappings
     expand = { "<TAB>", "<2-LeftMouse>" },
@@ -97,6 +100,22 @@ dap_ui.setup({
     remove = "d",
     edit = "e",
     repl = "r",
+  },
+  controls = {
+    -- Requires Neovim nightly (or 0.8 when released)
+    enabled = false,
+    -- Display controls in this element
+    element = "repl",
+    icons = {
+      pause = icons.dap.Pause,
+      play = icons.dap.Play,
+      step_into = icons.dap.StepInto,
+      step_over = icons.dap.StepOver,
+      step_out = icons.dap.StepOut,
+      step_back = icons.dap.StepBack,
+      run_last = icons.dap.RunLast,
+      terminate = icons.dap.Terminate,
+    },
   },
   layouts = {
     {
@@ -143,10 +162,11 @@ dap.listeners.after["event_initialized"]["manutepowa"] = function()
   dap_ui.open()
 end
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "dap-repl",
-  callback = function()
-    require("dap.ext.autocompl").attach()
-  end,
-})
--- require('dap.ext.vscode').load_launchjs()
+-- local lsp_group = vim.api.nvim_create_augroup("lsp", { clear = true })
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "dap-repl",
+--   callback = function()
+--     require("dap.ext.autocompl").attach()
+--   end,
+--   group = lsp_group,
+-- })
