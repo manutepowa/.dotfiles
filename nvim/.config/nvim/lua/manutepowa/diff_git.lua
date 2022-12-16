@@ -31,15 +31,18 @@ require('diffview').setup {
   },
   file_history_panel = {
     log_options = {
-      single_file = {
-        max_count = 256, -- Limit the number of commits
-        follow = false, -- Follow renames (only for single file)
-        diff_merges = "combined",
+      git = {
+        single_file = {
+          diff_merges = "combined",
+        },
+        multi_file = {
+          diff_merges = "first-parent",
+        },
       },
-      multi_file = {
-        max_count = 256, -- Limit the number of commits
-        diff_merges = "first-parent",
-      }
+      hg = {
+        single_file = {},
+        multi_file = {},
+      },
     },
   },
   default_args = { -- Default args prepended to the arg-list for the listed commands
