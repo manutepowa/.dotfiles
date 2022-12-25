@@ -21,7 +21,7 @@ require("rest-nvim").setup({
     show_headers = true,
   },
   -- Jump to request line on run
-  jump_to_request = false,
+  jump_to_request = true,
   env_file = '.env',
   custom_dynamic_variables = {},
   yank_dry_run = true,
