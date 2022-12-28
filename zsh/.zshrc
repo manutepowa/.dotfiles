@@ -111,6 +111,7 @@ source $ZSH/oh-my-zsh.sh
 alias m3ssh="cd /home/manuel/Desarrollo/m3ssh/ && ./m3ssh.sh"
 alias devtest="cd /home/manuel/Desarrollo/devtest"
 alias v="nvim"
+alias genpass='f() { cat /dev/urandom | strings | grep -Eoa "[a-zA-Z0-9@$%&_]*" | head -n 10  | tr -d "\n" | cut -c1-$1 };f'
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
