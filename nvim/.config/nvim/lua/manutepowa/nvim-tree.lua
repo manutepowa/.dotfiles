@@ -34,11 +34,12 @@ local key_bindings = {
   { key = "I", cb = tree_cb("toggle_ignored") },
   { key = "-", cb = tree_cb("dir_up") },
   { key = "<A-w>", cb = tree_cb("collapse_all") },
+  { key = "e", action = "" },
 }
 
 nvimtree.setup {
-  disable_netrw = true,
-  hijack_netrw = true,
+  disable_netrw = false,
+  hijack_netrw = false,
   open_on_setup = false,
   ignore_ft_on_setup = {},
   open_on_tab = false,
@@ -88,7 +89,7 @@ nvimtree.setup {
     },
   },
   hijack_directories = {
-    enable = true,
+    enable = false,
     auto_open = true,
   },
   diagnostics = {
