@@ -75,6 +75,15 @@ for _, server in pairs(servers) do
   --   require("typescript").setup({ server = opts })
   --   goto continue
   -- end
+  if server == "jsonls" then
+    lspconfig.jsonls.setup {
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+        },
+      },
+    }
+  end
 
   lspconfig[server].setup(opts)
   -- ::continue::

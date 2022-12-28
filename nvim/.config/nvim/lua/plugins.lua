@@ -116,6 +116,7 @@ return require('packer').startup(function(use)
   use { "folke/trouble.nvim" }
   use "ray-x/lsp_signature.nvim"
   use "jose-elias-alvarez/typescript.nvim"
+  use "b0o/schemastore.nvim"
 
   -- snippets
   use 'L3MON4D3/LuaSnip' --snippet engine
