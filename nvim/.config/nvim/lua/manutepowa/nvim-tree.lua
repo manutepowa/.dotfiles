@@ -3,6 +3,26 @@ if not present then
   return
 end
 
+function FindFiles()
+  local node = require("nvim-tree.lib").get_node_at_cursor()
+  local abspath = node.link_to or node.absolute_path
+  local is_folder = node.open ~= nil
+  local basedir = is_folder and abspath or vim.fn.fnamemodify(abspath, ":h")
+  require("telescope.builtin").find_files({
+    cwd = basedir,
+  })
+end
+
+function GrepFiles()
+  local node = require("nvim-tree.lib").get_node_at_cursor()
+  local abspath = node.link_to or node.absolute_path
+  local is_folder = node.open ~= nil
+  local basedir = is_folder and abspath or vim.fn.fnamemodify(abspath, ":h")
+  require("telescope.builtin").live_grep({
+    cwd = basedir,
+  })
+end
+
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 local key_bindings = {
   { key = "<CR>", cb = tree_cb("preview") },
@@ -35,6 +55,9 @@ local key_bindings = {
   { key = "-", cb = tree_cb("dir_up") },
   { key = "<A-w>", cb = tree_cb("collapse_all") },
   { key = "e", action = "" },
+  { key = "f", action = "" },
+  { key = "ff", action = "FindFiles", action_cb = FindFiles },
+  { key = "fg", action = "GrepFiles", action_cb = GrepFiles }
 }
 
 nvimtree.setup {

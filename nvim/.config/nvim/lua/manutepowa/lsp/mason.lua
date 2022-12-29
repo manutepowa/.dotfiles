@@ -80,6 +80,7 @@ for _, server in pairs(servers) do
       settings = {
         json = {
           schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
         },
       },
     }
