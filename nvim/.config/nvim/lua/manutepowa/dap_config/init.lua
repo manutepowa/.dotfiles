@@ -98,7 +98,7 @@ dap_ui.setup({
     expand = { "<TAB>", "<2-LeftMouse>" },
     open = "o",
     remove = "d",
-    edit = "e",
+    edit = "asdf",
     repl = "r",
   },
   controls = {
