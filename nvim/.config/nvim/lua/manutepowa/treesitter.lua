@@ -20,22 +20,23 @@ require 'nvim-treesitter.configs'.setup {
     enable = true,
   },
   indent = { enable = true, disable = { "python", "css" } },
-  rainbow = {
-    enable = true,
-    colors = {
-      "Gold",
-      "DodgerBlue",
-      "Cornsilk",
-      "Salmon",
-      "LawnGreen",
-    },
-    disable = { "html" },
-    extended_mode = false, -- Highlight also non-parentheses delimiters
-    max_file_lines = nil,
-  },
+
+  -- rainbow = { // --> This modules is deprecated, find a new one
+  --   enable = true,
+  --   colors = {
+  --     "Gold",
+  --     "DodgerBlue",
+  --     "Cornsilk",
+  --     "Salmon",
+  --     "LawnGreen",
+  --   },
+  --   disable = { "html" },
+  --   extended_mode = false, -- Highlight also non-parentheses delimiters
+  --   max_file_lines = nil,
+  -- },
+
   autotag = {
     enable = true,
     disable = { "xml", "markdown" },
   }
 }
-

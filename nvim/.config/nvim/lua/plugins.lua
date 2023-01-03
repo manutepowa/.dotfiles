@@ -28,7 +28,10 @@ return require('packer').startup(function(use)
 
   --[[ use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', commit = '4cccb6f494eb255b32a290d37c35ca12584c74d0' } ]]
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use { 'p00f/nvim-ts-rainbow' }
+
+  -- --> This modules is deprecated, find a new one
+  -- use { 'p00f/nvim-ts-rainbow' }
+
   use { 'windwp/nvim-ts-autotag' }
   use { 'windwp/nvim-autopairs' }
   use { 'pantharshit00/vim-prisma' }

@@ -24,6 +24,7 @@ local servers = {
   "phpactor",
   "yamlls",
   "rust_analyzer",
+  "svelte"
 }
 
 local settings = {
