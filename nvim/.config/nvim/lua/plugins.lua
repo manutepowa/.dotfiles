@@ -82,7 +82,7 @@ return require('packer').startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim'
   -- use 'sheerun/vim-polyglot' -- A collection of language packs for Vim
   use 'tpope/vim-surround' -- Surrounding ysw)
-  use 'kyazdani42/nvim-tree.lua'
+  use 'nvim-tree/nvim-tree.lua'
   use 'fedepujol/move.nvim'
   use 'norcalli/nvim-colorizer.lua'
   use 'ryanoasis/vim-devicons' -- Developer Icons
