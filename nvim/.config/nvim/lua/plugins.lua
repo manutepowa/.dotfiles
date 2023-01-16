@@ -89,7 +89,6 @@ return require('packer').startup(function(use)
     },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
-  use 'fedepujol/move.nvim'
   use 'norcalli/nvim-colorizer.lua'
   use 'ryanoasis/vim-devicons' -- Developer Icons
   use({
