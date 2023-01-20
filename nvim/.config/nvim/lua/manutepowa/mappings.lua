@@ -53,6 +53,10 @@ vim.keymap.set("n", 'd', '"_d', { noremap = true })
 vim.keymap.set("x", 'd', '"_d', { noremap = true })
 vim.keymap.set("x", 'p', '"_dP', { noremap = true })
 
+-- Remove word
+vim.keymap.set("n", 'dw', 'dwi', { noremap = true })
+vim.keymap.set("n", 'diw', 'diwi', { noremap = true })
+
 -- Apaño para que no vuelva al inicio (autoindent)
 vim.keymap.set("i", '<CR>', '<CR>x<BS>')
 vim.keymap.set("n", 'o', 'ox<BS>')
