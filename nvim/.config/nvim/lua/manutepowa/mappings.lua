@@ -51,7 +51,7 @@ vim.keymap.set("i", '<A-BS>', '<c-w>', { noremap = true })
 -- Copy and paste without clipboard
 vim.keymap.set("n", 'd', '"_d', { noremap = true })
 vim.keymap.set("x", 'd', '"_d', { noremap = true })
-vim.keymap.set("x", 'p', '"_dP', { noremap = true })
+vim.keymap.set("x", 'p', [["_dP]])
 
 -- Remove word
 vim.keymap.set("n", 'dw', 'dwi', { noremap = true })
