@@ -44,7 +44,7 @@ return require('packer').startup(function(use)
 
   use { 'windwp/nvim-ts-autotag' }
   use { 'windwp/nvim-autopairs' }
-  use { 'pantharshit00/vim-prisma' }
+  -- use { 'pantharshit00/vim-prisma' }
 
   use { 'uga-rosa/translate.nvim' }
 
@@ -132,6 +132,7 @@ return require('packer').startup(function(use)
   use "filipdutescu/renamer.nvim"
   use "simrat39/symbols-outline.nvim"
   use { "folke/trouble.nvim" }
+
   use "ray-x/lsp_signature.nvim"
   use "jose-elias-alvarez/typescript.nvim"
   use "b0o/schemastore.nvim"
@@ -143,7 +144,8 @@ return require('packer').startup(function(use)
   -- DAP
   use "mfussenegger/nvim-dap"
   use "theHamsta/nvim-dap-virtual-text"
-  use "rcarriga/nvim-dap-ui"
+  -- use "rcarriga/nvim-dap-ui"
+  use { "rcarriga/nvim-dap-ui", commit = "b80227ea56a48177786904f6322abc8b2dc0bc36" }
   use "Pocco81/DAPInstall.nvim"
 
   use { "NTBBloodbath/rest.nvim", requires = { "nvim-lua/plenary.nvim" } }
