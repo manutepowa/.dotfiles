@@ -65,6 +65,7 @@ vim.keymap.set("n", 'O', 'Ox<BS>')
 -- Not select after line character
 vim.keymap.set("v", '$', '$h')
 vim.keymap.set("n", '0', '^')
+vim.keymap.set("v", '0', '^')
 
 -- Move right when open autopairs
 vim.keymap.set("i", '<A-l>', '<Right>')
