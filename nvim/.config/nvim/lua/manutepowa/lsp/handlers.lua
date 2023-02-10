@@ -5,39 +5,39 @@ M.setup = function()
   local icons = require "manutepowa.icons"
   local signs = {
 
-    { name = "DiagnosticSignError", text = icons.diagnostics.Error },
-    { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
-    { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
-    { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
+      { name = "DiagnosticSignError", text = icons.diagnostics.Error },
+      { name = "DiagnosticSignWarn",  text = icons.diagnostics.Warning },
+      { name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
+      { name = "DiagnosticSignInfo",  text = icons.diagnostics.Information },
   }
   for _, sign in ipairs(signs) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
   end
 
   local config = {
-    virtual_text = true,
-    -- show signs
-    signs = {
-      active = signs,
-    },
-    update_in_insert = true,
-    underline = true,
-    severity_sort = true,
-    float = {
-      focusable = false,
-      border = "rounded",
-      -- border = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-      source = "always",
-      header = "",
-      prefix = "",
-    },
+      virtual_text = true,
+      -- show signs
+      signs = {
+          active = signs,
+      },
+      update_in_insert = true,
+      underline = true,
+      severity_sort = true,
+      float = {
+          focusable = false,
+          border = "rounded",
+          -- border = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+          source = "always",
+          header = "",
+          prefix = "",
+      },
   }
 
   vim.diagnostic.config(config)
 
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
-  })
+          border = "rounded",
+      })
   --
   -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
   --   border = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
@@ -70,13 +70,14 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   vim.api.nvim_buf_set_keymap(
-    bufnr,
-    "n",
-    "<S-l>",
-    '<cmd>lua vim.diagnostic.open_float()<CR>',
-    opts
+      bufnr,
+      "n",
+      "<S-l>",
+      '<cmd>lua vim.diagnostic.open_float()<CR>',
+      opts
   )
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>e", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
