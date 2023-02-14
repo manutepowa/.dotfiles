@@ -9,7 +9,7 @@ if not status_ok_1 then
 end
 
 local servers = {
-    "sumneko_lua",
+    "lua_ls",
     "astro",
     "tailwindcss",
     "cssls",
@@ -61,8 +61,8 @@ for _, server in pairs(servers) do
 
   server = vim.split(server, "@")[1]
 
-  if server == "sumneko_lua" then
-    local sumneko_opts = require("manutepowa.lsp.settings.sumneko_lua")
+  if server == "lua_ls" then
+    local sumneko_opts = require("manutepowa.lsp.settings.lua_ls")
     opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
   end
 
