@@ -1,8 +1,8 @@
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
     vim.cmd [[packadd packer.nvim]]
     return true
   end
@@ -145,7 +145,7 @@ return require('packer').startup(function(use)
   use "mfussenegger/nvim-dap"
   use "theHamsta/nvim-dap-virtual-text"
   -- use "rcarriga/nvim-dap-ui"
-  use { "rcarriga/nvim-dap-ui", commit = "b80227ea56a48177786904f6322abc8b2dc0bc36" }
+  use { "rcarriga/nvim-dap-ui" }
   use "Pocco81/DAPInstall.nvim"
 
   use { "NTBBloodbath/rest.nvim", requires = { "nvim-lua/plenary.nvim" } }
