@@ -38,19 +38,16 @@ return require('packer').startup(function(use)
 
   --[[ use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', commit = '4cccb6f494eb255b32a290d37c35ca12584c74d0' } ]]
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'nvim-treesitter/nvim-treesitter-context' }
 
-  -- --> This modules is deprecated, find a new one
-  -- use { 'p00f/nvim-ts-rainbow' }
 
   use { 'windwp/nvim-ts-autotag' }
   use { 'windwp/nvim-autopairs' }
-  -- use { 'pantharshit00/vim-prisma' }
 
   use { 'uga-rosa/translate.nvim' }
 
   -- Vim fugitive
   use 'tpope/vim-fugitive'
-  -- use 'rbong/vim-flog' -- Cambiar por el de abajo cuando mergeen
   use 'AchmadFathoni/vim-flog'
   use 'rhysd/git-messenger.vim'
 
@@ -73,7 +70,6 @@ return require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
 
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-  -- use 'mhinz/vim-signify'
 
   -- PHP
   use 'lumiliet/vim-twig'
@@ -88,16 +84,14 @@ return require('packer').startup(function(use)
   use 'wellle/targets.vim'
 
   use 'antoinemadec/FixCursorHold.nvim'
-  -- use 'mattn/emmet-vim'
   use 'lukas-reineke/indent-blankline.nvim'
-  -- use 'sheerun/vim-polyglot' -- A collection of language packs for Vim
   use 'tpope/vim-surround' -- Surrounding ysw)
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
       'nvim-tree/nvim-web-devicons', -- optional, for file icons
     },
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    tag = 'nightly'                  -- optional, updated every week. (see issue #1193)
   }
   use 'norcalli/nvim-colorizer.lua'
   use 'ryanoasis/vim-devicons' -- Developer Icons
@@ -110,10 +104,10 @@ return require('packer').startup(function(use)
 
 
   -- cmp plugins
-  use 'hrsh7th/nvim-cmp' -- The completion plugin
-  use 'hrsh7th/cmp-buffer' -- buffer completions
-  use 'hrsh7th/cmp-path' -- path completions
-  use 'hrsh7th/cmp-cmdline' -- cmdline completions
+  use 'hrsh7th/nvim-cmp'         -- The completion plugin
+  use 'hrsh7th/cmp-buffer'       -- buffer completions
+  use 'hrsh7th/cmp-path'         -- path completions
+  use 'hrsh7th/cmp-cmdline'      -- cmdline completions
   use 'saadparwaiz1/cmp_luasnip' -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
@@ -124,10 +118,9 @@ return require('packer').startup(function(use)
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
-  --[[ use "williamboman/nvim-lsp-installer" -- simple to use language server installer ]]
   use "williamboman/mason.nvim"
   use "williamboman/mason-lspconfig.nvim"
-  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+  use "tamago324/nlsp-settings.nvim"    -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use "filipdutescu/renamer.nvim"
   use "simrat39/symbols-outline.nvim"
@@ -138,13 +131,12 @@ return require('packer').startup(function(use)
   use "b0o/schemastore.nvim"
 
   -- snippets
-  use 'L3MON4D3/LuaSnip' --snippet engine
+  use 'L3MON4D3/LuaSnip'             --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- DAP
   use "mfussenegger/nvim-dap"
   use "theHamsta/nvim-dap-virtual-text"
-  -- use "rcarriga/nvim-dap-ui"
   use { "rcarriga/nvim-dap-ui" }
   use "Pocco81/DAPInstall.nvim"
 

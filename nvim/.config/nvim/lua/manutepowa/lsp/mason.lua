@@ -9,41 +9,41 @@ if not status_ok_1 then
 end
 
 local servers = {
-    "lua_ls",
-    "astro",
-    "tailwindcss",
-    "cssls",
-    "cssmodules_ls",
-    "html",
-    "jsonls",
-    "prismals",
-    "dockerls",
-    "tsserver",
-    "eslint",
-    "intelephense",
-    "phpactor",
-    "yamlls",
-    "rust_analyzer",
-    "svelte"
+  "lua_ls",
+  "astro",
+  "tailwindcss",
+  "cssls",
+  "cssmodules_ls",
+  "html",
+  "jsonls",
+  "prismals",
+  "dockerls",
+  "tsserver",
+  "eslint",
+  "intelephense",
+  "phpactor",
+  "yamlls",
+  "rust_analyzer",
+  "svelte"
 }
 
 local settings = {
-    ui = {
-        border = "rounded",
-        icons = {
-            package_installed = "◍",
-            package_pending = "◍",
-            package_uninstalled = "◍",
-        },
+  ui = {
+    border = "rounded",
+    icons = {
+      package_installed = "◍",
+      package_pending = "◍",
+      package_uninstalled = "◍",
     },
-    log_level = vim.log.levels.INFO,
-    max_concurrent_installers = 4,
+  },
+  log_level = vim.log.levels.INFO,
+  max_concurrent_installers = 4,
 }
 
 mason.setup(settings)
 mason_lspconfig.setup {
-    ensure_installed = servers,
-    automatic_installation = true,
+  ensure_installed = servers,
+  automatic_installation = true,
 }
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
@@ -55,8 +55,8 @@ local opts = {}
 
 for _, server in pairs(servers) do
   opts = {
-      on_attach = require("manutepowa.lsp.handlers").on_attach,
-      capabilities = require("manutepowa.lsp.handlers").capabilities,
+    on_attach = require("manutepowa.lsp.handlers").on_attach,
+    capabilities = require("manutepowa.lsp.handlers").capabilities,
   }
 
   server = vim.split(server, "@")[1]
@@ -71,18 +71,18 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", tsserver, opts)
   end
 
-  if server == "tsserver" then
-    require("typescript").setup({ server = opts })
-  end
+  -- if server == "tsserver" then
+  --   require("typescript").setup({ server = opts })
+  -- end
 
   if server == "jsonls" then
     lspconfig.jsonls.setup {
-        settings = {
-            json = {
-                schemas = require("schemastore").json.schemas(),
-                validate = { enable = true },
-            },
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
         },
+      },
     }
   end
 

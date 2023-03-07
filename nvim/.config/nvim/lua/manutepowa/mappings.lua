@@ -104,3 +104,8 @@ vim.keymap.set("n", "<leader>m", ":MarkdownPreview<CR>", { noremap = true, silen
 -- vim.keymap.set("n","<leader>c", ":Codi!!<CR>", { noremap = true, silent = true })
 vim.keymap.set('c', '<A-j>', '<DOWN>', { noremap = true, silent = true })
 vim.keymap.set('c', '<A-k>', '<UP>', { noremap = true, silent = true })
+
+
+-- LuaSnip
+vim.cmd([[imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>']])
+vim.cmd([[smap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>']])
