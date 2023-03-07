@@ -35,6 +35,7 @@ return require('packer').startup(function(use)
       { 'kyazdani42/nvim-web-devicons' }
     }
   }
+  use { "ahmedkhalf/project.nvim" }
 
   --[[ use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', commit = '4cccb6f494eb255b32a290d37c35ca12584c74d0' } ]]
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
