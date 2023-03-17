@@ -6,4 +6,5 @@
 require "manutepowa.lsp.lsp_signature"
 require "manutepowa.lsp.mason"
 require("manutepowa.lsp.handlers").setup()
+require "manutepowa.lsp.saga"
 -- require "manutepowa.lsp.null-ls"
