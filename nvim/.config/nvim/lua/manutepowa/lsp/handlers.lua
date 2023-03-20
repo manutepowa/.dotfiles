@@ -39,11 +39,11 @@ M.setup = function()
     border = "rounded",
   })
   --
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-    vim.lsp.handlers.signature_help, {
-      border = "single"
-    }
-  )
+  -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+  --   vim.lsp.handlers.signature_help, {
+  --     border = "single"
+  --   }
+  -- )
 end
 
 local function lsp_highlight_document(client)
@@ -65,25 +65,24 @@ local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
 
   -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gt", "<cmd>Lspsaga peek_type_definition<CR>", opts)
-  --[[ vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>Telescope lsp_declarations<CR>", opts) ]]
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(
-    bufnr,
+  vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
+  vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { buffer = 0 })
+  vim.keymap.set("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>", { buffer = 0 })
+  --[[ vim.keymap.set("n", "gD", "<cmd>Telescope lsp_declarations<CR>", opts) ]]
+  vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", { buffer = 0 })
+  vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", { buffer = 0 })
+  -- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { buffer = 0 })
+  vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { buffer = 0 })
+  vim.keymap.set("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", { buffer = 0 })
+  vim.keymap.set("n", "[d", '<cmd>lua vim.diagnostic.goto_prev()<CR>', { buffer = 0 })
+  vim.keymap.set(
     "n",
     "<S-l>",
     '<cmd>lua vim.diagnostic.open_float()<CR>',
-    opts
+    { buffer = 0 }
   )
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>e", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+  vim.keymap.set("n", "]d", '<cmd>lua vim.diagnostic.goto_next()<CR>', { buffer = 0 })
+  vim.keymap.set("n", "<leader>e", "<cmd>lua vim.diagnostic.setloclist()<CR>", { buffer = 0 })
   vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
 end
 
@@ -121,6 +120,10 @@ M.on_attach = function(client, bufnr)
 
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
+
+  if client.name == "intelephense" then
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+  end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
