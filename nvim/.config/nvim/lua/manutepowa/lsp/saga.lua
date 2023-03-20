@@ -26,4 +26,11 @@ saga.setup {
     border = 'rounded',
   },
   request_timeout = 2000,
+  definition = {
+    edit = '<A-CR>',
+    vsplit = '<C-c>v',
+    split = '<C-c>i',
+    tabe = '<C-c>t',
+    quit = 'q',
+  },
 }
