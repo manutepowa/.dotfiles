@@ -61,8 +61,12 @@ local function lsp_highlight_document(client)
   end
 end
 
-local function lsp_keymaps(bufnr)
-  local opts = { noremap = true, silent = true }
+local function lsp_keymaps(clientName)
+  if clientName == "intelephense" or clientName == "phpactor" then
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+  else
+    vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { buffer = 0 })
+  end
 
   -- Enable completion triggered by <c-x><c-o>
   vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
@@ -72,7 +76,7 @@ local function lsp_keymaps(bufnr)
   vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", { buffer = 0 })
   vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", { buffer = 0 })
   -- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { buffer = 0 })
-  vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { buffer = 0 })
+
   vim.keymap.set("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", { buffer = 0 })
   vim.keymap.set("n", "[d", '<cmd>lua vim.diagnostic.goto_prev()<CR>', { buffer = 0 })
   vim.keymap.set(
@@ -118,12 +122,8 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = true
   end
 
-  lsp_keymaps(bufnr)
+  lsp_keymaps(client.name)
   lsp_highlight_document(client)
-
-  if client.name == "intelephense" then
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
-  end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
