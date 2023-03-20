@@ -20,7 +20,6 @@ local servers = {
   "dockerls",
   "tsserver",
   "eslint",
-  "intelephense",
   "phpactor",
   "yamlls",
   "rust_analyzer",
