@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 
 vim.keymap.set("v", '<Tab>', '>gv', { noremap = true })
 vim.keymap.set("v", '<S-Tab>', '<gv', { noremap = true })
-vim.keymap.set("n", '<Leader>so', ':so %<cr>', { noremap = true })
+vim.keymap.set("n", '<Leader>so', ':luafile %<CR>', { noremap = true })
 
 
 vim.keymap.set("n", '<Leader>h', ':wincmd h<cr>', { noremap = true })
