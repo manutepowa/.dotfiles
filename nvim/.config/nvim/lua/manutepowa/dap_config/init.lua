@@ -161,3 +161,26 @@ dap_ui.setup({
 dap.listeners.after["event_initialized"]["manutepowa"] = function()
   dap_ui.open()
 end
+
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+  pattern = { 'dap-repl' },
+  callback = function(t)
+    -- vim.api.nvim_buf_set_keymap(t.buf, 'i', '<C-h>', [[<C-\><C-n><C-W><C-h>]], { noremap = true })
+    -- vim.api.nvim_buf_set_keymap(t.buf, 'i', '<C-\\>', [[<C-\><C-n>]], { noremap = true })
+    -- vim.api.nvim_buf_set_keymap(t.buf, 'i', '<C-j>', [[<C-\><C-n><C-W><C-j>]], { noremap = true })
+    -- vim.api.nvim_buf_set_keymap(t.buf, 'i', '<C-k>', [[<C-\><C-n><C-W><C-k>]], { noremap = true })
+    vim.api.nvim_buf_set_keymap(t.buf, 'i', '<A-BS>', '<cmd>normal vbd<cr>', { noremap = true })
+
+    vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+      buffer = t.buf,
+      command = 'startinsert!'
+    })
+  end
+})
+vim.api.nvim_create_autocmd("FileType", {
+  -- hide repl buffer
+  pattern = "dap-repl",
+  callback = function(args)
+    vim.api.nvim_buf_set_option(args.buf, "buflisted", false)
+  end,
+})

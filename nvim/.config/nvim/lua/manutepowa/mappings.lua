@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
-
+vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { desc = "Organize Imports" })
 
 vim.keymap.set("v", '<Tab>', '>gv', { noremap = true })
 vim.keymap.set("v", '<S-Tab>', '<gv', { noremap = true })

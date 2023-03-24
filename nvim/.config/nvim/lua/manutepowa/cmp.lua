@@ -112,38 +112,7 @@ cmp.setup({
   },
 })
 
--- cmp.setup.filetype({ 'dap-repl' }, {
---   enabled = function()
---     return cmp_dap.is_dap_buffer()
---   end,
---   sources = {
---     { name = 'dap' },
---     { name = 'path' },
---   }
--- })
-vim.api.nvim_create_autocmd({ 'FileType' }, {
-  pattern = { 'dap-repl' },
-  callback = function(t)
-    -- vim.api.nvim_buf_set_keymap(t.buf, 'i', '<C-h>', [[<C-\><C-n><C-W><C-h>]], { noremap = true })
-    -- vim.api.nvim_buf_set_keymap(t.buf, 'i', '<C-\\>', [[<C-\><C-n>]], { noremap = true })
-    -- vim.api.nvim_buf_set_keymap(t.buf, 'i', '<C-j>', [[<C-\><C-n><C-W><C-j>]], { noremap = true })
-    -- vim.api.nvim_buf_set_keymap(t.buf, 'i', '<C-k>', [[<C-\><C-n><C-W><C-k>]], { noremap = true })
-    vim.api.nvim_buf_set_keymap(t.buf, 'i', '<A-BS>', '<cmd>normal vbd<cr>', { noremap = true })
 
-    vim.api.nvim_create_autocmd({ 'BufEnter' }, {
-      buffer = t.buf,
-      command = 'startinsert!'
-    })
-  end
-})
--- local lsp_group = vim.api.nvim_create_augroup("lsp", { clear = true })
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "dap-repl",
---   callback = function()
---     require("dap.ext.autocompl").attach()
---   end,
---   group = lsp_group,
--- })
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {

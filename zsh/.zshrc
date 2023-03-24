@@ -4,6 +4,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+## nnn config
+export EDITOR="nvim"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -75,6 +78,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
+    z
     zsh-autosuggestions
     zsh-syntax-highlighting
     docker
@@ -113,6 +117,7 @@ alias devtest="cd /home/manuel/Desarrollo/devtest"
 alias v="nvim"
 alias genpass='f() { cat /dev/urandom | strings | grep -Eoa "[a-zA-Z0-9@$%&_]*" | head -n 10  | tr -d "\n" | cut -c1-$1 };f'
 alias cat='bat --style=plain'
+alias ls="nnn -deH"
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
