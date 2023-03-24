@@ -26,6 +26,7 @@ telescope.setup {
         ["<A-k>"] = "move_selection_previous",
         -- ["<C-x>"] = false,
         ["<C-q>"] = actions.send_to_qflist,
+        ["<A-BS>"] = function() vim.cmd('normal vbd') end,
       },
     },
     layout_config = {
