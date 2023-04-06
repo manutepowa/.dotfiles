@@ -22,7 +22,6 @@ local servers = {
   "eslint",
   "intelephense",
   "phpactor",
-  "yamlls",
   "rust_analyzer",
   "svelte"
 }
