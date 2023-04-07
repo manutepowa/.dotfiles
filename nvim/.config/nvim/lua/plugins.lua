@@ -31,7 +31,6 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = {
       { 'nvim-lua/plenary.nvim' },
-      { 'nvim-lua/popup.nvim' },
       { 'nvim-telescope/telescope-fzy-native.nvim' },
       { 'kyazdani42/nvim-web-devicons' }
     }

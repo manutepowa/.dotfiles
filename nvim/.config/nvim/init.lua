@@ -1,17 +1,17 @@
-P = function(v)
-  print(vim.inspect(v))
-  return v
-end
-
-RELOAD = function(...)
-  return require("plenary.reload").reload_module(...)
-end
-
-R = function(name)
-  RELOAD(name)
-  return require(name)
-end
-
+-- P = function(v)
+--   print(vim.inspect(v))
+--   return v
+-- end
+--
+-- RELOAD = function(...)
+--   return require("plenary.reload").reload_module(...)
+-- end
+--
+-- R = function(name)
+--   RELOAD(name)
+--   return require(name)
+-- end
+--
 -- Load impatient
 -- local status_ok, impatient = pcall(require, "impatient")
 -- if not status_ok then
@@ -19,7 +19,7 @@ end
 -- end
 --
 -- impatient.enable_profile()
-require("impatient")
+require 'impatient'
 require 'plugins'
 require 'manutepowa.options'
 require 'manutepowa.mappings'
@@ -42,7 +42,7 @@ require 'manutepowa.translate'
 require 'manutepowa.packer-info'
 require 'manutepowa.diff_git'
 require 'manutepowa.restclient'
-require 'manutepowa.dadbod'
+-- require 'manutepowa.dadbod'
 
 -- Simple options
 require 'colorizer'.setup({

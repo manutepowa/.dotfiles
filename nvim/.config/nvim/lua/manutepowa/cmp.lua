@@ -62,7 +62,7 @@ cmp.setup({
       "s",
       "c"
     }),
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    ["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
