@@ -48,7 +48,13 @@ return require('packer').startup(function(use)
 
   -- Vim fugitive
   use 'tpope/vim-fugitive'
-  use 'AchmadFathoni/vim-flog'
+  use { 'AchmadFathoni/vim-flog', config = function()
+    vim.g.flog_default_opts = {
+      max_count = 512,
+      date = 'short',
+    }
+    vim.g.flog_use_internal_lua = true
+  end }
   use 'rhysd/git-messenger.vim'
 
   -- Themes
