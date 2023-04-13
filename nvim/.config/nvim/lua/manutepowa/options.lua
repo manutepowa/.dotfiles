@@ -4,6 +4,7 @@ local options = {
   cmdheight = 1,                           -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 0,                        -- so that `` is visible in markdown files
+  diffopt = "filler,iwhite,internal,linematch:60,algorithm:patience",
   fileencoding = "utf-8",                  -- the encoding written to a file
   hlsearch = true,                         -- highlight all matches on previous search pattern
   ignorecase = true,                       -- ignore case in search patterns
@@ -44,8 +45,9 @@ vim.opt.shortmess:append "c"
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
--- vim.opt.fillchars = vim.opt.fillchars + "diff:╱"
--- vim.opt.fillchars = vim.opt.fillchars + 'eob: '
+
+-- EditorConfig
+vim.g.editorconfig = true
 
 vim.g.copilot_filetypes = {
   ["*"] = false,
