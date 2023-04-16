@@ -42,6 +42,8 @@ require 'manutepowa.translate'
 require 'manutepowa.packer-info'
 require 'manutepowa.diff_git'
 require 'manutepowa.restclient'
+require 'manutepowa.lab'
+
 -- require 'manutepowa.dadbod'
 
 -- Simple options

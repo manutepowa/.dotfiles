@@ -159,6 +159,7 @@ return require('packer').startup(function(use)
 
   -- Same that RunJS
   use { "metakirby5/codi.vim" }
+  use { '0x100101/lab.nvim', run = 'cd js && npm ci', requires = { 'nvim-lua/plenary.nvim' } }
 
   use { "moll/vim-bbye" }
   use {
