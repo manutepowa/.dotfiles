@@ -175,4 +175,9 @@ return require('packer').startup(function(use)
 
   -- Kitty highlight
   use 'fladson/vim-kitty'
+
+  use({
+    "Bryley/neoai.nvim",
+    require = { "MunifTanjim/nui.nvim" },
+  })
 end)

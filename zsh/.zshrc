@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+. "$HOME/.config/zsh/exports.zsh"
 
 ## nnn config
 export EDITOR="nvim"

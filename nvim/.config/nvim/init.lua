@@ -43,6 +43,7 @@ require 'manutepowa.packer-info'
 require 'manutepowa.diff_git'
 require 'manutepowa.restclient'
 require 'manutepowa.lab'
+require 'manutepowa.neoai'
 
 -- require 'manutepowa.dadbod'
 
