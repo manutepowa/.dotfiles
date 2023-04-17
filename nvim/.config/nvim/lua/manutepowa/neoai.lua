@@ -3,7 +3,7 @@ require('neoai').setup {
   ui = {
     output_popup_text = "NeoAI",
     input_popup_text = "Prompt",
-    width = 30,               -- As percentage eg. 30%
+    width = 40,               -- As percentage eg. 30%
     output_popup_height = 80, -- As percentage eg. 80%
   },
   models = {
@@ -30,34 +30,38 @@ require('neoai').setup {
     end,
   },
   open_api_key_env = "OPENAI_API_KEY",
-  shortcuts = {
-    {
-      name = "textify",
-      key = "<leader>as",
-      desc = "fix text with AI",
-      use_context = true,
-      prompt = [[
-                Please rewrite the text to make it more readable, clear,
-                concise, and fix any grammatical, punctuation, or spelling
-                errors
-            ]],
-      modes = { "v" },
-      strip_function = nil,
-    },
-    {
-      name = "gitcommit",
-      key = "<leader>ag",
-      desc = "generate git commit message",
-      use_context = false,
-      prompt = function()
-        return [[
-                    Using the following git diff generate a consise and
-                    clear git commit message, with a short title summary
-                    that is 75 characters or less:
-                ]] .. vim.fn.system("git diff --cached")
-      end,
-      modes = { "n" },
-      strip_function = nil,
-    },
-  },
+  -- shortcuts = {
+  --   {
+  --     name = "textify",
+  --     key = "<leader>as",
+  --     desc = "fix text with AI",
+  --     use_context = true,
+  --     prompt = [[
+  --               Please rewrite the text to make it more readable, clear,
+  --               concise, and fix any grammatical, punctuation, or spelling
+  --               errors
+  --           ]],
+  --     modes = { "v" },
+  --     strip_function = nil,
+  --   },
+  --   {
+  --     name = "gitcommit",
+  --     key = "<leader>ag",
+  --     desc = "generate git commit message",
+  --     use_context = false,
+  --     prompt = function()
+  --       return [[
+  --                   Using the following git diff generate a consise and
+  --                   clear git commit message, with a short title summary
+  --                   that is 75 characters or less:
+  --               ]] .. vim.fn.system("git diff --cached")
+  --     end,
+  --     modes = { "n" },
+  --     strip_function = nil,
+  --   },
+  -- },
 }
+
+-- Map <leader>ai to open the AI prompt
+vim.keymap.set("n", "<leader>ai", "<cmd>NeoAI<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>pc", "<cmd>put c<cr>", { noremap = true, silent = true })
