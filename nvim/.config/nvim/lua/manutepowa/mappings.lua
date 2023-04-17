@@ -85,8 +85,8 @@ vim.keymap.set("x", "<C-k>", ":move '<-2<CR>gv-gv")
 vim.keymap.set("n", "<A-l>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<A-h>", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<A-c>", ":Bdelete!<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-l>", ":BufferLineMoveNext<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-h>", ":BufferLineMovePrev<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<S-A-l>", ":BufferLineMoveNext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<S-A-h>", ":BufferLineMovePrev<CR>", { noremap = true, silent = true })
 
 -- DiffGit
 vim.keymap.set("n", "<leader>dd", ":DiffviewOpen<CR>", { noremap = true, silent = true })
