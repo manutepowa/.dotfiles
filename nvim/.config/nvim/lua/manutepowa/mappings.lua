@@ -6,11 +6,6 @@ vim.keymap.set("v", '<Tab>', '>gv', { noremap = true })
 vim.keymap.set("v", '<S-Tab>', '<gv', { noremap = true })
 vim.keymap.set("n", '<Leader>so', ':luafile %<CR>', { noremap = true })
 
-
-vim.keymap.set("n", '<Leader>h', ':wincmd h<cr>', { noremap = true })
-vim.keymap.set("n", '<Leader>j', ':wincmd j<cr>', { noremap = true })
-vim.keymap.set("n", '<Leader>k', ':wincmd k<cr>', { noremap = true })
-vim.keymap.set("n", '<Leader>l', ':wincmd l<cr>', { noremap = true })
 vim.keymap.set("n", '<Leader>q', ':wincmd q<cr>', { noremap = true })
 
 -- git

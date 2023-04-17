@@ -180,4 +180,5 @@ return require('packer').startup(function(use)
     "Bryley/neoai.nvim",
     require = { "MunifTanjim/nui.nvim" },
   })
+  use { 'christoomey/vim-tmux-navigator' }
 end)
