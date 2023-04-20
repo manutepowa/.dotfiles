@@ -21,7 +21,6 @@ local servers = {
   "tsserver",
   "eslint",
   "intelephense",
-  "phpactor",
   "rust_analyzer",
   "svelte"
 }

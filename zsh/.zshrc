@@ -2,6 +2,8 @@
 export ZSH=$HOME/.oh-my-zsh
 . "$HOME/.config/zsh/exports.zsh"
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 ## nnn config
 export EDITOR="nvim"
 
@@ -57,8 +59,9 @@ bindkey "^[k" up-line-or-history
 bindkey "^[j" down-line-or-history
 bindkey "^[p" paste
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # zsh-vi-mode config
 ZVM_VI_INSERT_ESCAPE_BINDKEY=kj
