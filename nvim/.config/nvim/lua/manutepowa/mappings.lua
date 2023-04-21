@@ -78,8 +78,8 @@ vim.keymap.set("n", '<A-Right>', ':vertical resize +5<CR>', { noremap = true, si
 
 
 -- Move block
-vim.keymap.set("v", "<C-j>", ":move '>+1<CR>gv-gv")
-vim.keymap.set("v", "<C-k>", ":move '<-2<CR>gv-gv")
+vim.keymap.set("v", "<S-j>", ":move '>+1<CR>gv-gv")
+vim.keymap.set("v", "<S-k>", ":move '<-2<CR>gv-gv")
 
 -- BufferLine
 vim.keymap.set("n", "<A-l>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
