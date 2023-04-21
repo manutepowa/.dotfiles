@@ -18,6 +18,10 @@ require('neoai').setup {
     end,
     ["c"] = require("neoai.utils").extract_code_snippets,
   },
+  mappings = {
+    ["select_up"] = "<C-k>",
+    ["select_down"] = "<C-j>",
+  },
   inject = {
     cutoff_width = 75,
   },
