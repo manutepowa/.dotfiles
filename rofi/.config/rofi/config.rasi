@@ -1,28 +1,29 @@
 configuration {
-	modi: "window,run,ssh,drun,combi";
-	fixed-num-lines: true;
-	case-sensitive: false;
+  modi: "window,run,ssh,drun,combi";
+  fixed-num-lines: true;
+  case-sensitive: false;
   sorting-method: "fzf";
   matching: "fuzzy";
 
-	kb-remove-to-eol: "";
-	kb-accept-entry: "Control+m,Return,KP_Enter";
+  kb-remove-to-eol: "";
+  kb-accept-entry: "Control+m,Return,KP_Enter";
 
-	kb-row-up: "Up,Alt+k,Alt+p,ISO_Left_Tab";
-	kb-row-down: "Down,Alt+j,Alt+n";
+  kb-row-up: "Up,Alt+k,Alt+p,ISO_Left_Tab";
+  kb-row-down: "Down,Alt+j,Alt+n";
 
   kb-remove-word-back: "Alt+BackSpace";
 
   drun-display-format: "{icon} {name}";
   display-drun: "Apps";
-	location: 0;
-	yoffset: 0;
-  xoffset: 0;	
-	fake-transparency: false;
-	hide-scrollbar: true;
-	bw: 0;
+  location: 0;
+  yoffset: 0;
+  xoffset: 0;
+  fake-transparency: false;
+  hide-scrollbar: true;
+  bw: 0;
   fullscreen: false;
   show-icons: true;
+  terminal: "kitty";
 }
 
 @theme "~/.config/rofi/themes/gruvbox.rasi"
