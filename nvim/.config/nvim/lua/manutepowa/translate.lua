@@ -1,17 +1,18 @@
 require("translate").setup({
   default = {
     command = "translate_shell",
-    output = "floating",
-    parse_after = "no_handle",
-    parse_before = "trim",
+    -- output = "floating",
+    -- parse_after = "no_handle",
+    -- parse_before = "trim,natural",
   },
-  preset = {
-    output = {
-      split = {
-        append = true
-      }
-    }
-  }
+  -- preset = {
+  --   output = {
+  --     insert = {
+  --       base = "top",
+  --       off = -1,
+  --     },
+  --   },
+  -- },
 })
 
 

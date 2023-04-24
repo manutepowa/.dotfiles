@@ -69,3 +69,4 @@ require('neoai').setup {
 -- Map <leader>ai to open the AI prompt
 vim.keymap.set("n", "<leader>ai", "<cmd>NeoAI<cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>pc", "<cmd>put c<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>pg", "<cmd>put g<cr>", { noremap = true, silent = true })
