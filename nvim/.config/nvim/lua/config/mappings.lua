@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { desc = "Organize Imports" })
 
 vim.keymap.set("v", '<Tab>', '>gv', { noremap = true })
@@ -68,7 +66,7 @@ vim.keymap.set("i", '<A-l>', '<Right>')
 vim.keymap.set("i", '<A-h>', '<Left>')
 
 -- NVIM TREE
-vim.keymap.set("n", '<A-e>', ':NvimTreeToggle<CR>')
+--vim.keymap.set("n", '<A-e>', ':NvimTreeToggle<CR>')
 
 -- Tabs resize
 vim.keymap.set("n", '<A-Down>', ':resize -5<CR>', { noremap = true, silent = true })
@@ -129,3 +127,5 @@ end, { noremap = true, silent = true })
 vim.keymap.set('v', '<leader>bf', function()
   return vim.lsp.buf.format()
 end, { noremap = true, silent = true })
+
+vim.keymap.set('n', '<leader>l', ':Lazy<cr>', { noremap = true, silent = true })
