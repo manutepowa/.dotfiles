@@ -18,8 +18,7 @@
 --     return
 -- end
 --
--- impatient.enable_profile()
-require 'impatient'
+vim.loader.enable()
 require 'plugins'
 require 'manutepowa.options'
 require 'manutepowa.mappings'

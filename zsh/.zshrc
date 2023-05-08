@@ -7,6 +7,9 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 ## nnn config
 export EDITOR="nvim"
 
+# Flameshot
+export QT_QPA_PLATFORM="wayland"
+
 ZSH_THEME="robbyrussell"
 
 # Which plugins would you like to load?

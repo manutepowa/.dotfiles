@@ -25,8 +25,6 @@ return require('packer').startup(function(use)
     cmd = { "DB", "DBUI", "DBUIToggle", "DBUIAddConnection", "DBUIFindBuffer", "DBUIRenameBuffer", },
   }
 
-  use { 'lewis6991/impatient.nvim' }
-
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
