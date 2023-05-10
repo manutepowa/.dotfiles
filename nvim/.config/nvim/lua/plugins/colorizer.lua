@@ -1,5 +1,5 @@
 return {
-  'norcalli/nvim-colorizer.lua',
+  'NvChad/nvim-colorizer.lua',
   event = { "BufWinEnter", "BufRead", "BufReadPost" },
   config = function()
     require "colorizer".setup({

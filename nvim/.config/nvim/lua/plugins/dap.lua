@@ -34,7 +34,7 @@ return {
     vim.keymap.set('n', '<A-CR>', ':lua require"dap".step_over()<CR>')
     vim.keymap.set('n', '<leader>ds', ':lua require"dap".continue()<CR>')
     vim.keymap.set('n', '<leader>drt', ':lua require"dap".repl.toggle()<CR>')
-    vim.keymap.set('n', '<leader>dt', ':lua require("config.dap_config.dap-fn").stop()<cr>', { noremap = true })
+    vim.keymap.set('n', '<leader>dt', ':lua require("config.dap.dap-fn").stop()<cr>', { noremap = true })
     vim.keymap.set('n', '<F2>', ':lua require("dapui").eval()<CR>')
     vim.keymap.set('n', '<leader>dui', '<cmd>lua require"dapui".toggle()<CR>')
     vim.keymap.set('n', '<leader>dhh', '<cmd>lua require"dapui.variables".hover()<CR>')

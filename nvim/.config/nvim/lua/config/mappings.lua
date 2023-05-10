@@ -22,14 +22,6 @@ vim.cmd [[
   nmap <Leader>[ ysiw[
 ]]
 
--- Telescope
-vim.keymap.set("n", '<Leader>fg', ':Telescope live_grep<cr>', { noremap = true })
-vim.keymap.set("n", '<Leader>fh', ':Telescope oldfiles<cr>', { noremap = true })
-vim.keymap.set("n", "<Leader>''", ':Telescope help_tags<cr>', { noremap = true })
-vim.keymap.set("n", '<Leader>fG', ':Telescope grep_string<cr>', { noremap = true })
-vim.keymap.set("n", '<Leader>fb', ':Telescope buffers<cr>', { noremap = true })
-vim.keymap.set("n", "<leader>fp", ":Telescope projects<CR>", { noremap = true })
-
 
 -- Basic vim
 vim.keymap.set("n", '<A-j>', '5j', { noremap = true })

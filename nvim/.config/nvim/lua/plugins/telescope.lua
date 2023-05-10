@@ -5,6 +5,19 @@ return {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     { 'nvim-tree/nvim-web-devicons' }
   },
+  keys = {
+    {
+      "<leader>ff",
+      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false, hidden = true})<cr>",
+      silent = true
+    },
+    { '<Leader>fg', ':Telescope live_grep<cr>' },
+    { '<Leader>fh', ':Telescope oldfiles<cr>' },
+    { "<Leader>''", ':Telescope help_tags<cr>' },
+    { '<Leader>fG', ':Telescope grep_string<cr>' },
+    { '<Leader>fb', ':Telescope buffers<cr>' },
+    { '<Leader>fg', ':Telescope live_grep<cr>' },
+  },
   config = function()
     local telescope = require('telescope')
     local actions = require('telescope.actions')
@@ -69,13 +82,13 @@ return {
     }
 
     require('telescope').load_extension('fzf')
-    -- Telescope
-    vim.api.nvim_set_keymap(
-      "n",
-      "<leader>ff",
-      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false, hidden = true})<cr>"
-      ,
-      { silent = true }
-    )
+    -- -- Telescope
+    -- vim.api.nvim_set_keymap(
+    --   "n",
+    --   "<leader>ff",
+    --   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false, hidden = true})<cr>"
+    --   ,
+    --   { silent = true }
+    -- )
   end
 }
