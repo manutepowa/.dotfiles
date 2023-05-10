@@ -27,7 +27,6 @@ return {
   { 'wellle/targets.vim' },
   { 'antoinemadec/FixCursorHold.nvim' },
   { 'tpope/vim-surround' },
-  { 'norcalli/nvim-colorizer.lua' },
   { 'ryanoasis/vim-devicons' },
   { "tpope/vim-repeat" },
   { "RRethy/vim-illuminate" },
@@ -36,26 +35,17 @@ return {
   { "filipdutescu/renamer.nvim" },
   { "simrat39/symbols-outline.nvim" },
   { "folke/trouble.nvim" },
-
   { "ray-x/lsp_signature.nvim" },
   { "jose-elias-alvarez/typescript.nvim" },
   { "b0o/schemastore.nvim" },
-
   { 'L3MON4D3/LuaSnip' },
   { "rafamadriz/friendly-snippets" },
 
-  { "mfussenegger/nvim-dap" },
-  { "theHamsta/nvim-dap-virtual-text" },
-  { "rcarriga/nvim-dap-ui" },
-  { "Pocco81/DAPInstall.nvim" },
   {
     "iamcco/markdown-preview.nvim",
     build = function() vim.fn["mkdp#util#install"]() end,
   },
-
   { "metakirby5/codi.vim" },
-
-
   { "moll/vim-bbye" },
   {
     'jinh0/eyeliner.nvim',

@@ -1,6 +1,10 @@
 return {
   "glepnir/lspsaga.nvim",
   event = "LspAttach",
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "nvim-treesitter/nvim-treesitter"
+  },
   config = function()
     local saga = require 'lspsaga'
     saga.setup {
@@ -37,10 +41,5 @@ return {
         quit = 'q',
       },
     }
-  end,
-  dependencies = {
-    { "nvim-tree/nvim-web-devicons" },
-    --Please make sure you install markdown and markdown_inline parser
-    { "nvim-treesitter/nvim-treesitter" }
-  }
+  end
 }

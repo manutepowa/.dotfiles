@@ -1,7 +1,5 @@
-
 return {
   "windwp/nvim-autopairs",
-  lazy = true,
   dependencies = {
     { 'windwp/nvim-ts-autotag' }
   },
@@ -39,7 +37,5 @@ return {
       return
     end
     cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
-
-
-end,
+  end,
 }

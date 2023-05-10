@@ -166,7 +166,7 @@ return {
       return vim.o.columns > 100
     end
 
-    local icons = require "manutepowa.icons"
+    local icons = require "config.icons"
 
     local diagnostics = {
       "diagnostics",
@@ -416,4 +416,3 @@ return {
     }
   end
 }
-

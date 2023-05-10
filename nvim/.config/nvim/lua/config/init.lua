@@ -1,48 +1,39 @@
 require 'config.options'
--- require "config.lsp.handlers".setup()
--- require 'config.mappings'
 
---require 'manutepowa.lualine'
---require 'manutepowa.cmp'
---require 'manutepowa.lsp'
---require 'manutepowa.telescope'
---require 'manutepowa.projects'
---require 'manutepowa.treesitter'
---require 'manutepowa.autopairs'
---require 'manutepowa.comment'
---require 'manutepowa.gitsigns'
---require 'manutepowa.toggleterm'
---require 'manutepowa.nvim-tree'
---require 'manutepowa.bufferline'
---require 'manutepowa.indentline'
---require 'manutepowa.dap_config'
---require 'manutepowa.translate'
---require 'manutepowa.packer-info'
---require 'manutepowa.diff_git'
---require 'manutepowa.restclient'
---require 'manutepowa.lab'
---require 'manutepowa.neoai'
 
--- require 'manutepowa.dadbod'
+local icons = require "config.icons"
+local signs = {
 
--- Simple options
---     require 'colorizer'.setup({
---       filetypes = {
---         "typescript",
---         "typescriptreact",
---         "javascript",
---         "javascriptreact",
---         "css",
---         "html",
---         "astro",
---         "lua",
---       },
---       user_default_options = {
---         rgb_fn = true,
---         tailwind = "both",
---       },
---       buftypes = {
---         -- '*', -- seems like this doesn't work with the float window, but works with the other `buftype`s.
---         -- Not sure if the window has a `buftype` at all
---       },
---     })
+  { name = "DiagnosticSignError", text = icons.diagnostics.Error },
+  { name = "DiagnosticSignWarn",  text = icons.diagnostics.Warning },
+  { name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
+  { name = "DiagnosticSignInfo",  text = icons.diagnostics.Information },
+}
+for _, sign in ipairs(signs) do
+  vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+end
+
+local config = {
+  virtual_text = true,
+  -- show signs
+  signs = {
+    active = signs,
+  },
+  update_in_insert = true,
+  underline = true,
+  severity_sort = true,
+  float = {
+    focusable = false,
+    border = "rounded",
+    -- border = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+    source = "always",
+    header = "",
+    prefix = "",
+  },
+}
+
+vim.diagnostic.config(config)
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded",
+})
