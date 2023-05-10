@@ -5,9 +5,9 @@ return {
     { '<A-e>', "<cmd>NvimTreeToggle<cr>", noremap = true, silent = true, desc = "nvim-tree" },
   },
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
+    'nvim-tree/nvim-web-devicons',
   },
-  config = function(_, opts)
+  config = function()
     local present, nvimtree = pcall(require, "nvim-tree")
     if not present then
       return
@@ -33,44 +33,25 @@ return {
       })
     end
 
-    local tree_cb = require("nvim-tree.config").nvim_tree_callback
-    local key_bindings = {
-      { key = "<CR>",                        cb = tree_cb("preview") },
-      { key = { "<Tab>", "o" },              cb = tree_cb("edit") },
-      { key = { "<2-RightMouse>", "<C-]>" }, cb = tree_cb("cd") },
-      { key = "q",                           cb = tree_cb("close") },
-      { key = "<",                           cb = tree_cb("prev_sibling") },
-      { key = ">",                           cb = tree_cb("next_sibling") },
-      { key = "x",                           cb = tree_cb("cut") },
-      { key = "c",                           cb = tree_cb("copy") },
-      { key = "ca",                          cb = tree_cb("copy_absolute_path") },
-      { key = "p",                           cb = tree_cb("paste") },
-      { key = "y",                           cb = tree_cb("copy_name") },
-      { key = "Y",                           cb = tree_cb("copy_path") },
-      -- { key = "v", cb = tree_cb("vsplit") },
-      { key = "s",                           cb = tree_cb("split") },
-      { key = "S",                           cb = tree_cb("system_open") },
-      { key = "a",                           cb = tree_cb("create") },
-      { key = "d",                           cb = tree_cb("remove") },
-      { key = "r",                           cb = tree_cb("rename") },
-      { key = "?",                           cb = tree_cb("toggle_help") },
-      { key = "K",                           cb = tree_cb("first_sibling") },
-      { key = "J",                           cb = tree_cb("last_sibling") },
-      { key = "t",                           cb = tree_cb("tabnew") },
-      { key = "[c",                          cb = tree_cb("prev_git_item") },
-      { key = "]c",                          cb = tree_cb("next_git_item") },
-      { key = "<C-r>",                       cb = tree_cb("full_rename") },
-      { key = "R",                           cb = tree_cb("refresh") },
-      { key = "I",                           cb = tree_cb("toggle_ignored") },
-      { key = "-",                           cb = tree_cb("dir_up") },
-      { key = "<A-w>",                       cb = tree_cb("collapse_all") },
-      { key = "e",                           action = "" },
-      { key = "f",                           action = "" },
-      { key = "ff",                          action = "FindFiles",              action_cb = FindFiles },
-      { key = "fg",                          action = "GrepFiles",              action_cb = GrepFiles }
-    }
-    
+    local function my_on_attach(bufnr)
+      local api = require('nvim-tree.api')
+      local function opts(desc)
+        return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+      end
+      api.config.mappings.default_on_attach(bufnr)
+
+      vim.keymap.set('n', '<Tab>', api.node.open.edit, opts('Open'))
+      vim.keymap.set('n', '<CR>', api.node.open.preview, opts('Open Preview'))
+      vim.keymap.set('n', '<A-w>', api.tree.collapse_all, opts('Collapse'))
+      vim.keymap.set('n', 'f', "", opts('Filter'))
+      vim.keymap.set('n', 'e', "e", opts('Nothing'))
+      vim.keymap.set('n', 'ff', FindFiles, opts('Find files'))
+      vim.keymap.set('n', 'fg', GrepFiles, opts('GrepFiles'))
+      vim.keymap.set('n', 'S', api.node.run.system, opts('GrepFiles'))
+    end
+
     nvimtree.setup {
+      on_attach = my_on_attach,
       disable_netrw = false,
       hijack_netrw = false,
       open_on_tab = false,

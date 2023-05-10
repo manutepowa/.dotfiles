@@ -65,9 +65,6 @@ vim.keymap.set("v", '0', '^')
 vim.keymap.set("i", '<A-l>', '<Right>')
 vim.keymap.set("i", '<A-h>', '<Left>')
 
--- NVIM TREE
---vim.keymap.set("n", '<A-e>', ':NvimTreeToggle<CR>')
-
 -- Tabs resize
 vim.keymap.set("n", '<A-Down>', ':resize -5<CR>', { noremap = true, silent = true })
 vim.keymap.set("n", '<A-Up>', ':resize +5<CR>', { noremap = true, silent = true })

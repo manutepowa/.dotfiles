@@ -5,7 +5,6 @@ require('diffview').setup {
   git_cmd = { "git" },
   use_icons = true,        -- Requires nvim-web-devicons
   icons = {
-    -- Only applies when use_icons is true.
     folder_closed = "",
     folder_open = "",
   },
@@ -16,20 +15,9 @@ require('diffview').setup {
   file_panel = {
     listing_style = "tree", -- One of 'list' or 'tree'
     tree_options = {
-      -- Only applies when listing_style is 'tree'
       flatten_dirs = true,             -- Flatten dirs that only contain one single dir
       folder_statuses = "only_folded", -- One of 'never', 'only_folded' or 'always'.
     },
-    -- win_config = function()
-    --   local c = { type = "float" }
-    --   local editor_width = vim.o.columns
-    --   local editor_height = vim.o.lines
-    --   c.width = math.min(100, editor_width)
-    --   c.height = math.min(24, editor_height)
-    --   c.col = math.floor(editor_width * 0.5 - c.width * 0.5)
-    --   c.row = math.floor(editor_height * 0.5 - c.height * 0.5)
-    --   return c
-    -- end,
   },
   file_history_panel = {
     log_options = {

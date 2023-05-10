@@ -1,5 +1,6 @@
 require 'config.options'
---require 'manutepowa.mappings'
+-- require "config.lsp.handlers".setup()
+-- require 'config.mappings'
 
 --require 'manutepowa.lualine'
 --require 'manutepowa.cmp'

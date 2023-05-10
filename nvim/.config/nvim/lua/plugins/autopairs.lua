@@ -2,6 +2,9 @@
 return {
   "windwp/nvim-autopairs",
   lazy = true,
+  dependencies = {
+    { 'windwp/nvim-ts-autotag' }
+  },
   config = function()
     -- Setup nvim-cmp.
     local status_ok, npairs = pcall(require, "nvim-autopairs")
