@@ -11,7 +11,6 @@ return {
     end
   },
   { 'rhysd/git-messenger.vim' },
-  { 'github/copilot.vim' },
   { 'lumiliet/vim-twig' },
   { 'mg979/vim-visual-multi' },
 
