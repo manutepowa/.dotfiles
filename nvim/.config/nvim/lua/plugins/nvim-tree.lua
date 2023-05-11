@@ -44,7 +44,7 @@ return {
       vim.keymap.set('n', '<CR>', api.node.open.preview, opts('Open Preview'))
       vim.keymap.set('n', '<A-w>', api.tree.collapse_all, opts('Collapse'))
       vim.keymap.set('n', 'f', "", opts('Filter'))
-      vim.keymap.set('n', 'e', "e", opts('Nothing'))
+      vim.keymap.set('n', 'e', 'e', opts('Nothing'))
       vim.keymap.set('n', 'ff', FindFiles, opts('Find files'))
       vim.keymap.set('n', 'fg', GrepFiles, opts('GrepFiles'))
       vim.keymap.set('n', 'S', api.node.run.system, opts('GrepFiles'))

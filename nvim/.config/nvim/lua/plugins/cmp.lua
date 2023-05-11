@@ -11,7 +11,6 @@ return {
     { 'saadparwaiz1/cmp_luasnip' },
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-nvim-lua" },
-    { "rcarriga/cmp-dap" },
     { 'onsails/lspkind-nvim' },
   },
   config = function()
@@ -20,10 +19,6 @@ return {
       return
     end
 
-    local cmp_dap_status_ok, cmp_dap = pcall(require, "cmp_dap")
-    if not cmp_dap_status_ok then
-      return
-    end
 
     local snip_status_ok, luasnip = pcall(require, "luasnip")
     if not snip_status_ok then
@@ -54,7 +49,7 @@ return {
         end
       },
       enabled = function()
-        return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or cmp_dap.is_dap_buffer()
+        return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
       end,
       preselect = cmp.PreselectMode.None,
       mapping = cmp.mapping.preset.insert {
@@ -90,7 +85,6 @@ return {
             luasnip = "",
             nvim_lua = "",
             path = "",
-            dap = ""
           })[entry.source.name]
           return vim_item
         end,
@@ -122,13 +116,16 @@ return {
       window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
-      },
-      experimental = {
-        ghost_text = true,
-      },
+      }
     })
 
-
+    -- cmp.setup.filetype({ "dap-repl", "dapui_watches" }, {
+    --   sources = cmp.config.sources({
+    --     { name = "dap" },
+    --   }, {
+    --     { name = "buffer" },
+    --   }),
+    -- })
     cmp.setup.cmdline('/', {
       mapping = cmp.mapping.preset.cmdline(),
       sources = {
