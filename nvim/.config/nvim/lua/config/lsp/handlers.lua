@@ -2,7 +2,7 @@ local M = {}
 
 -- TODO: backfill this to template
 M.setup = function()
-  local icons = require "manutepowa.icons"
+  local icons = require "config.icons"
   local signs = {
 
     { name = "DiagnosticSignError", text = icons.diagnostics.Error },
@@ -135,8 +135,4 @@ if not status_ok then
 end
 
 M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
-
-
--- vim.cmd [[ command! LspToggleAutoFormat execute 'lua require("manutepowa.lsp.handlers").toggle_format_on_save()' ]]
-
 return M

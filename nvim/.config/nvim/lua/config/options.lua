@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 local options = {
   backup = false,                          -- creates a backup file
   clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
@@ -47,17 +49,6 @@ end
 
 -- EditorConfig
 vim.g.editorconfig = true
-
-vim.g.copilot_filetypes = {
-  ["*"] = false,
-  ["javascript"] = true,
-  ["javascriptreact"] = true,
-  ["typescript"] = true,
-  ["typescriptreact"] = true,
-  ["lua"] = true,
-  ["php"] = true,
-}
-
 
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   callback = function() vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 200, on_visual = true }) end, -- Or myvimfun

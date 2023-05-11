@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { desc = "Organize Imports" })
 
 vim.keymap.set("v", '<Tab>', '>gv', { noremap = true })
@@ -23,14 +21,6 @@ vim.cmd [[
   nmap <Leader>{ ysiw{
   nmap <Leader>[ ysiw[
 ]]
-
--- Telescope
-vim.keymap.set("n", '<Leader>fg', ':Telescope live_grep<cr>', { noremap = true })
-vim.keymap.set("n", '<Leader>fh', ':Telescope oldfiles<cr>', { noremap = true })
-vim.keymap.set("n", "<Leader>''", ':Telescope help_tags<cr>', { noremap = true })
-vim.keymap.set("n", '<Leader>fG', ':Telescope grep_string<cr>', { noremap = true })
-vim.keymap.set("n", '<Leader>fb', ':Telescope buffers<cr>', { noremap = true })
-vim.keymap.set("n", "<leader>fp", ":Telescope projects<CR>", { noremap = true })
 
 
 -- Basic vim
@@ -66,9 +56,6 @@ vim.keymap.set("v", '0', '^')
 -- Move right when open autopairs
 vim.keymap.set("i", '<A-l>', '<Right>')
 vim.keymap.set("i", '<A-h>', '<Left>')
-
--- NVIM TREE
-vim.keymap.set("n", '<A-e>', ':NvimTreeToggle<CR>')
 
 -- Tabs resize
 vim.keymap.set("n", '<A-Down>', ':resize -5<CR>', { noremap = true, silent = true })
@@ -129,3 +116,18 @@ end, { noremap = true, silent = true })
 vim.keymap.set('v', '<leader>bf', function()
   return vim.lsp.buf.format()
 end, { noremap = true, silent = true })
+
+vim.keymap.set('n', '<leader>l', ':Lazy<cr>', { noremap = true, silent = true })
+
+
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "dap-repl",
+  callback = function()
+    vim.keymap.set("i", '<A-k>', '<Up>')
+    vim.keymap.set("i", '<A-j>', '<Down>')
+    vim.keymap.set("i", '<A-l>', '<Right>')
+    vim.keymap.set("i", '<A-h>', '<Left>')
+    vim.keymap.set('i', '<A-BS>', function() vim.cmd('normal vbd') end, { noremap = true, silent = true })
+  end,
+})
