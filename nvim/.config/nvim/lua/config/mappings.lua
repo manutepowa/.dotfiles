@@ -78,7 +78,11 @@ vim.keymap.set("n", "<S-A-h>", ":BufferLineMovePrev<CR>", { noremap = true, sile
 -- DiffGit
 vim.keymap.set("n", "<leader>dd", ":DiffviewOpen<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>df", ":DiffviewFileHistory %<CR>", { noremap = true, silent = true })
+
 vim.keymap.set("n", "gq", ":tabclose<CR>", { noremap = true })
+vim.cmd([[
+  autocmd TabClosed * checktime
+]]) -- With this reload buffer after close tab
 
 -- Markdown viewer
 vim.keymap.set("n", "<leader>m", ":MarkdownPreview<CR>", { noremap = true, silent = true })
@@ -93,7 +97,6 @@ vim.keymap.set('c', '<A-k>', '<UP>', { noremap = true, silent = true })
 vim.cmd([[imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>']])
 vim.cmd([[smap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>']])
 
--- Beta
 vim.api.nvim_create_autocmd("BufEnter", {
   callback = function()
     -- Add these options.

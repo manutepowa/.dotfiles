@@ -1,11 +1,10 @@
 return {
-  'sindrets/diffview.nvim', 
+  'sindrets/diffview.nvim',
   cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
   dependencies = {
     'nvim-lua/plenary.nvim'
   },
   config = function()
-      
     local cb = require('diffview.config').diffview_callback
 
     require('diffview').setup {
@@ -21,7 +20,7 @@ return {
         fold_open = "",
       },
       file_panel = {
-        listing_style = "tree", -- One of 'list' or 'tree'
+        listing_style = "tree",            -- One of 'list' or 'tree'
         tree_options = {
           flatten_dirs = true,             -- Flatten dirs that only contain one single dir
           folder_statuses = "only_folded", -- One of 'never', 'only_folded' or 'always'.
