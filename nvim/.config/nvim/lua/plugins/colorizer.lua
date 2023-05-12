@@ -16,8 +16,11 @@ return {
       user_default_options = {
         rgb_fn = true,
         css = true,
-        tailwind = "both",
-      }
-    }, { mode = 'background' })
+        css_fn = true,
+        tailwind = true,
+        mode = "virtualtext",
+        virtualtext = "",
+      },
+    })
   end
 }
