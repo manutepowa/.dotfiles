@@ -113,9 +113,15 @@ return {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
       },
+
       window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        completion = {
+          border = "rounded",
+          side_padding = 1,
+          scrollbar = false,
+          scrolloff = 8,
+        },
+        documentation = cmp.config.window.bordered()
       }
     })
 

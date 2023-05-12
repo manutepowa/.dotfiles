@@ -2,7 +2,7 @@ vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { desc = "Organiz
 
 vim.keymap.set("v", '<Tab>', '>gv', { noremap = true })
 vim.keymap.set("v", '<S-Tab>', '<gv', { noremap = true })
-vim.keymap.set("n", '<Leader>so', ':luafile %<CR>', { noremap = true })
+vim.keymap.set("n", '<Leader>so', ':so ~/.dotfiles/nvim/.config/nvim/init.lua<CR>', { noremap = true })
 
 vim.keymap.set("n", '<Leader>q', ':wincmd q<cr>', { noremap = true })
 
