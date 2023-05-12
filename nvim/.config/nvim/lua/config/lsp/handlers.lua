@@ -73,8 +73,8 @@ local function lsp_keymaps(clientName)
   vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { buffer = 0 })
   vim.keymap.set("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>", { buffer = 0 })
   --[[ vim.keymap.set("n", "gD", "<cmd>Telescope lsp_declarations<CR>", opts) ]]
-  vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", { buffer = 0 })
-  vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", { buffer = 0 })
+  -- vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", { buffer = 0 })
+  -- vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", { buffer = 0 })
   -- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { buffer = 0 })
 
   vim.keymap.set("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", { buffer = 0 })

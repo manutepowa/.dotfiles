@@ -57,5 +57,12 @@ return {
     end
   },
   { 'fladson/vim-kitty' },
-  { 'christoomey/vim-tmux-navigator' }
+  { 'christoomey/vim-tmux-navigator' },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   after = { "copilot.lua" },
+  --   config = function()
+  --     require("copilot_cmp").setup()
+  --   end,
+  -- }
 }
