@@ -115,13 +115,14 @@ return {
       },
 
       window = {
-        completion = {
-          border = "rounded",
-          side_padding = 1,
+        completion = cmp.config.window.bordered({
+          winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
           scrollbar = false,
-          scrolloff = 8,
-        },
-        documentation = cmp.config.window.bordered()
+        }),
+        documentation = cmp.config.window.bordered({
+          winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+          scrollbar = false,
+        })
       }
     })
 

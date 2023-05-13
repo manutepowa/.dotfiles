@@ -38,11 +38,13 @@ return {
       float_opts = {
         border = "curved",
         winblend = 0,
-        highlights = {
-          border = "Normal",
-          background = "Normal",
+      },
+      highlights = {
+        FloatBorder = {
+          guifg = "#000000",
+          guibg = "NONE",
         },
-      }
+      },
     })
     function Set_terminal_keymaps()
       local opts = { noremap = true }
