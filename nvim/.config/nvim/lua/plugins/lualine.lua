@@ -1,5 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
+  event = "VeryLazy",
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
     local status_ok, lualine = pcall(require, "lualine")
@@ -7,7 +8,7 @@ return {
       return
     end
 
-    local lualine_scheme = "darkplus_dark"
+    local lualine_scheme = "newonedark"
     -- local lualine_scheme = "onedarker_alt"
 
     local status_theme_ok, theme = pcall(require, "lualine.themes." .. lualine_scheme)
@@ -27,16 +28,24 @@ return {
 
     local gray = "#32363e"
     local dark_gray = "#282C34"
-    local dark_gray = "#282C34"
     local red = "#D16969"
     local blue = "#569CD6"
     local green = "#6A9955"
     local cyan = "#4EC9B0"
     local orange = "#CE9178"
     local indent = "#CE9178"
-    local yellow = "#DCDCAA"
-    local yellow_orange = "#D7BA7D"
     local purple = "#C586C0"
+
+    if lualine_scheme == "newonedark" then
+      gray = "#32363e"
+      dark_gray = "#282C34"
+      red = "#bf616a"
+      blue = "#5e81ac"
+      indent = "#A3BE8C"
+      green = "#A3BE8C"
+      cyan = "#88c0d0"
+      orange = "#C68A75"
+    end
 
     if lualine_scheme == "darkplus_dark" then
       -- gray = "#3e3e3e"
@@ -48,8 +57,6 @@ return {
       green = "#A3BE8C"
       cyan = "#88c0d0"
       orange = "#C68A75"
-      yellow = "#DCDCAA"
-      yellow_orange = "#D7BA7D"
       purple = "#B48EAD"
     end
 
@@ -57,9 +64,9 @@ return {
     -- local sl_hl_sep = vim.api.nvim_get_hl_by_name("StatusLineSeparator", true)
 
     vim.api.nvim_set_hl(0, "SLGitIcon", { fg = "#E8AB53", bg = dark_gray })
-    vim.api.nvim_set_hl(0, "SLTermIcon", { fg = purple, bg = gray })
-    vim.api.nvim_set_hl(0, "SLBranchName", { fg = "#abb2bf", bg = dark_gray, bold = false })
-    vim.api.nvim_set_hl(0, "SLProgress", { fg = purple, bg = gray })
+    vim.api.nvim_set_hl(0, "SLTermIcon", { fg = cyan, bg = gray })
+    vim.api.nvim_set_hl(0, "SLBranchName", { fg = cyan, bg = dark_gray, bold = false })
+    vim.api.nvim_set_hl(0, "SLProgress", { fg = cyan, bg = gray })
     vim.api.nvim_set_hl(0, "SLLocation", { fg = blue, bg = gray })
     vim.api.nvim_set_hl(0, "SLFT", { fg = cyan, bg = gray })
     vim.api.nvim_set_hl(0, "SLIndent", { fg = indent, bg = gray })
@@ -120,25 +127,6 @@ return {
       end,
     }
 
-    local left_pad_alt = {
-      function()
-        return " "
-      end,
-      padding = 0,
-      color = function()
-        return { fg = gray }
-      end,
-    }
-
-    local right_pad_alt = {
-      function()
-        return " "
-      end,
-      padding = 0,
-      color = function()
-        return { fg = gray }
-      end,
-    }
 
     local mode = {
       -- mode component
@@ -154,10 +142,6 @@ return {
       padding = 0,
     }
 
-    local hide_in_width_60 = function()
-      return vim.o.columns > 60
-    end
-
     local hide_in_width = function()
       return vim.o.columns > 80
     end
@@ -167,29 +151,6 @@ return {
     end
 
     local icons = require "config.icons"
-
-    local diagnostics = {
-      "diagnostics",
-      sources = { "nvim_diagnostic" },
-      sections = { "error", "warn" },
-      symbols = {
-        error = "%#SLError#" .. icons.diagnostics.Error .. "%*" .. " ",
-        warn = "%#SLWarning#" .. icons.diagnostics.Warning .. "%*" .. " ",
-      },
-      colored = false,
-      update_in_insert = false,
-      always_visible = true,
-      padding = 0,
-    }
-
-    local diff = {
-      "diff",
-      colored = false,
-      symbols = { added = icons.git.Add .. " ", modified = icons.git.Mod .. " ", removed = icons.git.Remove .. " " }, -- changes diff symbols
-      cond = hide_in_width_60,
-      separator = "%#SLSeparator#" .. "│ " .. "%*",
-    }
-
     local filetype = {
       "filetype",
       fmt = function(str)
@@ -262,7 +223,7 @@ return {
       "progress",
       fmt = function(str)
         -- return "▊"
-        return hl_str("", "SLSep") .. hl_str("%P/%L", "SLProgress") .. hl_str(" ", "SLSep")
+        return hl_str(" ", "SLSep") .. hl_str("%P/%L", "SLProgress") .. hl_str(" ", "SLSep")
         -- return "  "
       end,
       -- color = "SLProgress",
@@ -279,67 +240,12 @@ return {
         if not pcall(require, "lsp_signature") then
           return ""
         end
-        local sig = require("lsp_signature").status_line(30)
-        local hint = sig.hint
-
-        if not require("user.functions").isempty(hint) then
-          -- return "%#SLSeparator#│ : " .. hint .. "%*"
-          -- return "%#SLSeparator#│ " .. hint .. "%*"
-          return "%#SLSeparator# " .. hint .. "%*"
-        end
-
         return ""
       end,
       cond = hide_in_width_100,
       padding = 0,
     }
 
-    -- cool function for progress
-    -- local progress = function()
-    --   local current_line = vim.fn.line "."
-    --   local total_lines = vim.fn.line "$"
-    --   local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
-    --   local line_ratio = current_line / total_lines
-    --   local index = math.ceil(line_ratio * #chars)
-    --   -- return chars[index]
-    --   return "%#SLProgress#" .. chars[index] .. "%*"
-    -- end
-
-    local spaces = {
-      function()
-        local buf_ft = vim.bo.filetype
-
-        local ui_filetypes = {
-          "help",
-          "packer",
-          "neogitstatus",
-          "NvimTree",
-          "Trouble",
-          "lir",
-          "Outline",
-          "spectre_panel",
-          "DressingSelect",
-          "",
-        }
-        local space = ""
-
-        if contains(ui_filetypes, buf_ft) then
-          space = " "
-        end
-
-        local shiftwidth = vim.api.nvim_buf_get_option(0, "shiftwidth")
-
-        if shiftwidth == nil then
-          return ""
-        end
-
-        -- TODO: update codicons and use their indent
-        return hl_str(" ", "SLSep") .. hl_str(" " .. shiftwidth .. space, "SLIndent") .. hl_str("", "SLSep")
-      end,
-      padding = 0,
-      -- separator = "%#SLSeparator#" .. " │" .. "%*",
-      -- cond = hide_in_width_100,
-    }
 
     local copilot = {
       function()
@@ -369,9 +275,7 @@ return {
     local location = {
       "location",
       fmt = function(str)
-        -- return "▊"
         return hl_str(" ", "SLSep") .. hl_str(str, "SLLocation") .. hl_str(" ", "SLSep")
-        -- return "  "
       end,
       padding = 0,
     }
@@ -384,7 +288,6 @@ return {
       options = {
         globalstatus = true,
         icons_enabled = true,
-        -- theme = "auto",
         theme = theme,
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
@@ -392,24 +295,12 @@ return {
         always_divide_middle = true,
       },
       sections = {
-        lualine_a = { left_pad, mode, branch, right_pad },
-        lualine_b = { left_pad_alt, diagnostics, right_pad_alt },
-        -- lualine_c = {},
+        lualine_a = { left_pad, mode, branch },
+        lualine_b = {},
         lualine_c = { current_signature, filename },
-        -- lualine_x = { diff, spaces, "encoding", filetype },
-        -- lualine_x = { diff, copilot, spaces, filetype },
-        -- lualine_x = { copilot, spaces, filetype },
         lualine_x = { copilot, filetype },
         lualine_y = {},
-        lualine_z = { location, progress },
-      },
-      inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = { "location" },
-        lualine_y = {},
-        lualine_z = {},
+        lualine_z = { progress },
       },
       tabline = {},
       extensions = {},
