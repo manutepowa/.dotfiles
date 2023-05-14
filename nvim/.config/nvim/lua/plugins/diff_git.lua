@@ -1,24 +1,17 @@
 return {
   'sindrets/diffview.nvim',
   cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+  lazy = true,
   dependencies = {
     'nvim-lua/plenary.nvim'
   },
   config = function()
     local cb = require('diffview.config').diffview_callback
-
     require('diffview').setup {
-      enhanced_diff_hl = true, -- See ':h diffview-config-enhanced_diff_hl'
-      git_cmd = { "git" },
-      use_icons = true,        -- Requires nvim-web-devicons
-      icons = {
-        folder_closed = "",
-        folder_open = "",
-      },
-      signs = {
-        fold_closed = "",
-        fold_open = "",
-      },
+      diff_binaries = false,               -- Show diffs for binaries
+      enhanced_diff_hl = false,            -- See ':h diffview-config-enhanced_diff_hl'
+      git_cmd = { "git" },                 -- The git executable followed by default args.
+      use_icons = true,                    -- Requires nvim-web-devicons
       file_panel = {
         listing_style = "tree",            -- One of 'list' or 'tree'
         tree_options = {
@@ -42,16 +35,8 @@ return {
           },
         },
       },
-      default_args = {
-        -- Default args prepended to the arg-list for the listed commands
-        DiffviewOpen = {},
-        DiffviewFileHistory = {},
-      },
-      hooks = {},
       key_bindings = {
-        disable_defaults = true, -- Disable the default key bindings
-        -- The `view` bindings are active in the diff buffers, only when the current
-        -- tabpage is a Diffview.
+        disable_defaults = true,                    -- Disable the default key bindings
         view = {
           ["<tab>"]      = cb("select_next_entry"), -- Open the diff for the next file
           ["<s-tab>"]    = cb("select_prev_entry"), -- Open the diff for the previous file

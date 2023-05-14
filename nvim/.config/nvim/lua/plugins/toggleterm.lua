@@ -25,11 +25,6 @@ return {
       shade_terminals = true,
       shading_factor = 2,
       start_in_insert = true,
-      -- highlights = {
-      --   FloatBorder = {
-      --     guifg = "#06b6d4",
-      --   },
-      -- },
       insert_mappings = true,
       persist_size = true,
       direction = "float",
@@ -41,8 +36,7 @@ return {
       },
       highlights = {
         FloatBorder = {
-          guifg = "#000000",
-          guibg = "NONE",
+          link = "FloatBorder",
         },
       },
     })
