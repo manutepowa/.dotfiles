@@ -75,10 +75,6 @@ vim.keymap.set("n", "<A-c>", ":Bdelete!<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<S-A-l>", ":BufferLineMoveNext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<S-A-h>", ":BufferLineMovePrev<CR>", { noremap = true, silent = true })
 
--- DiffGit
-vim.keymap.set("n", "<leader>dd", ":DiffviewOpen<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>df", ":DiffviewFileHistory %<CR>", { noremap = true, silent = true })
-
 vim.keymap.set("n", "gq", ":tabclose<CR>", { noremap = true })
 vim.cmd([[
   autocmd TabClosed * checktime

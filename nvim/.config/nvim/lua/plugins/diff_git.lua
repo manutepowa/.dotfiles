@@ -5,6 +5,10 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim'
   },
+  keys = {
+    { "<leader>dd", ":DiffviewOpen<CR>" },
+    { "<leader>df", ":DiffviewFileHistory %<CR>" },
+  },
   config = function()
     local cb = require('diffview.config').diffview_callback
     require('diffview').setup {
