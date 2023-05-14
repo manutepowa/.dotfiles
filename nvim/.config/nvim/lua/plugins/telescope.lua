@@ -3,7 +3,12 @@ return {
   dependencies = {
     { 'nvim-lua/plenary.nvim' },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    { 'nvim-tree/nvim-web-devicons' }
+    { 'nvim-tree/nvim-web-devicons' },
+    {
+      "folke/todo-comments.nvim",
+      lazy = true,
+      config = true,
+    }
   },
   keys = {
     {
@@ -17,6 +22,9 @@ return {
     { '<Leader>fG', ':Telescope grep_string<cr>' },
     { '<Leader>fb', ':Telescope buffers<cr>' },
     { '<Leader>fg', ':Telescope live_grep<cr>' },
+    -- todocomments keymaps
+    { "<leader>td", "<cmd>TodoTrouble<cr>",      desc = "Todo (Trouble)" },
+    { "<leader>ft", "<cmd>TodoTelescope<cr>",    desc = "Todo" },
   },
   config = function()
     local telescope = require('telescope')
