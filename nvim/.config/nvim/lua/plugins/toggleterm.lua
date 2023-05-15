@@ -31,12 +31,17 @@ return {
       close_on_exit = true,
       shell = vim.o.shell,
       float_opts = {
-        border = "curved",
+        border = "single",
         winblend = 0,
       },
       highlights = {
         FloatBorder = {
           link = "FloatBorder",
+        },
+        NormalFloat = {
+          -- guibg = "#1F2228",
+          guibg = "#252930",
+          guifg = "#abb2bf",
         },
       },
     })
