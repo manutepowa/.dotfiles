@@ -38,6 +38,7 @@ local options = {
   scrolloff = 4,
   sidescrolloff = 8,
   title = true,
+  titleold = vim.split(os.getenv("SHELL") or "", "/")[3]
 }
 
 

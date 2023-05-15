@@ -7,7 +7,12 @@ return {
     {
       "folke/todo-comments.nvim",
       lazy = true,
-      config = true,
+      opts = {
+        signs = false,
+        highlight = {
+          after = "empty",
+        }
+      },
     }
   },
   keys = {

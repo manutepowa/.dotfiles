@@ -136,12 +136,12 @@ return {
         timeout = 500,
       },
       view = {
+        centralize_selection = true,
         width = 50,
         hide_root_folder = false,
         side = "left",
         mappings = {
           custom_only = false,
-          list = key_bindings,
         },
         number = false,
         relativenumber = false,
