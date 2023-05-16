@@ -28,8 +28,7 @@ return {
     { '<Leader>fb', ':Telescope buffers<cr>' },
     { '<Leader>fg', ':Telescope live_grep<cr>' },
     -- todocomments keymaps
-    { "<leader>td", "<cmd>TodoTrouble<cr>",      desc = "Todo (Trouble)" },
-    { "<leader>ft", "<cmd>TodoTelescope<cr>",    desc = "Todo" },
+    { "<leader>ft", "<cmd>TodoTelescope keywords=TODO,FIX<cr>", desc = "Todo" },
   },
   config = function()
     local telescope = require('telescope')
