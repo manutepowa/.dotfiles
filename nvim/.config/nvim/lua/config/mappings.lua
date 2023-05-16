@@ -93,21 +93,6 @@ vim.keymap.set('c', '<A-k>', '<UP>', { noremap = true, silent = true })
 vim.cmd([[imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>']])
 vim.cmd([[smap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>']])
 
-vim.api.nvim_create_autocmd("BufEnter", {
-  callback = function()
-    -- Add these options.
-    vim.cmd([[ setlocal formatoptions+=c ]]) -- Autowrap comments
-    vim.cmd([[ setlocal formatoptions+=j ]]) -- Join comment lines when possible
-    vim.cmd([[ setlocal formatoptions+=n ]]) -- Format recognizing numbered lists
-    vim.cmd([[ setlocal formatoptions+=q ]]) -- Allow format with gq
-    vim.cmd([[ setlocal formatoptions+=r ]]) -- Insert autocomment leader
-
-    vim.cmd([[ setlocal formatoptions-=2 ]]) -- Use 2nd line indent when formatting
-    vim.cmd([[ setlocal formatoptions-=a ]]) -- Automatic paragraph formatting
-    vim.cmd([[ setlocal formatoptions-=o ]]) -- Automatic insert comment leader when 'o' or 'O'
-    vim.cmd([[ setlocal formatoptions-=t ]]) -- Auto wrap with text width
-  end,
-})
 
 vim.keymap.set('n', '<leader>bf', function()
   vim.lsp.buf.format({ timeout_ms = 5000 })

@@ -20,7 +20,7 @@ return {
       suggestion = {
         auto_trigger = true,
         keymap = {
-          accept = "<Tab>",
+          -- accept = "<Tab>",
           accept_word = false,
           accept_line = false,
           next = "<C-j>",
@@ -29,5 +29,13 @@ return {
         },
       },
     })
+
+    vim.keymap.set('i', '<Tab>', function()
+      if require("copilot.suggestion").is_visible() then
+        require("copilot.suggestion").accept()
+      else
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, true, true), "n")
+      end
+    end)
   end,
 }
