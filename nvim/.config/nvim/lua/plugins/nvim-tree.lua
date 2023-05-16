@@ -8,6 +8,7 @@ return {
     'nvim-tree/nvim-web-devicons',
   },
   config = function()
+    local icons = require("config.icons")
     local present, nvimtree = pcall(require, "nvim-tree")
     if not present then
       return
@@ -52,11 +53,11 @@ return {
 
     nvimtree.setup {
       on_attach = my_on_attach,
-      disable_netrw = false,
-      hijack_netrw = false,
       open_on_tab = false,
+      disable_netrw = false,
       hijack_cursor = false,
-      update_cwd = true,
+      hijack_netrw = true,
+      hijack_unnamed_buffer_when_opening = false,
       renderer = {
         add_trailing = false,
         highlight_opened_files = 'icon',
@@ -76,28 +77,29 @@ return {
             file = true
           },
           glyphs = {
-            default = "",
-            symlink = "",
+            default = icons.ui.Text,
+            symlink = icons.ui.FileSymlink,
+            bookmark = icons.ui.BookMark,
+            folder = {
+              arrow_closed = icons.ui.TriangleShortArrowRight,
+              arrow_open = icons.ui.TriangleShortArrowDown,
+              default = icons.ui.Folder,
+              open = icons.ui.FolderOpen,
+              empty = icons.ui.EmptyFolder,
+              empty_open = icons.ui.EmptyFolderOpen,
+              symlink = icons.ui.FolderSymlink,
+              symlink_open = icons.ui.FolderOpen,
+            },
             git = {
-              unstaged = "",
-              staged = "",
-              unmerged = "",
-              renamed = "",
-              untracked = "",
-              deleted = "﯊",
+              unstaged = icons.git.FileUnstaged,
+              staged = icons.git.FileStaged,
+              unmerged = icons.git.FileUnmerged,
+              renamed = icons.git.FileRenamed,
+              untracked = icons.git.FileUntracked,
+              deleted = icons.git.FileDeleted,
               ignored = "",
             },
-            folder = {
-              arrow_open = "",
-              arrow_closed = "",
-              default = "",
-              open = "",
-              empty = "", -- 
-              empty_open = "",
-              symlink = "",
-              symlink_open = "",
-            }
-          }
+          },
         },
       },
       hijack_directories = {
