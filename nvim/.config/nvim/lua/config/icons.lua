@@ -59,6 +59,10 @@ return {
   ui = {
     ArrowClosed = "",
     ArrowOpen = "",
+    BoldArrowDown = "",
+    BoldArrowLeft = "",
+    BoldArrowRight = "",
+    BoldArrowUp = "",
     Indicator = "",
     Lock = "",
     Circle = "",

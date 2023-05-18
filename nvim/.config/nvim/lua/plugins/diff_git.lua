@@ -32,11 +32,7 @@ return {
             multi_file = {
               diff_merges = "first-parent",
             },
-          },
-          hg = {
-            single_file = {},
-            multi_file = {},
-          },
+          }
         },
       },
       key_bindings = {

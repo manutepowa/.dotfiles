@@ -22,9 +22,15 @@ return {
 
 
     dap.defaults.fallback.terminal_win_cmd = '80vsplit new'
-    vim.fn.sign_define('DapBreakpoint', { text = '🟥', texthl = '', linehl = '', numhl = '' })
-    vim.fn.sign_define('DapBreakpointRejected', { text = '🟦', texthl = '', linehl = '', numhl = '' })
-    vim.fn.sign_define('DapStopped', { text = '⭐️', texthl = '', linehl = '', numhl = '' })
+    vim.fn.sign_define('DapBreakpoint', { text = icons.ui.Bug, texthl = 'DiagnosticSignError', linehl = '', numhl = '' })
+    vim.fn.sign_define('DapBreakpointRejected',
+      { text = icons.ui.Bug, texthl = 'DiagnosticSignError', linehl = '', numhl = '' })
+    vim.fn.sign_define('DapStopped', {
+      text = icons.ui.BoldArrowRight,
+      texthl = "DiagnosticSignWarn",
+      linehl = "Visual",
+      numhl = "DiagnosticSignWarn",
+    })
     vim.fn.sign_define("DapLogPoint", { text = icons.dap.LogPoint, texthl = "DapLogPoint", linehl = "", numhl = "" })
 
     dap.adapters.php = {
@@ -78,7 +84,12 @@ return {
     local dap_ui = require "dapui"
     dap_ui.setup({
       -- icons = { expanded = "▾", collapsed = "▸" },
-      icons = { expanded = icons.ui.ArrowOpen, collapsed = icons.ui.ArrowClosed, current_frame = icons.ui.Indicator },
+      icons = {
+        expanded = icons.ui.ArrowOpen,
+        collapsed = icons.ui.ArrowClosed,
+        current_frame = icons.ui.Indicator,
+        circular = ""
+      },
       mappings = {
         -- Use a table to apply multiple mappings
         expand = { "<TAB>", "<2-LeftMouse>" },
