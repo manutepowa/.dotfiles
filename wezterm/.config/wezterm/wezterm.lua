@@ -1,10 +1,13 @@
 local wezterm = require("wezterm")
 
 local config = {
-  color_scheme = "Catppuccin Mocha",
-  enable_tab_bar = false,
+  color_scheme = "Gruvbox Dark",
+  enable_tab_bar = true,
   window_decorations = "RESIZE",
-  font = wezterm.font("MonoLisaTrial", { weight = "Medium" }),
+  font = wezterm.font_with_fallback({
+    "MonoLisaTrial",
+    { family = "Symbols Nerd Font Mono", scale = 0.75 },
+  }),
   native_macos_fullscreen_mode = true,
   keys = {
     {
