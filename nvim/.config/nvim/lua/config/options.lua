@@ -55,17 +55,30 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   callback = function() vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 200, on_visual = true }) end, -- Or myvimfun
 })
 
--- MultiCursor
 vim.g.VM_maps = {
   ['Exit']               = '<esc>',
   ['Find Under']         = '<S-M-n>',
   ['Find Subword Under'] = '<S-M-n>',
-  ['Add Cursor Down']    = '<S-M-j>',
-  ['Add Cursor Up']      = '<S-M-k>',
   ['Select All']         = '<M-n>',
   ['Visual All']         = '<M-n>'
 }
--- Para seleccionar como en sublime este <C-v>: https://stackoverflow.com/questions/11784408/vim-multiline-editing-like-in-sublimetext
+vim.keymap.set('n', '<S-M-j>', '<Plug>(VM-Select-Cursor-Down)')
+vim.keymap.set('n', '<S-M-k>', '<Plug>(VM-Select-Cursor-Up)')
+
+-- vim.api.nvim_create_autocmd("ModeChanged", {
+--   callback = function()
+--     local buff = tonumber(vim.fn.expand "<abuf>", 10)
+--     local mode = vim.fn.mode()
+--     if mode == 'v' then
+--       vim.keymap.set('n', '<S-M-j>', '<Plug>(VM-Add-Cursor-Down)')
+--       vim.keymap.set('n', '<S-M-k>', '<Plug>(VM-Add-Cursor-Up)')
+--     elseif mode == 'n' then
+--
+--     end
+--   end,
+-- })
+
+-- vim.g.VM_maps = T
 
 -- codi
 vim.cmd([[

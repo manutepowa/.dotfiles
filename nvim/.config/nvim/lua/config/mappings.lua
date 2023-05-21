@@ -76,6 +76,7 @@ vim.keymap.set("n", "<S-A-l>", ":BufferLineMoveNext<CR>", { noremap = true, sile
 vim.keymap.set("n", "<S-A-h>", ":BufferLineMovePrev<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "gq", ":tabclose<CR>", { noremap = true })
+
 vim.cmd([[
   autocmd TabClosed * checktime
 ]]) -- With this reload buffer after close tab
@@ -103,8 +104,6 @@ end, { noremap = true, silent = true })
 
 vim.keymap.set('n', '<leader>l', ':Lazy<cr>', { noremap = true, silent = true })
 
-
-
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "dap-repl",
   callback = function()
@@ -115,3 +114,9 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set('i', '<A-BS>', function() vim.cmd('normal vbd') end, { noremap = true, silent = true })
   end,
 })
+
+-- CMD commands
+-- map command to cmdline
+vim.keymap.set("c", "<A-l>", "<Right>")
+vim.keymap.set("c", "<A-h>", "<Left>")
+vim.keymap.set("c", '<A-BS>', '<c-w>')
