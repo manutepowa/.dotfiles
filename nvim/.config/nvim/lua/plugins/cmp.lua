@@ -151,6 +151,13 @@ return {
         }
       })
     })
+
+    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+    cmp.event:on(
+      'confirm_done',
+      cmp_autopairs.on_confirm_done()
+    )
+
     vim.cmd [[
   highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
   highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
