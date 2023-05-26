@@ -76,33 +76,33 @@ return {
         opts = vim.tbl_deep_extend("force", tsserver, opts)
       end
 
-      if server == "tsserver" then
-        require("typescript").setup({
-          -- disable_commands = false, -- prevent the plugin from creating Vim commands
-          debug = false,     -- enable debug logging for commands
-          go_to_source_definition = {
-            fallback = true, -- fall back to standard LSP definition on failure
-          },
-          server = {
-            -- pass options to lspconfig's setup method
-            on_attach = opts.on_attach,
-            capabilities = opts.capabilities,
-            settings = {
-              typescript = {
-                inlayHints = {
-                  includeInlayEnumMemberValueHints = true,
-                  includeInlayFunctionLikeReturnTypeHints = true,
-                  includeInlayFunctionParameterTypeHints = false,
-                  includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-                  includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                  includeInlayPropertyDeclarationTypeHints = true,
-                  includeInlayVariableTypeHints = true,
-                },
-              },
-            },
-          },
-        })
-      end
+      -- if server == "tsserver" then
+      --   require("typescript").setup({
+      --     -- disable_commands = false, -- prevent the plugin from creating Vim commands
+      --     debug = false,     -- enable debug logging for commands
+      --     go_to_source_definition = {
+      --       fallback = true, -- fall back to standard LSP definition on failure
+      --     },
+      --     server = {
+      --       -- pass options to lspconfig's setup method
+      --       on_attach = opts.on_attach,
+      --       capabilities = opts.capabilities,
+      --       settings = {
+      --         typescript = {
+      --           inlayHints = {
+      --             includeInlayEnumMemberValueHints = true,
+      --             includeInlayFunctionLikeReturnTypeHints = true,
+      --             includeInlayFunctionParameterTypeHints = false,
+      --             includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+      --             includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+      --             includeInlayPropertyDeclarationTypeHints = true,
+      --             includeInlayVariableTypeHints = true,
+      --           },
+      --         },
+      --       },
+      --     },
+      --   })
+      -- end
 
       if server == "jsonls" then
         lspconfig.jsonls.setup {

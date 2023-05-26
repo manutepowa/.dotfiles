@@ -17,16 +17,16 @@ return {
           return lang == "css" or vim.api.nvim_buf_line_count(bufnr) > 60000
         end,
       },
+      indent = { enable = true, disable = { "python", "css" } },
       autopairs = {
         enable = true,
       },
-      indent = { enable = true, disable = { "python", "css" } },
       autotag = {
         enable = true,
         disable = { "xml", "markdown" },
       }
     }
-    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-    parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
+    -- local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+    -- parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
   end
 }
