@@ -1,7 +1,7 @@
 return {
   'tpope/vim-fugitive',
   {
-    'AchmadFathoni/vim-flog',
+    'rbong/vim-flog',
     config = function()
       vim.g.flog_default_opts = {
         max_count = 512,
