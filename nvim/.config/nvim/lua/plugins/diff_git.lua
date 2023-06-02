@@ -86,5 +86,21 @@ return {
         },
       },
     }
+
+    -- vim.api.nvim_set_hl(0, "DiffviewCursorLine", { background = 1513239 })
+    -- vim.api.nvim_set_hl(0, "DiffviewDiffAddAsDelete", { background = 3480861, foreground = 1381653 })
+    vim.api.nvim_set_hl(0, "DiffviewDiffDelete", { foreground = 7500402 })
+    -- vim.api.nvim_set_hl(0, "DiffviewDim1", { foreground = 7500402 })
+    vim.api.nvim_set_hl(0, "DiffviewEndOfBuffer", { foreground = 1381653 })
+    vim.api.nvim_set_hl(0, "DiffviewNonText", { foreground = 1381653 })
+    -- vim.api.nvim_set_hl(0, "DiffviewNormal", { background = 1381653, foreground = 14803425 })
+    vim.api.nvim_set_hl(0, "DiffviewPrimary", { foreground = 8957858 })
+    vim.api.nvim_set_hl(0, "DiffviewReference", { foreground = 8957858 })
+    vim.api.nvim_set_hl(0, "DiffviewSecondary", { foreground = 10663361 })
+    vim.api.nvim_set_hl(0, "DiffviewSignColumn", { background = 1381653, foreground = 14803425 })
+    vim.api.nvim_set_hl(0, "DiffviewStatusIgnored", { foreground = 7500402 })
+    vim.api.nvim_set_hl(0, "DiffviewStatusLine", { background = 1381653, foreground = 3618615 })
+    vim.api.nvim_set_hl(0, "DiffviewStatusLineNC", { background = 1513239, foreground = 1513239 })
+    -- vim.api.nvim_set_hl(0, "DiffviewWinSeparator", { background = 1381653, foreground = 7500402 })
   end
 }

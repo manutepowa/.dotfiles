@@ -38,7 +38,10 @@ local options = {
   scrolloff = 4,
   sidescrolloff = 8,
   title = true,
-  titleold = vim.split(os.getenv("SHELL") or "", "/")[3]
+  titleold = vim.split(os.getenv("SHELL") or "", "/")[3],
+  foldenable = true,   -- enable fold for nvim-ufo
+  foldlevel = 99,      -- set high foldlevel for nvim-ufo
+  foldlevelstart = 99, -- start with all code unfolded
 }
 
 
