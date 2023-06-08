@@ -43,10 +43,6 @@ vim.keymap.set("x", 'p', [["_dP]])
 vim.keymap.set("n", 'dw', 'dwi', { noremap = true })
 vim.keymap.set("n", 'diw', 'diwi', { noremap = true })
 
--- Apaño para que no vuelva al inicio (autoindent)
-vim.keymap.set("i", '<CR>', '<CR>x<BS>')
-vim.keymap.set("n", 'o', 'ox<BS>')
-vim.keymap.set("n", 'O', 'Ox<BS>')
 
 -- Not select after line character
 vim.keymap.set("v", '$', '$h')
