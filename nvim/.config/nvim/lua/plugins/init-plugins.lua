@@ -26,7 +26,6 @@ return {
   { 'wellle/targets.vim' },
   { 'antoinemadec/FixCursorHold.nvim' },
   { 'tpope/vim-surround' },
-  { 'ryanoasis/vim-devicons' },
   { "tpope/vim-repeat" },
   { "RRethy/vim-illuminate" },
   { "tamago324/nlsp-settings.nvim" },

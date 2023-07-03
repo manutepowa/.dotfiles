@@ -126,6 +126,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "DressingSelect",
     "tsplayground",
     "floggraph",
+    "fugitive",
+    "httpResult",
     "",
   },
   callback = function()
