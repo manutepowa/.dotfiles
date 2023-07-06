@@ -7,7 +7,7 @@ vim.keymap.set("n", '<Leader>so', ':so ~/.dotfiles/nvim/.config/nvim/init.lua<CR
 vim.keymap.set("n", '<Leader>q', ':wincmd q<cr>', { noremap = true })
 
 -- git
-vim.keymap.set("n", '<Leader>gl', ':Flogsplit<cr>', { noremap = true })
+vim.keymap.set("n", '<Leader>gl', ':Flogsplit -all<cr>', { noremap = true })
 vim.keymap.set("n", '<Leader>gs', ':Git<cr>', { noremap = true })
 vim.keymap.set("n", '<Leader>gw', ':Gwrite<cr>', { noremap = true })
 vim.keymap.set("n", '<Leader>gc', ':Git commit<cr>', { noremap = true })

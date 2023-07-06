@@ -18,27 +18,80 @@ return {
   keys = {
     {
       "<leader>ff",
-      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false, hidden = true})<cr>",
+      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy())<cr>",
       silent = true
     },
     {
       "<leader>''",
-      "<cmd>lua require('telescope.builtin').help_tags()<cr>",
+      "<cmd>lua require('telescope.builtin').help_tags(require('telescope.themes').get_ivy())<cr>",
       silent = true
     },
-    { '<Leader>fg', ':Telescope live_grep<cr>' },
+    {
+      "<leader>fg",
+      "<cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_ivy())<cr>",
+      silent = true
+    },
     { '<Leader>fh', ':Telescope oldfiles<cr>' },
     { '<Leader>fG', ':Telescope grep_string<cr>' },
     { '<Leader>fb', ':Telescope buffers<cr>' },
-    { '<Leader>fg', ':Telescope live_grep<cr>' },
     -- todocomments keymaps
     { "<leader>ft", "<cmd>TodoTelescope keywords=TODO,FIX<cr>", desc = "Todo" },
   },
   config = function()
     local telescope = require('telescope')
     local actions = require('telescope.actions')
+
+    local filetype_hook = function(filepath, bufnr, opts)
+      -- Here for example you can say: if ft == "xyz" then this_regex_highlighing else nothing end
+      --
+      local is_image = function(filepath)
+        local image_extensions = { "png", "jpg" } -- Supported image formats
+        local split_path = vim.split(filepath:lower(), ".", { plain = true })
+        local extension = split_path[#split_path]
+        return vim.tbl_contains(image_extensions, extension)
+      end
+      if not is_image(filepath) then
+        return true
+      end
+      local ui = require "image.ui"
+      local options = require "image.options"
+      local dimensions = require "image.dimensions"
+      local api = require "image.api"
+      local config = require "image.config"
+      local user_opts = {
+        render = {
+          foreground_color = true,
+          background_color = true,
+        },
+      }
+      local global_opts = vim.tbl_deep_extend("force", config.DEFAULT_OPTS, user_opts)
+
+      local ascii_width, ascii_height, horizontal_padding, vertical_padding, img_width, img_height =
+          dimensions.calculate_ascii_width_height(opts.winid, filepath, global_opts)
+      options.set_options_before_render(bufnr)
+      ui.buf_clear(bufnr)
+      local label = ui.create_label(
+        filepath,
+        ascii_width,
+        horizontal_padding,
+        global_opts.render.show_image_dimensions,
+        img_width,
+        img_height
+      )
+
+      api.get_ascii_data_sync(filepath, ascii_width, ascii_height, global_opts, function(ascii_data)
+        ui.buf_insert_data_with_padding(bufnr, ascii_data, horizontal_padding, vertical_padding, label, global_opts)
+
+        options.set_options_after_render(bufnr)
+      end)
+      return false
+    end
+
     telescope.setup {
       defaults = {
+        preview = {
+          filetype_hook = filetype_hook,
+        },
         vimgrep_arguments = {
           "rg",
           "--color=never",
@@ -54,7 +107,7 @@ return {
         initial_mode = "insert",
         selection_strategy = "reset",
         sorting_strategy = "descending",
-        layout_strategy = "vertical",
+        -- layout_strategy = "vertical",
         mappings = {
           i = {
             ["<esc>"] = require('telescope.actions').close,
@@ -98,6 +151,8 @@ return {
     }
 
     require('telescope').load_extension('fzf')
+
+
     -- -- Telescope
     -- vim.api.nvim_set_keymap(
     --   "n",
