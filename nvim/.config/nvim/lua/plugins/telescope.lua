@@ -18,7 +18,7 @@ return {
   keys = {
     {
       "<leader>ff",
-      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy())<cr>",
+      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy({hidden = true}))<cr>",
       silent = true
     },
     {
@@ -89,6 +89,7 @@ return {
 
     telescope.setup {
       defaults = {
+        file_ignore_patterns = { "^.git/" },
         preview = {
           filetype_hook = filetype_hook,
         },
