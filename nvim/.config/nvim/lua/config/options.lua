@@ -128,7 +128,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "floggraph",
     "fugitive",
     "httpResult",
-    "",
+    "git",
   },
   callback = function()
     vim.cmd [[

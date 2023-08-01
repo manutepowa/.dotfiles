@@ -81,8 +81,8 @@ return {
           vim_item.kind = kind_icons[vim_item.kind]
           vim_item.menu = ({
             nvim_lsp = "",
-            buffer = "",
             luasnip = "",
+            buffer = "",
             nvim_lua = "",
             path = "",
           })[entry.source.name]
@@ -90,10 +90,10 @@ return {
         end,
       },
       sources = {
-        { name = "nvim_lsp" },
-        { name = "nvim_lua" },
-        { name = "buffer" },
-        { name = "luasnip" },
+        { name = "nvim_lsp", keyword_length = 1 },
+        { name = "nvim_lua", keyword_length = 1 },
+        { name = "luasnip",  keyword_length = 1 },
+        { name = "buffer",   keyword_length = 2 },
         { name = "path" }
       },
       sorting = {
