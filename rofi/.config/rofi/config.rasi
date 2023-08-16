@@ -1,17 +1,20 @@
 configuration {
-  modi: "window,run,ssh,drun,combi";
+  modi: "window,run,ssh,drun,combi,filebrowser";
   fixed-num-lines: true;
   case-sensitive: false;
   sorting-method: "fzf";
-  matching: "fuzzy";
+  matching: "glob";
 
+  kb-primary-paste: "Alt+p";
   kb-remove-to-eol: "";
   kb-accept-entry: "Control+m,Return,KP_Enter";
 
-  kb-row-up: "Up,Alt+k,Alt+p,ISO_Left_Tab";
+  kb-row-up: "Up,Alt+k,ISO_Left_Tab";
   kb-row-down: "Down,Alt+j,Alt+n";
 
   kb-remove-word-back: "Alt+BackSpace";
+
+  kb-move-char-back: "Alt+h";
 
   drun-display-format: "{icon} {name}";
   display-drun: "Apps";

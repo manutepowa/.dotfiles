@@ -24,15 +24,9 @@ return {
         },
       },
       file_history_panel = {
-        log_options = {
-          git = {
-            single_file = {
-              diff_merges = "combined",
-            },
-            multi_file = {
-              diff_merges = "first-parent",
-            },
-          }
+        win_config = {
+          position = "bottom",
+          height = 10,
         },
       },
       key_bindings = {
