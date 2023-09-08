@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+print(vim.fn.stdpath("data"))
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -16,11 +17,6 @@ require("lazy").setup {
     { import = "plugins" },
   },
   checker = { enabled = true, notify = false },
-  change_detection = {
-    -- automatically check for config file changes and reload the ui
-    enabled = true,
-    notify = false,
-  },
   ui = {
     border = "rounded",
     icons = {
@@ -39,9 +35,6 @@ require("lazy").setup {
     },
   },
   performance = {
-    cache = {
-      enabled = true,
-    },
     rtp = {
       disabled_plugins = {
         "gzip",

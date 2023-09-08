@@ -47,6 +47,7 @@ return {
   { "moll/vim-bbye" },
   { 'fladson/vim-kitty' },
   { 'christoomey/vim-tmux-navigator' },
+  { "editorconfig/editorconfig-vim" },
   -- {
   --   "zbirenbaum/copilot-cmp",
   --   after = { "copilot.lua" },
