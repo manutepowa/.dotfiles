@@ -3,7 +3,7 @@
 brew upgrade
 
 brew install tmux
-brew install exa
+brew install eza
 brew install fzf
 brew install neovim
 brew install bpytop

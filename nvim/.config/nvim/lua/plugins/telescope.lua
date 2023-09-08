@@ -36,6 +36,7 @@ return {
     { '<Leader>fb', ':Telescope buffers<cr>' },
     -- todocomments keymaps
     { "<leader>ft", "<cmd>TodoTelescope keywords=TODO,FIX<cr>", desc = "Todo" },
+    { "<leader>fr", "<cmd>Telescope resume<cr>",                desc = "Todo" },
   },
   config = function()
     local telescope = require('telescope')

@@ -23,7 +23,6 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     docker
-    exa-zsh
     npm
     zsh-vi-mode
 )
@@ -38,8 +37,11 @@ alias devtest="cd /home/manuel/Desarrollo/devtest"
 alias v="nvim"
 alias genpass='f() { cat /dev/urandom | strings | grep -Eoa "[a-zA-Z0-9@$%&_]*" | head -n 10  | tr -d "\n" | cut -c1-$1 };f'
 alias cat='bat --style=plain'
-# alias ls="nnn -deH"
 
+# EZA alias
+alias l='eza' #   list, size, type
+alias ll='eza -la' # long, all
+alias la='eza -lbhHigUmuSa' # all list
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
