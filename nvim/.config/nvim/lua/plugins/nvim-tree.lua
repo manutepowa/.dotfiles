@@ -44,7 +44,6 @@ return {
       vim.keymap.set('n', '<Tab>', api.node.open.edit, opts('Open'))
       vim.keymap.set('n', '<CR>', api.node.open.preview, opts('Open Preview'))
       vim.keymap.set('n', '<A-w>', api.tree.collapse_all, opts('Collapse'))
-      vim.keymap.set('n', 'f', "", opts('Filter'))
       vim.keymap.set('n', 'e', 'e', opts('Nothing'))
       vim.keymap.set('n', 'ff', FindFiles, opts('Find files'))
       vim.keymap.set('n', 'fg', GrepFiles, opts('GrepFiles'))
@@ -140,7 +139,6 @@ return {
       view = {
         centralize_selection = true,
         width = 50,
-        hide_root_folder = false,
         side = "left",
         number = false,
         relativenumber = false,
