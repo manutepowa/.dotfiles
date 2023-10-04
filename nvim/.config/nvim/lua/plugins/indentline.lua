@@ -6,7 +6,6 @@ return {
       indent = {
         char = "▏",
         tab_char = "▏",
-        show_start = false,
         highlight = 'IndentBlanklineChar',
       },
       scope = {

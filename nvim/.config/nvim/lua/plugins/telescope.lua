@@ -43,8 +43,6 @@ return {
     local actions = require('telescope.actions')
 
     local filetype_hook = function(filepath, bufnr, opts)
-      -- Here for example you can say: if ft == "xyz" then this_regex_highlighing else nothing end
-      --
       local is_image = function(filepath)
         local image_extensions = { "png", "jpg" } -- Supported image formats
         local split_path = vim.split(filepath:lower(), ".", { plain = true })
@@ -103,7 +101,7 @@ return {
           "--column",
           "--smart-case"
         },
-        prompt_prefix = "   ",
+        prompt_prefix = "  ",
         selection_caret = "  ",
         entry_prefix = "  ",
         initial_mode = "insert",
