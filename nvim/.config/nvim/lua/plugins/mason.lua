@@ -29,7 +29,7 @@ return {
       "eslint",
       "intelephense",
       "rust_analyzer",
-      "svelte"
+      "svelte",
     }
 
     local settings = {
