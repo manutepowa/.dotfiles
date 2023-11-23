@@ -7,10 +7,10 @@ return {
       ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
       sync_install = false,     -- install languages synchronously (only applied to `ensure_installed`)
       ignore_install = { "" },  -- List of parsers to ignore installing
-      context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
-      },
+      -- context_commentstring = {
+      --   enable = true,
+      --   enable_autocmd = false,
+      -- },
       highlight = {
         enable = true,                  -- false will disable the whole extension
         disable = function(lang, bufnr) -- Disable in large C++ buffers
@@ -26,6 +26,8 @@ return {
         disable = { "xml", "markdown" },
       }
     }
+
+    require('ts_context_commentstring').setup {}
     -- local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
     -- parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
   end

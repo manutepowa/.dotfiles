@@ -1,7 +1,7 @@
 vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { desc = "Organize Imports" })
 
-vim.keymap.set("v", '<Tab>', '>gv', { noremap = true })
-vim.keymap.set("v", '<S-Tab>', '<gv', { noremap = true })
+vim.keymap.set("v", '<Tab>', '>gv', { desc = "Indent right" })
+vim.keymap.set("v", '<S-Tab>', '<gv', { desc = "Indent left" })
 vim.keymap.set("n", '<Leader>so', ':so ~/.dotfiles/nvim/.config/nvim/init.lua<CR>', { noremap = true })
 
 vim.keymap.set("n", '<Leader>q', ':wincmd q<cr>', { noremap = true })
@@ -42,6 +42,11 @@ vim.keymap.set("x", 'p', [["_dP]])
 -- Remove word
 vim.keymap.set("n", 'dw', 'dwi', { noremap = true })
 vim.keymap.set("n", 'diw', 'diwi', { noremap = true })
+
+-- Search word
+vim.keymap.set("n", 'n', 'nzzzv', { desc = "Search next" })
+vim.keymap.set("n", 'N', 'Nzzzv', { desc = "Search prev" })
+
 
 
 -- Not select after line character
