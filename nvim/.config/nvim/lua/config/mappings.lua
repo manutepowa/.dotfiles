@@ -8,11 +8,6 @@ vim.keymap.set("n", '<Leader>q', ':wincmd q<cr>', { noremap = true })
 
 -- git
 vim.keymap.set("n", '<Leader>gl', ':Flogsplit -all<cr>', { noremap = true })
-vim.keymap.set("n", '<Leader>gs', ':Git<cr>', { noremap = true })
-vim.keymap.set("n", '<Leader>gw', ':Gwrite<cr>', { noremap = true })
-vim.keymap.set("n", '<Leader>gc', ':Git commit<cr>', { noremap = true })
-vim.keymap.set("n", '<Leader>gd', ':Gdiffsplit<cr>', { noremap = true })
-vim.keymap.set("n", '<Leader>gpl', ':Git pull<cr>', { noremap = true })
 
 
 vim.cmd [[

@@ -1,5 +1,4 @@
 return {
-  'tpope/vim-fugitive',
   {
     'rbong/vim-flog',
     config = function()
@@ -10,7 +9,6 @@ return {
       vim.g.flog_use_internal_lua = true
     end
   },
-  { 'rhysd/git-messenger.vim' },
   { 'lumiliet/vim-twig' },
   { 'mg979/vim-visual-multi' },
 
