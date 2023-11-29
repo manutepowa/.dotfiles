@@ -11,7 +11,6 @@ return {
   },
   { 'lumiliet/vim-twig' },
   { 'mg979/vim-visual-multi' },
-
   {
     'numToStr/Comment.nvim',
     config = function()
@@ -23,12 +22,7 @@ return {
   },
   { 'JoosepAlviste/nvim-ts-context-commentstring' },
   { 'wellle/targets.vim' },
-  { 'antoinemadec/FixCursorHold.nvim' },
   { 'tpope/vim-surround' },
-  { "tpope/vim-repeat" },
-  { "RRethy/vim-illuminate" },
-  { "tamago324/nlsp-settings.nvim" },
-  { "jose-elias-alvarez/null-ls.nvim" },
   { "filipdutescu/renamer.nvim" },
   { "simrat39/symbols-outline.nvim" },
   { "folke/trouble.nvim" },
@@ -47,11 +41,4 @@ return {
   { 'fladson/vim-kitty' },
   { 'christoomey/vim-tmux-navigator' },
   { "editorconfig/editorconfig-vim" },
-  -- {
-  --   "zbirenbaum/copilot-cmp",
-  --   after = { "copilot.lua" },
-  --   config = function()
-  --     require("copilot_cmp").setup()
-  --   end,
-  -- }
 }
