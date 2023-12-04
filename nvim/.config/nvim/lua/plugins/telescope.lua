@@ -2,6 +2,7 @@ return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
     { 'nvim-lua/plenary.nvim' },
+    { 'xiyaowong/telescope-emoji.nvim' },
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     { 'nvim-tree/nvim-web-devicons' },
     {
@@ -37,6 +38,7 @@ return {
     -- todocomments keymaps
     { "<leader>ft", "<cmd>TodoTelescope keywords=TODO,FIX<cr>", desc = "Todo" },
     { "<leader>fr", "<cmd>Telescope resume<cr>",                desc = "Todo" },
+    { "<leader>fm", "<cmd>Telescope emoji<cr>",                 desc = "Emoji list" },
   },
   config = function()
     local telescope = require('telescope')
@@ -146,12 +148,24 @@ return {
           override_file_sorter = true,    -- override the file sorter
           case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
           -- the default case_mode is "smart_case"
+        },
+        emoji = {
+          action = function(emoji)
+            -- argument emoji is a table.
+            -- {name="", value="", cagegory="", description=""}
+
+            vim.fn.setreg("+", emoji.value)
+            print([[Press pppp]] .. emoji.value)
+
+            -- insert emoji when picked
+            -- vim.api.nvim_put({ emoji.value }, 'c', false, true)
+          end,
         }
       }
     }
 
     require('telescope').load_extension('fzf')
-
+    require("telescope").load_extension("emoji")
 
     -- -- Telescope
     -- vim.api.nvim_set_keymap(
