@@ -151,11 +151,8 @@ return {
         },
         emoji = {
           action = function(emoji)
-            -- argument emoji is a table.
-            -- {name="", value="", cagegory="", description=""}
-
             vim.fn.setreg("+", emoji.value)
-            print([[Press pppp]] .. emoji.value)
+            print([[Copied ]] .. emoji.value)
 
             -- insert emoji when picked
             -- vim.api.nvim_put({ emoji.value }, 'c', false, true)
