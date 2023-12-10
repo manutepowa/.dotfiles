@@ -1,12 +1,6 @@
 return {
   'stevearc/oil.nvim',
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  keys = {
-    {
-      "<leader>e",
-      "<cmd>lua require('oil').open_float()<cr>",
-    },
-  },
   opts = {
     keymaps = {
       ["g?"] = "actions.show_help",
@@ -17,4 +11,7 @@ return {
       ["_"] = "actions.open_cwd",
     }
   },
+  init = function()
+    vim.keymap.set('n', '<leader>e', '<CMD>Oil --float<CR>')
+  end,
 }

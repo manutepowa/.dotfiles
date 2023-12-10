@@ -31,7 +31,6 @@ local function lsp_keymaps(clientName)
     { buffer = 0 }
   )
   vim.keymap.set("n", "]d", '<cmd>lua vim.diagnostic.goto_next()<CR>', { buffer = 0 })
-  vim.keymap.set("n", "<leader>e", "<cmd>lua vim.diagnostic.setloclist()<CR>", { buffer = 0 })
   vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
 end
 

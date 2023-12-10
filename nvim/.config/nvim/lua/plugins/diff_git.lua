@@ -37,7 +37,6 @@ return {
           ["gf"]         = cb("goto_file"),         -- Open the file in a new split in previous tabpage
           ["<C-w><C-f>"] = cb("goto_file_split"),   -- Open the file in a new split
           ["<C-w>gf"]    = cb("goto_file_tab"),     -- Open the file in a new tabpage
-          ["<leader>e"]  = cb("focus_files"),       -- Bring focus to the files panel
           ["<A-e>"]      = cb("toggle_files"),      -- Toggle the files panel.
         },
         file_panel = {
@@ -56,7 +55,6 @@ return {
           ["gf"]            = cb("goto_file"),
           ["i"]             = cb("listing_style"),       -- Toggle between 'list' and 'tree' views
           ["f"]             = cb("toggle_flatten_dirs"), -- Flatten empty subdirectories in tree listing style.
-          ["<leader>e"]     = cb("focus_files"),
           ["<A-e>"]         = cb("toggle_files"),
         },
         file_history_panel = {
