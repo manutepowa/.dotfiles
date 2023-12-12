@@ -44,6 +44,9 @@ alias cat='bat --style=plain'
 alias l='eza' #   list, size, type
 alias ll='eza -la' # long, all
 alias la='eza -lbhHigUmuSa' # all list
+
+alias dds='ddev start' # all list
+alias ddp='ddev poweroff' # all list
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
