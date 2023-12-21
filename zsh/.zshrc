@@ -47,6 +47,8 @@ alias la='eza -lbhHigUmuSa' # all list
 
 alias dds='ddev start' # all list
 alias ddp='ddev poweroff' # all list
+alias dde='ddev ssh' # all list
+alias ddx='ddev xdebug' # all list
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
