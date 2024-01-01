@@ -41,8 +41,8 @@ alias genpass='f() { cat /dev/urandom | strings | grep -Eoa "[a-zA-Z0-9@$%&_]*" 
 alias cat='bat --style=plain'
 
 # EZA alias
-alias l='eza' #   list, size, type
-alias ll='eza -la' # long, all
+alias l='eza -l --icons' #   list, size, type
+alias ll='eza --icons -la' # long, all
 alias la='eza -lbhHigUmuSa' # all list
 
 alias dds='ddev start' # all list
