@@ -37,13 +37,8 @@ plugins=(git z docker npm vi-mode zsh-autosuggestions zsh-syntax-highlighting zs
 alias m3ssh="cd /home/manuel/Desarrollo/m3ssh/ && ./m3ssh.sh"
 alias devtest="cd /home/manuel/Desarrollo/devtest"
 alias v="nvim"
-alias genpass='f() { cat /dev/urandom | strings | grep -Eoa "[a-zA-Z0-9@$%&_]*" | head -n 10  | tr -d "\n" | cut -c1-$1 };f'
+# alias genpass='f() { cat /dev/urandom | strings | grep -Eoa "[a-zA-Z0-9@$%&_]*" | head -n 10  | tr -d "\n" | cut -c1-$1 };f'
 alias cat='bat --style=plain'
-
-# EZA alias
-alias l='eza -l --icons' #   list, size, type
-alias ll='eza --icons -la' # long, all
-alias la='eza -lbhHigUmuSa' # all list
 
 alias dds='ddev start' # all list
 alias ddp='ddev poweroff' # all list
@@ -72,3 +67,8 @@ export NVM_DIR="$HOME/.nvm"
 export FZF_DEFAULT_OPTS='--bind=alt-k:up,alt-j:down'
 
 source $ZSH/oh-my-zsh.sh
+
+# EZA alias
+alias l='eza -l --icons' #   list, size, type
+alias ll='eza --icons -la' # long, all
+alias la='eza -lbhHigUmuSa' # all list
