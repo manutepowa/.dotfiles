@@ -11,7 +11,6 @@ return {
     { 'saadparwaiz1/cmp_luasnip' },
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-nvim-lua" },
-    { 'onsails/lspkind-nvim' },
   },
   config = function()
     local cmp_status_ok, cmp = pcall(require, "cmp")
@@ -38,8 +37,6 @@ return {
 
     local icons = require "config.icons"
     local kind_icons = icons.kind
-    -- -- local lspkind = require "lspkind"
-    -- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
     local compare = require "cmp.config.compare"
 
     cmp.setup({
