@@ -38,7 +38,7 @@ return {
         },
         NormalFloat = {
           -- guibg = "#1F2228",
-          guibg = "#252930",
+          -- guibg = "#252930",
           guifg = "#abb2bf",
         },
       },

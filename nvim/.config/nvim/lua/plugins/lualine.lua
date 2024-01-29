@@ -8,7 +8,8 @@ return {
       return
     end
 
-    local lualine_scheme = "newonedark"
+    -- local lualine_scheme = "newonedark"
+    local lualine_scheme = "darkplus_dark"
     -- local lualine_scheme = "onedarker_alt"
 
     local status_theme_ok, theme = pcall(require, "lualine.themes." .. lualine_scheme)
@@ -34,7 +35,6 @@ return {
     local cyan = "#4EC9B0"
     local orange = "#CE9178"
     local indent = "#CE9178"
-    local purple = "#C586C0"
 
     if lualine_scheme == "newonedark" then
       gray = "#32363e"
@@ -57,7 +57,6 @@ return {
       green = "#A3BE8C"
       cyan = "#88c0d0"
       orange = "#C68A75"
-      purple = "#B48EAD"
     end
 
     -- local sl_hl = vim.api.nvim_get_hl_by_name("StatusLine", true)
@@ -295,7 +294,7 @@ return {
         always_divide_middle = true,
       },
       sections = {
-        lualine_a = { left_pad, mode, branch },
+        lualine_a = { left_pad, mode, branch, right_pad },
         lualine_b = {},
         lualine_c = { current_signature, filename },
         lualine_x = { copilot, filetype },

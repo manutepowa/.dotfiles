@@ -155,9 +155,9 @@ return {
       cmp_autopairs.on_confirm_done()
     )
 
-    vim.cmd [[
-  highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
-  highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
-]]
+    --     vim.cmd [[
+    --   highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+    --   highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
+    -- ]]
   end,
 }
