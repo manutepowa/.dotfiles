@@ -24,7 +24,7 @@ return {
     },
     {
       "<leader>''",
-      "<cmd>lua require('telescope.builtin').help_tags(require('telescope.themes').get_ivy())<cr>",
+      "<cmd>Telescope help_tags theme=ivy<cr>",
       silent = true
     },
     {
@@ -32,13 +32,15 @@ return {
       "<cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_ivy())<cr>",
       silent = true
     },
-    { '<Leader>fh', ':Telescope oldfiles<cr>' },
-    { '<Leader>fG', ':Telescope grep_string<cr>' },
-    { '<Leader>fb', ':Telescope buffers<cr>' },
+    { '<Leader>fh', ':Telescope oldfiles theme=ivy<cr>' },
+    { '<Leader>fG', ':Telescope grep_string theme=ivy<cr>' },
+    { '<Leader>fb', ':Telescope buffers theme=ivy<cr>' },
     -- todocomments keymaps
-    { "<leader>ft", "<cmd>TodoTelescope keywords=TODO,FIX<cr>", desc = "Todo" },
-    { "<leader>fr", "<cmd>Telescope resume<cr>",                desc = "Todo" },
-    { "<leader>fm", "<cmd>Telescope emoji<cr>",                 desc = "Emoji list" },
+    { "<leader>ft", "<cmd>TodoTelescope keywords=TODO,FIX theme=ivy<cr>",                                        desc = "Todo" },
+    { "<leader>fr", "<cmd>lua require('telescope.builtin').resume(require('telescope.themes').get_ivy({}))<cr>", desc = "Resume" },
+    { "<leader>fe", "<cmd>Telescope emoji theme=ivy<cr>",                                                        desc = "Emoji list" },
+    -- Notes
+    { "<leader>fn", "<cmd>SimpleNoteList<cr>",                                                                   desc = "List notes" },
   },
   config = function()
     local telescope = require('telescope')
@@ -65,7 +67,7 @@ return {
         -- layout_strategy = "vertical",
         mappings = {
           i = {
-            ["<esc>"] = require('telescope.actions').close,
+            ["<esc>"] = actions.close,
             ["<A-j>"] = "move_selection_next",
             ["<A-k>"] = "move_selection_previous",
             -- ["<C-x>"] = false,
@@ -116,14 +118,5 @@ return {
 
     require('telescope').load_extension('fzf')
     require("telescope").load_extension("emoji")
-
-    -- -- Telescope
-    -- vim.api.nvim_set_keymap(
-    --   "n",
-    --   "<leader>ff",
-    --   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false, hidden = true})<cr>"
-    --   ,
-    --   { silent = true }
-    -- )
   end
 }
