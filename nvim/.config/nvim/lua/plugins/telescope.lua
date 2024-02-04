@@ -20,17 +20,14 @@ return {
     {
       "<leader>ff",
       "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy({hidden = true}))<cr>",
-      silent = true
     },
     {
       "<leader>''",
       "<cmd>Telescope help_tags theme=ivy<cr>",
-      silent = true
     },
     {
       "<leader>fg",
       "<cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_ivy())<cr>",
-      silent = true
     },
     { '<Leader>fh', ':Telescope oldfiles theme=ivy<cr>' },
     { '<Leader>fG', ':Telescope grep_string theme=ivy<cr>' },
