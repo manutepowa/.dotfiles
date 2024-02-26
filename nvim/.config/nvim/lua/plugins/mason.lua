@@ -23,7 +23,6 @@ return {
       "cssmodules_ls",
       "html",
       "jsonls",
-      "prismals",
       "dockerls",
       "tsserver",
       "eslint",
