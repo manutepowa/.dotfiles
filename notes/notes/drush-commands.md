@@ -24,3 +24,12 @@ prod:
 chmod 600 ../key/id_ed25519
 ssh-keygen -p -N "" -m pem -f ../key/id_ed25519
 ```
+
+
+### Delete entities (delete custom entity content)
+```sh
+drush entity:delete answer # all anwers
+drush entity:delete answer --bundle=arrows # only arrows bundle
+drush entity:delete progress
+```
+
