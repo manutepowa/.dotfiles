@@ -131,6 +131,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "git",
     "NeogitStatus",
     "query",
+    "dbout",
+    "mysql"
   },
   callback = function()
     vim.cmd [[
