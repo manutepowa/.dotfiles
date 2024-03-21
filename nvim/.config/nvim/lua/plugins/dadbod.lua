@@ -30,5 +30,17 @@ return {
         vim.api.nvim_set_keymap('n', '<Tab>', '<Plug>(DBUI_SelectLine)', { silent = true })
       end,
     })
+    vim.api.nvim_create_autocmd({ 'FileType' }, {
+      group = vim.api.nvim_create_augroup('dbui_sql', { clear = true }),
+      pattern = { 'mysql' },
+      callback = function(e)
+        require('cmp').setup.buffer({
+          sources = {
+            { name = 'vim-dadbod-completion' },
+            { name = 'buffer' },
+          },
+        })
+      end,
+    })
   end,
 }
