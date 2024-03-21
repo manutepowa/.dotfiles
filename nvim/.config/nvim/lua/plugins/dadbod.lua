@@ -16,8 +16,8 @@ return {
   },
   init = function()
     -- Your DBUI configuration
-    vim.g.db_ui_use_nerd_fonts = 1
     vim.g.db_ui_show_database_icon = 1
+    vim.g.db_ui_force_echo_notifications = 1
     vim.g.dbs = {
       plataformas = 'mysql://db:db@127.0.0.1:32785/db',
     }
@@ -28,6 +28,7 @@ return {
       pattern = { 'dbui' },
       callback = function()
         vim.api.nvim_set_keymap('n', '<Tab>', '<Plug>(DBUI_SelectLine)', { silent = true })
+        vim.api.nvim_set_keymap('n', 'q', '<Plug>(DBUI_Quit)', { silent = true })
       end,
     })
     vim.api.nvim_create_autocmd({ 'FileType' }, {

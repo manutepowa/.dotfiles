@@ -1,5 +1,6 @@
 return {
   "NTBBloodbath/rest.nvim",
+  commit = "1ce984c694345f3801bc656072f9a8dd51286a04",
   dependencies = { "nvim-lua/plenary.nvim" },
   ft = "http",
   config = function(config)
