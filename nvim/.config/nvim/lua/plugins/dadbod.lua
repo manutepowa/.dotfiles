@@ -18,6 +18,7 @@ return {
     -- Your DBUI configuration
     vim.g.db_ui_show_database_icon = 1
     vim.g.db_ui_force_echo_notifications = 1
+    vim.g.db_ui_use_nerd_fonts = 1
     vim.g.dbs = {
       plataformas = 'mysql://db:db@127.0.0.1:32785/db',
     }
@@ -41,6 +42,25 @@ return {
             { name = 'buffer' },
           },
         })
+      end,
+    })
+
+    vim.cmd([[
+			autocmd FileType dbout setlocal nofoldenable
+			autocmd FileType mysql setlocal nofoldenable
+		]])
+
+    vim.api.nvim_create_autocmd({ "FileType" }, {
+      pattern = {
+        "dbout",
+        "mysql"
+      },
+      callback = function()
+        vim.cmd [[
+          nnoremap <silent> <buffer> q :pclose<CR>
+          " nnoremap <silent> <buffer> <esc> :close<CR>
+          set nobuflisted
+        ]]
       end,
     })
   end,
