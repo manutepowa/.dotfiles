@@ -3,13 +3,14 @@ return {
   opts = {
     install = {
       bin = vim.fn.stdpath("data") .. "/mason/bin/phpactor",
+      composer_bin = "composer",
     },
     lspconfig = {
-      enabled = true,
-      options = {
-        on_attach = require("config.lsp.handlers").on_attach,
-        capabilities = require("config.lsp.handlers").capabilities,
-      },
+      enabled = false,
+      -- options = {
+      --   on_attach = require("config.lsp.handlers").on_attach,
+      --   capabilities = require("config.lsp.handlers").capabilities,
+      -- },
     },
   },
   ft = "php",

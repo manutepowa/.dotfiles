@@ -39,6 +39,9 @@ M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     client.server_capabilities.documentFormattingProvider = false
   end
+  if client.name == "phpactor" then
+    client.server_capabilities.documentFormattingProvider = true
+  end
   if client.name == "eslint" then
     client.server_capabilities.documentFormattingProvider = true
   end
