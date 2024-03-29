@@ -9,6 +9,9 @@ return {
       ["<A-w>"] = "actions.refresh",
       ["-"] = "actions.parent",
       ["_"] = "actions.open_cwd",
+    },
+    view_options = {
+      show_hidden = true,
     }
   },
   init = function()
