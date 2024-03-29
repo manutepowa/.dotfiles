@@ -26,7 +26,7 @@ return {
       "dockerls",
       "tsserver",
       "eslint",
-      "intelephense",
+      "phpactor",
       "rust_analyzer",
       "svelte",
     }
