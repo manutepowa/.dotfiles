@@ -73,3 +73,6 @@ source $ZSH/oh-my-zsh.sh
 alias l='eza -l --icons' #   list, size, type
 alias ll='eza --icons -la' # long, all
 alias la='eza -lbhHigUmuSa' # all list
+
+# Turso
+export PATH="/home/manuel/.turso:$PATH"

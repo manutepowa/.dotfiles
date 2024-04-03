@@ -21,7 +21,8 @@ return {
     vim.g.db_ui_use_nerd_fonts = 1
     vim.g.dbs = {
       plataformas = 'mysql://db:db@127.0.0.1:32785/db',
-      parque = 'mysql://db:db@127.0.0.1:32792/db',
+      parque = 'mysql://db:db@127.0.0.1:32222/db',
+      telemando = "libsql://telemando-manutepowa.turso.io"
     }
 
     local id = vim.api.nvim_create_augroup('dadbod_bindings', { clear = true })
