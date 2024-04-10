@@ -22,7 +22,7 @@ return {
     vim.g.dbs = {
       plataformas = 'mysql://db:db@127.0.0.1:32785/db',
       parque = 'mysql://db:db@127.0.0.1:32222/db',
-      telemando = "libsql://telemando-manutepowa.turso.io"
+      telemando = "sqlite:/home/manuel/Desarrollo/FER/telemando/local.db",
     }
 
     local id = vim.api.nvim_create_augroup('dadbod_bindings', { clear = true })
@@ -55,7 +55,8 @@ return {
     vim.api.nvim_create_autocmd({ "FileType" }, {
       pattern = {
         "dbout",
-        "mysql"
+        "mysql",
+        "sql"
       },
       callback = function()
         vim.cmd [[
