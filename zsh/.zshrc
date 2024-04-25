@@ -31,7 +31,7 @@ bindkey -M viins 'kj' vi-cmd-mode
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z docker npm vi-mode zsh-autosuggestions zsh-syntax-highlighting zsh-fzf-history-search)
+plugins=(git z docker npm vi-mode fzf zsh-autosuggestions zsh-syntax-highlighting)
 
 
 alias m3ssh="cd /home/manuel/Desarrollo/m3ssh/ && ./m3ssh.sh"

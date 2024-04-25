@@ -33,3 +33,6 @@ drush entity:delete answer --bundle=arrows # only arrows bundle
 drush entity:delete progress
 ```
 
+### Code generator
+- Generar código con ./vendor/bin/dcg
+- Generar una lista de servicios
