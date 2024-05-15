@@ -13,8 +13,8 @@ return {
     }
 
     local opts = { noremap = true, silent = true }
-    vim.keymap.set("n", "<leader>lr", ":Lab code run<cr>", opts)
-    vim.keymap.set("n", "<leader>ls", ":Lab code stop<cr>", opts)
-    vim.keymap.set("n", "<leader>lp", ":Lab code panel<cr>", opts)
+    vim.keymap.set("n", "<leader>cr", ":Lab code run<cr>", opts)
+    vim.keymap.set("n", "<leader>cs", ":Lab code stop<cr>", opts)
+    vim.keymap.set("n", "<leader>cp", ":Lab code panel<cr>", opts)
   end
 }
