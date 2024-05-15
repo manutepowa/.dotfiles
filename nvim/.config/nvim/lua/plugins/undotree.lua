@@ -16,25 +16,20 @@ return {
     vim.g.undotree_SplitWidth = 40
   end,
   config = function()
-    vim.api.nvim_create_augroup('UndoTreeMaps', {})
-    vim.api.nvim_create_autocmd('FileType', {
-      pattern = 'undotree',
-      callback = function()
-        local opts = { buffer = true, noremap = true, silent = true }
-        vim.keymap.set('n', '<space>', '<Plug>UndotreeFocusTarget', opts)
-        vim.keymap.set('n', '<tab>', '<Plug>UndotreeEnter', opts)
-      end,
-      group = 'UndoTreeMaps'
-    })
+    vim.cmd [[
+      if has("persistent_undo")
+        let target_path = expand('~/.undodir')
+        if !isdirectory(target_path)
+            call mkdir(target_path, "p", 0700)
+        endif
 
-    if vim.fn.has("persistent_undo") then
-      local undodir = "~/.undodir"
-      -- create the undo directory
-      if vim.fn.isdirectory(undodir) == 0 then
-        vim.fn.mkdir(undodir, "p")
-      end
-      vim.opt.undodir = undodir
-      vim.opt.undofile = true
-    end
+        let &undodir=target_path
+        set undofile
+      endif
+
+      function g:Undotree_CustomMap()
+        nmap <buffer> <tab> <plug>UndotreeEnter
+      endfunc
+    ]]
   end
 }
