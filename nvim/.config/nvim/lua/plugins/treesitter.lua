@@ -20,10 +20,6 @@ return {
       indent = { enable = true, disable = { "python", "css" } },
       autopairs = {
         enable = true,
-      },
-      autotag = {
-        enable = true,
-        disable = { "xml", "markdown" },
       }
     }
 
