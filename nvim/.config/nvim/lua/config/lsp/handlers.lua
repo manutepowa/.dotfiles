@@ -51,6 +51,10 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = true
   end
 
+  if client.name == "astro" then
+    client.server_capabilities.documentFormattingProvider = true
+  end
+
 
   lsp_keymaps(client.name)
   lsp_highlight_document(client)

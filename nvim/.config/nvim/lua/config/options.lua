@@ -108,11 +108,6 @@ vim.cmd [[
   autocmd BufRead,BufNewFile *.mdx set filetype=markdown
 ]]
 
-vim.filetype.add({
-  extension = {
-    astro = "astro",
-  },
-})
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = {
