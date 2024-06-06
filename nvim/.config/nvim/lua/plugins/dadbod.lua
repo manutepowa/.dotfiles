@@ -20,6 +20,7 @@ return {
     vim.g.db_ui_force_echo_notifications = 1
     vim.g.db_ui_use_nerd_fonts = 1
     vim.g.dbs = {
+      payload3 = 'postgres://db:db@127.0.0.1:32223/db',
       plataformas = 'mysql://db:db@127.0.0.1:32785/db',
       parque = 'mysql://db:db@127.0.0.1:32222/db',
       telemando = "sqlite:/home/manuel/Desarrollo/FER/telemando/local.db",
