@@ -53,7 +53,8 @@ return {
           "--with-filename",
           "--line-number",
           "--column",
-          "--smart-case"
+          "--smart-case",
+          "--fixed-strings"
         },
         prompt_prefix = "  ",
         selection_caret = "  ",
