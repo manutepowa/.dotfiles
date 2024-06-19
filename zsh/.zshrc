@@ -76,3 +76,5 @@ alias la='eza -lbhHigUmuSa' # all list
 
 # Turso
 export PATH="/home/manuel/.turso:$PATH"
+
+PATH=~/.console-ninja/.bin:$PATH
