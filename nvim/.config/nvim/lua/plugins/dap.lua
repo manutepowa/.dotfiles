@@ -50,10 +50,10 @@ return {
         -- serverSourceRoot = '/var/www/html/httpdocs/',
         -- localSourceRoot = '${workspaceFolder}/httpdocs/',
         pathMappings = {
-          ["/var/www/html/httpdocs/"] = "${workspaceFolder}/httpdocs/",
-          ["/var/www/html/httpdocs/web/"] = "${workspaceFolder}/httpdocs/web/",
-          ["/var/www/html/parque/"] = "${workspaceFolder}/parque/",
-          ["/var/www/html/parque/web/"] = "${workspaceFolder}/parque/web/"
+          ["/var/www/html"] = "${workspaceFolder}",
+          -- ["/var/www/html/httpdocs/web/"] = "${workspaceFolder}/httpdocs/web/",
+          -- ["/var/www/html/parque/"] = "${workspaceFolder}/parque/",
+          -- ["/var/www/html/parque/web/"] = "${workspaceFolder}/parque/web/"
         }
       }
     }
