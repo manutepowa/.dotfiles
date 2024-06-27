@@ -8,8 +8,6 @@ vim.keymap.set("n", '<Leader>q', ':wincmd q<cr>', { noremap = true })
 
 -- git
 vim.keymap.set("n", '<Leader>gl', ':Flogsplit -all<cr>', { noremap = true })
-
-
 vim.cmd [[
   nmap <Leader>" ysiw"
   nmap <Leader>' ysiw'
@@ -32,7 +30,12 @@ vim.keymap.set("i", '<A-BS>', '<c-w>', { noremap = true })
 -- Copy and paste without clipboard
 vim.keymap.set("n", 'd', '"_d', { noremap = true })
 vim.keymap.set("x", 'd', '"_d', { noremap = true })
-vim.keymap.set("x", 'p', [["_dP]])
+-- vim.keymap.set("x", 'p', [["_dP]])
+vim.keymap.set("x", 'p', function()
+  local val = vim.fn.getreg('+')
+  vim.api.nvim_command([[normal! p]])
+  vim.fn.setreg('+', val)
+end)
 
 -- Remove word
 vim.keymap.set("n", 'dw', 'dwi', { noremap = true })
