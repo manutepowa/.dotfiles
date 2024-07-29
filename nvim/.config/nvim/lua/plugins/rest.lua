@@ -1,53 +1,51 @@
 return {
-  "NTBBloodbath/rest.nvim",
-  commit = "1ce984c694345f3801bc656072f9a8dd51286a04",
-  dependencies = { "nvim-lua/plenary.nvim" },
-  ft = "http",
+  "jellydn/hurl.nvim",
+  dependencies = {
+    "MunifTanjim/nui.nvim",
+    "nvim-lua/plenary.nvim",
+    "nvim-treesitter/nvim-treesitter"
+  },
+  ft = "hurl",
   config = function(config)
-    local rest_nvim = require "rest-nvim"
+    local rest_nvim = require "hurl"
 
     rest_nvim.setup {
-      -- Open request results in a horizontal split
-      result_split_horizontal = false,
-      -- Skip SSL verification, useful for unknown certificates
-      skip_ssl_verification = false,
-      encode_url = false,
-      -- Highlight request on run
-      highlight = {
-        enabled = true,
-        timeout = 150,
+      env_file = {
+        '.env',
       },
-      result = {
-        formatters = {
-          vnd = "jq",
-          html = function(body)
-            return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
-          end,
-        }, -- toggle showing URL, HTTP info, headers at top the of result window
-        show_url = true,
-        show_http_info = true,
-        show_headers = true,
+      -- Show debugging info
+      debug = false,
+      -- Show notification on run
+      show_notification = false,
+      -- Show response in popup or split
+      mode = "split",
+      -- Default formatter
+      formatters = {
+        json = { 'jq' }, -- Make sure you have install jq in your system, e.g: brew install jq
+        html = {
+          'prettier',    -- Make sure you have install prettier in your system, e.g: npm install -g prettier
+          '--parser',
+          'html',
+        },
+        xml = {
+          'tidy', -- Make sure you have installed tidy in your system, e.g: brew install tidy-html5
+          '-xml',
+          '-i',
+          '-q',
+        },
       },
-      -- Jump to request line on run
-      jump_to_request = false,
-      env_file = ".env",
-      custom_dynamic_variables = {},
-      yank_dry_run = true,
     }
 
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = "http",
+      pattern = "hurl",
       callback = function()
         local buff = tonumber(vim.fn.expand "<abuf>", 10)
         vim.keymap.set(
           "n",
           "<leader>r",
-          rest_nvim.run,
+          "<cmd>HurlRunnerAt<CR>",
           { noremap = true, buffer = buff, desc = "Run near http request" }
         )
-        vim.keymap.set("n", "<leader>hr", function()
-          rest_nvim.run(true)
-        end, { noremap = true, buffer = buff, desc = "Preview http curl" })
       end,
     })
   end,

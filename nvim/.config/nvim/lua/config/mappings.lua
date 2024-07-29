@@ -35,7 +35,7 @@ vim.keymap.set("x", 'p', function()
   local val = vim.fn.getreg('+')
   vim.api.nvim_command([[normal! p]])
   vim.fn.setreg('+', val)
-end)
+end, {})
 
 -- Remove word
 vim.keymap.set("n", 'dw', 'dwi', { noremap = true })
