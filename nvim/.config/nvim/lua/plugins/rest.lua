@@ -6,6 +6,7 @@ return {
     "nvim-treesitter/nvim-treesitter"
   },
   ft = "hurl",
+  cmd = 'HurlRunnerAt',
   config = function(config)
     local rest_nvim = require "hurl"
 
