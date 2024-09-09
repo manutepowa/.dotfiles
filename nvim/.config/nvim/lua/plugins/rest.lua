@@ -15,7 +15,7 @@ return {
         '.env',
       },
       -- Show debugging info
-      debug = false,
+      debug = true,
       -- Show notification on run
       show_notification = false,
       -- Show response in popup or split
