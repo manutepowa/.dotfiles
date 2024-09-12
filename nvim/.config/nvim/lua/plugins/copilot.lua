@@ -5,10 +5,11 @@ return {
   config = function()
     require("copilot").setup({
       panel = {
+        enable = false,
         keymap = {
           jump_next = "<c-j>",
           jump_prev = "<c-k>",
-          accept = "<c-a>",
+          accept = "<Tab>",
           refresh = "r",
           open = "<M-CR>",
         },
@@ -18,9 +19,10 @@ return {
         },
       },
       suggestion = {
+        enable = true,
         auto_trigger = true,
         keymap = {
-          -- accept = "<Tab>",
+          accept = "<Tab>",
           accept_word = false,
           accept_line = false,
           next = "<C-j>",
@@ -30,12 +32,12 @@ return {
       },
     })
 
-    vim.keymap.set('i', '<Tab>', function()
-      if require("copilot.suggestion").is_visible() then
-        require("copilot.suggestion").accept()
-      else
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, true, true), "n")
-      end
-    end)
+    -- vim.keymap.set('i', '<Tab>', function()
+    --   if require("copilot.suggestion").is_visible() then
+    --     require("copilot.suggestion").accept()
+    --   else
+    --     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, true, true), "n")
+    --   end
+    -- end)
   end,
 }
