@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local mux = wezterm.mux
 local config = {}
 
 -- =======================================================================
@@ -35,5 +36,23 @@ config.font_size = 11.5
 config.line_height = 1.7
 config.cell_width = 0.9
 config.enable_wayland = false
+
+
+config.initial_rows = 90
+config.initial_cols = 160
+wezterm.on('gui-startup', function(cmd) -- set startup Window position
+  local active = wezterm.gui.screens().active
+
+  -- Set the window coords on spawn.
+  local tab, pane, window = mux.spawn_window(cmd or {
+    x = active.x,
+    y = active.y,
+    width = active.width,
+    height = active.height,
+  })
+
+  -- You probably don't need both, but you can also set the positions after spawn.
+  window:gui_window():set_position(active.width, active.height)
+end)
 
 return config
