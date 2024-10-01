@@ -1,39 +1,39 @@
 local wezterm = require("wezterm")
+local config = {}
 
-local config = {
-  color_scheme = "Gruvbox Dark",
-  enable_tab_bar = true,
-  window_decorations = "RESIZE",
-  font = wezterm.font_with_fallback({
-    "MonoLisaTrial",
-    { family = "Symbols Nerd Font Mono", scale = 0.75 },
-  }),
-  native_macos_fullscreen_mode = true,
-  keys = {
-    {
-      key = "n",
-      mods = "SHIFT|CTRL",
-      action = wezterm.action.ToggleFullScreen,
-    },
-  },
-  window_background_gradient = {
-    orientation = "Horizontal",
-    colors = {
-      -- "#0f0c29",
-      -- "#1e1e2d",
-      -- "#302b63",
-      "#00000C",
-      -- "#00003F",
-      "#000026",
-      "#00000C",
-      -- "#24243e",
-      -- "#1e1e2d",
-      -- "#0f0c29",
-    },
-    interpolation = "CatmullRom",
-    blend = "Rgb",
-    noise = 0,
-  },
+-- =======================================================================
+-- In newer versions of wezterm, use the config_builder which will
+-- help provide clearer error messages
+if wezterm.config_builder then
+  config = wezterm.config_builder()
+end
+
+config.color_scheme = 'OneHalfDark'
+-- =======================================================================
+config.window_close_confirmation = "NeverPrompt"
+config.enable_tab_bar = false
+config.scrollback_lines = 2000
+config.window_padding = {
+  left = 0,
+  right = 0,
+  top = 0,
+  bottom = 0,
 }
+config.default_cursor_style = 'SteadyBlock'
+config.colors = {
+  cursor_bg = "#CCC",        -- Color de fondo del cursor (rojo anaranjado)
+  cursor_fg = "#000",        -- Color de primer plano del cursor (blanco)
+  cursor_border = "#FF5733", -- Opcional: color del borde del cursor
+
+  -- Esquema de colores personalizado
+  background = "#1C1C1C", -- Color de fondo del terminal
+}
+
+-- =======================================================================
+config.font = wezterm.font("MonoLisa Nerd Font Mono", { italic = false, weight = "Medium" })
+config.font_size = 11.5
+config.line_height = 1.7
+config.cell_width = 0.9
+config.enable_wayland = false
 
 return config
