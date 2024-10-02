@@ -35,7 +35,7 @@ return {
       request_timeout = 2000,
       definition = {
         keys = {
-          edit = '<A-CR>',
+          edit = '<CR>',
           vsplit = '<C-c>v',
           split = '<C-c>i',
           tabe = '<C-c>t',

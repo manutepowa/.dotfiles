@@ -40,4 +40,9 @@ return {
   { 'fladson/vim-kitty' },
   { 'christoomey/vim-tmux-navigator' },
   { "editorconfig/editorconfig-vim" },
+  {
+    "davidmh/mdx.nvim",
+    config = true,
+    dependencies = { "nvim-treesitter/nvim-treesitter" }
+  }
 }

@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local mux = wezterm.mux
+local act = wezterm.action
 local config = {}
 
 -- =======================================================================
@@ -8,6 +9,10 @@ local config = {}
 if wezterm.config_builder then
   config = wezterm.config_builder()
 end
+config.keys = {
+  -- paste from the clipboard
+  { key = 'p', mods = 'ALT', action = act.PasteFrom 'Clipboard' },
+}
 
 config.color_scheme = 'OneHalfDark'
 -- =======================================================================
@@ -39,7 +44,7 @@ config.enable_wayland = false
 
 
 config.initial_rows = 90
-config.initial_cols = 160
+config.initial_cols = 140
 wezterm.on('gui-startup', function(cmd) -- set startup Window position
   local active = wezterm.gui.screens().active
 
@@ -52,7 +57,7 @@ wezterm.on('gui-startup', function(cmd) -- set startup Window position
   })
 
   -- You probably don't need both, but you can also set the positions after spawn.
-  window:gui_window():set_position(active.width, active.height)
+  window:gui_window():set_position(650, 0)
 end)
 
 return config
