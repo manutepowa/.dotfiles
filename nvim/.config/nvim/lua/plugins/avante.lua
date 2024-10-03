@@ -29,14 +29,15 @@ return {
     lazy = false,
     build = "make",
     opts = {
-      -- provider = "openai",
-      -- openai = {
-      --   endpoint = "https://api.openai.com/v1",
-      --   model = "gpt-4o-mini",
-      --   temperature = 0,
-      --   max_tokens = 4096,
-      -- },
-      provider = 'gemini',
+      provider = "openai",
+      openai = {
+        endpoint = "https://api.openai.com/v1",
+        model = "gpt-4o-mini",
+        timeout = 15000,   -- Timeout reducido a 15 segundos
+        temperature = 0.5, -- Ajuste de temperatura para más variabilidad
+        max_tokens = 2048, -- Reducir el número máximo de tokens
+        ["local"] = false,
+      },
       gemini = {
         endpoint = 'https://generativelanguage.googleapis.com/v1beta/models',
         model = 'gemini-1.5-pro',
