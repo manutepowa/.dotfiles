@@ -34,8 +34,8 @@ return {
         endpoint = "https://api.openai.com/v1",
         model = "gpt-4o-mini",
         timeout = 15000,   -- Timeout reducido a 15 segundos
-        temperature = 0.5, -- Ajuste de temperatura para más variabilidad
-        max_tokens = 2048, -- Reducir el número máximo de tokens
+        temperature = 0,   -- Ajuste de temperatura para más variabilidad
+        max_tokens = 4098, -- Reducir el número máximo de tokens
         ["local"] = false,
       },
       gemini = {

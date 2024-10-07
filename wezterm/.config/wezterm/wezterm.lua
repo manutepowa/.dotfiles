@@ -9,9 +9,13 @@ local config = {}
 if wezterm.config_builder then
   config = wezterm.config_builder()
 end
+
+-- =======================================================================
+config.disable_default_key_bindings = true
 config.keys = {
   -- paste from the clipboard
-  { key = 'p', mods = 'ALT', action = act.PasteFrom 'Clipboard' },
+  { key = 'p',     mods = 'ALT',  action = act.PasteFrom 'Clipboard' },
+  { key = 'Enter', mods = 'CTRL', action = act.ToggleFullScreen }, -- Desactivar ALT + Enter
 }
 
 config.color_scheme = 'OneHalfDark'

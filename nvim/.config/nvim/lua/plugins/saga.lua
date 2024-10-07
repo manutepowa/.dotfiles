@@ -35,12 +35,11 @@ return {
       request_timeout = 2000,
       definition = {
         keys = {
-          edit = '<CR>',
+          edit = '<A-CR>',
           vsplit = '<C-c>v',
           split = '<C-c>i',
           tabe = '<C-c>t',
           quit = 'q',
-
         }
       },
     }
