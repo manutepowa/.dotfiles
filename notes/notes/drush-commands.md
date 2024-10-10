@@ -36,3 +36,9 @@ drush entity:delete progress
 ### Code generator
 - Generar código con ./vendor/bin/dcg
 - Generar una lista de servicios
+
+### Drush commands on production
+- You can run productions commands with ***@prod*** in drush command
+```sh
+drush @prod watchdog:delete all
+```

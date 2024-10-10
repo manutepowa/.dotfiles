@@ -127,6 +127,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "NeogitStatus",
     "query",
     "AvanteInput",
+    "DiffviewFiles",
   },
   callback = function()
     vim.cmd [[

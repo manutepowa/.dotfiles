@@ -11,7 +11,11 @@ return {
     end
   },
   { 'lumiliet/vim-twig' },
-  { 'mg979/vim-visual-multi' },
+  {
+    "mg979/vim-visual-multi",
+    lazy = false,
+    priority = 1000
+  },
   {
     'numToStr/Comment.nvim',
     config = function()
