@@ -79,6 +79,19 @@ return {
       },
     }
 
+
+    vim.api.nvim_create_autocmd({ "FileType" }, {
+      pattern = {
+        "DiffviewFiles",
+      },
+      callback = function()
+        vim.cmd [[
+          nnoremap <silent> <buffer> q :DiffviewClose<CR>
+        ]]
+      end,
+    })
+
+
     -- vim.api.nvim_set_hl(0, "DiffviewCursorLine", { background = 1513239 })
     -- vim.api.nvim_set_hl(0, "DiffviewDiffAddAsDelete", { background = 3480861, foreground = 1381653 })
     -- vim.api.nvim_set_hl(0, "DiffviewDiffDelete", { foreground = 7500402 })
