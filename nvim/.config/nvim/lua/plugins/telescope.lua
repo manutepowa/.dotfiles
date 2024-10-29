@@ -19,32 +19,32 @@ return {
   keys = {
     {
       "<leader>ff",
-      "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy({hidden = true}))<cr>",
+      "<cmd>lua require('telescope.builtin').find_files()<cr>",
     },
     {
       "<leader>''",
-      "<cmd>Telescope help_tags theme=ivy<cr>",
+      "<cmd>Telescope help_tags<cr>",
     },
     {
       "<leader>fg",
-      "<cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_ivy())<cr>",
+      "<cmd>lua require('telescope.builtin').live_grep()<cr>",
     },
-    { '<Leader>fh', ':Telescope oldfiles theme=ivy<cr>' },
-    { '<Leader>fG', ':Telescope grep_string theme=ivy<cr>' },
-    { '<Leader>fb', ':Telescope buffers theme=ivy<cr>' },
+    { '<Leader>fh', ':Telescope oldfiles<cr>' },
+    { '<Leader>fG', ':Telescope grep_string<cr>' },
+    { '<Leader>fb', ':Telescope buffers<cr>' },
     -- todocomments keymaps
-    { "<leader>ft", "<cmd>TodoTelescope keywords=TODO,FIX theme=ivy<cr>",                                        desc = "Todo" },
-    { "<leader>fr", "<cmd>lua require('telescope.builtin').resume(require('telescope.themes').get_ivy({}))<cr>", desc = "Resume" },
-    { "<leader>fe", "<cmd>Telescope emoji theme=ivy<cr>",                                                        desc = "Emoji list" },
+    { "<leader>ft", "<cmd>TodoTelescope keywords=TODO,FIX<cr>",           desc = "Todo" },
+    { "<leader>fr", "<cmd>lua require('telescope.builtin').resume()<cr>", desc = "Resume" },
+    { "<leader>fe", "<cmd>Telescope emoji<cr>",                           desc = "Emoji list" },
     -- Notes
-    { "<leader>fn", "<cmd>SimpleNoteList<cr>",                                                                   desc = "List notes" },
+    { "<leader>fn", "<cmd>SimpleNoteList<cr>",                            desc = "List notes" },
   },
   config = function()
     local telescope = require('telescope')
     local actions = require('telescope.actions')
 
     telescope.setup {
-      defaults = vim.tbl_deep_extend(require('telescope.themes').get_ivy(), {
+      defaults = vim.tbl_deep_extend("force", {
         file_ignore_patterns = { "^.git/" },
         vimgrep_arguments = {
           "rg",
@@ -93,7 +93,7 @@ return {
         qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
         -- Developer configurations: Not meant for general override
         buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker
-      }),
+      }, require('telescope.themes').get_ivy()),
       extensions = {
         fzf = {
           fuzzy = true,                   -- false will only do exact matching
