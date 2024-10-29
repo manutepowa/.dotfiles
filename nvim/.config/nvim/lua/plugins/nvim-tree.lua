@@ -9,29 +9,35 @@ return {
   },
   config = function()
     local icons = require("config.icons")
+    local api = require('nvim-tree.api')
+    local telescope = require('telescope.builtin')
+
+
     local present, nvimtree = pcall(require, "nvim-tree")
     if not present then
       return
     end
 
     function FindFiles()
-      local node = require("nvim-tree.lib").get_node_at_cursor()
-      local abspath = node.link_to or node.absolute_path
-      local is_folder = node.open ~= nil
-      local basedir = is_folder and abspath or vim.fn.fnamemodify(abspath, ":h")
-      require("telescope.builtin").find_files({
-        cwd = basedir,
-      })
+      local node = api.tree.get_node_under_cursor()
+      if node and node.type == "directory" then
+        telescope.find_files({
+          search_dirs = { node.absolute_path }
+        })
+      else
+        telescope.find_files()
+      end
     end
 
     function GrepFiles()
-      local node = require("nvim-tree.lib").get_node_at_cursor()
-      local abspath = node.link_to or node.absolute_path
-      local is_folder = node.open ~= nil
-      local basedir = is_folder and abspath or vim.fn.fnamemodify(abspath, ":h")
-      require("telescope.builtin").live_grep({
-        cwd = basedir,
-      })
+      local node = api.tree.get_node_under_cursor()
+      if node and node.type == "directory" then
+        telescope.live_grep({
+          search_dirs = { node.absolute_path }
+        })
+      else
+        telescope.live_grep()
+      end
     end
 
     local function my_on_attach(bufnr)

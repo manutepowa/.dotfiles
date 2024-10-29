@@ -44,7 +44,7 @@ return {
     local actions = require('telescope.actions')
 
     telescope.setup {
-      defaults = {
+      defaults = vim.tbl_deep_extend(require('telescope.themes').get_ivy(), {
         file_ignore_patterns = { "^.git/" },
         vimgrep_arguments = {
           "rg",
@@ -93,7 +93,7 @@ return {
         qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
         -- Developer configurations: Not meant for general override
         buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker
-      },
+      }),
       extensions = {
         fzf = {
           fuzzy = true,                   -- false will only do exact matching
