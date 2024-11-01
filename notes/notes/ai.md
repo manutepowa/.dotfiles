@@ -4,3 +4,8 @@
 
 ### Count tokens prompt
 - TikTokenizer: https://tiktokenizer.vercel.app
+
+### Usar redis para cache
+ejemplo con vercel kv https://sdk.vercel.ai/docs/advanced/caching
+- usar upstash
+
