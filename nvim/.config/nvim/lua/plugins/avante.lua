@@ -30,12 +30,13 @@ return {
     build = "make",
     opts = {
       provider = "openai",
+      auto_suggestions_provider = "openai",
       openai = {
         endpoint = "https://api.openai.com/v1",
         model = "gpt-4o-mini",
         timeout = 15000,   -- Timeout reducido a 15 segundos
         temperature = 0,   -- Ajuste de temperatura para más variabilidad
-        max_tokens = 4098, -- Reducir el número máximo de tokens
+        max_tokens = 4096, -- Reducir el número máximo de tokens
         ["local"] = false,
       },
       gemini = {
@@ -45,6 +46,13 @@ return {
         temperature = 0,
         max_tokens = 4096,
         ['local'] = false,
+      },
+      behaviour = {
+        auto_suggestions = false, -- Experimental stage
+        auto_set_highlight_group = true,
+        auto_set_keymaps = true,
+        auto_apply_diff_after_generation = false,
+        support_paste_from_clipboard = false,
       },
       hints = { enabled = true },
       windows = {

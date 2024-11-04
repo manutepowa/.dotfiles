@@ -5,6 +5,9 @@
 - Campo userType, oopción persona (esta opción no se le muestra a ellos en su perfil), si no marca otra cosa.
 - Sacar tags e intereses para todos los users.
 - En personas en el buscador, son todos los users.
+- Foto en el bloque asociados.
+- Otro campo de users referenciados para que el propio user se añada a la empresa.
+- Campo inet para los favoritos (users, entities).
 
 
 # AI 
