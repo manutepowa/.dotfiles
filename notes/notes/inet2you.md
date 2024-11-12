@@ -8,6 +8,8 @@
 - Foto en el bloque asociados.
 - Otro campo de users referenciados para que el propio user se añada a la empresa.
 - Campo inet para los favoritos (users, entities).
+    - Pulsar estrellita en el buscador.
+    - Enviar solicitud por email, texto genérico.
 
 
 # AI 
