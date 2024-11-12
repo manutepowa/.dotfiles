@@ -20,5 +20,9 @@ return {
   {
     "folke/which-key.nvim",
     enabled = false, -- Disable this plugin
-  }
+  },
+  {
+    "folke/edgy.nvim",
+    enabled = false,
+  },
 }

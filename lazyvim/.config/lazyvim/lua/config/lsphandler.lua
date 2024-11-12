@@ -12,7 +12,7 @@ local function lsp_keymaps(clientName)
   -- else
   -- end
 
-  vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { buffer = 0 })
+  -- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { buffer = 0 })
 
   -- Enable completion triggered by <c-x><c-o>
   -- vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
@@ -20,15 +20,9 @@ local function lsp_keymaps(clientName)
   vim.keymap.set("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>", { buffer = 0 })
 
   vim.keymap.set("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", { buffer = 0 })
-  vim.keymap.set(
-    "n",
-    "<S-l>",
-    '<cmd>lua vim.diagnostic.open_float()<CR>',
-    { buffer = 0 }
-  )
+  vim.keymap.set("n", "<S-l>", "<cmd>lua vim.diagnostic.open_float()<CR>", { buffer = 0 })
   -- vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
 end
-
 
 M.on_attach = function(client, bufnr)
   if client.name == "ts_ls" then
@@ -49,7 +43,6 @@ M.on_attach = function(client, bufnr)
   if client.name == "astro" then
     client.server_capabilities.documentFormattingProvider = true
   end
-
 
   lsp_keymaps(client.name)
   lsp_highlight_document(client)

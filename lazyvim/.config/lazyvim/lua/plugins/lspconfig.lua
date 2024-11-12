@@ -1,6 +1,5 @@
-
 local servers = {
-  "tsserver",
+  "ts_ls",
   "tailwindcss",
   "intelephense",
   "astro",
@@ -8,6 +7,14 @@ local servers = {
   "dockerls",
 }
 
+local serversToInstall = {
+  ts_ls = {},
+  tailwindcss = {},
+  intelephense = {},
+  astro = {},
+  cssls = {},
+  dockerls = {},
+}
 
 return {
   "neovim/nvim-lspconfig",
@@ -21,22 +28,22 @@ return {
       end)
     end,
   },
-  servers = nil,
-    config = function(plugin)
-      -- lspconfig
-      local servers = plugin.servers or servers
+  servers = serversToInstall,
+  config = function(plugin)
+    -- lspconfig
+    local servers = plugin.servers or servers
 
-      local opts = {}
+    local opts = {}
 
-      require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(servers) })
-      require("mason-lspconfig").setup_handlers({
-        function(server)
-          opts = {
-            on_attach = require("config.lsphandler").on_attach,
-            capabilities = require("config.lsphandler").capabilities,
-          }
-          require("lspconfig")[server].setup(opts)
-        end,
-      })
-    end,
+    require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(servers) })
+    require("mason-lspconfig").setup_handlers({
+      function(server)
+        opts = {
+          on_attach = require("config.lsphandler").on_attach,
+          capabilities = require("config.lsphandler").capabilities,
+        }
+        require("lspconfig")[server].setup(opts)
+      end,
+    })
+  end,
 }
