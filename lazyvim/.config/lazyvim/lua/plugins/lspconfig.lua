@@ -5,6 +5,7 @@ local servers = {
   "astro",
   "cssls",
   "dockerls",
+  "eslint",
 }
 
 local serversToInstall = {
@@ -14,6 +15,7 @@ local serversToInstall = {
   astro = {},
   cssls = {},
   dockerls = {},
+  eslint = {},
 }
 
 return {
@@ -31,11 +33,11 @@ return {
   servers = serversToInstall,
   config = function(plugin)
     -- lspconfig
-    local servers = plugin.servers or servers
+    local pluginServers = plugin.servers or servers
 
     local opts = {}
 
-    require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(servers) })
+    require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(pluginServers) })
     require("mason-lspconfig").setup_handlers({
       function(server)
         opts = {

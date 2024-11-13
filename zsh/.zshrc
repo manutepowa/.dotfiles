@@ -37,8 +37,8 @@ plugins=(git z docker npm vi-mode fzf zsh-autosuggestions zsh-syntax-highlightin
 
 alias m3ssh="cd /home/manuel/Desarrollo/m3ssh/ && ./m3ssh.sh"
 alias devtest="cd /home/manuel/Desarrollo/devtest"
-alias v="nvim"
-alias vl="NVIM_APPNAME=lazyvim nvim"
+alias v="NVIM_APPNAME=lazyvim nvim"
+alias vl="nvim"
 # alias genpass='f() { cat /dev/urandom | strings | grep -Eoa "[a-zA-Z0-9@$%&_]*" | head -n 10  | tr -d "\n" | cut -c1-$1 };f'
 alias cat='bat --style=plain'
 
