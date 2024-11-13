@@ -39,10 +39,6 @@ return {
     enabled = false,
   },
   {
-    "stevearc/conform.nvim",
-    enabled = false,
-  },
-  {
     "mfussenegger/nvim-lint",
     enabled = false,
   },
@@ -52,10 +48,10 @@ return {
     lazy = false,
     opts = {
       words = { enabled = false },
-    }
+    },
   },
   {
     "nvimdev/dashboard-nvim",
     enabled = false,
-  }
+  },
 }
