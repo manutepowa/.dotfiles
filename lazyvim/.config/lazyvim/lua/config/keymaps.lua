@@ -11,6 +11,10 @@ vim.keymap.del("v", "<A-j>")
 vim.keymap.del("n", "<A-k>")
 vim.keymap.del("i", "<A-k>")
 vim.keymap.del("v", "<A-k>")
+vim.keymap.del("n", "<C-j>")
+vim.keymap.del("n", "<C-k>")
+vim.keymap.del("n", "<C-l>")
+vim.keymap.del("n", "<C-h>")
 
 vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { desc = "Organize Imports" })
 
@@ -19,12 +23,6 @@ vim.keymap.set("v", "<S-Tab>", "<gv", { desc = "Indent left" })
 
 -- git
 vim.keymap.set("n", "<Leader>gl", ":Flogsplit -all<cr>", { noremap = true })
-vim.cmd([[
-  nmap <Leader>" ysiw"
-  nmap <Leader>' ysiw'
-  nmap <Leader>{ ysiw{
-  nmap <Leader>[ ysiw[
-]])
 
 -- Basic vim
 vim.keymap.set("n", "<A-j>", "5j", { noremap = true })
@@ -120,3 +118,11 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.keymap.set("c", "<A-l>", "<Right>")
 vim.keymap.set("c", "<A-h>", "<Left>")
 vim.keymap.set("c", "<A-BS>", "<c-w>")
+
+--
+local nvim_tmux_nav = require("nvim-tmux-navigation")
+
+vim.keymap.set("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)  -- Navigate to the left pane
+vim.keymap.set("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)  -- Navigate to the bottom pane
+vim.keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)    -- Navigate to the top pane
+vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight) -- Navigate to the right pane
