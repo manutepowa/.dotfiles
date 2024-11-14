@@ -1,6 +1,6 @@
 return {
   {
-    'LunarVim/darkplus.nvim',
+    "LunarVim/darkplus.nvim",
   },
   {
     -- LazyVim configuration
@@ -9,5 +9,5 @@ return {
       -- Set the default color scheme
       colorscheme = "darkplus",
     },
-  }
+  },
 }
