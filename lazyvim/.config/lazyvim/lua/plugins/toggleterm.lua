@@ -1,5 +1,6 @@
 return {
   "akinsho/toggleterm.nvim",
+  enabled = false,
   keys = {
     { [[<A-->]] },
   },
@@ -45,17 +46,17 @@ return {
     })
     function Set_terminal_keymaps()
       local opts = { noremap = true }
-      vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-      vim.api.nvim_buf_set_keymap(0, 't', 'kj', [[<C-\><C-n>]], opts)
+      vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
+      vim.api.nvim_buf_set_keymap(0, "t", "kj", [[<C-\><C-n>]], opts)
     end
 
-    vim.cmd('autocmd! TermOpen term://* lua Set_terminal_keymaps()')
+    vim.cmd("autocmd! TermOpen term://* lua Set_terminal_keymaps()")
     vim.api.nvim_create_autocmd({ "FileType" }, {
       pattern = { "toggleterm" },
       callback = function()
-        vim.cmd [[
+        vim.cmd([[
       set cmdheight=1
-    ]]
+    ]])
       end,
     })
     local opts = { silent = true }
@@ -76,5 +77,5 @@ return {
     keymap("t", "<A-j>", "<down>", opts)
     keymap("t", "<A-l>", "<C-right>", opts)
     keymap("t", "<A-h>", "<left>", opts)
-  end
+  end,
 }
