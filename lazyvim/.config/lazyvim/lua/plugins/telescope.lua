@@ -23,7 +23,7 @@ return {
     },
     {
       "<leader>ff",
-      "<cmd>lua require('telescope.builtin').find_files()<cr>",
+      "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>",
     },
     {
       "<leader>''",
@@ -37,11 +37,11 @@ return {
     { "<Leader>fG", ":Telescope grep_string<cr>" },
     { "<Leader>fb", ":Telescope buffers<cr>" },
     -- todocomments keymaps
-    { "<leader>ft", "<cmd>TodoTelescope keywords=TODO,FIX<cr>", desc = "Todo" },
+    { "<leader>ft", "<cmd>TodoTelescope keywords=TODO,FIX<cr>",           desc = "Todo" },
     { "<leader>fr", "<cmd>lua require('telescope.builtin').resume()<cr>", desc = "Resume" },
-    { "<leader>fe", "<cmd>Telescope emoji<cr>", desc = "Emoji list" },
+    { "<leader>fe", "<cmd>Telescope emoji<cr>",                           desc = "Emoji list" },
     -- Notes
-    { "<leader>fn", "<cmd>SimpleNoteList<cr>", desc = "List notes" },
+    { "<leader>fn", "<cmd>SimpleNoteList<cr>",                            desc = "List notes" },
   },
   config = function()
     local telescope = require("telescope")
@@ -102,10 +102,10 @@ return {
       }, require("telescope.themes").get_ivy()),
       extensions = {
         fzf = {
-          fuzzy = true, -- false will only do exact matching
+          fuzzy = true,                   -- false will only do exact matching
           override_generic_sorter = true, -- override the generic sorter
-          override_file_sorter = true, -- override the file sorter
-          case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+          override_file_sorter = true,    -- override the file sorter
+          case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
           -- the default case_mode is "smart_case"
         },
         emoji = {

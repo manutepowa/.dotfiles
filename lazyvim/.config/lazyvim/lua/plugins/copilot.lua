@@ -1,7 +1,6 @@
 return {
   {
     "zbirenbaum/copilot.lua",
-    enabled = false,
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
@@ -23,6 +22,8 @@ return {
         suggestion = {
           enable = true,
           auto_trigger = true,
+          hide_during_completion = true,
+          debounce = 75,
           keymap = {
             accept = "<Tab>",
             accept_word = "<C-l>",
@@ -38,6 +39,7 @@ return {
   {
     "supermaven-inc/supermaven-nvim",
     lazy = false,
+    enabled = false,
     config = function()
       require("supermaven-nvim").setup({
         keymaps = {
