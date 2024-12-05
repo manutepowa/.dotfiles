@@ -16,3 +16,24 @@
 - Recomendar basando en intereses, etiquetas, campos de texto como el curriculum... etc, que es lo que hago.
 - Recomendar tanto empresas como perfiles, todo lo que pueda coincidir.
 - En empresas/entidades solo recomienda si formas parte de la empresa.
+
+# Filtros red de contactos.
+## personas
+- nombre y apellidos (input principal)
+- perfil
+- tags
+- ciudad
+- email
+## Empresa
+- perfil
+- email
+- ciudad
+- tags
+## Entidades
+- perfil
+- email
+- ciudad
+- tags
+# Inversores
+- Tipo de inversor
+- tags
