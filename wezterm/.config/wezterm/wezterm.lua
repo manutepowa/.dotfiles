@@ -40,15 +40,15 @@ config.colors = {
 }
 
 -- =======================================================================
--- config.font = wezterm.font("Geist Mono", { weight = "Regular" })
--- config.font_size = 11.7
--- config.line_height = 1.3
--- config.cell_width = 0.9
-
-config.font = wezterm.font("MonoLisa Nerd Font Mono", { italic = false, weight = "Medium" })
-config.font_size = 11.5
-config.line_height = 1.7
+config.font = wezterm.font("Geist Mono", { weight = "Regular" })
+config.font_size = 12
+config.line_height = 1.2
 config.cell_width = 0.9
+
+-- config.font = wezterm.font("MonoLisa Nerd Font Mono", { italic = false, weight = "Medium" })
+-- config.font_size = 11.5
+-- config.line_height = 1.7
+-- config.cell_width = 0.9
 config.enable_wayland = false
 
 config.initial_rows = 90
