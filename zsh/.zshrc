@@ -47,6 +47,8 @@ alias ddp='ddev poweroff' # all list
 alias dde='ddev ssh' # all list
 alias ddx='ddev xdebug' # all list
 alias ddm='ddev mailpit' # all list
+
+alias pn='pnpm'
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
