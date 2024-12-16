@@ -1,5 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
+  enabled = true,
   -- load cmp on InsertEnter
   event = { "UIEnter" },
   -- these dependencies will only be loaded when cmp loads
@@ -88,8 +89,8 @@ return {
       sources = {
         { name = "nvim_lsp", keyword_length = 1 },
         { name = "nvim_lua", keyword_length = 1 },
-        { name = "luasnip",  keyword_length = 1 },
-        { name = "buffer",   keyword_length = 2 },
+        { name = "luasnip", keyword_length = 1 },
+        { name = "buffer", keyword_length = 2 },
         { name = "path" },
       },
       sorting = {

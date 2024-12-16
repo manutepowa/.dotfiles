@@ -48,10 +48,19 @@ return {
     lazy = false,
     opts = {
       words = { enabled = false },
+      indent = { enabled = false },
     },
   },
   {
     "nvimdev/dashboard-nvim",
+    enabled = false,
+  },
+  {
+    "saghen/blink.cmp",
+    enabled = false,
+  },
+  {
+    "bhagwan/fzf-lua",
     enabled = false,
   },
 }
