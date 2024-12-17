@@ -49,6 +49,8 @@ return {
     opts = {
       words = { enabled = false },
       indent = { enabled = false },
+      scroll = { enabled = false },
+      input = { enabled = false },
     },
   },
   {

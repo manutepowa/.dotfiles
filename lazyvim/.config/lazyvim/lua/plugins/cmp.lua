@@ -21,6 +21,7 @@ return {
 
     local snip_status_ok, luasnip = pcall(require, "luasnip")
     if not snip_status_ok then
+      print("Snippets not loaded")
       return
     end
 
@@ -56,8 +57,8 @@ return {
             cmp.select_next_item()
           elseif not cmp.visible() then
             cmp.mapping(cmp.complete(), { "i", "c", "s" })
-          elseif luasnip.expandable() then
-            luasnip.expand()
+          elseif luasnip.jumpable(1) then
+            luasnip.jump(1)
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
           elseif check_backspace() then
@@ -89,8 +90,8 @@ return {
       sources = {
         { name = "nvim_lsp", keyword_length = 1 },
         { name = "nvim_lua", keyword_length = 1 },
-        { name = "luasnip", keyword_length = 1 },
-        { name = "buffer", keyword_length = 2 },
+        { name = "luasnip",  keyword_length = 1 },
+        { name = "buffer",   keyword_length = 2 },
         { name = "path" },
       },
       sorting = {
