@@ -24,7 +24,7 @@
         "hotKey": "j"
     },
     "filter": {
-        "regex": "^(ulauncher\\.Ulauncher|google.chrome|org.gnome.Nautilus.Org.gnome.Nautilus)",
+        "regex": "^(ulauncher\\.Ulauncher|google.chrome|org.gnome.Nautilus.Org.gnome.Nautilus|nemo.Nemo)",
         "isRecursive": false
     }
 }
