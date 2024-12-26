@@ -22,6 +22,13 @@ local function lsp_keymaps(clientName)
   vim.keymap.set("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", { buffer = 0 })
   vim.keymap.set("n", "<S-l>", "<cmd>lua vim.diagnostic.open_float()<CR>", { buffer = 0 })
   -- vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
+  --
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*",
+    callback = function(args)
+      require("conform").format({ bufnr = args.buf })
+    end,
+  })
 end
 
 M.on_attach = function(client, bufnr)
@@ -45,7 +52,7 @@ M.on_attach = function(client, bufnr)
   end
 
   lsp_keymaps(client.name)
-  lsp_highlight_document(client)
+  -- lsp_highlight_document(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
