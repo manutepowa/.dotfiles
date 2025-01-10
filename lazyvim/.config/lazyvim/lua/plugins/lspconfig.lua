@@ -6,6 +6,7 @@ local servers = {
   "cssls",
   "dockerls",
   "eslint",
+  "jsonls",
 }
 
 local serversToInstall = {
@@ -16,6 +17,7 @@ local serversToInstall = {
   cssls = {},
   dockerls = {},
   eslint = {},
+  jsonls = {},
 }
 
 return {

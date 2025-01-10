@@ -2,31 +2,34 @@ return {
   "mfussenegger/nvim-dap",
   dependencies = {
     "nvim-neotest/nvim-nio",
-    "rcarriga/nvim-dap-ui"
+    "rcarriga/nvim-dap-ui",
   },
   config = function()
-    local dap = require "dap"
-    local icons = require "config.icons"
+    local dap = require("dap")
+    local icons = require("config.icons")
 
-    vim.keymap.set('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
-    vim.keymap.set('n', '<leader>dcb', ':lua require"dap".clear_breakpoints()<CR>')
-    vim.keymap.set('n', '<leader>dso', ':lua require"dap".step_out()<CR>')
-    vim.keymap.set('n', '<leader>dsi', ':lua require"dap".step_into()<CR>')
-    vim.keymap.set('n', '<A-CR>', ':lua require"dap".step_over()<CR>')
-    vim.keymap.set('n', '<leader>ds', ':lua require"dap".continue()<CR>')
-    vim.keymap.set('n', '<leader>drt', ':lua require"dap".repl.toggle()<CR>')
-    vim.keymap.set('n', '<leader>dt', ':lua require("config.utils").stop()<cr>', { noremap = true })
-    vim.keymap.set('n', '<F2>', ':lua require("dapui").eval()<CR>')
+    vim.keymap.set("n", "<leader>db", ':lua require"dap".toggle_breakpoint()<CR>')
+    vim.keymap.set("n", "<leader>dcb", ':lua require"dap".clear_breakpoints()<CR>')
+    vim.keymap.set("n", "<leader>dso", ':lua require"dap".step_out()<CR>')
+    vim.keymap.set("n", "<leader>dsi", ':lua require"dap".step_into()<CR>')
+    vim.keymap.set("n", "<A-CR>", ':lua require"dap".step_over()<CR>')
+    vim.keymap.set("n", "<leader>ds", ':lua require"dap".continue()<CR>')
+    vim.keymap.set("n", "<leader>drt", ':lua require"dap".repl.toggle()<CR>')
+    vim.keymap.set("n", "<leader>dt", ':lua require("config.utils").stop()<cr>', { noremap = true })
+    vim.keymap.set("n", "<F2>", ':lua require("dapui").eval()<CR>')
     -- vim.keymap.set('n', '<leader>dui', '<cmd>lua require"dapui".toggle()<CR>')
-    vim.keymap.set('n', '<leader>dhh', '<cmd>lua require"dapui.variables".hover()<CR>')
+    vim.keymap.set("n", "<leader>dhh", '<cmd>lua require"dapui.variables".hover()<CR>')
 
-
-
-    dap.defaults.fallback.terminal_win_cmd = '80vsplit new'
-    vim.fn.sign_define('DapBreakpoint', { text = icons.ui.Bug, texthl = 'DiagnosticSignError', linehl = '', numhl = '' })
-    vim.fn.sign_define('DapBreakpointRejected',
-      { text = icons.ui.Bug, texthl = 'DiagnosticSignError', linehl = '', numhl = '' })
-    vim.fn.sign_define('DapStopped', {
+    dap.defaults.fallback.terminal_win_cmd = "80vsplit new"
+    vim.fn.sign_define(
+      "DapBreakpoint",
+      { text = icons.ui.Bug, texthl = "DiagnosticSignError", linehl = "", numhl = "" }
+    )
+    vim.fn.sign_define(
+      "DapBreakpointRejected",
+      { text = icons.ui.Bug, texthl = "DiagnosticSignError", linehl = "", numhl = "" }
+    )
+    vim.fn.sign_define("DapStopped", {
       text = icons.ui.BoldArrowRight,
       texthl = "DiagnosticSignWarn",
       linehl = "Visual",
@@ -35,17 +38,17 @@ return {
     vim.fn.sign_define("DapLogPoint", { text = icons.dap.LogPoint, texthl = "DapLogPoint", linehl = "", numhl = "" })
 
     dap.adapters.php = {
-      type = 'executable',
-      command = 'node',
-      args = { vim.fn.stdpath("data") .. "/mason/packages/php-debug-adapter/extension/out/phpDebug.js" }
+      type = "executable",
+      command = "node",
+      args = { vim.fn.stdpath("data") .. "/mason/packages/php-debug-adapter/extension/out/phpDebug.js" },
     }
 
     -- print(os.getenv('HOME') .. "/dapinstall/php/vscode-php-debug/out/phpDebug.js")
     dap.configurations.php = {
       {
-        type = 'php',
-        request = 'launch',
-        name = 'Listen for Xdebug',
+        type = "php",
+        request = "launch",
+        name = "Listen for Xdebug",
         port = 9003,
         -- serverSourceRoot = '/var/www/html/httpdocs/',
         -- localSourceRoot = '${workspaceFolder}/httpdocs/',
@@ -54,42 +57,18 @@ return {
           -- ["/var/www/html/httpdocs/web/"] = "${workspaceFolder}/httpdocs/web/",
           -- ["/var/www/html/parque/"] = "${workspaceFolder}/parque/",
           -- ["/var/www/html/parque/web/"] = "${workspaceFolder}/parque/web/"
-        }
-      }
+        },
+      },
     }
 
-    dap.adapters.node = {
-      type = 'executable',
-      command = 'node',
-      args = { vim.fn.stdpath("data") .. "/dapinstall/jsnode/vscode-node-debug2/out/src/nodeDebug.js" }
-    }
-    -- Nodejs
-    -- dap.adapters.chrome = {
-    --     type = 'executable',
-    --     command = 'node',
-    --     args = { vim.fn.stdpath("data") .. "/dapinstall/chrome/vscode-chrome-debug/out/src/chromeDebug.js" }
-    -- }
-    dap.configurations.javascript = {
-      {
-        type = "node",
-        request = "attach",
-        cwd = vim.fn.getcwd(),
-        protocol = "inspector",
-        localRoot = "${workspaceFolder}/httpdocs/",
-        remoteRoot = "/var/www/html/httpdocs/",
-      }
-    }
-
-
-
-    local dap_ui = require "dapui"
+    local dap_ui = require("dapui")
     dap_ui.setup({
       -- icons = { expanded = "▾", collapsed = "▸" },
       icons = {
         expanded = icons.ui.ArrowOpen,
         collapsed = icons.ui.ArrowClosed,
         current_frame = icons.ui.Indicator,
-        circular = ""
+        circular = "",
       },
       mappings = {
         -- Use a table to apply multiple mappings
@@ -133,24 +112,23 @@ return {
             },
           },
           size = 50,
-          position = 'left',
+          position = "left",
         },
         {
           elements = {
-            'repl',
+            "repl",
           },
           size = 10,
-          position = 'bottom',
+          position = "bottom",
         },
       },
       windows = { indent = 1 },
     })
 
-
     dap.listeners.after["event_initialized"]["config"] = function()
-      dap_ui.open {}
+      dap_ui.open({})
     end
-    local session = require('dap').session()
+    local session = require("dap").session()
     local lang = nil
 
     if session then
@@ -160,8 +138,8 @@ return {
       end
     end
 
-    if lang and lang ~= '' then
-      require('nvim-dap-repl-highlights').setup_injections(0, lang)
+    if lang and lang ~= "" then
+      require("nvim-dap-repl-highlights").setup_injections(0, lang)
     end
-  end
+  end,
 }
