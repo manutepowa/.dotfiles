@@ -7,10 +7,6 @@ return {
     enabled = false, -- Disable this plugin
   },
   {
-    "iamcco/markdown-preview.nvim",
-    enabled = false, -- Disable this plugin
-  },
-  {
     "folke/persistence.nvim",
     enabled = false, -- Disable this plugin
   },

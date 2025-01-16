@@ -90,8 +90,8 @@ return {
       sources = {
         { name = "nvim_lsp", keyword_length = 1 },
         { name = "nvim_lua", keyword_length = 1 },
-        { name = "luasnip",  keyword_length = 1 },
-        { name = "buffer",   keyword_length = 2 },
+        { name = "luasnip", keyword_length = 1 },
+        { name = "buffer", keyword_length = 2 },
         { name = "path" },
       },
       sorting = {
