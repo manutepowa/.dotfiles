@@ -18,24 +18,31 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "git",
     "NeogitStatus",
     "query",
-    "AvanteInput"
+    "AvanteInput",
   },
   callback = function()
-    vim.cmd [[
+    vim.cmd([[
       nnoremap <silent> <buffer> q :close<CR>
       " nnoremap <silent> <buffer> <esc> :close<CR>
       set nobuflisted
-    ]]
+    ]])
   end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "dap-repl",
   callback = function()
-    vim.keymap.set("i", '<A-k>', '<Up>')
-    vim.keymap.set("i", '<A-j>', '<Down>')
-    vim.keymap.set("i", '<A-l>', '<Right>')
-    vim.keymap.set("i", '<A-h>', '<Left>')
-    vim.keymap.set('i', '<A-BS>', function() vim.cmd('normal vbd') end, { noremap = true, silent = true })
+    vim.keymap.set("i", "<A-k>", "<Up>")
+    vim.keymap.set("i", "<A-j>", "<Down>")
+    vim.keymap.set("i", "<A-l>", "<Right>")
+    vim.keymap.set("i", "<A-h>", "<Left>")
+    vim.keymap.set("i", "<A-BS>", function()
+      vim.cmd("normal vbd")
+    end, { noremap = true, silent = true })
   end,
 })
+
+vim.cmd([[
+  highlight SnacksIndentDark guifg=#3C3C3C guibg=NONE
+  highlight SnacksIndentScopeDark guifg=#4E4E4E guibg=NONE
+]])
