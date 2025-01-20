@@ -109,7 +109,7 @@ vim.keymap.set("c", "<A-BS>", "<c-w>")
 --
 local nvim_tmux_nav = require("nvim-tmux-navigation")
 
-vim.keymap.set("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)  -- Navigate to the left pane
-vim.keymap.set("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)  -- Navigate to the bottom pane
-vim.keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)    -- Navigate to the top pane
+vim.keymap.set("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft) -- Navigate to the left pane
+vim.keymap.set("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown) -- Navigate to the bottom pane
+vim.keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp) -- Navigate to the top pane
 vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight) -- Navigate to the right pane

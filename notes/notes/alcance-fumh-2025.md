@@ -17,3 +17,11 @@
 -   [ ] Administración RRHH
 -   [ ] ~~Reservas de salas FUMH~~ --> Inventario
 
+
+
+# Faqs eventos
+
+## Wordpress user
+- domain: faqs-eventos.p1swjeotns-jqp3vpq0j350.p.temp-site.link
+- user: kube-admin
+- password: Aesx0z^d1}9#

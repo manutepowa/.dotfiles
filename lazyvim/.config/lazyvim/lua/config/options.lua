@@ -84,9 +84,3 @@ local config = {
 }
 
 vim.diagnostic.config(config)
-
-vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
-  config = config or {}
-  config.focus_id = ctx.method
-  config.border = "rounded"
-end

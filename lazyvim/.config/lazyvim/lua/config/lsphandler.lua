@@ -7,13 +7,6 @@ local function lsp_highlight_document(client)
 end
 
 local function lsp_keymaps(clientName)
-  -- if clientName == "intelephense" or clientName == "phpactor" then
-  --   vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
-  -- else
-  -- end
-
-  -- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { buffer = 0 })
-
   -- Enable completion triggered by <c-x><c-o>
   -- vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
   vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { buffer = 0 })
@@ -50,6 +43,12 @@ M.on_attach = function(client, bufnr)
   lsp_keymaps(client.name)
   -- lsp_highlight_document(client)
 end
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded",
+  max_width = width,
+  max_height = height,
+})
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
