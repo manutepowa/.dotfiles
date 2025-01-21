@@ -44,11 +44,11 @@ M.on_attach = function(client, bufnr)
   -- lsp_highlight_document(client)
 end
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
-  max_width = width,
-  max_height = height,
-})
+-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+--   border = "rounded",
+--   max_width = width,
+--   max_height = height,
+-- })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true

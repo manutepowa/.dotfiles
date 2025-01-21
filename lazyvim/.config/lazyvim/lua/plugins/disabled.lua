@@ -11,10 +11,6 @@ return {
     enabled = false, -- Disable this plugin
   },
   {
-    "folke/noice.nvim",
-    enabled = false, -- Disable this plugin
-  },
-  {
     "nvim-neo-tree/neo-tree.nvim",
     enabled = false, -- Disable this plugin
   },
