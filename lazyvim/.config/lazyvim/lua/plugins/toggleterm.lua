@@ -50,14 +50,14 @@ return {
     end
 
     vim.cmd("autocmd! TermOpen term://* lua Set_terminal_keymaps()")
-    vim.api.nvim_create_autocmd({ "FileType" }, {
-      pattern = { "toggleterm" },
-      callback = function()
-        vim.cmd([[
-      set cmdheight=1
-    ]])
-      end,
-    })
+    -- vim.api.nvim_create_autocmd({ "FileType" }, {
+    --   pattern = { "toggleterm" },
+    --   callback = function()
+    --     vim.cmd([[
+    --       set cmdheight=0
+    --     ]])
+    --   end,
+    -- })
     local opts = { silent = true }
     local keymap = vim.keymap.set
     keymap("n", "<A-1>", "<cmd>1ToggleTerm direction=float<cr>", opts)
