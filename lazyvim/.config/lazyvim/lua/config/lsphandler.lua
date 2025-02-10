@@ -14,12 +14,12 @@ local function lsp_keymaps(clientName)
 
   vim.keymap.set("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", { buffer = 0 })
   vim.keymap.set("n", "<S-l>", "<cmd>lua vim.diagnostic.open_float()<CR>", { buffer = 0 })
-  -- vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
-  --
+
   vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
     callback = function(args)
-      require("conform").format({ bufnr = args.buf })
+      -- require("conform").format({ bufnr = args.buf })
+      vim.lsp.buf.format()
     end,
   })
 end
