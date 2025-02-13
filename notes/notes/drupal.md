@@ -42,3 +42,11 @@ drush entity:delete progress
 ```sh
 drush @prod watchdog:delete all
 ```
+
+### Nginx config
+- Para aumentar la memoria del buffer de nginx, (por ejemplo la view de enrolments que no carga)
+- Importante: eliminar la linea de ***#ddev-generated*** para que ddev no recree
+```nginx
+  fastcgi_buffers 16 32k;
+  fastcgi_buffer_size 64k;
+```
