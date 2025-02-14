@@ -9,6 +9,8 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+config.enable_wayland = false
+config.window_decorations = "RESIZE"
 -- =======================================================================
 config.disable_default_key_bindings = true
 config.keys = {
@@ -48,7 +50,6 @@ config.cell_width = 0.9
 -- config.font_size = 11.5
 -- config.line_height = 1.7
 -- config.cell_width = 0.9
-config.enable_wayland = false
 
 config.initial_rows = 70
 config.initial_cols = 140
