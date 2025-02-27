@@ -15,6 +15,9 @@ vim.keymap.del("n", "<C-j>")
 vim.keymap.del("n", "<C-k>")
 vim.keymap.del("n", "<C-l>")
 vim.keymap.del("n", "<C-h>")
+-- vim.keymap.del("n", "<C-w>")
+vim.keymap.del("n", "<C-w>d")
+vim.keymap.del("n", "<C-w><C-d>")
 
 vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { desc = "Organize Imports" })
 
@@ -76,6 +79,7 @@ vim.keymap.set("v", "<S-k>", ":move '<-2<CR>gv-gv")
 vim.keymap.set("n", "<A-l>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<A-h>", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<A-c>", ":bdelete!<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-w>", ":bdelete!<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<S-A-l>", ":BufferLineMoveNext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<S-A-h>", ":BufferLineMovePrev<CR>", { noremap = true, silent = true })
 

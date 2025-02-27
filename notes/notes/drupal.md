@@ -50,3 +50,22 @@ drush @prod watchdog:delete all
   fastcgi_buffers 16 32k;
   fastcgi_buffer_size 64k;
 ```
+
+
+## Ver tablas con mayor tamaño drupal
+```sh
+$(drush sql:connect) -e  "select table_schema as database_name,
+    table_name,
+    round(sum((data_length + index_length)) / power(1024, 2), 2) as used_mb,
+    round(sum((data_length + index_length + data_free)) /
+              power(1024, 2), 2) as allocated_mb
+from information_schema.tables
+where table_schema = 'db'
+    and table_type = 'BASE TABLE'
+group by table_schema,
+         table_name"
+```
+## Vaciar tabla watchdog
+```sh
+vendor/bin/drush cache:rebuild && vendor/bin/drush sql:query "TRUNCATE TABLE watchdog;"
+```
