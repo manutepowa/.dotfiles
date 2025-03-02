@@ -2,61 +2,60 @@ return {
   "nvim-tree/nvim-tree.lua",
   cmd = "NvimTreeToggle",
   keys = {
-    { '<A-e>', "<cmd>NvimTreeToggle<cr>", noremap = true, silent = true, desc = "nvim-tree" },
+    { "<A-e>", "<cmd>NvimTreeToggle<cr>", noremap = true, silent = true, desc = "nvim-tree" },
   },
   dependencies = {
-    'nvim-tree/nvim-web-devicons',
+    "nvim-tree/nvim-web-devicons",
   },
   config = function()
     local icons = require("config.icons")
-    local api = require('nvim-tree.api')
-    local telescope = require('telescope.builtin')
-
+    local api = require("nvim-tree.api")
+    -- local telescope = require("telescope.builtin")
 
     local present, nvimtree = pcall(require, "nvim-tree")
     if not present then
       return
     end
 
-    function FindFiles()
-      local node = api.tree.get_node_under_cursor()
-      if node and node.type == "directory" then
-        telescope.find_files({
-          search_dirs = { node.absolute_path }
-        })
-      else
-        telescope.find_files()
-      end
-    end
-
-    function GrepFiles()
-      local node = api.tree.get_node_under_cursor()
-      if node and node.type == "directory" then
-        telescope.live_grep({
-          search_dirs = { node.absolute_path }
-        })
-      else
-        telescope.live_grep()
-      end
-    end
+    -- function FindFiles()
+    --   local node = api.tree.get_node_under_cursor()
+    --   if node and node.type == "directory" then
+    --     telescope.find_files({
+    --       search_dirs = { node.absolute_path },
+    --     })
+    --   else
+    --     telescope.find_files()
+    --   end
+    -- end
+    --
+    -- function GrepFiles()
+    --   local node = api.tree.get_node_under_cursor()
+    --   if node and node.type == "directory" then
+    --     telescope.live_grep({
+    --       search_dirs = { node.absolute_path },
+    --     })
+    --   else
+    --     telescope.live_grep()
+    --   end
+    -- end
 
     local function my_on_attach(bufnr)
-      local api = require('nvim-tree.api')
+      local api = require("nvim-tree.api")
       local function opts(desc)
-        return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+        return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
       end
       api.config.mappings.default_on_attach(bufnr)
 
-      vim.keymap.set('n', '<Tab>', api.node.open.edit, opts('Open'))
-      vim.keymap.set('n', '<CR>', api.node.open.preview, opts('Open Preview'))
-      vim.keymap.set('n', '<A-w>', api.tree.collapse_all, opts('Collapse'))
-      vim.keymap.set('n', 'e', 'e', opts('Nothing'))
-      vim.keymap.set('n', 'ff', FindFiles, opts('Find files'))
-      vim.keymap.set('n', 'fg', GrepFiles, opts('GrepFiles'))
-      vim.keymap.set('n', 'S', api.node.run.system, opts('GrepFiles'))
+      vim.keymap.set("n", "<Tab>", api.node.open.edit, opts("Open"))
+      vim.keymap.set("n", "<CR>", api.node.open.preview, opts("Open Preview"))
+      vim.keymap.set("n", "<A-w>", api.tree.collapse_all, opts("Collapse"))
+      vim.keymap.set("n", "e", "e", opts("Nothing"))
+      -- vim.keymap.set('n', 'ff', FindFiles, opts('Find files'))
+      -- vim.keymap.set('n', 'fg', GrepFiles, opts('GrepFiles'))
+      vim.keymap.set("n", "S", api.node.run.system, opts("GrepFiles"))
     end
 
-    nvimtree.setup {
+    nvimtree.setup({
       on_attach = my_on_attach,
       open_on_tab = false,
       disable_netrw = false,
@@ -65,7 +64,7 @@ return {
       hijack_unnamed_buffer_when_opening = false,
       renderer = {
         add_trailing = false,
-        highlight_opened_files = 'icon',
+        highlight_opened_files = "icon",
         highlight_git = true,
         indent_markers = {
           enable = false,
@@ -79,7 +78,7 @@ return {
           show = {
             git = true,
             folder = true,
-            file = true
+            file = true,
           },
           glyphs = {
             default = icons.ui.Text,
@@ -159,8 +158,8 @@ return {
         },
         open_file = {
           quit_on_open = true,
-        }
+        },
       },
-    }
+    })
   end,
 }
