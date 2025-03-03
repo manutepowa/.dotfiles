@@ -262,11 +262,6 @@ return {
             ["--header"] = " ",
           },
         },
-        grep = {
-          fzf_opts = {
-            ["--header"] = " ",
-          },
-        },
         lsp = {},
       }
     end,
@@ -321,8 +316,8 @@ return {
       { "<leader>ff", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
       { "<leader>fF", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
       { "<leader>fh", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
-      { "<leader>fg", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
-      { "<leader>fG", LazyVim.pick("grep_visual"), desc = "Grep (cwd)" },
+      { "<leader>fg", LazyVim.pick("grep_project"), desc = "Grep (cwd)" },
+      { "<leader>fG", LazyVim.pick("grep_cword"), desc = "Word (Root Dir)" },
       { "<leader>''", "<cmd>FzfLua help_tags<cr>", desc = "Help Pages" },
       { "<leader>fr", "<cmd>FzfLua resume<cr>", desc = "Resume" },
       { "<leader>ft", "<cmd>TodoFzfLua keywords=TODO,FIX<CR>", desc = "Todo" },
