@@ -255,9 +255,7 @@ return {
         },
         files = {
           cwd_prompt = false,
-          file_icons = false,
-          color_icons = false,
-          cwd_prompt = false,
+          color_icons = true,
           fzf_opts = {
             ["--header"] = " ",
           },
@@ -304,6 +302,7 @@ return {
           },
         },
       },
+      { "nvim-tree/nvim-web-devicons" },
     },
     keys = {
       -- { "<c-j>", "<c-j>", ft = "fzf", mode = "t", nowait = true },
