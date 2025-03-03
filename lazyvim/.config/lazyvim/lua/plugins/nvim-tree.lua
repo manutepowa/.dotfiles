@@ -17,27 +17,26 @@ return {
       return
     end
 
-    -- function FindFiles()
-    --   local node = api.tree.get_node_under_cursor()
-    --   if node and node.type == "directory" then
-    --     telescope.find_files({
-    --       search_dirs = { node.absolute_path },
-    --     })
-    --   else
-    --     telescope.find_files()
-    --   end
-    -- end
-    --
-    -- function GrepFiles()
-    --   local node = api.tree.get_node_under_cursor()
-    --   if node and node.type == "directory" then
-    --     telescope.live_grep({
-    --       search_dirs = { node.absolute_path },
-    --     })
-    --   else
-    --     telescope.live_grep()
-    --   end
-    -- end
+    function FindFiles()
+      local node = api.tree.get_node_under_cursor()
+      if node and node.type == "directory" then
+        require("fzf-lua").files({
+          cwd = node.absolute_path,
+        })
+      else
+        require("fzf-lua").files()
+      end
+    end
+    function GrepFiles()
+      local node = api.tree.get_node_under_cursor()
+      if node and node.type == "directory" then
+        require("fzf-lua").live_grep({
+          cwd = node.absolute_path,
+        })
+      else
+        require("fzf-lua").live_grep()
+      end
+    end
 
     local function my_on_attach(bufnr)
       local api = require("nvim-tree.api")
@@ -50,8 +49,8 @@ return {
       vim.keymap.set("n", "<CR>", api.node.open.preview, opts("Open Preview"))
       vim.keymap.set("n", "<A-w>", api.tree.collapse_all, opts("Collapse"))
       vim.keymap.set("n", "e", "e", opts("Nothing"))
-      -- vim.keymap.set('n', 'ff', FindFiles, opts('Find files'))
-      -- vim.keymap.set('n', 'fg', GrepFiles, opts('GrepFiles'))
+      vim.keymap.set("n", "ff", FindFiles, opts("Find files"))
+      vim.keymap.set("n", "fg", GrepFiles, opts("GrepFiles"))
       vim.keymap.set("n", "S", api.node.run.system, opts("GrepFiles"))
     end
 
