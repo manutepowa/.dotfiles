@@ -174,6 +174,7 @@ return {
 
       return {
         "default-title",
+        prompt = "  ",
         fzf_colors = {
           ["fg"] = { "fg", "TelescopeNormal" },
           ["bg"] = { "bg", "TelescopeNormal" },
@@ -182,7 +183,7 @@ return {
           ["bg+"] = { "bg", "TelescopeSelection" },
           ["hl+"] = { "fg", "TelescopeMatching" },
           ["info"] = { "fg", "TelescopeMultiSelection" },
-          ["border"] = { "fg", "TelescopeBorder" },
+          ["border"] = { "bg", "TelescopeBorder" },
           ["gutter"] = "-1",
           ["query"] = { "fg", "TelescopePromptNormal" },
           ["prompt"] = { "fg", "TelescopePromptPrefix" },
@@ -190,13 +191,26 @@ return {
           ["marker"] = { "fg", "TelescopeSelectionCaret" },
           ["header"] = { "fg", "TelescopeTitle" },
         },
-        fzf_opts = {
-          ["--no-scrollbar"] = true,
-          ["--header"] = " ",
-        },
         defaults = {
-          -- formatter = "path.filename_first",
-          formatter = "path.dirname_first",
+          prompt = "  ",
+          fzf_opts = {
+            ["--no-scrollbar"] = true,
+            ["--header"] = " ",
+          },
+          winopts = {
+            -- Emula el estilo "ivy" de Telescope
+            height = 0.8, -- Altura reducida como en ivy
+            width = 1.0, -- Ancho completo como en ivy
+            row = 1.0, -- Posición en la parte inferior
+            col = 0.5, -- Posición en la parte izquierda
+            preview = {
+              -- vertical = "up:60%", -- Vista previa arriba
+              layout = "vertical", -- Disposición vertical
+            },
+            border = "none", -- Bordes minimalistas
+          },
+          formatter = "path.filename_first",
+          -- formatter = "path.dirname_first",
         },
         previewers = {
           builtin = {
@@ -210,49 +224,7 @@ return {
             ueberzug_scaler = "fit_contain",
           },
         },
-        -- Custom LazyVim option to configure vim.ui.select
-        -- ui_select = function(fzf_opts, items)
-        --   return vim.tbl_deep_extend("force", fzf_opts, {
-        --     prompt = " ",
-        --     winopts = {
-        --       title = " " .. vim.trim((fzf_opts.prompt or "Select"):gsub("%s*:%s*$", "")) .. " ",
-        --       title_pos = "center",
-        --     },
-        --   }, fzf_opts.kind == "codeaction" and {
-        --     winopts = {
-        --       layout = "vertical",
-        --       -- height is number of items minus 15 lines for the preview, with a max of 80% screen height
-        --       height = math.floor(math.min(vim.o.lines * 0.8 - 16, #items + 2) + 0.5) + 16,
-        --       width = 0.5,
-        --       preview = not vim.tbl_isempty(LazyVim.lsp.get_clients({ bufnr = 0, name = "vtsls" })) and {
-        --         layout = "vertical",
-        --         vertical = "down:15,border-top",
-        --         hidden = "hidden",
-        --       } or {
-        --         layout = "vertical",
-        --         vertical = "down:15,border-top",
-        --       },
-        --     },
-        --   } or {
-        --     winopts = {
-        --       width = 0.5,
-        --       -- height is number of items, with a max of 80% screen height
-        --       height = math.floor(math.min(vim.o.lines * 0.8, #items + 2) + 0.5),
-        --     },
-        --   })
-        -- end,
-        winopts = {
-          -- Emula el estilo "ivy" de Telescope
-          height = 0.8, -- Altura reducida como en ivy
-          width = 1.0, -- Ancho completo como en ivy
-          row = 1.0, -- Posición en la parte inferior
-          col = 0.5, -- Posición en la parte izquierda
-          preview = {
-            -- vertical = "up:60%", -- Vista previa arriba
-            layout = "vertical", -- Disposición vertical
-          },
-          border = { "", "", "", "", "", "", "", "" }, -- Bordes minimalistas
-        },
+
         files = {
           cwd_prompt = false,
           color_icons = true,
