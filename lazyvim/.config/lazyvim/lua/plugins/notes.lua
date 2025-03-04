@@ -1,15 +1,16 @@
 return {
-  'rguruprakash/simple-note.nvim',
+  "rguruprakash/simple-note.nvim",
+  enabled = false,
   dependencies = {
-    'nvim-telescope/telescope.nvim',
+    "nvim-telescope/telescope.nvim",
   },
   config = function()
-    require('simple-note').setup({
+    require("simple-note").setup({
       -- configuration defaults
-      notes_dir = '~/notes/',
-      telescope_new = '<C-n>',
-      telescope_delete = '<C-x>',
-      telescope_rename = '<C-r>',
+      notes_dir = "~/notes/",
+      telescope_new = "<C-n>",
+      telescope_delete = "<C-x>",
+      telescope_rename = "<C-r>",
     })
-  end
+  end,
 }
