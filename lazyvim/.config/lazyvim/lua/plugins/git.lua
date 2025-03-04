@@ -7,7 +7,7 @@ return {
     },
     cmd = "Neogit",
     keys = {
-      { "<Leader>gs", "<cmd>Neogit<CR>", desc = "Neogit" },
+      { "<leader>gs", "<cmd>Neogit<CR>", desc = "Neogit" },
     },
     -- See: https://github.com/TimUntersberger/neogit#configuration
     config = function()

@@ -293,7 +293,10 @@ return {
       { "<leader>fr", "<cmd>FzfLua resume<cr>", desc = "Resume" },
       { "<leader>ft", "<cmd>TodoFzfLua keywords=TODO,FIX<CR>", desc = "Todo" },
       { "<leader>fn", LazyVim.pick("files", { cwd = "~/.dotfiles/notes/notes", search = "builtin" }), desc = "Notes" },
-
+      {
+        "<leader>gs",
+        false,
+      },
       -- { "<leader>:", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
       -- { "<leader><space>", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
       -- find
@@ -303,7 +306,6 @@ return {
       -- { "<leader>fR", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
       -- git
       -- { "<leader>gc", "<cmd>FzfLua git_commits<CR>", desc = "Commits" },
-      { "<leader>gs", "", desc = "Status" },
       -- search
       -- { '<leader>s"', "<cmd>FzfLua registers<cr>", desc = "Registers" },
       -- { "<leader>sa", "<cmd>FzfLua autocmds<cr>", desc = "Auto Commands" },
