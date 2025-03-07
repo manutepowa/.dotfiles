@@ -2,7 +2,7 @@ return {
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
-    enabled = false,
+    enabled = true,
     event = "InsertEnter",
     config = function()
       require("copilot").setup({
@@ -27,7 +27,7 @@ return {
           debounce = 75,
           keymap = {
             accept = "<Tab>",
-            accept_word = "<C-l>",
+            accept_word = "<Right>",
             accept_line = false,
             next = "<C-j>",
             prev = "<C-k>",
@@ -39,6 +39,7 @@ return {
   },
   {
     "supermaven-inc/supermaven-nvim",
+    enabled = false,
     lazy = false,
     config = function()
       require("supermaven-nvim").setup({

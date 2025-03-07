@@ -18,8 +18,8 @@ local function lsp_keymaps(clientName)
   vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
     callback = function(args)
-      -- require("conform").format({ bufnr = args.buf })
-      vim.lsp.buf.format()
+      require("conform").format({ bufnr = args.buf })
+      -- vim.lsp.buf.format()
     end,
   })
 end
