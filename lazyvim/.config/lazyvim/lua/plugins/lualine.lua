@@ -259,7 +259,7 @@ return {
         -- check client_names_str if empty
         local language_servers = ""
         if copilot_active then
-          language_servers = language_servers .. "%#SLCopilot#" .. " " .. icons.git.Octoface .. "%*"
+          language_servers = language_servers .. "%#SLCopilot#" .. " " .. icons.git.Copilot .. "%*"
         end
 
         return language_servers:gsub(", anonymous source", "")

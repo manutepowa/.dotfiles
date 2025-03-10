@@ -52,9 +52,10 @@ return {
     Remove = "",
     Ignore = "",
     Rename = "",
-    Diff = "",
-    Repo = "",
-    Octoface = "",
+    Diff = "",
+    Repo = "",
+    Octoface = "",
+    Copilot = "",
   },
   ui = {
     ArrowClosed = "",
@@ -122,6 +123,6 @@ return {
     Squirrel = "",
     Tag = "",
     Watch = "",
-    Smiley = "ﲃ"
+    Smiley = "ﲃ",
   },
 }
