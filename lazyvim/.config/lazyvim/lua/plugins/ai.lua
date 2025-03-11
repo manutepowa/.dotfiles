@@ -120,6 +120,7 @@ return {
           normal = "<Tab>",
         },
       },
+      auto_insert_mode = true,
     },
     keys = {
       { "<leader>ci", "<cmd>CopilotChat<CR>", mode = { "n", "v" } },
