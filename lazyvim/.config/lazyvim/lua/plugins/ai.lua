@@ -107,6 +107,7 @@ return {
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
+    version = "v3.9.1",
     dependencies = {
       { "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
@@ -114,7 +115,9 @@ return {
     build = "make tiktoken", -- Only on MacOS or Linux
     opts = {
       -- See Configuration section for options
+      system_prompt = "Responde en el lenguaje que te pregunte. Si responde muy corto y rápido solo con el código a no ser que te lo pida.",
       model = "claude-3.7-sonnet",
+      answer_header = "<M3JS />",
       mappings = {
         accept_diff = {
           normal = "<Tab>",
