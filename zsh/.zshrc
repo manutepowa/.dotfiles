@@ -51,7 +51,7 @@ alias ddx='ddev xdebug' # all list
 alias ddm='ddev mailpit' # all list
 
 # Bazecore
-alias bb='/home/manuel/Descargas/NEWDEB/Bazecor-1.6.4-x64.AppImage' # all list
+alias bb='/home/manuel/Descargas/NEWDEB/Bazecor-1.6.5-x64.AppImage' # all list
 
 alias pn='pnpm'
 # set PATH so it includes user's private bin if it exists
