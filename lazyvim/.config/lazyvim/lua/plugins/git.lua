@@ -135,23 +135,34 @@ return {
     config = function()
       local cb = require("diffview.config").diffview_callback
       require("diffview").setup({
-        diff_binaries = false, -- Show diffs for binaries
-        enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'
-        git_cmd = { "git" }, -- The git executable followed by default args.
-        use_icons = true, -- Requires nvim-web-devicons
-        file_panel = {
-          listing_style = "tree", -- One of 'list' or 'tree'
-          tree_options = {
-            flatten_dirs = true, -- Flatten dirs that only contain one single dir
-            folder_statuses = "only_folded", -- One of 'never', 'only_folded' or 'always'.
-          },
+        hooks = {
+          diff_buf_read = function(bufnr)
+            -- Change local options in diff buffers
+            vim.opt_local.wrap = false
+            vim.opt_local.list = false
+            vim.opt_local.colorcolumn = { 80 }
+          end,
+          view_opened = function(view)
+            print(("A new %s was opened on tab page %d!"):format(view.class:name(), view.tabpage))
+          end,
         },
-        file_history_panel = {
-          win_config = {
-            position = "bottom",
-            height = 10,
-          },
-        },
+        -- diff_binaries = false, -- Show diffs for binaries
+        -- enhanced_diff_hl = false, -- See ':h diffview-config-enhanced_diff_hl'
+        -- git_cmd = { "git" }, -- The git executable followed by default args.
+        -- use_icons = true, -- Requires nvim-web-devicons
+        -- file_panel = {
+        --   listing_style = "tree", -- One of 'list' or 'tree'
+        --   tree_options = {
+        --     flatten_dirs = true, -- Flatten dirs that only contain one single dir
+        --     folder_statuses = "only_folded", -- One of 'never', 'only_folded' or 'always'.
+        --   },
+        -- },
+        -- file_history_panel = {
+        --   win_config = {
+        --     position = "bottom",
+        --     height = 10,
+        --   },
+        -- },
         key_bindings = {
           disable_defaults = true, -- Disable the default key bindings
           view = {
@@ -213,21 +224,21 @@ return {
         end,
       })
 
-      vim.api.nvim_set_hl(0, "DiffviewCursorLine", { background = 1513239 })
-      vim.api.nvim_set_hl(0, "DiffviewDiffAddAsDelete", { background = 0x00FF00, foreground = 0x00FF00 }) -- Verde
-      vim.api.nvim_set_hl(0, "DiffviewDiffDelete", { foreground = 0xFF0000 }) -- Rojo
-      vim.api.nvim_set_hl(0, "DiffviewDim1", { foreground = 0xFFFF00 }) -- Amarillo
-      vim.api.nvim_set_hl(0, "DiffviewEndOfBuffer", { foreground = 1381653 })
-      vim.api.nvim_set_hl(0, "DiffviewNonText", { foreground = 1381653 })
-      vim.api.nvim_set_hl(0, "DiffviewNormal", { background = 1381653, foreground = 14803425 })
-      vim.api.nvim_set_hl(0, "DiffviewPrimary", { foreground = 8957858 })
-      vim.api.nvim_set_hl(0, "DiffviewReference", { foreground = 8957858 })
-      vim.api.nvim_set_hl(0, "DiffviewSecondary", { foreground = 10663361 })
-      vim.api.nvim_set_hl(0, "DiffviewSignColumn", { background = 1381653, foreground = 14803425 })
-      vim.api.nvim_set_hl(0, "DiffviewStatusIgnored", { foreground = 7500402 })
-      vim.api.nvim_set_hl(0, "DiffviewStatusLine", { background = 1381653, foreground = 3618615 })
-      vim.api.nvim_set_hl(0, "DiffviewStatusLineNC", { background = 1513239, foreground = 1513239 })
-      vim.api.nvim_set_hl(0, "DiffviewWinSeparator", { background = 1381653, foreground = 7500402 })
+      -- vim.api.nvim_set_hl(0, "DiffviewCursorLine", { background = 1513239 })
+      -- vim.api.nvim_set_hl(0, "DiffviewDiffAddAsDelete", { background = 0x00FF00, foreground = 0x00FF00 }) -- Verde
+      -- vim.api.nvim_set_hl(0, "DiffviewDiffDelete", { foreground = 0xFF0000 }) -- Rojo
+      -- vim.api.nvim_set_hl(0, "DiffviewDim1", { foreground = 0xFFFF00 }) -- Amarillo
+      -- vim.api.nvim_set_hl(0, "DiffviewEndOfBuffer", { foreground = 1381653 })
+      -- vim.api.nvim_set_hl(0, "DiffviewNonText", { foreground = 1381653 })
+      -- vim.api.nvim_set_hl(0, "DiffviewNormal", { background = 1381653, foreground = 14803425 })
+      -- vim.api.nvim_set_hl(0, "DiffviewPrimary", { foreground = 8957858 })
+      -- vim.api.nvim_set_hl(0, "DiffviewReference", { foreground = 8957858 })
+      -- vim.api.nvim_set_hl(0, "DiffviewSecondary", { foreground = 10663361 })
+      -- vim.api.nvim_set_hl(0, "DiffviewSignColumn", { background = 1381653, foreground = 14803425 })
+      -- vim.api.nvim_set_hl(0, "DiffviewStatusIgnored", { foreground = 7500402 })
+      -- vim.api.nvim_set_hl(0, "DiffviewStatusLine", { background = 1381653, foreground = 3618615 })
+      -- vim.api.nvim_set_hl(0, "DiffviewStatusLineNC", { background = 1513239, foreground = 1513239 })
+      -- vim.api.nvim_set_hl(0, "DiffviewWinSeparator", { background = 1381653, foreground = 7500402 })
     end,
   },
   {
