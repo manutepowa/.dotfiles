@@ -23,9 +23,6 @@ vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { desc = "Organiz
 vim.keymap.set("v", "<Tab>", ">gv", { desc = "Indent right" })
 vim.keymap.set("v", "<S-Tab>", "<gv", { desc = "Indent left" })
 
--- git
-vim.keymap.set("n", "<Leader>gl", ":Flogsplit -all<cr>", { noremap = true })
-
 -- Basic vim
 vim.keymap.set("n", "<A-j>", "5j", { noremap = true })
 vim.keymap.set("n", "<A-k>", "5k", { noremap = true })

@@ -114,8 +114,7 @@ return {
     },
     build = "make tiktoken", -- Only on MacOS or Linux
     opts = {
-      -- See Configuration section for options
-      system_prompt = "Responde en el lenguaje que te pregunte. Si responde muy corto y rápido solo con el código a no ser que te lo pida.",
+      system_prompt = "Responde siempre en el idioma que se te pregunte. Responde brevemente y de forma clara. Si es algo de código, response solo con el código.",
       model = "claude-3.7-sonnet",
       answer_header = "<M3JS />",
       mappings = {

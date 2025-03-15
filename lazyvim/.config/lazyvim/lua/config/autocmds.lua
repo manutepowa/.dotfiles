@@ -28,6 +28,18 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     ]])
   end,
 })
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = {
+    "gitgraph",
+  },
+  callback = function()
+    vim.cmd([[
+      nnoremap <silent> <buffer> q :bdelete!<CR>
+      " nnoremap <silent> <buffer> <esc> :close<CR>
+      set nobuflisted
+    ]])
+  end,
+})
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "dap-repl",
