@@ -7,6 +7,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "qf",
     "help",
     "man",
+    "markdown",
     "lspinfo",
     "spectre_panel",
     "lir",
