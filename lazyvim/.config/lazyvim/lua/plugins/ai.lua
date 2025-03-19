@@ -61,14 +61,14 @@ return {
       windows = {
         position = "right", -- the position of the sidebar
         width = 55, -- default % based on available width
+        input = {
+          prefix = "➜ ",
+          height = 4, -- Height of the input window in vertical layout
+        },
         sidebar_header = {
           enabled = true, -- true, false to enable/disable the header
           align = "center", -- left, center, right for title
           rounded = true,
-        },
-        input = {
-          prefix = "> ",
-          height = 4, -- Height of the input window in vertical layout
         },
       },
       file_selector = {},
