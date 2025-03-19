@@ -61,7 +61,17 @@ return {
       windows = {
         position = "right", -- the position of the sidebar
         width = 55, -- default % based on available width
+        sidebar_header = {
+          enabled = true, -- true, false to enable/disable the header
+          align = "center", -- left, center, right for title
+          rounded = true,
+        },
+        input = {
+          prefix = "> ",
+          height = 4, -- Height of the input window in vertical layout
+        },
       },
+      file_selector = {},
       mappings = {
         -- ask = "<leader>ai",
         edit = "<leader>ae",
@@ -90,15 +100,16 @@ return {
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    version = "v3.9.1",
+    -- version = "v3.9.1",
     dependencies = {
       { "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
     },
     build = "make tiktoken", -- Only on MacOS or Linux
     opts = {
-      system_prompt = "Responde siempre en el idioma que se te pregunte. Responde brevemente y de forma clara. Si es algo de código, response solo con el código.",
-      model = "claude-3.7-sonnet",
+      system_prompt = "Responde siempre en el mismo idioma que se te pregunte.",
+      model = "gemini-2.0-flash-001",
+      -- model = "claude-3.7-sonnet",
       answer_header = "<M3JS />",
       mappings = {
         accept_diff = {
