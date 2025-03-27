@@ -59,3 +59,13 @@ vim.cmd([[
   highlight SnacksIndentDark guifg=#3C3C3C guibg=NONE
   highlight SnacksIndentScopeDark guifg=#4E4E4E guibg=NONE
 ]])
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = {
+    "AvanteInput",
+  },
+  callback = function()
+    vim.keymap.set("n", "<C-r>", "<cmd>AvanteClear<CR>", { desc = "Clear Avante" })
+    vim.keymap.set("i", "<C-r>", "<cmd>AvanteClear<CR>", { desc = "Clear Avante" })
+  end,
+})

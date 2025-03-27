@@ -1,14 +1,7 @@
 local M = {}
 
-local function lsp_highlight_document(client)
-  if client.server_capabilities.documentFormattingProvider then
-    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
-  end
-end
-
 local function lsp_keymaps(clientName)
   -- Enable completion triggered by <c-x><c-o>
-  -- vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
   vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { buffer = 0 })
   vim.keymap.set("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>", { buffer = 0 })
 
@@ -18,8 +11,7 @@ local function lsp_keymaps(clientName)
   vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
     callback = function(args)
-      require("conform").format({ bufnr = args.buf })
-      -- vim.lsp.buf.format()
+      require("conform").format({ bufnr = args.buf, timeout_ms = 500 })
     end,
   })
 end
@@ -29,6 +21,10 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
   end
   if client.name == "eslint" then
+    client.server_capabilities.documentFormattingProvider = true
+  end
+
+  if client.name == "biome" then
     client.server_capabilities.documentFormattingProvider = true
   end
 

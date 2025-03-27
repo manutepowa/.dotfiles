@@ -1,6 +1,7 @@
 return {
   {
     "yetone/avante.nvim",
+    version = "v0.0.23",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "stevearc/dressing.nvim",
@@ -100,7 +101,7 @@ return {
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    -- version = "v3.9.1",
+    version = "v3.9.1",
     dependencies = {
       { "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
@@ -108,8 +109,8 @@ return {
     build = "make tiktoken", -- Only on MacOS or Linux
     opts = {
       system_prompt = "Responde siempre en el mismo idioma que se te pregunte.",
-      model = "gemini-2.0-flash-001",
-      -- model = "claude-3.7-sonnet",
+      -- model = "gemini-2.0-flash-001",
+      model = "claude-3.7-sonnet",
       answer_header = "<M3JS />",
       mappings = {
         accept_diff = {
