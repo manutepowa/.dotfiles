@@ -41,8 +41,8 @@ return {
     lazy = false,
     build = "make",
     opts = {
-      provider = "gemini",
-      auto_suggestions_provider = "openai",
+      provider = "copilot",
+      -- auto_suggestions_provider = "gemini",
       openai = {
         endpoint = "https://api.openai.com/v1",
         model = "gpt-4o-mini",
@@ -58,6 +58,9 @@ return {
         temperature = 0.2,
         max_tokens = 4096,
         ["local"] = false,
+      },
+      copilot = {
+        model = "claude-3.5-sonnet",
       },
       windows = {
         position = "right", -- the position of the sidebar
