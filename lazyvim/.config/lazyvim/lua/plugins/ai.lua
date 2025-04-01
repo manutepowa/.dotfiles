@@ -124,6 +124,7 @@ return {
     },
     keys = {
       { "<leader>ci", "<cmd>CopilotChat<CR>", mode = { "n", "v" } },
+      { "<C-r>", "<cmd>CopilotChatReset<CR>", mode = { "n", "v" } },
     },
     -- See Commands section for default commands if you want to lazy load on them
   },

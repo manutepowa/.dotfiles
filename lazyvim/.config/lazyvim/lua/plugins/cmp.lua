@@ -1,16 +1,17 @@
 return {
   "hrsh7th/nvim-cmp",
   enabled = true,
+  commit = "1e1900b0769324a9675ef85b38f99cca29e203b3",
   -- load cmp on InsertEnter
   event = { "UIEnter" },
   -- these dependencies will only be loaded when cmp loads
   -- dependencies are always lazy-loaded unless specified otherwise
   dependencies = {
-    { "hrsh7th/cmp-buffer" },
-    { "hrsh7th/cmp-path" },
+    { "hrsh7th/cmp-buffer", commit = "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
+    { "hrsh7th/cmp-nvim-lsp", commit = "99290b3ec1322070bcfb9e846450a46f6efa50f0" },
+    { "hrsh7th/cmp-path", commit = "91ff86cd9c29299a64f968ebb45846c485725f23" },
     { "hrsh7th/cmp-cmdline" },
     { "saadparwaiz1/cmp_luasnip" },
-    { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-nvim-lua" },
   },
   config = function()
