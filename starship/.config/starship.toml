@@ -31,6 +31,14 @@ style = "cyan"
 ahead = "↑"
 behind = "↓"
 up_to_date = "✓"
+conflicted = "="
+deleted = "✘"
+modified = "!"
+staged = "+"
+renamed = "»"
+untracked = "?"
+stashed = "※"
+format = '([\[$all_status$ahead_behind\]]($style) )'
 
 [character]
 success_symbol = "[➜](bold green)"
