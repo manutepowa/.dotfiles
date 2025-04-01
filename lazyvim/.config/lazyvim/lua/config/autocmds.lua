@@ -65,7 +65,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "AvanteInput",
   },
   callback = function()
-    vim.keymap.set("n", "<C-r>", "<cmd>AvanteClear<CR>", { desc = "Clear Avante" })
-    vim.keymap.set("i", "<C-r>", "<cmd>AvanteClear<CR>", { desc = "Clear Avante" })
+    vim.keymap.set("n", "<leader>cl", "<cmd>AvanteClear<CR>", { desc = "Clear Avante" })
+    vim.keymap.set("v", "<leader>cl", "<cmd>AvanteClear<CR>", { desc = "Clear Avante" })
   end,
 })

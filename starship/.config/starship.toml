@@ -1,0 +1,40 @@
+# ~/.config/starship.toml
+
+# Prompt básico
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+$nodejs
+$character
+"""
+
+add_newline = false
+
+# Módulos
+[username]
+show_always = false
+
+[directory]
+style = "cyan"
+truncation_length = 3 # Limita la longitud de la ruta
+
+[git_branch]
+style = "green"
+symbol = " "
+
+[git_status]
+style = "cyan"
+ahead = "↑"
+behind = "↓"
+up_to_date = "✓"
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+[nodejs]
+symbol = " "

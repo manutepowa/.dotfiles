@@ -4,6 +4,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(starship init zsh)"
 
 ## nnn config
 export EDITOR="nvim"
@@ -11,7 +12,7 @@ export EDITOR="nvim"
 # Flameshot
 export QT_QPA_PLATFORM="wayland"
 
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 
 # fzf key bindings for vi mode
