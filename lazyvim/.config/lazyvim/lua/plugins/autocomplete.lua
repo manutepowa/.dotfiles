@@ -47,7 +47,7 @@ return {
         enabled = true,
         keymap = {
           preset = "cmdline",
-          ["<CR>"] = { "select_and_accept", "accept", "fallback" },
+          ["<CR>"] = { "accept_and_enter", "fallback" },
           ["<A-k>"] = { "select_prev", "fallback" },
           ["<A-j>"] = { "select_next", "fallback" },
         },
@@ -128,46 +128,18 @@ return {
       sources = {
         default = { "lsp", "path", "snippets", "buffer", "emoji", "sql" },
         providers = {
-          -- path = {
-          --   opts = {
-          --     get_cwd = function(_)
-          --       return vim.fn.getcwd()
-          --     end,
-          --   },
-          -- },
           emoji = {
             module = "blink-emoji",
             name = "Emoji",
             score_offset = 15, -- Tune by preference
             opts = { insert = true }, -- Insert emoji (default) or complete its name
-            -- should_show_items = function()
-            --   return vim.tbl_contains(
-            --     -- Enable emoji completion only for git commits and markdown.
-            --     -- By default, enabled for all file-types.
-            --     { "*" },
-            --     vim.o.filetype
-            --   )
-            -- end,
           },
           sql = {
-            -- IMPORTANT: use the same name as you would for nvim-cmp
             name = "sql",
             module = "blink.compat.source",
-
-            -- all blink.cmp source config options work as normal:
             score_offset = -3,
-
-            -- this table is passed directly to the proxied completion source
-            -- as the `option` field in nvim-cmp's source config
-            --
-            -- this is NOT the same as the opts in a plugin's lazy.nvim spec
             should_show_items = function()
-              return vim.tbl_contains(
-                -- Enable SQL completion only for SQL files.
-                -- By default, enabled for all file-types.
-                { "sql" },
-                vim.o.filetype
-              )
+              return vim.tbl_contains({ "sql" }, vim.o.filetype)
             end,
           },
         },
