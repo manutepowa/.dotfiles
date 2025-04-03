@@ -24,4 +24,5 @@ return {
     end,
     ft = { "markdown" },
   },
+  { "tpope/vim-sleuth" }
 }
