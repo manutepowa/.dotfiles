@@ -47,7 +47,7 @@ return {
         enabled = true,
         keymap = {
           preset = "cmdline",
-          ["<CR>"] = { "select_and_accept", "fallback" },
+          ["<CR>"] = { "select_and_accept", "accept", "fallback" },
           ["<A-k>"] = { "select_prev", "fallback" },
           ["<A-j>"] = { "select_next", "fallback" },
         },
@@ -112,7 +112,16 @@ return {
           },
         },
       },
-      signature = { enabled = true },
+      signature = {
+        enabled = true,
+        window = {
+          winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+          border = "rounded",
+          scrollbar = false, -- Note that the gutter will be disabled when border ~= 'none'
+          treesitter_highlighting = true,
+          show_documentation = true,
+        },
+      },
 
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
