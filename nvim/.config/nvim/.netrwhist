@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
-let g:netrw_dirhist_6='/home/manuel/Desarrollo/patentes'
-let g:netrw_dirhist_5='/home/manuel/Desarrollo/patentes/httpdocs'
-let g:netrw_dirhist_4='/home/manuel/Desarrollo/patentes'
-let g:netrw_dirhist_3='/home/manuel/Desarrollo/reservas'
-let g:netrw_dirhist_2='/home/manuel/Desarrollo/reservas/front'
-let g:netrw_dirhist_1='/home/manuel/Desarrollo/reservas'
