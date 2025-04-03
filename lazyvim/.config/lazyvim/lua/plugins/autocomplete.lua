@@ -1,42 +1,25 @@
 return {
   {
     "saghen/blink.compat",
-    -- use the latest release, via version = '*', if you also use the latest release for blink.cmp
     version = "*",
-    -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
     lazy = true,
-    -- make sure to set opts so that lazy.nvim calls blink.compat's setup
     opts = {},
   },
   {
     "saghen/blink.cmp",
-    -- optional: provides snippets for the snippet source
     dependencies = {
       "rafamadriz/friendly-snippets",
       "moyiz/blink-emoji.nvim",
       "ray-x/cmp-sql",
     },
-
-    -- use a release tag to download pre-built binaries
     version = "1.*",
-    -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-    -- build = 'cargo build --release',
-    -- If you use nix, you can build from source using latest nightly rust with:
-    -- build = 'nix run .#build-plugin',
-
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
     opts = {
       keymap = {
         preset = "default",
         ["<CR>"] = { "select_and_accept", "fallback" },
         ["<A-k>"] = { "select_prev", "fallback" },
         ["<A-j>"] = { "show", "select_next", "fallback" },
-
-        -- disable a keymap from the preset
         ["<C-e>"] = {},
-
-        -- show with a list of providers
         ["<C-j>"] = {
           function(cmp)
             cmp.show({ providers = { "snippets" } })
@@ -81,7 +64,7 @@ return {
         },
       },
       completion = {
-        accept = { auto_brackets = { enabled = false } },
+        accept = { auto_brackets = { enabled = true } },
         ghost_text = { enabled = true },
         list = { selection = { preselect = false, auto_insert = true } },
         documentation = {
