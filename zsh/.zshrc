@@ -8,6 +8,7 @@ eval "$(starship init zsh)"
 
 ## nnn config
 export EDITOR="nvim"
+export SNACKS_GHOSTTY=true
 
 # Flameshot
 export QT_QPA_PLATFORM="wayland"

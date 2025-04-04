@@ -1,30 +1,32 @@
 return {
   {
-    "saghen/blink.compat",
-    version = "*",
-    lazy = true,
-    opts = {},
-  },
-  {
     "saghen/blink.cmp",
+    build = vim.g.lazyvim_blink_main and "cargo build --release",
     dependencies = {
       "rafamadriz/friendly-snippets",
+      "rcarriga/cmp-dap",
       "moyiz/blink-emoji.nvim",
       "ray-x/cmp-sql",
+      {
+        "saghen/blink.compat",
+        version = "*",
+        lazy = true,
+        opts = {},
+      },
     },
     version = "1.*",
     opts = {
+      snippets = {
+        expand = function(snippet)
+          return LazyVim.cmp.expand(snippet)
+        end,
+      },
       keymap = {
         preset = "default",
         ["<CR>"] = { "select_and_accept", "fallback" },
         ["<A-k>"] = { "select_prev", "fallback" },
         ["<A-j>"] = { "show", "select_next", "fallback" },
         ["<C-e>"] = {},
-        ["<C-j>"] = {
-          function(cmp)
-            cmp.show({ providers = { "snippets" } })
-          end,
-        },
       },
       cmdline = {
         enabled = true,
@@ -81,6 +83,7 @@ return {
           winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
           -- nvim-cmp style menu
           draw = {
+            treesitter = { "lsp" },
             components = {
               kind_icon = {
                 ellipsis = false,
@@ -109,8 +112,13 @@ return {
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        default = { "lsp", "path", "snippets", "buffer", "emoji", "sql" },
+        default = { "lazydev", "lsp", "path", "snippets", "buffer", "emoji", "sql" },
         providers = {
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            score_offset = 100, -- show at a higher priority than lsp
+          },
           emoji = {
             module = "blink-emoji",
             name = "Emoji",
@@ -125,11 +133,14 @@ return {
               return vim.tbl_contains({ "sql" }, vim.o.filetype)
             end,
           },
+          dap = { name = "dap", module = "blink.compat.source" },
         },
       },
       fuzzy = { implementation = "prefer_rust_with_warning" },
     },
-    opts_extend = { "sources.default" },
+    opts_extend = {
+      "sources.default",
+    },
   },
   {
     "hrsh7th/nvim-cmp",

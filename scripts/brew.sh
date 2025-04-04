@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# brew upgrade tmux eza fzf neovim bpytop translate-shell ripgrep fnm bat jq starship
+# brew upgrade tmux eza fzf neovim bpytop translate-shell ripgrep fnm bat jq starship imagemagick
 
 #########
 
