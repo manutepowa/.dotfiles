@@ -69,3 +69,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.keymap.set("v", "<leader>cl", "<cmd>AvanteClear<CR>", { desc = "Clear Avante" })
   end,
 })
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = {
+    "snacks_picker_input",
+  },
+  callback = function()
+    vim.keymap.set("i", "<A-BS>", function()
+      vim.cmd("normal vbd")
+    end, { noremap = true, silent = true })
+  end,
+})
