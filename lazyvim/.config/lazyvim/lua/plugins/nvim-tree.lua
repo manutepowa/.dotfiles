@@ -20,7 +20,7 @@ return {
     function FindFiles()
       local node = api.tree.get_node_under_cursor()
       if node and node.type == "directory" then
-        require("fzf-lua").files({
+        Snacks.picker.files({
           cwd = node.absolute_path,
         })
       else
@@ -30,7 +30,7 @@ return {
     function GrepFiles()
       local node = api.tree.get_node_under_cursor()
       if node and node.type == "directory" then
-        require("fzf-lua").live_grep({
+        Snacks.picker.grep({
           cwd = node.absolute_path,
         })
       else

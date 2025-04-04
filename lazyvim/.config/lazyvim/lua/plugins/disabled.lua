@@ -35,35 +35,6 @@ return {
     enabled = false,
   },
   {
-    "folke/snacks.nvim",
-    priority = 1000,
-    lazy = false,
-    opts = {
-      image = {},
-      words = { enabled = false },
-      indent = {
-        indent = {
-          char = "┊",
-          hl = "SnacksIndentDark",
-        },
-        animate = {
-          enabled = false,
-        },
-        scope = {
-          enabled = true, -- enable highlighting the current scope
-          char = "┊",
-          only_current = true, -- only show scope in the current window
-          hl = "SnacksIndentScopeDark", ---@type string|string[] hl group for scopes
-        },
-        chunk = {
-          enabled = false,
-        },
-      },
-      scroll = { enabled = false },
-      input = { enabled = false },
-    },
-  },
-  {
     "nvimdev/dashboard-nvim",
     enabled = false,
   },

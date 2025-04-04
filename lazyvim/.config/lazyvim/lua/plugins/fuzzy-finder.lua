@@ -128,6 +128,7 @@ return {
   },
   {
     "ibhagwan/fzf-lua",
+    enabled = false,
     cmd = "FzfLua",
     opts = function(_, opts)
       local fzf = require("fzf-lua")
