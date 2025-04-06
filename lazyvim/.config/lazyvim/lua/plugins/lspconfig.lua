@@ -8,6 +8,7 @@ local servers = {
   "eslint",
   "jsonls",
   "biome",
+  "twiggy_language_server",
 }
 
 local serversToInstall = {
@@ -20,6 +21,7 @@ local serversToInstall = {
   eslint = {},
   jsonls = {},
   biome = {},
+  twiggy_language_server = {},
 }
 
 return {
