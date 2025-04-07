@@ -1,6 +1,6 @@
 settings.showModeStatus = true;
 settings.hintAlign = "left";
-settings.scrollStepSize = 200;
+settings.scrollStepSize = 240;
 settings.scrollSmoth = false;
 settings.verticalTabs = true;
 settings.modeAfterYank = "Normal";
@@ -27,14 +27,14 @@ const {
   RUNTIME,
 } = api;
 
-unmap("<ctrl-i>");
+// unmap("<ctrl-i>");
 unmap("t");
 unmap("H");
-// mapkey("S", "#8Open opened URL in current tab", function () {
-//   Front.openOmnibar({ type: "URLs", extra: "getTabURLs" });
-// });
-// an example to replace `T` with `gt`, click `Default mappings` to see how `T` works.
-map("<Alt-d>", "og");
+// Modified command to search in the same tab
+mapkey("<Alt-d>", "#8Open Search with Google in the same tab", function () {
+  Front.openOmnibar({ type: "SearchEngine", extra: "g", tabbed: false });
+});
+
 map("t", "on");
 map("H", "S");
 map("L", "D");
@@ -44,6 +44,14 @@ map("<Alt-h>", "E"); // tab focus left
 map("<Alt-l>", "R"); // tab focus right
 
 aceVimMap("kj", "<Esc>", "insert");
+aceVimMap("q", ":q", "normal");
+imap("kj", "<Esc>");
+
+Hints.style("font-size: 13px;");
+Hints.style(
+  "border: solid 2px #C5C8C6 !important; padding: 1px !important; color: #1D1F21 !important; background: #C5C8C6 !important; font-size: 13px",
+  "text",
+);
 
 Visual.style("marks", "background-color: #A3BE8C99;");
 Visual.style("cursor", "background-color: #88C0D0;");
