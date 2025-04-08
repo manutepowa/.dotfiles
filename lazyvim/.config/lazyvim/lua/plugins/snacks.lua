@@ -86,6 +86,10 @@ return {
   },
   keys = {
     {
+      "<leader>gs",
+      "",
+    },
+    {
       "<leader>ff",
       function()
         Snacks.picker.files({
