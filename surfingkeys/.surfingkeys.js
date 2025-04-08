@@ -47,9 +47,9 @@ aceVimMap("kj", "<Esc>", "insert");
 aceVimMap("q", ":q", "normal");
 imap("kj", "<Esc>");
 
-Hints.style("font-size: 13px;");
+Hints.style("font-size: 12px; font-family: 'Source Code Pro', Ubuntu, sans;");
 Hints.style(
-  "border: solid 2px #C5C8C6 !important; padding: 1px !important; color: #1D1F21 !important; background: #C5C8C6 !important; font-size: 13px",
+  "border: solid 2px #C5C8C6 !important; padding: 1px !important; color: #1D1F21 !important; background: #C5C8C6 !important; font-size: 12px; font-family: 'Source Code Pro', Ubuntu, sans;",
   "text",
 );
 
