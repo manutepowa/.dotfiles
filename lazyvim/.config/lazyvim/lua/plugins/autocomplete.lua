@@ -96,6 +96,14 @@ return {
               },
             },
           },
+          auto_show = function()
+            -- Desactivar en nvim-tree
+            if vim.bo.filetype == "DressingInput" then
+              return false
+            end
+            -- Mantener el comportamiento normal para otros buffers
+            return true
+          end,
         },
       },
       signature = {

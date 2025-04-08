@@ -1,5 +1,6 @@
 local servers = {
   "ts_ls",
+  "lua_ls",
   "tailwindcss",
   "intelephense",
   "astro",
@@ -13,6 +14,7 @@ local servers = {
 
 local serversToInstall = {
   ts_ls = {},
+  lua_ls = {},
   tailwindcss = {},
   intelephense = {},
   astro = {},

@@ -19,9 +19,19 @@ return {
 
     function FindFiles()
       local node = api.tree.get_node_under_cursor()
+      local path = nil
+
       if node and node.type == "directory" then
+        path = node.absolute_path
+      end
+
+      -- Cierra nvim-tree antes de abrir el selector de archivos
+      require("nvim-tree.api").tree.close()
+
+      -- Abre el selector de archivos apropiado
+      if path then
         Snacks.picker.files({
-          cwd = node.absolute_path,
+          cwd = path,
         })
       else
         require("fzf-lua").files()
@@ -29,12 +39,22 @@ return {
     end
     function GrepFiles()
       local node = api.tree.get_node_under_cursor()
+      local path = nil
+
       if node and node.type == "directory" then
+        path = node.absolute_path
+      end
+
+      -- Cierra nvim-tree antes de abrir el selector de archivos
+      require("nvim-tree.api").tree.close()
+
+      -- Abre el selector de archivos apropiado
+      if path then
         Snacks.picker.grep({
-          cwd = node.absolute_path,
+          cwd = path,
         })
       else
-        require("fzf-lua").live_grep()
+        require("fzf-lua").files()
       end
     end
 
