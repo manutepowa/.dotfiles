@@ -2,6 +2,7 @@
 local function check_eslint()
   local eslint_files = {
     ".eslintrc.js",
+    ".eslintrc",
     ".eslintrc.json",
     ".eslintrc.yml",
     ".eslintrc.yaml",
