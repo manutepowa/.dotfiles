@@ -53,6 +53,7 @@
 
 vim.opt.relativenumber = false
 vim.opt.mouse = ""
+vim.opt.numberwidth = 1
 
 local icons = require("config.icons")
 local signs = {

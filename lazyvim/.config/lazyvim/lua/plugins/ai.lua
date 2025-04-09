@@ -88,13 +88,11 @@ return {
         },
       },
       highlights = {
-        ---@type AvanteConflictHighlights
         diff = {
           current = "DiffText",
           incoming = "DiffAdd",
         },
       },
-      --- @class AvanteConflictUserConfig
       diff = {
         autojump = true,
         ---@type string | fun(): any
