@@ -31,9 +31,9 @@ const {
 unmap("t");
 unmap("H");
 // Modified command to search in the same tab
-mapkey("<Alt-d>", "#8Open Search with Google in the same tab", function () {
-  Front.openOmnibar({ type: "SearchEngine", extra: "g", tabbed: false });
-});
+// mapkey("<Alt-d>", "#8Open Search with Google in the same tab", function () {
+//   Front.openOmnibar({ type: "SearchEngine", extra: "g", tabbed: false });
+// });
 
 map("t", "on");
 map("H", "S");
