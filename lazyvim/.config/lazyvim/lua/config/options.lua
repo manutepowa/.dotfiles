@@ -44,12 +44,13 @@
 --   foldlevelstart = 99, -- start with all code unfolded
 --   statuscolumn = "",
 -- }
-
 -- vim.opt.shortmess:append("c")
 --
 -- for k, v in pairs(options) do
 --   vim.opt[k] = v
 -- end
+--
+
 vim.opt.relativenumber = false
 vim.opt.mouse = ""
 
@@ -61,6 +62,7 @@ local signs = {
   { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
   { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
 }
+
 for _, sign in ipairs(signs) do
   vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end

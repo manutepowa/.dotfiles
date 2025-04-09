@@ -20,7 +20,7 @@ return {
   opts = {
     bigfile = { enabled = true },
     statuscolumn = { enabled = true },
-    image = {},
+    image = { enabled = true },
     words = { enabled = false },
     indent = {
       indent = {

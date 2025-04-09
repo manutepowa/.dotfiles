@@ -97,11 +97,11 @@ return {
     CloudDownload = "",
   },
   diagnostics = {
-    Error = "",
-    Warning = "",
-    Information = "",
-    Question = "",
-    Hint = "",
+    Error = " ",
+    Warning = " ",
+    Information = " ",
+    Question = " ",
+    Hint = " ",
   },
   dap = {
     Breakpoint = "ß",
