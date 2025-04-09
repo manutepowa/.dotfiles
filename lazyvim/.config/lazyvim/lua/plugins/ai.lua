@@ -132,7 +132,7 @@ return {
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    version = "v3.9.1",
+    version = "v3.10.1",
     dependencies = {
       { "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
@@ -155,6 +155,5 @@ return {
       { "<leader>cl", "<cmd>CopilotChatReset<CR>", mode = { "n", "v" } },
       -- { "<C-l>", "", mode = { "n", "v" } },
     },
-    -- See Commands section for default commands if you want to lazy load on them
   },
 }

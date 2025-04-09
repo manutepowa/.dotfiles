@@ -1,6 +1,7 @@
 return {
   "folke/snacks.nvim",
   priority = 1000,
+  lazy = false,
   dependencies = {
     {
       "folke/todo-comments.nvim",
@@ -16,8 +17,9 @@ return {
       },
     },
   },
-  lazy = false,
   opts = {
+    bigfile = { enabled = true },
+    statuscolumn = { enabled = true },
     image = {},
     words = { enabled = false },
     indent = {

@@ -32,9 +32,9 @@ return {
           kind = "split",
         },
         -- customize displayed signs
-        signs = {
-          hunk = { "", "" },
-        },
+        -- signs = {
+        --   hunk = { "", "" },
+        -- },
         integrations = {
           diffview = true,
         },
@@ -98,9 +98,10 @@ return {
       },
     },
   },
-  { "tpope/vim-fugitive" },
+  { "tpope/vim-fugitive", enabled = true },
   {
     "lewis6991/gitsigns.nvim",
+    enabled = true,
     opts = {
       signs = {
         add = { text = "│" },

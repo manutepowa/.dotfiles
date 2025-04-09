@@ -22,7 +22,7 @@ return {
         end,
       },
       keymap = {
-        preset = "default",
+        preset = "none",
         ["<CR>"] = { "select_and_accept", "fallback" },
         ["<A-k>"] = { "select_prev", "fallback" },
         ["<A-j>"] = { "show", "select_next", "fallback" },
@@ -79,10 +79,10 @@ return {
         },
         menu = {
           border = "rounded",
-          draw = { gap = 2 },
           winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
           -- nvim-cmp style menu
           draw = {
+            gap = 1,
             treesitter = { "lsp" },
             components = {
               kind_icon = {
@@ -97,10 +97,18 @@ return {
             },
           },
           auto_show = function()
-            -- Desactivar en nvim-tree
-            if vim.bo.filetype == "DressingInput" then
-              return false
+            local fileType = {
+              "copilot-chat",
+              "DressingInput",
+            }
+
+            -- Desactivar en los tipos de archivo especificados
+            for _, ft in ipairs(fileType) do
+              if vim.bo.filetype == ft then
+                return false
+              end
             end
+
             -- Mantener el comportamiento normal para otros buffers
             return true
           end,
