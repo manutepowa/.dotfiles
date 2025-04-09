@@ -5,7 +5,7 @@ return {
     { "<A-e>", "<cmd>NvimTreeToggle<cr>", noremap = true, silent = true, desc = "nvim-tree" },
   },
   dependencies = {
-    "nvim-tree/nvim-web-devicons",
+    "echasnovski/mini.icons",
   },
   config = function()
     local icons = require("config.icons")
