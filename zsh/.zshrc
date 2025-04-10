@@ -20,13 +20,13 @@ export QT_QPA_PLATFORM="wayland"
 VI_MODE_SET_CURSOR=true
 
 bindkey '^[l' forward-word # Move next word in line
-bindkey '^H' backward-kill-word
+# bindkey '^H' backward-kill-word
 bindkey "^[h" backward-char
 bindkey "^[k" up-line-or-history
 bindkey "^[j" down-line-or-history
 
 # vi-mode
-bindkey -M viins '^[^?' backward-kill-word 
+bindkey -M viins '^[^?' backward-kill-word
 bindkey -M viins 'kj' vi-cmd-mode
 
 # Which plugins would you like to load?

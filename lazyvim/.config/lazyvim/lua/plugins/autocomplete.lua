@@ -22,7 +22,7 @@ return {
         end,
       },
       keymap = {
-        preset = "none",
+        preset = "default",
         ["<CR>"] = { "select_and_accept", "fallback" },
         ["<A-k>"] = { "select_prev", "fallback" },
         ["<A-j>"] = { "show", "select_next", "fallback" },

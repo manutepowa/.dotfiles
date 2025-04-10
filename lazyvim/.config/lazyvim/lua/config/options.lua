@@ -40,6 +40,7 @@ local options = {
   -- title = true,
   -- titleold = vim.split(os.getenv("SHELL") or "", "/")[3],
   statuscolumn = "",
+  backspace = "indent,eol,start",
 }
 -- vim.opt.shortmess:append("c")
 
