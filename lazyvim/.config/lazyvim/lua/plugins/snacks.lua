@@ -43,6 +43,7 @@ return {
     scroll = { enabled = false },
     input = { enabled = false },
     picker = {
+      ui_select = true,
       layout = {
         layout = {
           box = "vertical",
@@ -68,7 +69,10 @@ return {
             ["<Esc>"] = { "close", mode = { "n", "i" } },
             ["<A-j>"] = { "list_down", mode = { "i", "n" } },
             ["<A-k>"] = { "list_up", mode = { "i", "n" } },
-            ["<leader>x"] = "layout_bottom",
+            ["<A-S-j>"] = { "preview_scroll_down", mode = { "i", "n" } },
+            ["<A-S-k>"] = { "preview_scroll_up", mode = { "i", "n" } },
+            ["<A-S-h>"] = { "preview_scroll_left", mode = { "i", "n" } },
+            ["<A-S-l>"] = { "preview_scroll_right", mode = { "i", "n" } },
           },
         },
         b = {
@@ -135,6 +139,13 @@ return {
         Snacks.picker.resume()
       end,
       desc = "Resume",
+    },
+    {
+      "<leader>fk",
+      function()
+        Snacks.picker.keymaps()
+      end,
+      desc = "Keymaps",
     },
   },
 }
