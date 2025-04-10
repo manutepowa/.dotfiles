@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("i", "<A-l>", "<Right>")
     vim.keymap.set("i", "<A-h>", "<Left>")
     vim.keymap.set("i", "<A-BS>", function()
-      vim.cmd("normal vbd")
+      vim.api.nvim_input("<c-w>")
     end, { noremap = true, silent = true })
   end,
 })
@@ -75,7 +75,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   },
   callback = function()
     vim.keymap.set("i", "<A-BS>", function()
-      vim.cmd("normal vbd")
+      vim.api.nvim_input("<c-w>")
     end, { noremap = true, silent = true })
   end,
 })
