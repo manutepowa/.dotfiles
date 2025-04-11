@@ -9,6 +9,7 @@ return {
     local icons = require("config.icons")
 
     vim.keymap.set("n", "<leader>db", ':lua require"dap".toggle_breakpoint()<CR>')
+    vim.keymap.set("n", "<leader>dc", ':lua require"dap".set_breakpoint(vim.fn.input("Condition: "))<CR>')
     vim.keymap.set("n", "<leader>dcb", ':lua require"dap".clear_breakpoints()<CR>')
     vim.keymap.set("n", "<leader>dso", ':lua require"dap".step_out()<CR>')
     vim.keymap.set("n", "<leader>dsi", ':lua require"dap".step_into()<CR>')
@@ -63,7 +64,25 @@ return {
 
     local dap_ui = require("dapui")
     dap_ui.setup({
-      -- icons = { expanded = "▾", collapsed = "▸" },
+      element_mappings = {
+        stacks = {
+          open = { "<CR>", "o" },
+          toggle = { "<TAB>", "<2-LeftMouse>" },
+        },
+      },
+      render = {
+        max_type_length = nil, -- Can be integer or nil.
+        max_value_lines = 100, -- Can be integer or nil.
+        indent = 1, -- Can be integer or nil.
+      },
+      floating = {
+        max_height = nil, -- These can be integers or a float between 0 and 1.
+        max_width = nil, -- Floats will be treated as percentage of your screen.
+        border = "single", -- Border style. Can be "single", "double" or "rounded"
+        mappings = {
+          close = { "q", "<Esc>" },
+        },
+      },
       icons = {
         expanded = icons.ui.ArrowOpen,
         collapsed = icons.ui.ArrowClosed,
@@ -97,28 +116,18 @@ return {
       layouts = {
         {
           elements = {
-            {
-              id = "scopes",
-              size = 0.73, -- Can be float or integer > 1
-              expand = { "<TAB>", "<2-LeftMouse>" },
-              repl = "r",
-            },
-            {
-              id = "watches",
-              size = 0.27,
-              expand = { "<TAB>", "<2-LeftMouse>" },
-              remove = "d",
-              repl = "r",
-            },
+            -- Elements can be strings or table with id and size keys.
+            { id = "scopes", size = 0.7 },
+            { id = "stacks", size = 0.2 },
+            { id = "watches", size = 0.2 },
+            { id = "breakpoints", size = 0.2 },
           },
-          size = 50,
+          size = 0.3, -- 40 columns
           position = "left",
         },
         {
-          elements = {
-            "repl",
-          },
-          size = 10,
+          elements = { "repl" },
+          size = 0.25, -- 25% of total lines
           position = "bottom",
         },
       },
