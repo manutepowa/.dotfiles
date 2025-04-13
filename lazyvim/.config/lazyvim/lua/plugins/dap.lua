@@ -64,6 +64,8 @@ return {
 
     local dap_ui = require("dapui")
     dap_ui.setup({
+      expand_lines = true,
+      force_buffers = true,
       element_mappings = {
         stacks = {
           open = { "<CR>", "o" },

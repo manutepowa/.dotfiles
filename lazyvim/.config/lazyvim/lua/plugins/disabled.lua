@@ -1,7 +1,6 @@
 -- This file contains the configuration for disabling specific Neovim plugins.
 
 return {
-  { "MagicDuck/grug-far.nvim", enabled = false },
   {
     "gbprod/yanky.nvim",
     enabled = false, -- Disable this plugin
