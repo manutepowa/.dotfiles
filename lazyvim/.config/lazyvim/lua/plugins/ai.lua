@@ -61,7 +61,7 @@ return {
         ["local"] = false,
       },
       copilot = {
-        model = "claude-3.5-sonnet",
+        model = "claude-3.7-sonnet",
       },
       behaviour = {
         auto_suggestions = false, -- Experimental stage
@@ -139,7 +139,7 @@ return {
     opts = {
       system_prompt = "Responde siempre en el mismo idioma que se te pregunte.",
       -- model = "gemini-2.0-flash-001",
-      model = "claude-3.7-sonnet",
+      model = "gpt-4.1",
       answer_header = "<M3JS />",
       mappings = {
         accept_diff = {
