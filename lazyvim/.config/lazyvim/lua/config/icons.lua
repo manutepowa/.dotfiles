@@ -56,6 +56,8 @@ return {
     Repo = "",
     Octoface = "",
     Copilot = "",
+    vertical_bar = "│",
+    dashed_bar = "┊",
   },
   ui = {
     ArrowClosed = "",
@@ -97,11 +99,11 @@ return {
     CloudDownload = "",
   },
   diagnostics = {
-    Error = " ",
-    Warning = " ",
-    Information = " ",
-    Question = " ",
-    Hint = " ",
+    Error = "",
+    Warning = "",
+    Information = "",
+    Question = "",
+    Hint = "",
   },
   dap = {
     Breakpoint = "ß",
