@@ -1,4 +1,4 @@
-keybinding:
-  universal:
-    quit: <esc>
-    return: q
+# keybinding:
+#   universal:
+#     quit: <esc>
+#     return: q
