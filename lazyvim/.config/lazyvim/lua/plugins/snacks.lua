@@ -27,7 +27,7 @@ return {
       },
     },
     image = {
-      enabled = true,
+      enabled = false,
       img_dirs = { "httpdocs/public" },
       convert = {
         notify = false, -- show a notification on error
@@ -183,6 +183,34 @@ return {
         Snacks.picker.keymaps()
       end,
       desc = "Keymaps",
+    },
+    {
+      "<leader>fK",
+      function()
+        Snacks.picker.keymaps({ mode = "n" })
+      end,
+      desc = "Keymaps (Normal)",
+    },
+    {
+      "<leader>fC",
+      function()
+        Snacks.picker.commands()
+      end,
+      desc = "Commands",
+    },
+    {
+      "<leader>fM",
+      function()
+        Snacks.picker.marks()
+      end,
+      desc = "Marks",
+    },
+    {
+      "<leader>i",
+      function()
+        Snacks.image.hover()
+      end,
+      desc = "Image",
     },
   },
 }
