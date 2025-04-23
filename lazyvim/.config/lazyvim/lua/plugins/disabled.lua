@@ -15,7 +15,10 @@ return {
   },
   {
     "folke/which-key.nvim",
-    enabled = false, -- Disable this plugin
+    event = "VeryLazy",
+    opts = {
+      delay = 1000, -- milisegundos
+    },
   },
   {
     "folke/edgy.nvim",
