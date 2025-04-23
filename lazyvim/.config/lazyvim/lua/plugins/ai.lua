@@ -130,7 +130,7 @@ return {
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    version = "v3.11.0",
+    version = "v3.11.1",
     dependencies = {
       { "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions

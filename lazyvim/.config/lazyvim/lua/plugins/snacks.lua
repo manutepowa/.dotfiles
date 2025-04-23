@@ -19,6 +19,7 @@ return {
   },
   opts = {
     bigfile = { enabled = true },
+    bufdelete = { enabled = true },
     statuscolumn = { enabled = false },
     styles = {
       snacks_image = {
