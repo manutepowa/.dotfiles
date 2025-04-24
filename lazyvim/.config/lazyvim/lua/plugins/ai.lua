@@ -73,10 +73,11 @@ return {
       hints = { enabled = false },
       windows = {
         position = "right", -- the position of the sidebar
+        wrap = true, -- similar to vim.o.wrap
         width = 55, -- default % based on available width
         input = {
           prefix = "➜ ",
-          height = 4, -- Height of the input window in vertical layout
+          height = 6, -- Height of the input window in vertical layout
         },
         sidebar_header = {
           enabled = true, -- true, false to enable/disable the header
@@ -84,6 +85,7 @@ return {
           rounded = false,
         },
         edit = {
+          border = "rounded",
           start_insert = true, -- Start insert mode when opening the edit window
         },
       },
