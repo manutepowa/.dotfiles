@@ -295,7 +295,7 @@ return {
         lualine_a = { left_pad, mode, branch, right_pad },
         lualine_b = {},
         lualine_c = { current_signature, filename },
-        lualine_x = { copilot, filetype },
+        lualine_x = { require("mcphub.extensions.lualine"), copilot, filetype },
         lualine_y = {},
         lualine_z = { progress },
       },

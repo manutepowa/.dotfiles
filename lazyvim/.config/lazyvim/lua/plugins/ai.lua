@@ -33,7 +33,7 @@ return {
         -- Make sure to set this up properly if you have lazy=true
         "MeanderingProgrammer/render-markdown.nvim",
         opts = {
-          file_types = { "markdown", "Avante" },
+          file_types = { "markdown", "Avante", "codecompanion" },
         },
         ft = { "markdown", "Avante" },
       },
@@ -162,6 +162,9 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
+    init = function()
+      require("config.fidget-spinner"):init()
+    end,
     opts = {
       display = {
         -- diff = {
