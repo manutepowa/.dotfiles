@@ -156,4 +156,128 @@ return {
       { "<leader>cl", "<cmd>CopilotChatReset<CR>", mode = { "n", "v" } },
     },
   },
+  {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {
+      display = {
+        -- diff = {
+        --   enabled = true,
+        --   layout = "vertical", -- vertical|horizontal split for default provider
+        --   opts = { "internal", "filler", "closeoff", "algorithm:patience", "followwrap", "linematch:120" },
+        --   provider = "default", -- default|mini_diff
+        -- },
+        chat = {
+          start_in_insert_mode = true,
+          icons = {
+            pinned_buffer = " ",
+            watched_buffer = "👀 ",
+          },
+          window = {
+            width = 0.5, -- width of the window
+            opts = {
+              number = false,
+              concealcursor = "n",
+              conceallevel = 2,
+            },
+          },
+        },
+      },
+      strategies = {
+        chat = {
+          roles = {
+            llm = function(adapter)
+              return "CodeCompanion (" .. adapter.formatted_name .. ")"
+            end,
+            user = "Me",
+          },
+          slash_commands = {
+            ["file"] = {
+              opts = {
+                provider = "snacks",
+              },
+            },
+            ["buffer"] = {
+              opts = {
+                provider = "snacks",
+              },
+            },
+          },
+          adapter = "copilot",
+          -- tools = {
+          --   ["mcp"] = {
+          --     callback = function()
+          --       return require("mcphub.extensions.codecompanion")
+          --     end,
+          --     description = "Call tools and resources from the MCP Servers",
+          --   },
+          -- },
+          keymaps = {
+            stop = {
+              modes = {
+                n = "<esc>",
+              },
+              index = 4,
+              callback = "keymaps.stop",
+              description = "Stop Request",
+            },
+            clear = {
+              modes = {
+                n = "<leader>cl",
+              },
+              index = 6,
+              callback = "keymaps.clear",
+              description = "Clear Chat",
+            },
+          },
+        },
+      },
+      inline = {
+        adapter = "copilot",
+      },
+      agent = {
+        adapter = "copilot",
+      },
+      adapters = {
+        copilot = function()
+          return require("codecompanion.adapters").extend("copilot", {
+            schema = {
+              model = {
+                default = "gpt-4.1",
+              },
+            },
+          })
+        end,
+      },
+    },
+    keys = {
+      {
+        "<leader>cc",
+        "<cmd>CodeCompanionChat Toggle<cr>",
+        mode = { "n", "v" },
+        noremap = true,
+        silent = true,
+        desc = "CodeCompanion chat",
+      },
+      {
+        "<leader>cC",
+        "<cmd>CodeCompanionChat Add<cr>",
+        mode = { "n", "v" },
+        noremap = true,
+        silent = true,
+        desc = "CodeCompanion chat",
+      },
+      {
+        "<leader>ca",
+        "<cmd>CodeCompanionActions<cr>",
+        mode = { "n", "v" },
+        noremap = true,
+        silent = true,
+        desc = "CodeCompanion add to chat",
+      },
+    },
+  },
 }
