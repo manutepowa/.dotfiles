@@ -55,7 +55,7 @@ return {
 
     local opts = {}
 
-    require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(pluginServers) })
+    require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(pluginServers), automatic_installation = true })
     require("mason-lspconfig").setup_handlers({
       function(server)
         opts = {
@@ -65,5 +65,20 @@ return {
         require("lspconfig")[server].setup(opts)
       end,
     })
+
+    -- NEW CONFIG 2.0 --> probar si funciona
+    -- require("mason").setup()
+    -- require("mason-lspconfig").setup({
+    --   ensure_installed = { "lua_ls" },
+    --   automatic_enable = true,
+    --   handlers = {
+    --     function(server_name)
+    --       require("lspconfig")[server_name].setup({
+    --         on_attach = require("config.lsphandler").on_attach,
+    --         capabilities = require("config.lsphandler").capabilities,
+    --       })
+    --     end,
+    --   },
+    -- })
   end,
 }
