@@ -1,16 +1,2 @@
 #!/usr/bin/env bash
-# brew upgrade tmux eza fzf neovim bpytop translate-shell ripgrep fnm bat jq starship jesseduffield/lazygit/lazygit
-
-#########
-
-# brew upgrade
-#
-# brew install tmux
-# brew install eza
-# brew install fzf
-# brew install neovim
-# brew install bpytop
-# brew install translate-shell
-# brew install ripgrep
-
-# brew cleanup
+# brew upgrade tmux eza fzf bpytop translate-shell ripgrep fnm bat jq starship imagemagick jesseduffield/lazygit/lazygit
