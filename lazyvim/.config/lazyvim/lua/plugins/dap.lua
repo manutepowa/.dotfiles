@@ -43,8 +43,19 @@ return {
       command = "node",
       args = { vim.fn.stdpath("data") .. "/mason/packages/php-debug-adapter/extension/out/phpDebug.js" },
     }
+    dap.adapters["pwa-node"] = {
+      type = "server",
+      host = "localhost",
+      port = "${port}",
+      executable = {
+        command = "node",
+        args = {
+          vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+          "${port}",
+        },
+      },
+    }
 
-    -- print(os.getenv('HOME') .. "/dapinstall/php/vscode-php-debug/out/phpDebug.js")
     dap.configurations.php = {
       {
         type = "php",
@@ -61,6 +72,21 @@ return {
         },
       },
     }
+
+    local js_filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
+    for _, language in ipairs(js_filetypes) do
+      dap.configurations[language] = {
+        {
+          name = "Docker: Attach to Node",
+          type = "pwa-node",
+          request = "attach",
+          port = 9230,
+          address = "127.0.0.1",
+          localRoot = "${workspaceFolder}",
+          remoteRoot = "/var/www/html",
+        },
+      }
+    end
 
     local dap_ui = require("dapui")
     dap_ui.setup({

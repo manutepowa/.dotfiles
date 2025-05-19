@@ -39,46 +39,26 @@ return {
         end)
       end,
     },
-    {
-      "williamboman/mason-lspconfig.nvim",
-      version = "1.*",
-    },
-    {
-      "williamboman/mason.nvim",
-      version = "1.*",
-    },
   },
   servers = serversToInstall,
-  config = function(plugin)
-    -- lspconfig
-    local pluginServers = plugin.servers or servers
-
-    local opts = {}
-
-    require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(pluginServers), automatic_installation = true })
-    require("mason-lspconfig").setup_handlers({
-      function(server)
-        opts = {
-          on_attach = require("config.lsphandler").on_attach,
-          capabilities = require("config.lsphandler").capabilities,
-        }
-        require("lspconfig")[server].setup(opts)
-      end,
-    })
+  config = function(_)
+    local lspconfig = require("lspconfig")
+    local on_attach = require("config.lsphandler").on_attach
+    local capabilities = require("config.lsphandler").capabilities
 
     -- NEW CONFIG 2.0 --> probar si funciona
-    -- require("mason").setup()
-    -- require("mason-lspconfig").setup({
-    --   ensure_installed = { "lua_ls" },
-    --   automatic_enable = true,
-    --   handlers = {
-    --     function(server_name)
-    --       require("lspconfig")[server_name].setup({
-    --         on_attach = require("config.lsphandler").on_attach,
-    --         capabilities = require("config.lsphandler").capabilities,
-    --       })
-    --     end,
-    --   },
-    -- })
+    require("mason").setup()
+    require("mason-lspconfig").setup({
+      automatic_installation = true,
+      ensure_installed = servers,
+      handlers = {
+        function(server_name)
+          lspconfig[server_name].setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+          })
+        end,
+      },
+    })
   end,
 }
