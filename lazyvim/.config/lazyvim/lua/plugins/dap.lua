@@ -81,9 +81,12 @@ return {
           type = "pwa-node",
           request = "attach",
           port = 9230,
-          address = "127.0.0.1",
+          address = "0.0.0.0",
           localRoot = "${workspaceFolder}",
           remoteRoot = "/var/www/html",
+          protocol = "inspector",
+          restart = true,
+          skipFiles = { "<node_internals>/**" },
         },
       }
     end
