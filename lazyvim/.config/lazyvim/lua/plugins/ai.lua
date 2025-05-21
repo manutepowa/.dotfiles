@@ -132,7 +132,7 @@ return {
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    version = "v3.12.0",
+    branch = "main",
     dependencies = {
       { "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
@@ -158,6 +158,12 @@ return {
   },
   {
     "olimorris/codecompanion.nvim",
+    cmd = {
+      "CodeCompanion",
+      "CodeCompanionActions",
+      "CodeCompanionChat",
+      "CodeCompanionCmd",
+    },
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -209,7 +215,7 @@ return {
               },
             },
           },
-          adapter = "copilot",
+          adapter = "gpt4o",
           -- tools = {
           --   ["mcp"] = {
           --     callback = function()
@@ -237,15 +243,23 @@ return {
             },
           },
         },
-      },
-      inline = {
-        adapter = "copilot",
-      },
-      agent = {
-        adapter = "copilot",
+        inline = {
+          adapter = "gpt4o",
+        },
       },
       adapters = {
-        copilot = function()
+        -- This function extends the "copilot" adapter for CodeCompanion with a custom schema configuration.
+        -- It sets a default model ("gpt-4o") for the adapter.
+        gpt4o = function()
+          return require("codecompanion.adapters").extend("copilot", {
+            schema = {
+              model = {
+                default = "gpt-4o",
+              },
+            },
+          })
+        end,
+        gpt41 = function()
           return require("codecompanion.adapters").extend("copilot", {
             schema = {
               model = {

@@ -150,6 +150,12 @@ return {
             end,
           },
           dap = { name = "dap", module = "blink.compat.source" },
+          path = {
+            -- Path sources triggered by "/" interfere with CopilotChat commands
+            enabled = function()
+              return vim.bo.filetype ~= "copilot-chat"
+            end,
+          },
         },
       },
       fuzzy = { implementation = "prefer_rust_with_warning" },
