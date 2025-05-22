@@ -1,15 +1,12 @@
 return {
   {
     "yetone/avante.nvim",
-    version = "v0.0.23",
+    version = false,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-      --- The below dependencies are optional,
-      "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-      "ibhagwan/fzf-lua", -- for file_selector provider fzf
       "echasnovski/mini.icons", -- or echasnovski/mini.icons
       {
         -- support for image pasting
@@ -35,7 +32,7 @@ return {
         opts = {
           file_types = { "markdown", "Avante", "codecompanion", "copilot-chat" },
         },
-        ft = { "markdown", "Avante" },
+        ft = { "markdown", "Avante", "codecompanion", "copilot-chat" },
       },
     },
     event = "VeryLazy",
@@ -43,49 +40,21 @@ return {
     build = "make",
     opts = {
       provider = "copilot",
-      auto_suggestions_provider = "copilot",
-      openai = {
-        endpoint = "https://api.openai.com/v1",
-        model = "gpt-4o-mini",
-        timeout = 15000, -- Timeout reducido a 15 segundos
-        temperature = 0, -- Ajuste de temperatura para más variabilidad
-        max_tokens = 4096, -- Reducir el número máximo de tokens
-        ["local"] = false,
-      },
-      gemini = {
-        endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
-        model = "gemini-2.0-flash",
-        timeout = 15000,
-        temperature = 0.2,
-        max_tokens = 4096,
-        ["local"] = false,
-      },
       copilot = {
-        model = "claude-3.7-sonnet",
+        model = "gpt-4.1",
       },
       behaviour = {
         auto_suggestions = false, -- Experimental stage
-        auto_set_highlight_group = true,
         auto_set_keymaps = true,
-        auto_apply_diff_after_generation = false,
-        support_paste_from_clipboard = false,
       },
       hints = { enabled = false },
       windows = {
-        position = "right", -- the position of the sidebar
-        wrap = true, -- similar to vim.o.wrap
-        width = 55, -- default % based on available width
+        -- wrap = true, -- similar to vim.o.wrap
+        width = 50, -- default % based on available width
         input = {
           prefix = "➜ ",
-          height = 6, -- Height of the input window in vertical layout
-        },
-        sidebar_header = {
-          enabled = true, -- true, false to enable/disable the header
-          align = "center", -- left, center, right for title
-          rounded = false,
         },
         edit = {
-          border = "rounded",
           start_insert = true, -- Start insert mode when opening the edit window
         },
       },
@@ -97,11 +66,7 @@ return {
       },
       diff = {
         autojump = true,
-        ---@type string | fun(): any
-        list_opener = "copen",
-        --- Override the 'timeoutlen' setting while hovering over a diff (see :help timeoutlen).
-        --- Helps to avoid entering operator-pending mode with diff mappings starting with `c`.
-        --- Disable by setting to -1.
+        -- list_opener = "copen",
         override_timeoutlen = 500,
       },
       mappings = {
@@ -150,6 +115,7 @@ return {
       },
       context = { "buffer" },
       auto_insert_mode = true,
+      auto_follow_cursor = false,
     },
     keys = {
       { "<leader>ci", "<cmd>CopilotChat<CR>", mode = { "n", "v" } },
@@ -167,18 +133,25 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
+      {
+        "echasnovski/mini.diff",
+        config = function()
+          local diff = require("mini.diff")
+          diff.setup({
+            -- Disabled by default
+            source = diff.gen_source.none(),
+          })
+        end,
+      },
     },
     init = function()
       require("config.fidget-spinner"):init()
     end,
     opts = {
       display = {
-        -- diff = {
-        --   enabled = true,
-        --   layout = "vertical", -- vertical|horizontal split for default provider
-        --   opts = { "internal", "filler", "closeoff", "algorithm:patience", "followwrap", "linematch:120" },
-        --   provider = "default", -- default|mini_diff
-        -- },
+        diff = {
+          provider = "mini_diff",
+        },
         chat = {
           start_in_insert_mode = true,
           icons = {
@@ -248,8 +221,6 @@ return {
         },
       },
       adapters = {
-        -- This function extends the "copilot" adapter for CodeCompanion with a custom schema configuration.
-        -- It sets a default model ("gpt-4o") for the adapter.
         gpt4o = function()
           return require("codecompanion.adapters").extend("copilot", {
             schema = {
@@ -300,6 +271,14 @@ return {
       {
         "<leader>ca",
         "<cmd>CodeCompanionActions<cr>",
+        mode = { "n", "v" },
+        noremap = true,
+        silent = true,
+        desc = "CodeCompanion add to chat",
+      },
+      {
+        "<leader>ce",
+        "<cmd>CodeCompanion<cr>",
         mode = { "n", "v" },
         noremap = true,
         silent = true,

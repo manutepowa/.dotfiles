@@ -14,7 +14,6 @@ return {
         opts = {},
       },
     },
-    version = "1.*",
     opts = {
       snippets = {
         expand = function(snippet)
@@ -155,6 +154,12 @@ return {
             enabled = function()
               return vim.bo.filetype ~= "copilot-chat"
             end,
+          },
+          codecompanion = {
+            name = "CodeCompanion",
+            module = "codecompanion.providers.completion.blink",
+            score_offset = 100,
+            enabled = true,
           },
         },
       },
