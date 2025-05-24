@@ -188,15 +188,7 @@ return {
               },
             },
           },
-          adapter = "gpt4o",
-          -- tools = {
-          --   ["mcp"] = {
-          --     callback = function()
-          --       return require("mcphub.extensions.codecompanion")
-          --     end,
-          --     description = "Call tools and resources from the MCP Servers",
-          --   },
-          -- },
+          adapter = "gpt41",
           keymaps = {
             stop = {
               modes = {
@@ -235,6 +227,15 @@ return {
             schema = {
               model = {
                 default = "gpt-4.1",
+              },
+            },
+          })
+        end,
+        claude4 = function()
+          return require("codecompanion.adapters").extend("copilot", {
+            schema = {
+              model = {
+                default = "claude-sonnet-4-20250514",
               },
             },
           })
