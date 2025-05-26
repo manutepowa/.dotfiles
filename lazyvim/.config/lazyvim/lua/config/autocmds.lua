@@ -88,8 +88,9 @@ vim.api.nvim_create_autocmd("FileType", {
     end, { buffer = true, silent = true })
   end,
 })
+
 vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "copilot-chat",
+  pattern = "copilot-*",
   callback = function()
     -- Set buffer-local options
     vim.opt_local.relativenumber = false

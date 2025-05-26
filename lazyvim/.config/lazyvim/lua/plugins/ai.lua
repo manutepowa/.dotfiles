@@ -43,6 +43,18 @@ return {
       copilot = {
         model = "gpt-4.1",
       },
+      web_search_engine = {
+        provider = "tavily",
+        proxy = nil,
+        -- providers = {
+        --   tavily = {
+        --     api_key_name = "TAVILY_API_KEY",
+        --     extra_request_body = {
+        --       include_answer = "basic",
+        --     },
+        --   },
+        -- },
+      },
       behaviour = {
         auto_suggestions = false, -- Experimental stage
         auto_set_keymaps = true,
@@ -206,6 +218,21 @@ return {
               callback = "keymaps.clear",
               description = "Clear Chat",
             },
+          },
+          tools = {
+            -- ["web_search"] = {
+            --   callback = "strategies.chat.agents.tools.web_search",
+            --   description = "Search the web for information",
+            --   opts = {
+            --     adapter = "tavily",
+            --     opts = {
+            --       search_depth = "basic",
+            --       topic = "general",
+            --       -- chunks_per_source = 3,
+            --       -- max_results = 5,
+            --     },
+            --   },
+            -- },
           },
         },
         inline = {
