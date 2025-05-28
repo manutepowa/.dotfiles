@@ -40,4 +40,8 @@ return {
     "nvimdev/dashboard-nvim",
     enabled = false,
   },
+  {
+    "echasnovski/mini.ai",
+    enabled = false,
+  },
 }

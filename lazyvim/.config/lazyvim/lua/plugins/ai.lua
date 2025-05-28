@@ -1,7 +1,6 @@
 return {
   {
     "yetone/avante.nvim",
-    version = false,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "stevearc/dressing.nvim",
@@ -41,7 +40,7 @@ return {
     opts = {
       provider = "copilot",
       copilot = {
-        model = "gpt-4.1",
+        model = "gpt-4o",
       },
       web_search_engine = {
         provider = "tavily",
@@ -55,6 +54,18 @@ return {
         --   },
         -- },
       },
+      system_prompt = function()
+        local hub = require("mcphub").get_hub_instance()
+        if not hub then
+          return "You are a helpful AI assistant."
+        end
+        return hub:get_active_servers_prompt()
+      end,
+      custom_tools = function()
+        return {
+          require("mcphub.extensions.avante").mcp_tool(),
+        }
+      end,
       behaviour = {
         auto_suggestions = false, -- Experimental stage
         auto_set_keymaps = true,
@@ -200,7 +211,7 @@ return {
               },
             },
           },
-          adapter = "gpt41",
+          adapter = "gpt4o",
           keymaps = {
             stop = {
               modes = {
@@ -272,9 +283,9 @@ return {
         mcphub = {
           callback = "mcphub.extensions.codecompanion",
           opts = {
-            make_vars = true,
-            make_slash_commands = true,
-            show_result_in_chat = true,
+            show_result_in_chat = true, -- Show mcp tool results in chat
+            make_vars = true, -- Convert resources to #variables
+            make_slash_commands = true, -- Add prompts as /slash commands
           },
         },
       },
