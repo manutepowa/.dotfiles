@@ -9,7 +9,8 @@ return {
     end
 
     -- local lualine_scheme = "newonedark"
-    local lualine_scheme = "darkplus_dark"
+    -- local lualine_scheme = "darkplus_dark"
+    local lualine_scheme = "gentleman-kanagawa-blur"
     -- local lualine_scheme = "onedarker_alt"
 
     local status_theme_ok, theme = pcall(require, "lualine.themes." .. lualine_scheme)
@@ -51,6 +52,18 @@ return {
       -- gray = "#3e3e3e"
       gray = "#303030"
       dark_gray = "#303030"
+      red = "#bf616a"
+      blue = "#5e81ac"
+      indent = "#A3BE8C"
+      green = "#A3BE8C"
+      cyan = "#88c0d0"
+      orange = "#C68A75"
+    end
+
+    if lualine_scheme == "gentleman-kanagawa-blur" then
+      -- gray = "#3e3e3e"
+      gray = "#2A2A2A"
+      dark_gray = "#2A2A2A"
       red = "#bf616a"
       blue = "#5e81ac"
       indent = "#A3BE8C"
@@ -112,7 +125,7 @@ return {
       end,
       padding = 0,
       color = function()
-        return { fg = gray }
+        return { fg = gray, bg = "NONE" }
       end,
     }
 
@@ -122,16 +135,13 @@ return {
       end,
       padding = 0,
       color = function()
-        return { fg = dark_gray }
+        return { fg = dark_gray, bg = "NONE" }
       end,
     }
 
     local mode = {
-      -- mode component
       function()
-        -- return "▊"
         return " "
-        -- return "  "
       end,
       color = function()
         -- auto change color according to neovims mode
