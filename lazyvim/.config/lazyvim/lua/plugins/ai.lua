@@ -39,8 +39,10 @@ return {
     build = "make",
     opts = {
       provider = "copilot",
-      copilot = {
-        model = "gpt-4o",
+      providers = {
+        copilot = {
+          model = "gpt-4o",
+        },
       },
       web_search_engine = {
         provider = "tavily",
@@ -211,7 +213,7 @@ return {
               },
             },
           },
-          adapter = "gpt4o",
+          adapter = "gpt41",
           keymaps = {
             stop = {
               modes = {
@@ -247,7 +249,7 @@ return {
           },
         },
         inline = {
-          adapter = "gpt4o",
+          adapter = "gpt41",
         },
       },
       adapters = {
