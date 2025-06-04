@@ -4,7 +4,6 @@ return {
     build = vim.g.lazyvim_blink_main and "cargo build --release",
     dependencies = {
       "Kaiser-Yang/blink-cmp-avante",
-      "rafamadriz/friendly-snippets",
       "rcarriga/cmp-dap",
       "moyiz/blink-emoji.nvim",
       "ray-x/cmp-sql",
@@ -128,7 +127,7 @@ return {
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        default = { "avante", "lazydev", "lsp", "path", "snippets", "buffer", "emoji", "sql" },
+        default = { "lsp", "buffer", "path", "snippets", "emoji", "sql", "avante", "lazydev" },
         providers = {
           lazydev = {
             name = "LazyDev",

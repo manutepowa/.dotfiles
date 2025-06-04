@@ -101,7 +101,7 @@ return {
         changedelete = { text = dashed_bar },
       },
       preview_config = { border = "rounded" },
-      -- current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+      current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
       -- current_line_blame_opts = {
       --   virt_text = true,
       --   virt_text_pos = "right_align", -- 'eol' | 'overlay' | 'right_align'

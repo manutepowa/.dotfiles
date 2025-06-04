@@ -152,7 +152,9 @@ return {
     {
       "<leader>fg",
       function()
-        Snacks.picker.grep()
+        Snacks.picker.grep({
+          args = { "--fixed-strings", "--hidden" },
+        })
       end,
       desc = "Grep",
     },
