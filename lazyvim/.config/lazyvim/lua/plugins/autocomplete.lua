@@ -1,6 +1,7 @@
 return {
   {
     "saghen/blink.cmp",
+    enabled = false,
     build = vim.g.lazyvim_blink_main and "cargo build --release",
     dependencies = {
       "Kaiser-Yang/blink-cmp-avante",
@@ -178,7 +179,7 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
-    enabled = false,
+    enabled = true,
     -- load cmp on InsertEnter
     event = { "UIEnter" },
     -- these dependencies will only be loaded when cmp loads
@@ -229,18 +230,28 @@ return {
         end,
         preselect = cmp.PreselectMode.None,
         mapping = cmp.mapping.preset.insert({
-          ["<A-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s", "c" }),
+          ["<A-k>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              local selectBehavior = vim.b.visual_multi and cmp.SelectBehavior.Select or cmp.SelectBehavior.Insert
+              cmp.select_prev_item({ behavior = selectBehavior })
+            else
+              fallback()
+            end
+          end, {
+            "i",
+            "s",
+            "c",
+          }),
           ["<A-j>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-              cmp.select_next_item()
+              local selectBehavior = vim.b.visual_multi and cmp.SelectBehavior.Select or cmp.SelectBehavior.Insert
+              cmp.select_next_item({ behavior = selectBehavior })
             elseif not cmp.visible() then
               cmp.mapping(cmp.complete(), { "i", "c", "s" })
             elseif luasnip.jumpable(1) then
               luasnip.jump(1)
             elseif luasnip.expand_or_jumpable() then
               luasnip.expand_or_jump()
-            elseif check_backspace() then
-              fallback()
             else
               fallback()
             end

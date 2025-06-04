@@ -49,11 +49,11 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
--- local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
--- if not status_ok then
---   return
--- end
+local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not status_ok then
+  return
+end
 
--- M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
-M.capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+-- M.capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 return M
