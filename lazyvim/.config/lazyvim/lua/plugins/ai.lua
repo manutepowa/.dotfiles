@@ -140,7 +140,6 @@ return {
       },
       context = { "buffer" },
       auto_insert_mode = true,
-      auto_follow_cursor = false,
     },
     keys = {
       { "<leader>ci", "<cmd>CopilotChat<CR>", mode = { "n", "v" } },
@@ -233,19 +232,19 @@ return {
             },
           },
           tools = {
-            -- ["web_search"] = {
-            --   callback = "strategies.chat.agents.tools.web_search",
-            --   description = "Search the web for information",
-            --   opts = {
-            --     adapter = "tavily",
-            --     opts = {
-            --       search_depth = "basic",
-            --       topic = "general",
-            --       -- chunks_per_source = 3,
-            --       -- max_results = 5,
-            --     },
-            --   },
-            -- },
+            ["web_search"] = {
+              callback = "strategies.chat.agents.tools.web_search",
+              description = "Search the web for information",
+              opts = {
+                adapter = "tavily",
+                -- opts = {
+                --   search_depth = "basic",
+                --   topic = "general",
+                -- chunks_per_source = 3,
+                -- max_results = 5,
+                -- },
+              },
+            },
           },
         },
         inline = {
