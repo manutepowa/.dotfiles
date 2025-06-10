@@ -1,6 +1,7 @@
 -- This file contains the configuration for disabling specific Neovim plugins.
 
 return {
+  { "folke/trouble.nvim", enabled = false },
   {
     "gbprod/yanky.nvim",
     enabled = false, -- Disable this plugin
