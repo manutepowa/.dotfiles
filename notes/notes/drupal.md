@@ -69,3 +69,10 @@ group by table_schema,
 ```sh
 vendor/bin/drush cache:rebuild && vendor/bin/drush sql:query "TRUNCATE TABLE watchdog;"
 ```
+# Twig
+## Ver todo lo que puedes usar en cualquier twig
+Ver todas las variables que tienes disponibles
+
+```twig
+{{ dump(_context) }}
+```
