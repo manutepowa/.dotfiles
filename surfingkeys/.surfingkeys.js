@@ -43,7 +43,7 @@ map("gt", "T");
 map("<Alt-h>", "E"); // tab focus left
 map("<Alt-l>", "R"); // tab focus right
 
-aceVimMap("kj", "<Esc>", "insert");
+// aceVimMap("kj", "<Esc>", "insert");
 aceVimMap("q", ":q", "normal");
 imap("kj", "<Esc>");
 
