@@ -11,10 +11,13 @@ google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode
 - Descargar la release que quieras desde: https://github.com/neovim/neovim/releases
 ```sh
 # Dar permiso de ejecución
-chmod +x nvim.appimage
+chmod +x nvim-linux-x86_64.appimage
 
 # Mover a opt (crear carpeta nvim)
-sudo mv nvim.appimage /opt/nvim
+sudo mv nvim-linux-x86_64.appimage /opt/nvim
+
+sudo rm -rf /usr/local/bin/nvim
+
 # Enlace simbólico y funcionando
-sudo ln -s /opt/nvim/nvim.appimage /usr/local/bin/nvim
+sudo ln -s /opt/nvim/nvim-linux-x86_64.appimage /usr/local/bin/nvim
 ```
