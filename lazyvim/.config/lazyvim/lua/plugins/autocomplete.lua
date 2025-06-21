@@ -226,7 +226,8 @@ return {
           end,
         },
         enabled = function()
-          return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+          -- Use modern Neovim API for buffer options
+          return vim.bo.buftype ~= "prompt"
         end,
         preselect = cmp.PreselectMode.None,
         mapping = cmp.mapping.preset.insert({
