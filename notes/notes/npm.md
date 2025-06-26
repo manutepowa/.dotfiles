@@ -11,3 +11,9 @@ ncu -i --format group --workspace=crossword
 - Si se usa pnpm, publicar con pnpm.
 - pnpm publish --> Hace cosas diferentes a npm publish
 
+### Link local project
+- necesita "link" y apuntar al dist
+```js
+"payload-plugin-masquerade": "link:../../home/manuel/Desarrollo/opensource/payload-plugin-masquerade/dist",
+
+```

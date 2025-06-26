@@ -100,5 +100,5 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = "markdown",
-  command = "setlocal spell spelllang=es",
+  command = "setlocal spell spelllang=en",
 })
