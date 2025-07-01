@@ -36,9 +36,9 @@ return {
       definition = {
         keys = {
           edit = "<A-CR>",
-          vsplit = "<C-c>v",
-          split = "<C-c>i",
-          tabe = "<C-c>t",
+          -- vsplit = "<C-c>v",
+          -- split = "<C-c>i",
+          -- tabe = "<C-c>t",
           quit = "q",
         },
       },

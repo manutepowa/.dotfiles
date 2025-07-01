@@ -120,5 +120,5 @@ vim.keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp) -- Navigate to th
 vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight) -- Navigate to the right pane
 
 -- AI
-vim.keymap.set("n", "<leader>ai", "<cmd>AvanteAsk<CR>", { desc = "Start AvanteAsk" })
-vim.keymap.set("v", "<leader>ai", "<cmd>AvanteAsk<CR>", { desc = "Start AvanteAsk" })
+-- vim.keymap.set("n", "<leader>ai", "<cmd>AvanteAsk<CR>", { desc = "Start AvanteAsk" })
+-- vim.keymap.set("v", "<leader>ai", "<cmd>AvanteAsk<CR>", { desc = "Start AvanteAsk" })

@@ -124,6 +124,10 @@ return {
         },
       },
     },
+    keys = {
+      { "<leader>ai", "<cmd>AvanteAsk<CR>", mode = { "n", "v" }, desc = "Avante AI" },
+      { "<esc>", "<cmd>AvanteStop<CR>", mode = { "n" }, desc = "Avante Stop" },
+    },
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
