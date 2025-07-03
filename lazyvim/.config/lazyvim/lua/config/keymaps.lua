@@ -32,7 +32,7 @@ vim.keymap.set("x", "<A-k>", "5k", { noremap = true })
 -- vim.keymap.set("", "<esc>", ":noh<CR>", { silent = true })
 vim.keymap.set("n", "<Leader>w", ":w<CR>")
 vim.keymap.set("n", "<Leader>q", ":q<CR>")
-vim.keymap.set("i", "kj", "<ESC>")
+vim.keymap.set("i", "kj", "<esc>")
 vim.keymap.set("i", "<A-BS>", "<C-w>", { noremap = true, silent = true })
 
 -- Copy and paste without clipboard

@@ -49,6 +49,7 @@ alias cat='bat --style=plain'
 alias dds='ddev start' # all list
 alias ddp='ddev poweroff' # all list
 alias dde='ddev ssh' # all list
+alias ddr='ddev restart' # all list
 alias ddx='ddev xdebug' # all list
 alias ddm='ddev mailpit' # all list
 

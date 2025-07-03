@@ -131,7 +131,6 @@ return {
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "main",
     dependencies = {
       { "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
@@ -153,6 +152,7 @@ return {
     keys = {
       { "<leader>ci", "<cmd>CopilotChat<CR>", mode = { "n", "v" } },
       { "<leader>cl", "<cmd>CopilotChatReset<CR>", mode = { "n", "v" } },
+      { "<esc>", "<cmd>CopilotChatStop<CR>", mode = { "n", "v" } },
     },
   },
   {
