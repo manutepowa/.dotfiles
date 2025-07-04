@@ -75,7 +75,7 @@ return {
       end,
       behaviour = {
         auto_suggestions = false, -- Experimental stage
-        auto_set_keymaps = true,
+        auto_set_keymaps = false,
       },
       hints = { enabled = false },
       windows = {
@@ -126,7 +126,7 @@ return {
     },
     keys = {
       { "<leader>ai", "<cmd>AvanteAsk<CR>", mode = { "n", "v" }, desc = "Avante AI" },
-      { "<esc>", "<cmd>AvanteStop<CR>", mode = { "n" }, desc = "Avante Stop" },
+      { "<leader>at", "<cmd>AvanteStop<CR>", mode = { "n" }, desc = "Avante Stop" },
     },
   },
   {
@@ -152,7 +152,7 @@ return {
     keys = {
       { "<leader>ci", "<cmd>CopilotChat<CR>", mode = { "n", "v" } },
       { "<leader>cl", "<cmd>CopilotChatReset<CR>", mode = { "n", "v" } },
-      { "<esc>", "<cmd>CopilotChatStop<CR>", mode = { "n", "v" } },
+      { "<leader>at", "<cmd>CopilotChatStop<CR>", mode = { "n", "v" } },
     },
   },
   {
@@ -225,7 +225,7 @@ return {
           keymaps = {
             stop = {
               modes = {
-                n = "<esc>",
+                n = "<leader>at",
               },
               index = 4,
               callback = "keymaps.stop",
