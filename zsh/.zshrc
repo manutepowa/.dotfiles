@@ -100,4 +100,5 @@ alias la='eza -lbhHigUmuSa' # all list
 # Turso
 export PATH="/home/manuel/.turso:$PATH"
 
-PATH=~/.console-ninja/.bin:$PATH
+# opencode
+export PATH=/home/manuel/.opencode/bin:$PATH

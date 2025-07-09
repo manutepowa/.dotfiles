@@ -1,9 +1,16 @@
 settings.showModeStatus = true;
 settings.hintAlign = "left";
+settings.focusFirstCandidate = true;
 settings.scrollStepSize = 240;
 settings.scrollSmoth = false;
 settings.verticalTabs = true;
 settings.modeAfterYank = "Normal";
+settings.defaultLLMProvider = "gemini";
+settings.llm = {
+  gemini: {
+    apiKey: "AIzaSyASPQ-0a1EiI1WPGOv0sxt_iuemZ0eC0Xw",
+  }
+}
 
 const {
   aceVimMap,
