@@ -8,7 +8,7 @@ settings.modeAfterYank = "Normal";
 settings.defaultLLMProvider = "gemini";
 settings.llm = {
   gemini: {
-    apiKey: "AIzaSyASPQ-0a1EiI1WPGOv0sxt_iuemZ0eC0Xw",
+    apiKey: "",
   }
 }
 
