@@ -49,6 +49,13 @@ return {
           model = "gpt-4.1",
         },
       },
+      cursor_applying_provider = "copilot",
+      auto_suggestions_provider = "copilot",
+      behaviour = {
+        enable_cursor_planning_mode = true,
+        auto_suggestions = false, -- Experimental stage
+        auto_set_keymaps = false,
+      },
       web_search_engine = {
         provider = "tavily",
         proxy = nil,
@@ -73,10 +80,6 @@ return {
           require("mcphub.extensions.avante").mcp_tool(),
         }
       end,
-      behaviour = {
-        auto_suggestions = false, -- Experimental stage
-        auto_set_keymaps = false,
-      },
       hints = { enabled = false },
       windows = {
         -- wrap = true, -- similar to vim.o.wrap
@@ -101,7 +104,7 @@ return {
       },
       mappings = {
         -- ask = "<leader>ai",
-        edit = "<leader>ae",
+        -- edit = "<leader>ae",
         refresh = "<leader>ar",
         diff = {
           ours = "co",
@@ -127,6 +130,7 @@ return {
     keys = {
       { "<leader>ai", "<cmd>AvanteAsk<CR>", mode = { "n", "v" }, desc = "Avante AI" },
       { "<leader>at", "<cmd>AvanteStop<CR>", mode = { "n" }, desc = "Avante Stop" },
+      { "<leader>ae", "<cmd>AvanteEdit<CR>", mode = { "v" }, desc = "Avante Stop" },
     },
   },
   {
@@ -152,7 +156,7 @@ return {
     keys = {
       { "<leader>ci", "<cmd>CopilotChat<CR>", mode = { "n", "v" } },
       { "<leader>cl", "<cmd>CopilotChatReset<CR>", mode = { "n", "v" } },
-      { "<leader>at", "<cmd>CopilotChatStop<CR>", mode = { "n", "v" } },
+      { "<leader>ct", "<cmd>CopilotChatStop<CR>", mode = { "n", "v" } },
     },
   },
   {
@@ -225,7 +229,7 @@ return {
           keymaps = {
             stop = {
               modes = {
-                n = "<leader>at",
+                n = "<leader>ct",
               },
               index = 4,
               callback = "keymaps.stop",

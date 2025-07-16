@@ -69,6 +69,9 @@ NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
+# Turso
+export PATH="/home/manuel/.turso:$PATH"
+
 # TMUX
 if [ "$TMUX" = "" ]; then tmux; fi
 
@@ -97,8 +100,5 @@ alias l='eza -l --icons' #   list, size, type
 alias ll='eza --icons -la' # long, all
 alias la='eza -lbhHigUmuSa' # all list
 
-# Turso
-export PATH="/home/manuel/.turso:$PATH"
 
-# opencode
-export PATH=/home/manuel/.opencode/bin:$PATH
+PATH=~/.console-ninja/.bin:$PATH

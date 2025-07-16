@@ -74,3 +74,8 @@ No se si habrán bloques ocultos para distintos actores
 - La interfaz es practica y no muy colorida porque es preferible la funcionalidad.
 - Es como un dashboard con procesos iniciados y cada proceso tiene estos bloques de documentación
 - Un selector por bloque con lo responsables del bloque, para que les notifique por cada interacción.
+
+## Reu
+- Noticias ? (Clicking)
+- Sería interesante notificaciones push
+- Documentación empresa.
