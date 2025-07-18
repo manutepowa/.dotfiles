@@ -1,57 +1,22 @@
 return {
-  "jellydn/hurl.nvim",
-  dependencies = {
-    "MunifTanjim/nui.nvim",
-    "nvim-lua/plenary.nvim",
-    "nvim-treesitter/nvim-treesitter",
+  "mistweaverco/kulala.nvim",
+  keys = {
+    { "<leader>kr", "<cmd>lua require('kulala').run()<cr>", desc = "Send the request" },
+    { "<leader>ki", "<cmd>lua require('kulala').inspect()<cr>", desc = "Inspect current request", ft = "http" },
+    { "<leader>kn", "<cmd>lua require('kulala').jump_next()<cr>", desc = "Jump to next request", ft = "http" },
+    { "<leader>kp", "<cmd>lua require('kulala').jump_prev()<cr>", desc = "Jump to previous request", ft = "http" },
+    { "<leader>kq", "<cmd>lua require('kulala').close()<cr>", desc = "Close window", ft = "http" },
+    { "<leader>kS", "<cmd>lua require('kulala').show_stats()<cr>", desc = "Show stats", ft = "http" },
+    { "<leader>kv", "<cmd>lua require('kulala').toggle_view()<cr>", desc = "Toggle headers/body", ft = "http" },
   },
-  ft = "hurl",
-  cmd = "HurlRunnerAt",
-  config = function(config)
-    -- INSTALLATION: Install jq and hurl.
-    -- jq with homebrew: brew install jq
-    -- hurl with apt: Add ppa and install hurl
-
-    local rest_nvim = require("hurl")
-
-    rest_nvim.setup({
-      env_file = {
-        ".env",
-      },
-      -- Show debugging info
-      debug = false,
-      -- Show notification on run
-      show_notification = false,
-      -- Show response in popup or split
-      mode = "split",
-      -- Default formatter
-      formatters = {
-        json = { "jq" }, -- Make sure you have install jq in your system, e.g: brew install jq
-        html = {
-          "prettier", -- Make sure you have install prettier in your system, e.g: npm install -g prettier
-          "--parser",
-          "html",
-        },
-        xml = {
-          "tidy", -- Make sure you have installed tidy in your system, e.g: brew install tidy-html5
-          "-xml",
-          "-i",
-          "-q",
-        },
-      },
-    })
-
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "hurl",
-      callback = function()
-        local buff = tonumber(vim.fn.expand("<abuf>"), 10)
-        vim.keymap.set(
-          "n",
-          "<leader>r",
-          "<cmd>HurlRunnerAt<CR>",
-          { noremap = true, buffer = buff, desc = "Run near http request" }
-        )
-      end,
-    })
-  end,
+  ft = { "http", "rest" },
+  opts = {
+    -- your configuration comes here
+    global_keymaps = false,
+    global_keymaps_prefix = "<leader>R",
+    kulala_keymaps_prefix = "",
+    ui = {
+      default_view = "headers_body",
+    },
+  },
 }
