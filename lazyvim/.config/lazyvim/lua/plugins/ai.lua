@@ -225,7 +225,7 @@ return {
               },
             },
           },
-          adapter = "gpt41",
+          adapter = "claude4", -- Default adapter for chat
           keymaps = {
             stop = {
               modes = {
@@ -287,7 +287,7 @@ return {
           return require("codecompanion.adapters").extend("copilot", {
             schema = {
               model = {
-                default = "claude-sonnet-4-20250514",
+                default = "claude-sonnet-4",
               },
             },
           })
