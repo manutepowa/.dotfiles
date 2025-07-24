@@ -13,6 +13,12 @@ local function check_eslint()
 
   local root = vim.fn.getcwd()
   for _, file in ipairs(eslint_files) do
+    -- Verificar en la raíz del proyecto
+    if vim.fn.filereadable(root .. "/" .. file) == 1 then
+      -- Si existe ESLint, no usar prettier
+      return {}
+    end
+    -- Verificar en el directorio httpdocs
     if vim.fn.filereadable(root .. "/httpdocs/" .. file) == 1 then
       -- Si existe ESLint, no usar prettier
       return {}

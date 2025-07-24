@@ -7,7 +7,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
 
 ## nnn config
-export EDITOR="nvim"
+export NVIM_APPNAME="lazyvim"
 export SNACKS_GHOSTTY=true
 
 # Flameshot
@@ -41,7 +41,8 @@ alias m3ssh="cd /home/manuel/Desarrollo/m3ssh/ && ./m3ssh.sh"
 alias devtest="cd /home/manuel/Desarrollo/devtest"
 
 # Add git editor with lazyvim: git config --global core.editor "NVIM_APPNAME=lazyvim nvim"
-alias v="NVIM_APPNAME=lazyvim nvim"
+# alias v="NVIM_APPNAME=lazyvim nvim"
+alias v="nvim"
 alias vl="nvim"
 # alias genpass='f() { cat /dev/urandom | strings | grep -Eoa "[a-zA-Z0-9@$%&_]*" | head -n 10  | tr -d "\n" | cut -c1-$1 };f'
 alias cat='bat --style=plain'

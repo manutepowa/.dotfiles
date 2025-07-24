@@ -17,6 +17,20 @@ return {
     kulala_keymaps_prefix = "",
     ui = {
       default_view = "headers_body",
+      winbar = false,
+      win_opts = {
+        width = 80,
+        wo = { number = true, wrap = true }, -- window options
+      },
+    },
+    contenttypes = {
+      ["text/html"] = {
+        ft = "json",
+        formatter = vim.fn.executable("jq") == 1 and { "jq", "." },
+        pathresolver = function(...)
+          return require("kulala.parser.jsonpath").parse(...)
+        end,
+      },
     },
   },
 }
