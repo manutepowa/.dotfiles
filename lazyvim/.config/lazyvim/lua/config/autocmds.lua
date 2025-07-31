@@ -19,7 +19,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "git",
     "NeogitStatus",
     "query",
-    "AvanteInput",
   },
   callback = function()
     vim.cmd([[
@@ -60,13 +59,35 @@ vim.cmd([[
   highlight SnacksIndentScopeDark guifg=#4E4E4E guibg=NONE
 ]])
 
+-- Avante AI assistant autocmds for better closing behavior
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = {
     "AvanteInput",
+    "Avante",
   },
   callback = function()
-    vim.keymap.set("n", "<leader>cl", "<cmd>AvanteClear<CR>", { desc = "Clear Avante" })
-    vim.keymap.set("v", "<leader>cl", "<cmd>AvanteClear<CR>", { desc = "Clear Avante" })
+    -- Set buffer options for better UX
+    vim.opt_local.buflisted = false
+    vim.opt_local.bufhidden = "wipe"
+
+    -- Quick close with 'q' key
+    vim.keymap.set("n", "q", "<cmd>AvanteToggle<CR>", {
+      buffer = true,
+      silent = true,
+      desc = "Toggle Avante",
+    })
+
+    -- Keep existing clear functionality
+    vim.keymap.set("n", "<leader>cl", "<cmd>AvanteClear<CR>", {
+      buffer = true,
+      desc = "Clear Avante",
+    })
+
+    -- Stop current operation
+    vim.keymap.set("n", "<leader>cs", "<cmd>AvanteStop<CR>", {
+      buffer = true,
+      desc = "Stop Avante",
+    })
   end,
 })
 vim.api.nvim_create_autocmd({ "FileType" }, {

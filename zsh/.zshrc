@@ -9,6 +9,7 @@ eval "$(starship init zsh)"
 ## nnn config
 export NVIM_APPNAME="lazyvim"
 export SNACKS_GHOSTTY=true
+export EDITOR="nvim"
 
 # Flameshot
 export QT_QPA_PLATFORM="wayland"

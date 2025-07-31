@@ -46,7 +46,7 @@ return {
       provider = "copilot",
       providers = {
         copilot = {
-          model = "gpt-4.1",
+          model = "claude-sonnet-4", -- or "gpt-4.1"
         },
       },
       cursor_applying_provider = "copilot",
@@ -143,7 +143,7 @@ return {
     opts = {
       system_prompt = "Responde siempre en el mismo idioma que se te pregunte.",
       -- model = "gemini-2.0-flash-001",
-      model = "gpt-4.1",
+      model = "claude-sonnet-4",
       answer_header = "<M3JS />",
       mappings = {
         accept_diff = {
