@@ -30,11 +30,10 @@ vim.keymap.set({ "n", "x" }, "<A-k>", "5k")
 vim.keymap.set("n", "<Leader>w", ":w<CR>")
 vim.keymap.set("n", "<Leader>q", ":q<CR>")
 vim.keymap.set("i", "kj", "<esc>")
-vim.keymap.set("i", "<A-BS>", "<C-w>", { noremap = true, silent = true })
+vim.keymap.set("i", "<A-BS>", "<C-w>", { silent = true })
 
 -- Copy and paste without clipboard
-vim.keymap.set("n", "d", '"_d', { noremap = true })
-vim.keymap.set("x", "d", '"_d', { noremap = true })
+vim.keymap.set({ "n", "x" }, "d", '"_d')
 -- vim.keymap.set("x", 'p', [["_dP]])
 vim.keymap.set("x", "p", function()
   local val = vim.fn.getreg("+")
@@ -43,8 +42,8 @@ vim.keymap.set("x", "p", function()
 end, {})
 
 -- Remove word
-vim.keymap.set("n", "dw", "dwi", { noremap = true })
-vim.keymap.set("n", "diw", "diwi", { noremap = true })
+vim.keymap.set("n", "dw", "dwi")
+vim.keymap.set("n", "diw", "diwi")
 
 -- Search word
 vim.keymap.set("n", "n", "nzzzv", { desc = "Search next" })
@@ -52,55 +51,54 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = "Search prev" })
 
 -- Not select after line character
 vim.keymap.set("v", "$", "$h")
-vim.keymap.set("n", "0", "^")
-vim.keymap.set("v", "0", "^")
+vim.keymap.set({ "n", "v" }, "0", "^")
 
 -- Move right when open autopairs
 -- vim.keymap.set("i", "<A-l>", "<Right>")
 vim.keymap.set("i", "<A-h>", "<Left>")
 
 -- Tabs resize
-vim.keymap.set("n", "<A-Down>", ":resize -5<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<A-Up>", ":resize +5<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<A-Left>", ":vertical resize -5<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<A-Right>", ":vertical resize +5<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-Down>", ":resize -5<CR>", { silent = true })
+vim.keymap.set("n", "<A-Up>", ":resize +5<CR>", { silent = true })
+vim.keymap.set("n", "<A-Left>", ":vertical resize -5<CR>", { silent = true })
+vim.keymap.set("n", "<A-Right>", ":vertical resize +5<CR>", { silent = true })
 
 -- Move block
 vim.keymap.set("v", "<S-j>", ":move '>+1<CR>gv-gv")
 vim.keymap.set("v", "<S-k>", ":move '<-2<CR>gv-gv")
 
 -- BufferLine
-vim.keymap.set("n", "<A-l>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<A-h>", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-l>", ":BufferLineCycleNext<CR>", { silent = true })
+vim.keymap.set("n", "<A-h>", ":BufferLineCyclePrev<CR>", { silent = true })
 vim.keymap.set("n", "<A-c>", function()
   Snacks.bufdelete()
-end, { noremap = true, silent = true })
+end, { silent = true })
 vim.keymap.set("n", "<C-w>", function()
   Snacks.bufdelete()
-end, { noremap = true, silent = true })
-vim.keymap.set("n", "<S-A-l>", ":BufferLineMoveNext<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<S-A-h>", ":BufferLineMovePrev<CR>", { noremap = true, silent = true })
+end, { silent = true })
+vim.keymap.set("n", "<S-A-l>", ":BufferLineMoveNext<CR>", { silent = true })
+vim.keymap.set("n", "<S-A-h>", ":BufferLineMovePrev<CR>", { silent = true })
 
-vim.keymap.set("n", "gq", ":tabclose<CR>", { noremap = true })
+vim.keymap.set("n", "gq", ":tabclose<CR>")
 
 vim.cmd([[
   autocmd TabClosed * checktime
 ]]) -- With this reload buffer after close tab
 
 -- Markdown viewer
-vim.keymap.set("n", "<leader>m", ":MarkdownPreview<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>m", ":MarkdownPreview<CR>", { silent = true })
 
-vim.keymap.set("c", "<A-j>", "<DOWN>", { noremap = true, silent = true })
-vim.keymap.set("c", "<A-k>", "<UP>", { noremap = true, silent = true })
+vim.keymap.set("c", "<A-j>", "<DOWN>", { silent = true })
+vim.keymap.set("c", "<A-k>", "<UP>", { silent = true })
 
 -- vim.keymap.set('n', '<leader>bf', function()
 --   vim.lsp.buf.format({ timeout_ms = 5000 })
--- end, { noremap = true, silent = true })
+-- end, { silent = true })
 -- vim.keymap.set('v', '<leader>bf', function()
 --   return vim.lsp.buf.format()
--- end, { noremap = true, silent = true })
+-- end, { silent = true })
 
-vim.keymap.set("n", "<leader>l", ":Lazy<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>l", ":Lazy<cr>", { silent = true })
 
 -- CMD commands
 -- map command to cmdline
