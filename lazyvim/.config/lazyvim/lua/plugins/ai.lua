@@ -40,7 +40,6 @@ return {
       },
     },
     event = "VeryLazy",
-    lazy = false,
     build = "make",
     opts = {
       provider = "copilot",

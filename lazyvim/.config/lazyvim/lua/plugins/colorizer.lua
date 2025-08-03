@@ -1,8 +1,8 @@
 return {
-  'NvChad/nvim-colorizer.lua',
+  "NvChad/nvim-colorizer.lua",
   event = { "BufWinEnter", "BufRead", "BufReadPost" },
   config = function()
-    require "colorizer".setup({
+    require("colorizer").setup({
       filetypes = {
         "typescript",
         "typescriptreact",
@@ -19,8 +19,8 @@ return {
         css_fn = true,
         tailwind = true,
         mode = "virtualtext",
-        virtualtext = '■',
+        virtualtext = "■",
       },
     })
-  end
+  end,
 }

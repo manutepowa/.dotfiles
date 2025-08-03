@@ -2,9 +2,10 @@ return {
   "vuki656/package-info.nvim",
   dependencies = { "MunifTanjim/nui.nvim" },
   event = { "BufRead package.json" },
+  ft = "json",
   lazy = true,
   config = function()
-    require("package-info").setup {
+    require("package-info").setup({
       icons = {
         enable = true, -- Whether to display icons
         style = {
@@ -12,14 +13,14 @@ return {
           outdated = "|  ", -- Icon for outdated dependencies
         },
       },
-      autostart = true,               -- Whether to autostart when `package.json` is opened
-      hide_up_to_date = true,         -- It hides up to date versions when displaying virtual text
+      autostart = true, -- Whether to autostart when `package.json` is opened
+      hide_up_to_date = true, -- It hides up to date versions when displaying virtual text
       hide_unstable_versions = false, -- It hides unstable versions from version list e.g next-11.1.3-canary3
       -- Can be `npm`, `yarn`, or `pnpm`. Used for `delete`, `install` etc...
       -- The plugin will try to auto-detect the package manager based on
       -- `yarn.lock` or `package-lock.json`. If none are found it will use the
       -- provided one, if nothing is provided it will use `yarn`
       package_manager = "npm",
-    }
+    })
   end,
 }

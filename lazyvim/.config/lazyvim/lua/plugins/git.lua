@@ -10,7 +10,6 @@ return {
       "nvim-telescope/telescope.nvim",
     },
     cmd = "Neogit",
-    lazy = false,
     keys = {
       { "<leader>gs", ":Neogit<CR>", desc = "Neogit" },
     },
