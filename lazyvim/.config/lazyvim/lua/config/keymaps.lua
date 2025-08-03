@@ -20,16 +20,12 @@ vim.keymap.del("n", "<C-w><space>")
 vim.keymap.del("n", "<C-w>d")
 vim.keymap.del("n", "<C-w><C-d>")
 
-vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { desc = "Organize Imports" })
-
 vim.keymap.set("v", "<Tab>", ">gv", { desc = "Indent right" })
 vim.keymap.set("v", "<S-Tab>", "<gv", { desc = "Indent left" })
 
 -- Basic vim
-vim.keymap.set("n", "<A-j>", "5j", { noremap = true })
-vim.keymap.set("n", "<A-k>", "5k", { noremap = true })
-vim.keymap.set("x", "<A-j>", "5j", { noremap = true })
-vim.keymap.set("x", "<A-k>", "5k", { noremap = true })
+vim.keymap.set({ "n", "x" }, "<A-j>", "5j")
+vim.keymap.set({ "n", "x" }, "<A-k>", "5k")
 -- vim.keymap.set("", "<esc>", ":noh<CR>", { silent = true })
 vim.keymap.set("n", "<Leader>w", ":w<CR>")
 vim.keymap.set("n", "<Leader>q", ":q<CR>")
