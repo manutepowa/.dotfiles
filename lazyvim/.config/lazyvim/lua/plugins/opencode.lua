@@ -35,6 +35,10 @@ return {
         display_model = true, -- Display model name on top winbar
         display_context_size = true,
         window_highlight = "Normal:OpencodeBackground,FloatBorder:OpencodeBorder", -- Highlight group for the opencode window
+        icons = {
+          preset = "text", -- 'emoji' | 'ascii'. Choose UI icon style (default: 'emoji')
+          overrides = {}, -- Optional per-key overrides, see section below
+        },
         output = {
           tools = {
             show_output = true, -- Show tools output [diffs, cmd output, etc.] (default: true)
