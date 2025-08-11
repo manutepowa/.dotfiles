@@ -135,22 +135,28 @@ return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = {
-      { "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua
-      { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+      { "zbirenbaum/copilot.lua" },
+      { "nvim-lua/plenary.nvim", branch = "master" },
     },
-    build = "make tiktoken", -- Only on MacOS or Linux
+    build = "make tiktoken",
     opts = {
       system_prompt = "Responde siempre en el mismo idioma que se te pregunte.",
-      -- model = "gemini-2.0-flash-001",
-      model = "claude-sonnet-4",
+      model = "claude-sonnet-4", -- mantenemos tu modelo preferido
+      temperature = 0.2, -- más determinista
+      layout = "float", -- experiencia moderna (omite si ya es default)
+      auto_follow_cursor = true, -- sigue el cursor para mejor contexto
       answer_header = "<M3JS />",
-      mappings = {
-        accept_diff = {
-          normal = "<Tab>",
-        },
-      },
-      context = { "buffer" },
+      context = { "selection", "buffer" }, -- prioriza selección si existe
       auto_insert_mode = true,
+      -- show_help = false,             -- descomenta según preferencia
+      -- logging = { enabled = false }, -- descomenta si quieres desactivar logs
+      mappings = {
+        accept_diff = { normal = "<Tab>" },
+        -- submit = { normal = "<CR>", insert = "<C-s>" }, -- activa si tu versión lo soporta
+        -- yank_last = { normal = "gy" },                  -- si disponible
+        -- scroll_up = { normal = "<C-u>" },
+        -- scroll_down = { normal = "<C-d>" },
+      },
     },
     keys = {
       { "<leader>ci", "<cmd>CopilotChat<CR>", mode = { "n", "v" } },

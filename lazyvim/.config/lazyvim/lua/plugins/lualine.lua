@@ -76,6 +76,10 @@ return {
     vim.api.nvim_set_hl(0, "SLError", { fg = "#bf616a", bg = gray })
     vim.api.nvim_set_hl(0, "SLWarning", { fg = "#D7BA7D", bg = gray })
     vim.api.nvim_set_hl(0, "SLCopilot", { fg = "#6CC644", bg = gray })
+    vim.api.nvim_set_hl(0, "SLMcphubStopped", { fg = "#6c7086", bg = gray })
+    vim.api.nvim_set_hl(0, "SLMcphubReady", { fg = "#50fa7b", bg = gray })
+    vim.api.nvim_set_hl(0, "SLMcphubWorking", { fg = "#ffb86c", bg = gray })
+    vim.api.nvim_set_hl(0, "SLMcphubError", { fg = "#ff5555", bg = gray })
 
     local hl_str = function(str, hl)
       return "%#" .. hl .. "#" .. str .. "%*"
@@ -112,7 +116,7 @@ return {
       end,
       padding = 0,
       color = function()
-        return { fg = gray }
+        return { fg = gray, bg = gray }
       end,
     }
 
@@ -283,42 +287,35 @@ return {
 
     local mcphub = {
       function()
-        -- Check if MCPHub is loaded
-        if not vim.g.loaded_mcphub then
-          return "󰐻 -"
-        end
-
-        local count = vim.g.mcphub_servers_count or 0
+        local icon = "󰐻"
         local status = vim.g.mcphub_status or "stopped"
         local executing = vim.g.mcphub_executing
+        local count = vim.g.mcphub_servers_count or 0
+        local group = "SLMcphubStopped"
+        local text = "-"
 
-        -- Show "-" when stopped
-        if status == "stopped" then
-          return "󰐻 -"
-        end
-
-        -- Show spinner when executing, starting, or restarting
-        if executing or status == "starting" or status == "restarting" then
-          local frames = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-          local frame = math.floor(vim.loop.now() / 100) % #frames + 1
-          return "󰐻 " .. frames[frame]
-        end
-
-        return "󰐻 " .. count
-      end,
-      color = function()
         if not vim.g.loaded_mcphub then
-          return { fg = "#6c7086" } -- Gray for not loaded
+          group = "SLMcphubStopped"
+          text = "-"
+        else
+          if status == "stopped" then
+            group = "SLMcphubStopped"
+            text = "-"
+          elseif executing or status == "starting" or status == "restarting" then
+            group = "SLMcphubWorking"
+            local frames = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+            local frame = math.floor(vim.loop.now() / 100) % #frames + 1
+            text = frames[frame]
+          elseif status == "ready" or status == "restarted" then
+            group = "SLMcphubReady"
+            text = tostring(count)
+          else
+            group = "SLMcphubError"
+            text = tostring(count)
+          end
         end
 
-        local status = vim.g.mcphub_status or "stopped"
-        if status == "ready" or status == "restarted" then
-          return { fg = "#50fa7b" } -- Green for connected
-        elseif status == "starting" or status == "restarting" then
-          return { fg = "#ffb86c" } -- Orange for connecting
-        else
-          return { fg = "#ff5555" } -- Red for error/stopped
-        end
+        return "%#" .. group .. "#" .. icon .. " " .. text .. "%*"
       end,
     }
 
