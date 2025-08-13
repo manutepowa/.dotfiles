@@ -9,6 +9,7 @@ end
 
 return {
   "mg979/vim-visual-multi",
+  lazy = false, -- Load immediately
   -- see https://github.com/mg979/vim-visual-multi/issues/241
   init = function()
     vim.g.VM_default_mappings = 0
