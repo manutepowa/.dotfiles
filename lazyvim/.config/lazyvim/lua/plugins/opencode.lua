@@ -31,7 +31,7 @@ return {
       ui = {
         fullscreen = false, -- Start in fullscreen mode (default: false)
         position = "right",
-        window_width = 0.50, -- Window width as ratio of total width
+        window_width = 0.60, -- Window width as ratio of total width
         display_model = true, -- Display model name on top winbar
         display_context_size = true,
         window_highlight = "Normal:OpencodeBackground,FloatBorder:OpencodeBorder", -- Highlight group for the opencode window
