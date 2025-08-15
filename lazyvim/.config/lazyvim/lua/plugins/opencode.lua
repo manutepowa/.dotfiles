@@ -36,7 +36,7 @@ return {
         display_context_size = true,
         window_highlight = "Normal:OpencodeBackground,FloatBorder:OpencodeBorder", -- Highlight group for the opencode window
         icons = {
-          preset = "text", -- 'emoji' | 'ascii'. Choose UI icon style (default: 'emoji')
+          preset = "ascii", -- 'emoji' | 'ascii'. Choose UI icon style (default: 'emoji')
           overrides = {}, -- Optional per-key overrides, see section below
         },
         output = {
