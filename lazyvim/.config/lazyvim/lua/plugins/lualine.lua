@@ -250,7 +250,7 @@ return {
 
     local copilot = {
       function()
-        local clients = vim.lsp.buf_get_clients()
+        local clients = vim.lsp.get_clients()
         local copilot_active = false
 
         -- add client
