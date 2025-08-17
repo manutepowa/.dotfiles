@@ -9,7 +9,7 @@ cursor-style = block_hollow
 cursor-style-blink = false
 shell-integration-features = no-cursor
 
-window-theme = system
+# window-theme = system
 gtk-titlebar = false
 window-width = 140
 window-height = 75
@@ -19,7 +19,7 @@ window-height = 75
 # window-position-y = 127
 font-family = Geist Mono
 font-style = Regular
-font-size = 12
+# font-size = 12
 adjust-cell-height = 20%
 adjust-cell-width = -10%
 
