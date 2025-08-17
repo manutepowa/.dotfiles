@@ -70,5 +70,16 @@ return {
       gtime_format = "%H:%M", -- Time format for templates
       tags = "", -- Default tags for templates
     },
+
+    -- Use title as filename instead of ID
+    note_id_func = function(title)
+      if title ~= nil then
+        -- Convert title to filename: remove special chars, replace spaces with hyphens
+        return title:gsub("[^A-Za-z0-9 ]", ""):gsub(" ", "-"):lower()
+      else
+        -- Fallback to timestamp if no title
+        return tostring(os.time())
+      end
+    end,
   },
 }
