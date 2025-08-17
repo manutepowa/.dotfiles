@@ -1,6 +1,12 @@
 ---
-title: Prueba Render Markdown
-tags: [test, draft, markdown, nvim, development]
+id: prueba
+aliases: []
+tags:
+  - test
+  - draft
+  - markdown
+  - nvim
+  - development
 ---
 
 # Prueba Render Markdown
@@ -186,6 +192,8 @@ Para mostrar \*asteriscos\* literales usa backslash.
 - [ ] Añadir autenticación JWT
 - [!] Revisar seguridad endpoints
 - [/] Testing de endpoints
+
+
 
 ### Frontend
 - [x] Configurar React

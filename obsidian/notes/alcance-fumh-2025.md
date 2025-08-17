@@ -1,9 +1,16 @@
 ---
-title: Alcance FUMH 2025
-tags: [project, fumh, 2025, scope, wordpress]
+id: alcance-fumh-2025
+aliases: []
+tags:
+  - project
+  - fumh
+  - scope
+  - wordpress
 ---
 
 # Alcance FUMH 2025
+
+este es
 
 ## Proyectos FUMH 2025
 
@@ -12,7 +19,6 @@ tags: [project, fumh, 2025, scope, wordpress]
 
 -   [ ] Sede Digital FUMH (Inet2you)
 -   [ ] Faqs Inet2you
-
 ### Ayudas parque
 
 -   [ ] Hub de comunicaciones con emprendedores (Sancho)

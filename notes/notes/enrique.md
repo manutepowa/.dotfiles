@@ -1,2 +1,0 @@
-# notas enrique
-- Las colu

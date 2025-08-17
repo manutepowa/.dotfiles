@@ -1,6 +1,13 @@
 ---
-title: Drupal Development Guide
-tags: [drupal, drush, development, cms, twig, database]
+id: drupal
+aliases: []
+tags:
+  - drupal
+  - drush
+  - development
+  - cms
+  - twig
+  - database
 ---
 
 # Drupal Development Guide
@@ -83,3 +90,5 @@ Ver todas las variables que tienes disponibles
 ```twig
 {{ dump(_context) }}
 ```
+
+[npm](notes/npm.md)

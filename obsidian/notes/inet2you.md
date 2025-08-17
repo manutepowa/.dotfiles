@@ -1,11 +1,13 @@
 ---
-title: Inet2You
-tags: [project, inet2you, platform, networking, ai, profiles]
+id: inet2you
+aliases: []
+tags: []
 ---
 
-# Inet2You
 
-# Inet2you
+# inet2you
+
+- [!] Vease también [drupal](notes/drupal.md)
 - 1 perfil puede tener multiples empresas - entidades.
     - Las pueden añadir despues o en el registro.
 - Selector checkbox para aparecer en el buscador, como perfil.

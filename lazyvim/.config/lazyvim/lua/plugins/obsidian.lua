@@ -31,10 +31,6 @@ return {
       {
         name = "notes", -- Name of the workspace
         path = os.getenv("HOME") .. "/.dotfiles/obsidian", -- Path to the notes directory
-        overrides = {
-          -- Override the default file extension for notes
-          disable_frontmatter = true, -- Disable frontmatter for this workspace
-        },
       },
     },
     completition = {
