@@ -6,4 +6,4 @@ tags: [people, enrique, contact, notes]
 # Notas Enrique
 
 # notas enrique
-- Las colu
+- Las columna
