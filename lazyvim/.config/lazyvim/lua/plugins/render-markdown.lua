@@ -34,6 +34,7 @@ return {
     },
     bullet = {
       icons = { "●", "○", "◆", "◇" },
+      right_pad = 1,
       highlight = "RenderMarkdownBullet",
     },
     checkbox = {

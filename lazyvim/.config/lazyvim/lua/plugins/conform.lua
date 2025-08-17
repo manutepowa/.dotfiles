@@ -39,6 +39,7 @@ return {
       javascript = check_eslint,
       typescript = check_eslint,
       twig = { "djlint" },
+      markdown = {},
     },
   },
 }
