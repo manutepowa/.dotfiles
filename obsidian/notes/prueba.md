@@ -26,6 +26,7 @@ Este es un documento completo para probar todas las características del plugin 
 
 > [!NOTE]
 > Esta es una nota importante que debes recordar.
+> Y también es tonto
 
 > [!TIP]
 > Usa `Ctrl+Shift+P` para abrir la paleta de comandos.
@@ -79,6 +80,7 @@ Este es un documento completo para probar todas las características del plugin 
 - [-] Tarea en progreso
 - [!] Tarea importante
 - [/] Tarea parcialmente completada
+- [x] Tarea
 
 ## Código y Syntax Highlighting
 

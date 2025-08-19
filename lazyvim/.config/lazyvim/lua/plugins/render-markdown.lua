@@ -118,7 +118,7 @@ return {
     },
     win_options = {
       conceallevel = {
-        default = vim.o.conceallevel,
+        default = 0,
         rendered = 3,
       },
       concealcursor = {
