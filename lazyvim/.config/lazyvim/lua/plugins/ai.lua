@@ -178,9 +178,9 @@ return {
     end,
     opts = {
       display = {
-        diff = {
-          provider = "mini_diff",
-        },
+        -- diff = {
+        --   provider = "mini_diff",
+        -- },
         chat = {
           start_in_insert_mode = true,
           icons = {
