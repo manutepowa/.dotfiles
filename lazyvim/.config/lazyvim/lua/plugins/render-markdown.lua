@@ -38,14 +38,10 @@ return {
       highlight = "RenderMarkdownBullet",
     },
     checkbox = {
-      unchecked = {
-        icon = "󰄱 ",
-        highlight = "RenderMarkdownUnchecked",
-      },
-      checked = {
-        icon = "󰱒 ",
-        highlight = "RenderMarkdownChecked",
-      },
+      bullet = false,
+      right_pad = 0, -- evita doble espaciado (ya pones un espacio dentro del icono)
+      unchecked = { icon = "󰄱 ", highlight = "RenderMarkdownUnchecked" },
+      checked = { icon = "󰱒 ", highlight = "RenderMarkdownChecked" },
       custom = {
         todo = { raw = "[-]", rendered = "󰥔 ", highlight = "RenderMarkdownTodo" },
         important = { raw = "[!]", rendered = "󰀦 ", highlight = "RenderMarkdownError" },
@@ -123,7 +119,7 @@ return {
       },
       concealcursor = {
         default = vim.o.concealcursor,
-        rendered = "nc",
+        rendered = "",
       },
     },
     completions = {
