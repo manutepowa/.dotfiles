@@ -27,6 +27,7 @@ return {
     { "<leader>nc", "<cmd>ObsidianToggleCheckbox<cr>", desc = "Toggle checkbox" },
   },
   opts = {
+    ui = { enable = false },
     workspaces = {
       {
         name = "notes", -- Name of the workspace
