@@ -1,6 +1,12 @@
 ---
-title: NPM and Package Management
-tags: [npm, monorepo, packages, development, pnpm]
+id: npm
+aliases: []
+tags:
+  - npm
+  - monorepo
+  - packages
+  - development
+  - pnpm
 ---
 
 # NPM and Package Management

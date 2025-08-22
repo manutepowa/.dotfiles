@@ -6,6 +6,7 @@ tags:
   - pricing
   - gpt
   - llm
+  - AI
 ---
 
 # Comparación de Precios de LLMs 2025

@@ -17,7 +17,7 @@ este es
 ## Proyectos
 ### Ayudas nominativa
 
--   [ ] Sede Digital FUMH (Inet2you)
+-   [x] Sede Digital FUMH (Inet2you)
 -   [ ] Faqs Inet2you
 ### Ayudas parque
 
