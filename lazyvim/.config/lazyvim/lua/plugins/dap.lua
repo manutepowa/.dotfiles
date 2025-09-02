@@ -4,6 +4,7 @@ return {
     "nvim-neotest/nvim-nio",
     "rcarriga/nvim-dap-ui",
   },
+  event = "VeryLazy",
   config = function()
     local dap = require("dap")
     local icons = require("config.icons")
