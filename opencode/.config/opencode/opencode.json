@@ -1,0 +1,66 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "system",
+  "model": "github-copilot/claude-sonnet-4",
+  "disabled_providers": [
+    "openai",
+    "gemini"
+  ],
+  "autoshare": false,
+  "autoupdate": true,
+  "mcp": {
+    "perplexity": {
+      "environment": {
+        "PERPLEXITY_API_KEY": "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",
+        "PERPLEXITY_MODEL": "sonar-pro"
+      },
+      "type": "local",
+      "command": [
+        "npx",
+        "perplexity-mcp"
+      ]
+    },
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx",
+        "@playwright/mcp@latest"
+      ]
+    },
+    "context7": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "enabled": true
+    }
+  },
+  "keybinds": {
+    "messages_page_down": "",
+    "messages_half_page_up": "ctrl+alt+k",
+    "messages_half_page_down": "ctrl+alt+j",
+    "messages_previous": "",
+    "tool_details": "<leader>d",
+    "session_list": "<leader>l",
+    "leader": "alt+n",
+    "messages_next": "",
+    "messages_first": "",
+    "messages_last": "",
+    "app_exit": "ctrl+c,<leader>q",
+    "session_share": "<leader>s",
+    "input_submit": "enter",
+    "input_paste": "ctrl+v",
+    "input_clear": "ctrl+c",
+    "session_interrupt": "esc",
+    "session_compact": "<leader>c",
+    "model_list": "<leader>m",
+    "theme_list": "<leader>t",
+    "project_init": "<leader>i",
+    "editor_open": "<leader>e",
+    "session_new": "<leader>n",
+    "input_newline": "shift+enter,alt+j",
+    "messages_page_up": ""
+  }
+}

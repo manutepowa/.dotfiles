@@ -128,7 +128,7 @@ return {
     build = "make tiktoken",
     opts = {
       system_prompt = "Responde siempre en el mismo idioma que se te pregunte.",
-      model = "gpt-5", -- mantenemos tu modelo preferido
+      model = "gpt-4.1", -- mantenemos tu modelo preferido
       temperature = 0.2, -- más determinista
       layout = "float", -- experiencia moderna (omite si ya es default)
       auto_follow_cursor = true, -- sigue el cursor para mejor contexto
