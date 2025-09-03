@@ -11,7 +11,6 @@
   "mcp": {
     "perplexity": {
       "environment": {
-        "PERPLEXITY_API_KEY": "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",
         "PERPLEXITY_MODEL": "sonar-pro"
       },
       "type": "local",
