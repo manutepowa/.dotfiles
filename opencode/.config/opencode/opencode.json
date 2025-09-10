@@ -6,6 +6,11 @@
     "openai",
     "gemini"
   ],
+  "provider": {
+    "zhipuai": {
+      "api": "https://api.z.ai/api/coding/paas/v4"
+    },
+  },
   "autoshare": false,
   "autoupdate": true,
   "mcp": {
