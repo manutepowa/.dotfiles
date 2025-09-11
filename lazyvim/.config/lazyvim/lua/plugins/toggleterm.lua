@@ -3,14 +3,7 @@ return {
   keys = {
     { [[<A-->]] },
   },
-  cmd = {
-    "ToggleTerm",
-    "TermExec",
-    "ToggleTermToggleAll",
-    "ToggleTermSendCurrentLine",
-    "ToggleTermSendVisualLines",
-    "ToggleTermSendVisualSelection",
-  },
+  lazy = false,
   config = function()
     local status_ok, toggleterm = pcall(require, "toggleterm")
     if not status_ok then

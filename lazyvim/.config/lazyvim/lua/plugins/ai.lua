@@ -161,14 +161,29 @@ return {
 
       -- Terminal Configuration
       terminal = {
-        split_side = "right", -- "left" or "right"
-        split_width_percentage = 0.60,
+        -- split_side = "right", -- "left" or "right"
+        -- split_width_percentage = 0.60,
+        snacks_win_opts = {
+          position = "float",
+          width = 0.9,
+          height = 0.9,
+          keys = {
+            claude_hide = {
+              "<A-,>",
+              function(self)
+                self:hide()
+              end,
+              mode = "t",
+              desc = "Hide",
+            },
+          },
+        },
       },
 
       -- Diff Integration
       diff_opts = {
         auto_close_on_accept = true,
-        vertical_split = true,
+        vertical_split = false,
         open_in_current_tab = true,
       },
     },
@@ -177,10 +192,10 @@ return {
       -- { "<leader>cc", "<cmd>ClaudeCode<cr>", desc = "Claude Code Toggle Claude" },
       { "<leader>cf", "<cmd>ClaudeCodeFocus<cr>", desc = "Claude Code Focus" },
       { "<leader>cr", "<cmd>ClaudeCode --resume<cr>", desc = "Claude Code Resume" },
-      { "<leader>cc", "<cmd>ClaudeCode --continue<cr>", desc = "Claude Code Continue" },
+      { "<A-,>", "<cmd>ClaudeCode --continue<cr>", desc = "Claude Code Continue" },
       { "<leader>cm", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Claude Code Select model" },
       { "<leader>cb", "<cmd>ClaudeCodeAdd %<cr>", desc = "Claude Code add current buffer" },
-      { "<leader>cs", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Claude Code send to Claude" },
+      { "<leader>cc", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Claude Code send to Claude" },
       {
         "<leader>cs",
         "<cmd>ClaudeCodeTreeAdd<cr>",
