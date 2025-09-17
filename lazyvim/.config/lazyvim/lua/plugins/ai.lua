@@ -6,7 +6,7 @@ return {
   --     "stevearc/dressing.nvim",
   --     "nvim-lua/plenary.nvim",
   --     "MunifTanjim/nui.nvim",
-  --     "echasnovski/mini.icons", -- or echasnovski/mini.icons
+  --     "nvim-mini/mini.icons", -- or echasnovski/mini.icons
   --     {
   --       -- support for image pasting
   --       "HakonHarnes/img-clip.nvim",
@@ -154,7 +154,7 @@ return {
   {
     "coder/claudecode.nvim",
     dependencies = { "folke/snacks.nvim" },
-    config = {
+    opts = {
       -- Server Configuration
       auto_start = true,
       log_level = "info", -- "trace", "debug", "info", "warn", "error"

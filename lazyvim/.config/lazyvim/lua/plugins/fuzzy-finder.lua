@@ -275,7 +275,7 @@ return {
           },
         },
       },
-      { "echasnovski/mini.icons" },
+      { "nvim-mini/mini.icons" },
     },
     keys = {
       -- { "<c-j>", "<c-j>", ft = "fzf", mode = "t", nowait = true },

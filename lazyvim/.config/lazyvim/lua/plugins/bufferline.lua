@@ -1,7 +1,7 @@
 return {
   "akinsho/bufferline.nvim",
   event = "VeryLazy",
-  dependencies = "echasnovski/mini.icons",
+  dependencies = "nvim-mini/mini.icons",
   opts = {
     options = {
       numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,

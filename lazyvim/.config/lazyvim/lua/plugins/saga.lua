@@ -2,7 +2,7 @@ return {
   "glepnir/lspsaga.nvim",
   event = "LspAttach",
   dependencies = {
-    "echasnovski/mini.icons",
+    "nvim-mini/mini.icons",
     "nvim-treesitter/nvim-treesitter",
   },
   config = function()
