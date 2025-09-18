@@ -18,22 +18,22 @@ end
 
 M.on_attach = function(client, bufnr)
   if client.name == "ts_ls" then
-    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentFormatting = false
   end
   if client.name == "eslint" then
-    client.server_capabilities.documentFormattingProvider = true
+    client.server_capabilities.documentFormatting = true
   end
 
   if client.name == "biome" then
-    client.server_capabilities.documentFormattingProvider = true
+    client.server_capabilities.documentFormatting = true
   end
 
   if client.name == "intelephense" then
-    client.server_capabilities.documentFormattingProvider = true
+    client.server_capabilities.documentFormatting = true
   end
 
   if client.name == "astro" then
-    client.server_capabilities.documentFormattingProvider = true
+    client.server_capabilities.documentFormatting = true
   end
 
   lsp_keymaps(client.name)
