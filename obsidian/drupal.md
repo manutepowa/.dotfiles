@@ -92,3 +92,7 @@ Ver todas las variables que tienes disponibles
 ```
 
 [npm](notes/npm.md)
+
+# Ignore user abort
+RunCloud → Web App eventos → Settings → PHP Settings → disable_functions → eliminar ignore_user_abort (y set_time_limit si está). Guardar. 
+sudo systemctl reload php*-fpm && sudo systemctl reload nginx (si procede).

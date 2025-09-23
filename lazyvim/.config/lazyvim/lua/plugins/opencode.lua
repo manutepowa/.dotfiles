@@ -26,6 +26,7 @@ return {
         window = {
           submit_insert = "<C-s>",
           switch_mode = "<M-n>", -- Switch between modes (build/plan)
+          stop = "<esc>", -- Stop opencode while it is running
         },
       },
       ui = {

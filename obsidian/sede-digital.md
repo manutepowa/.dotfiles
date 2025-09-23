@@ -1,6 +1,12 @@
 ---
-title: Sede Digital
-tags: [project, sede-digital, platform, processes, documentation]
+id: sede-digital
+aliases: []
+tags:
+  - project
+  - sede-digital
+  - platform
+  - processes
+  - documentation
 ---
 
 # Sede Digital
@@ -86,3 +92,15 @@ No se si habrán bloques ocultos para distintos actores
 - Noticias ? (Clicking)
 - Sería interesante notificaciones push
 - Documentación empresa.
+
+
+## Reunión sistemas 23/09
+### Usuarios
+- El user entrará cuando sergio sepa que una empresa vá a entrar.
+- Será un user que estará en inet, tendrá su empresa, y Sergio lo asignará al trámite (Aunque ya esté creado.)
+
+## Templates (preconfigurado) - Por ejemplo ejecutar un botón y que cree los bloques necesarios.
+1. Son tipos de bloque configurados uno detrás de otro. Todos conforman el trámite.
+2. Los tipos de bloque serán de varios tipos con diferentes campos y opciones.
+
+## Ficheros

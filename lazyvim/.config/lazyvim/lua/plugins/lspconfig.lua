@@ -14,6 +14,7 @@ local servers = {
 
 return {
   "neovim/nvim-lspconfig",
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     {
       "jose-elias-alvarez/typescript.nvim",
@@ -32,7 +33,6 @@ return {
       root_markers = { ".git", ".hg", ".svn", "package.json", "pyproject.toml", "go.mod" },
       capabilities = require("config.lsphandler").capabilities,
     })
-
     -- Server-specific configurations
     vim.lsp.config("ts_ls", {
       settings = {

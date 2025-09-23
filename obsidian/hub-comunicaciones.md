@@ -1,6 +1,12 @@
 ---
-title: Hub Comunicaciones
-tags: [project, hub, meetings, platform, campus]
+id: hub-comunicaciones
+aliases: []
+tags:
+  - project
+  - hub
+  - meetings
+  - platform
+  - campus
 ---
 
 # Hub Comunicaciones
@@ -20,3 +26,9 @@ tags: [project, hub, meetings, platform, campus]
 - Recordatorios tutorías.
 
 - Calendarios de jornadas y eventos en web.
+
+
+## Reunión buena de sistemas (definitiva)
+
+- 
+
