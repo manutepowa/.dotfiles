@@ -5,7 +5,7 @@ return {
     require("opencode").setup({
       keymap = {
         global = {
-          toggle = "<leader>oa", -- Open opencode. Close if opened
+          toggle = "<A-.>", -- Open opencode. Close if opened
           open_input = "<leader>oi", -- Opens and focuses on input window on insert mode
           open_input_new_session = "<leader>oI", -- Opens and focuses on input window on insert mode. Creates a new session
           open_output = "<leader>oo", -- Opens and focuses on output window
@@ -30,9 +30,9 @@ return {
         },
       },
       ui = {
-        fullscreen = false, -- Start in fullscreen mode (default: false)
+        floating = true,
         position = "right",
-        window_width = 0.60, -- Window width as ratio of total width
+        window_width = 0.70, -- Window width as ratio of total width
         display_model = true, -- Display model name on top winbar
         display_context_size = true,
         window_highlight = "Normal:OpencodeBackground,FloatBorder:OpencodeBorder", -- Highlight group for the opencode window
