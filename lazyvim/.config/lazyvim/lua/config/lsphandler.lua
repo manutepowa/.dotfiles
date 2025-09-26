@@ -17,15 +17,13 @@ local function lsp_keymaps(clientName)
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name == "ts_ls" then
-    client.server_capabilities.documentFormatting = false
-  end
-  if client.name == "eslint" then
-    client.server_capabilities.documentFormatting = true
+  if client.name == "ts_ls" or client.name == "eslint" then
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
   end
 
   if client.name == "biome" then
-    client.server_capabilities.documentFormatting = true
+    client.server_capabilities.documentFormatting = true -- disable biome formatting by conflict with prettier
   end
 
   if client.name == "intelephense" then
