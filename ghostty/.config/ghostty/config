@@ -1,6 +1,6 @@
 confirm-close-surface = false
 # Theme
-theme = OneHalfDark
+theme = One Half Dark
 background = #1C1C1C
 # cursor-invert-fg-bg = true
 cursor-color = #CCC
