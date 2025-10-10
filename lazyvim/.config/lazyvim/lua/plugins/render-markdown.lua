@@ -129,4 +129,24 @@ return {
     },
   },
   ft = { "markdown", "Avante", "codecompanion", "copilot-chat", "opencode_output" },
+  config = function(_, opts)
+    require("render-markdown").setup(opts)
+
+    -- Configurar colores personalizados para los títulos
+    -- Colores de primer plano (texto)
+    vim.api.nvim_set_hl(0, "RenderMarkdownH1", { fg = "#feca57", bold = true }) -- Amarillo dorado
+    vim.api.nvim_set_hl(0, "RenderMarkdownH2", { fg = "#4ecdc4", bold = true }) -- Turquesa
+    vim.api.nvim_set_hl(0, "RenderMarkdownH3", { fg = "#96ceb4", bold = true }) -- Verde menta
+    vim.api.nvim_set_hl(0, "RenderMarkdownH4", { fg = "#45b7d1", bold = true }) -- Azul cielo
+    vim.api.nvim_set_hl(0, "RenderMarkdownH5", { fg = "#ff6b6b", bold = true }) -- Rojo coral
+    vim.api.nvim_set_hl(0, "RenderMarkdownH6", { fg = "#ff9ff3", bold = true }) -- Rosa
+
+    -- Colores de fondo (opcionales, puedes comentarlos si prefieres solo texto coloreado)
+    vim.api.nvim_set_hl(0, "RenderMarkdownH1Bg", { bg = "#2d2b1b" }) -- Fondo amarillo oscuro
+    vim.api.nvim_set_hl(0, "RenderMarkdownH2Bg", { bg = "#1b2d2d" }) -- Fondo turquesa oscuro
+    vim.api.nvim_set_hl(0, "RenderMarkdownH3Bg", { bg = "#1b2d23" }) -- Fondo verde oscuro
+    vim.api.nvim_set_hl(0, "RenderMarkdownH4Bg", { bg = "#1b2a2d" }) -- Fondo azul oscuro
+    vim.api.nvim_set_hl(0, "RenderMarkdownH5Bg", { bg = "#2d1b1b" }) -- Fondo rojo oscuro
+    vim.api.nvim_set_hl(0, "RenderMarkdownH6Bg", { bg = "#2d1b2a" }) -- Fondo rosa oscuro
+  end,
 }
