@@ -176,6 +176,15 @@ return {
               mode = "t",
               desc = "Hide",
             },
+            term_normal = {
+              "kj",
+              function()
+                return vim.cmd("stopinsert")
+              end,
+              mode = "t",
+              expr = false,
+              desc = "kj to normal mode",
+            },
           },
         },
       },
