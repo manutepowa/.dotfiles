@@ -22,6 +22,7 @@ return {
         width = 80,
         wo = { number = true, wrap = true }, -- window options
       },
+      max_response_size = 1048576, -- 1MB en bytes (aumentado desde 32KB por defecto)
     },
     contenttypes = {
       ["text/html"] = {
