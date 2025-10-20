@@ -3,7 +3,7 @@
 -- Add any additional options here
 local options = {
   -- backup = false, -- creates a backup file
-  -- clipboard = "unnamedplus", -- allows neovim to access the system clipboard
+  clipboard = "unnamedplus", -- allows neovim to access the system clipboard
   -- completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   -- conceallevel = 0, -- so that `` is visible in markdown files
   -- diffopt = "filler,iwhite,internal,linematch:60,algorithm:patience",

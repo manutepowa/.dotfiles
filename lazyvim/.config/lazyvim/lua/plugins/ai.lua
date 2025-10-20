@@ -201,7 +201,7 @@ return {
       -- { "<leader>cc", "<cmd>ClaudeCode<cr>", desc = "Claude Code Toggle Claude" },
       { "<leader>cf", "<cmd>ClaudeCodeFocus<cr>", desc = "Claude Code Focus" },
       { "<leader>cr", "<cmd>ClaudeCode --resume<cr>", desc = "Claude Code Resume" },
-      { "<A-,>", "<cmd>ClaudeCode --continue<cr>", desc = "Claude Code Continue" },
+      { "<A-,>", "<cmd>ClaudeCode<cr>", desc = "Claude Code Continue" },
       { "<leader>cm", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Claude Code Select model" },
       { "<leader>cb", "<cmd>ClaudeCodeAdd %<cr>", desc = "Claude Code add current buffer" },
       { "<leader>cc", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Claude Code send to Claude" },
