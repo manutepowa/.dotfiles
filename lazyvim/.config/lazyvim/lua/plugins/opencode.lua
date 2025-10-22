@@ -3,8 +3,8 @@ return {
   lazy = false,
   config = function()
     require("opencode").setup({
-      preferred_picker = nil, -- 'telescope', 'fzf', 'mini.pick', 'snacks', if nil, it will use the best available picker. Note mini.pick does not support multiple selections
-      preferred_completion = nil, -- 'blink', 'nvim-cmp','vim_complete' if nil, it will use the best available completion
+      preferred_picker = "snacks", -- 'telescope', 'fzf', 'mini.pick', 'snacks', if nil, it will use the best available picker. Note mini.pick does not support multiple selections
+      preferred_completion = "nvim-cmp", -- 'blink', 'nvim-cmp','vim_complete' if nil, it will use the best available completion
       default_global_keymaps = false, -- Disable default global keymaps since we're defining our own
       default_mode = "build", -- 'build' or 'plan' or any custom configured
       keymap_prefix = "<leader>o", -- Default keymap prefix for global keymaps
@@ -34,16 +34,16 @@ return {
           ["<leader>opd"] = { "permission_deny" }, -- Deny permission request once
         },
         input_window = {
-          ["<C-s>"] = { "submit_input_prompt", mode = { "n", "i" } }, -- Submit prompt (maintaining your original submit_insert mapping)
-          ["<esc>"] = { "close" }, -- Close UI windows
-          ["<C-c>"] = { "stop" }, -- Stop opencode while it is running
+          ["<C-s>"] = { "submit_input_prompt", mode = { "n", "i" } },
+          ["q"] = { "close" }, -- Close UI windows
+          ["<esc>"] = { "stop", mode = { "n", "i" } }, -- Stop opencode while it is running
           ["~"] = { "mention_file", mode = "i" }, -- Pick a file and add to context. See File Mentions section
           ["@"] = { "mention", mode = "i" }, -- Insert mention (file/agent)
           ["/"] = { "slash_commands", mode = "i" }, -- Pick a command to run in the input window
           ["<tab>"] = { "toggle_pane", mode = { "n", "i" } }, -- Toggle between input and output panes
           ["<up>"] = { "prev_prompt_history", mode = { "n", "i" } }, -- Navigate to previous prompt in history
           ["<down>"] = { "next_prompt_history", mode = { "n", "i" } }, -- Navigate to next prompt in history
-          ["<M-n>"] = { "switch_mode" }, -- Switch between modes (maintaining your original switch_mode mapping)
+          ["<M-n>"] = { "switch_mode", mode = { "n", "i" } }, -- Switch between modes (maintaining your original switch_mode mapping)
         },
         output_window = {
           ["<esc>"] = { "close" }, -- Close UI windows
@@ -64,14 +64,13 @@ return {
         },
       },
       ui = {
-        floating = true,
         position = "right",
         window_width = 0.70, -- Window width as ratio of total width
         display_model = true, -- Display model name on top winbar
         display_context_size = true,
         window_highlight = "Normal:OpencodeBackground,FloatBorder:OpencodeBorder", -- Highlight group for the opencode window
         icons = {
-          preset = "ascii", -- 'emoji' | 'ascii'. Choose UI icon style (default: 'emoji')
+          preset = "emoji", -- 'emoji' | 'ascii'. Choose UI icon style (default: 'emoji')
           overrides = {}, -- Optional per-key overrides, see section below
         },
         output = {
