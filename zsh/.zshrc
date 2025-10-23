@@ -55,6 +55,8 @@ alias ddr='ddev restart' # all list
 alias ddx='ddev xdebug' # all list
 alias ddm='ddev mailpit' # all list
 
+# claude code
+alias cc='claude' # all list
 # Bazecore
 alias bb='/home/manuel/Descargas/NEWDEB/Bazecor-1.7.0-x64.AppImage' # all list
 
