@@ -1,5 +1,4 @@
 local servers = {
-  "ts_ls",
   "lua_ls",
   "tailwindcss",
   "intelephense",
@@ -19,7 +18,11 @@ return {
     {
       "pmizio/typescript-tools.nvim",
       dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-      opts = {},
+      config = function()
+        require("typescript-tools").setup({
+          on_attach = require("config.lsphandler").on_attach,
+        })
+      end,
       keys = {
         { "<leader>toi", "<cmd>TSToolsOrganizeImports<cr>", desc = "Organize Imports" },
         { "<leader>tsi", "<cmd>TSToolsSortImports<cr>", desc = "Sort Imports" },
