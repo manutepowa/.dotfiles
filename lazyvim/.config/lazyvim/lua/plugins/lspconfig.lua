@@ -17,14 +17,20 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     {
-      "jose-elias-alvarez/typescript.nvim",
-      init = function()
-        require("lazyvim.util").lsp.on_attach(function(_, buffer)
-        -- stylua: ignore
-        vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
-          vim.keymap.set("n", "<leader>cR", "TypescriptRenameFile", { desc = "Rename File", buffer = buffer })
-        end)
-      end,
+      "pmizio/typescript-tools.nvim",
+      dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+      opts = {},
+      keys = {
+        { "<leader>toi", "<cmd>TSToolsOrganizeImports<cr>", desc = "Organize Imports" },
+        { "<leader>tsi", "<cmd>TSToolsSortImports<cr>", desc = "Sort Imports" },
+        { "<leader>tri", "<cmd>TSToolsRemoveUnusedImports<cr>", desc = "Remove Unused Imports" },
+        { "<leader>tru", "<cmd>TSToolsRemoveUnused<cr>", desc = "Remove Unused Statements" },
+        { "<leader>tai", "<cmd>TSToolsAddMissingImports<cr>", desc = "Add Missing Imports" },
+        { "<leader>tfa", "<cmd>TSToolsFixAll<cr>", desc = "Fix All Errors" },
+        { "<leader>tgd", "<cmd>TSToolsGoToSourceDefinition<cr>", desc = "Go to Source Definition" },
+        { "<leader>trf", "<cmd>TSToolsRenameFile<cr>", desc = "Rename File" },
+        { "<leader>tfr", "<cmd>TSToolsFileReferences<cr>", desc = "Find File References" },
+      },
     },
   },
   config = function()
