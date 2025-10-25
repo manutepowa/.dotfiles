@@ -263,20 +263,20 @@ return {
           }),
           ["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
         }),
-        formatting = {
-          fields = { "kind", "abbr", "menu" },
-          format = function(entry, vim_item)
-            vim_item.kind = kind_icons[vim_item.kind]
-            vim_item.menu = ({
-              nvim_lsp = "",
-              luasnip = "",
-              buffer = "",
-              nvim_lua = "",
-              path = "",
-            })[entry.source.name]
-            return vim_item
-          end,
-        },
+        -- formatting = {
+        --   fields = { "kind", "abbr", "menu" },
+        --   format = function(entry, vim_item)
+        --     vim_item.kind = kind_icons[vim_item.kind]
+        --     vim_item.menu = ({
+        --       nvim_lsp = "",
+        --       luasnip = "",
+        --       buffer = "",
+        --       nvim_lua = "",
+        --       path = "",
+        --     })[entry.source.name]
+        --     return vim_item
+        --   end,
+        -- },
         sources = {
           { name = "nvim_lsp", keyword_length = 1 },
           { name = "nvim_lua", keyword_length = 1 },
