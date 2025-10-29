@@ -40,6 +40,23 @@ return {
       typescript = check_eslint,
       twig = { "djlint" },
       markdown = {},
+      http = { "kulala" },
+    },
+    formatters = {
+      kulala = {
+        command = "kulala-fmt", -- nombre del comando
+        args = { "format", "$FILENAME" }, -- argumentos estándar
+        stdin = false,
+      },
+    },
+  },
+  keys = {
+    {
+      "<leader>cf",
+      function()
+        require("conform").format({ async = true })
+      end,
+      desc = "Conform Format File",
     },
   },
 }

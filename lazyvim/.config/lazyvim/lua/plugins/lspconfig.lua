@@ -9,6 +9,7 @@ local servers = {
   "jsonls",
   "biome",
   "twiggy_language_server",
+  "kulala_ls",
 }
 
 return {

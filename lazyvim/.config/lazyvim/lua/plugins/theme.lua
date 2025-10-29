@@ -3,9 +3,6 @@ return {
     "LunarVim/darkplus.nvim",
   },
   {
-    "samharju/synthweave.nvim",
-  },
-  {
     -- LazyVim configuration
     "LazyVim/LazyVim",
     opts = {
