@@ -189,6 +189,7 @@ return {
       { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-path" },
       { "hrsh7th/cmp-cmdline" },
+      { "hrsh7th/cmp-omni" },
       { "saadparwaiz1/cmp_luasnip" },
       { "hrsh7th/cmp-nvim-lua" },
     },
@@ -282,6 +283,7 @@ return {
           { name = "nvim_lua", keyword_length = 1 },
           { name = "luasnip", keyword_length = 1 },
           { name = "buffer", keyword_length = 2 },
+          { name = "omni", option = { disable_omnifuncs = { "v:lua.vim.lsp.omnifunc" } } },
           { name = "path" },
         },
         sorting = {

@@ -38,7 +38,7 @@ return {
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
       javascript = check_eslint,
       typescript = check_eslint,
-      twig = { "djlint" },
+      -- twig = { "djlint" },
       markdown = {},
       http = { "kulala" },
     },

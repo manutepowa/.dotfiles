@@ -34,9 +34,16 @@ return {
           ["<leader>opd"] = { "permission_deny" }, -- Deny permission request once
         },
         input_window = {
-          ["<C-s>"] = { "submit_input_prompt", mode = { "n", "i" } },
+          ["<cr>"] = {
+            "submit_input_prompt",
+            mode = "n",
+          },
+          ["<m-cr>"] = { -- To disable conflict with normal Enter key behavior in insert mode
+            "submit_input_prompt",
+            mode = { "i", "n" },
+          },
           ["q"] = { "close" }, -- Close UI windows
-          ["<esc>"] = { "stop", mode = { "n", "i" } }, -- Stop opencode while it is running
+          ["<esc>"] = { "cancel", mode = { "n", "i" } }, -- Cancel opencode while it is running
           ["~"] = { "mention_file", mode = "i" }, -- Pick a file and add to context. See File Mentions section
           ["@"] = { "mention", mode = "i" }, -- Insert mention (file/agent)
           ["/"] = { "slash_commands", mode = "i" }, -- Pick a command to run in the input window
@@ -47,7 +54,7 @@ return {
         },
         output_window = {
           ["<esc>"] = { "close" }, -- Close UI windows
-          ["<C-c>"] = { "stop" }, -- Stop opencode while it is running
+          ["<C-c>"] = { "cancel" }, -- Cancel opencode while it is running
           ["]]"] = { "next_message" }, -- Navigate to next message in the conversation
           ["[["] = { "prev_message" }, -- Navigate to previous message in the conversation
           ["<tab>"] = { "toggle_pane", mode = { "n", "i" } }, -- Toggle between input and output panes
@@ -70,7 +77,7 @@ return {
         display_context_size = true,
         window_highlight = "Normal:OpencodeBackground,FloatBorder:OpencodeBorder", -- Highlight group for the opencode window
         icons = {
-          preset = "emoji", -- 'emoji' | 'ascii'. Choose UI icon style (default: 'emoji')
+          preset = "nerdfonts", -- 'emoji' | 'ascii'. Choose UI icon style (default: 'emoji')
           overrides = {}, -- Optional per-key overrides, see section below
         },
         output = {
