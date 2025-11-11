@@ -22,7 +22,8 @@
       "command": [
         "npx",
         "perplexity-mcp"
-      ]
+      ],
+      "enabled": true
     },
     "playwright": {
       "type": "local",
@@ -45,11 +46,8 @@
     "messages_page_down": "",
     "messages_half_page_up": "ctrl+alt+k",
     "messages_half_page_down": "ctrl+alt+j",
-    "messages_previous": "",
-    "tool_details": "<leader>d",
     "session_list": "<leader>l",
     "leader": "alt+n",
-    "messages_next": "",
     "messages_first": "",
     "messages_last": "",
     "app_exit": "ctrl+c,<leader>q",
@@ -61,7 +59,6 @@
     "session_compact": "<leader>c",
     "model_list": "<leader>m",
     "theme_list": "<leader>t",
-    "project_init": "<leader>i",
     "editor_open": "<leader>e",
     "session_new": "<leader>n",
     "input_newline": "shift+enter,alt+j",
