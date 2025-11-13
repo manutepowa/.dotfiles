@@ -20,6 +20,8 @@ vim.keymap.del("n", "<C-h>")
 vim.keymap.del("n", "<C-w><space>")
 vim.keymap.del("n", "<C-w>d")
 vim.keymap.del("n", "<C-w><C-d>")
+vim.keymap.del("v", "<Tab>")
+vim.keymap.del("v", "<S-Tab>")
 
 vim.keymap.set("v", "<Tab>", ">gv", { desc = "Indent right" })
 vim.keymap.set("v", "<S-Tab>", "<gv", { desc = "Indent left" })
