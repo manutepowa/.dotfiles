@@ -1,5 +1,17 @@
 {
   "mcpServers": {
+    "zai-mcp-server": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@z_ai/mcp-server"
+      ],
+      "env": {
+        "Z_AI_API_KEY": "8ab57739c1da415b882c248bf31e1d2b.nt13JvOakzPxUwzl",
+        "Z_AI_MODE": "ZAI"
+      }
+    },
     "web-search-prime": {
       "type": "http",
       "url": "https://api.z.ai/api/mcp/web_search_prime/mcp",
@@ -22,6 +34,13 @@
         "perplexity-mcp",
         "--model",
         "sonar-pro"
+      ],
+      "env": {}
+    },
+    "human-mcp": {
+      "command": "npx",
+      "args": [
+        "@goonnguyen/human-mcp"
       ],
       "env": {}
     }
