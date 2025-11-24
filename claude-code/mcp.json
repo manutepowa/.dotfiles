@@ -19,6 +19,13 @@
         "Authorization": "8ab57739c1da415b882c248bf31e1d2b.nt13JvOakzPxUwzl"
       }
     },
+    "web-reader": {
+      "type": "http",
+      "url": "https://api.z.ai/api/mcp/web_reader/mcp",
+      "headers": {
+        "Authorization": "8ab57739c1da415b882c248bf31e1d2b.nt13JvOakzPxUwzl"
+      }
+    },
     "tavily": {
       "command": "npx",
       "args": [
