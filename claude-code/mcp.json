@@ -8,7 +8,7 @@
         "@z_ai/mcp-server"
       ],
       "env": {
-        "Z_AI_API_KEY": "8ab57739c1da415b882c248bf31e1d2b.nt13JvOakzPxUwzl",
+        "Z_AI_API_KEY": "api_key",
         "Z_AI_MODE": "ZAI"
       }
     },
@@ -16,14 +16,14 @@
       "type": "http",
       "url": "https://api.z.ai/api/mcp/web_search_prime/mcp",
       "headers": {
-        "Authorization": "8ab57739c1da415b882c248bf31e1d2b.nt13JvOakzPxUwzl"
+        "Authorization": "api_key"
       }
     },
     "web-reader": {
       "type": "http",
       "url": "https://api.z.ai/api/mcp/web_reader/mcp",
       "headers": {
-        "Authorization": "8ab57739c1da415b882c248bf31e1d2b.nt13JvOakzPxUwzl"
+        "Authorization": "api_key"
       }
     },
     "tavily": {

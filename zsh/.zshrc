@@ -106,3 +106,6 @@ alias la='eza -lbhHigUmuSa' # all list
 
 
 PATH=~/.console-ninja/.bin:$PATH
+
+# opencode
+export PATH=/home/manuel/.opencode/bin:$PATH

@@ -47,7 +47,7 @@ return {
           ["~"] = { "mention_file", mode = "i" }, -- Pick a file and add to context. See File Mentions section
           ["@"] = { "mention", mode = "i" }, -- Insert mention (file/agent)
           ["/"] = { "slash_commands", mode = "i" }, -- Pick a command to run in the input window
-          ["<tab>"] = { "toggle_pane", mode = { "n", "i" } }, -- Toggle between input and output panes
+          ["<tab>"] = { "switch_mode", mode = { "n", "i" } }, -- Switch between modes
           ["<up>"] = { "prev_prompt_history", mode = { "n", "i" } }, -- Navigate to previous prompt in history
           ["<down>"] = { "next_prompt_history", mode = { "n", "i" } }, -- Navigate to next prompt in history
           ["<M-n>"] = { "switch_mode", mode = { "n", "i" } }, -- Switch between modes (maintaining your original switch_mode mapping)
