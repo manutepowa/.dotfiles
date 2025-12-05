@@ -12,7 +12,7 @@ return {
       ---@type opencode.Opts
       vim.g.opencode_opts = {
         -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition".
-        auto_reload = true,
+        auto_close = true,
         enabled = "snacks",
         ---@type opencode.provider.Snacks
         provider = {
@@ -29,10 +29,10 @@ return {
       vim.o.autoread = true
 
       -- Recommended/example keymaps.
-      vim.keymap.set("n", "<A-C-k>", function()
+      vim.keymap.set("n", "<A-S-k>", function()
         require("opencode").command("session.half.page.up")
       end, { desc = "opencode half page up" })
-      vim.keymap.set("n", "<A-C-j>", function()
+      vim.keymap.set("n", "<A-S-j>", function()
         require("opencode").command("session.half.page.down")
       end, { desc = "opencode half page down" })
       vim.keymap.set({ "n", "x" }, "<C-x>", function()

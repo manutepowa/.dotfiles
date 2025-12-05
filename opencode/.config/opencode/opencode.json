@@ -61,10 +61,9 @@
     }
   },
   "keybinds": {
-    "session_list": "<leader>l",
+    "session_list": "<leader>s",
     "leader": "alt+n",
     "app_exit": "ctrl+c,<leader>q",
-    "session_share": "<leader>s",
     "input_submit": "enter",
     "input_paste": "ctrl+v",
     "input_clear": "ctrl+c",
@@ -74,7 +73,7 @@
     "theme_list": "<leader>t",
     "editor_open": "<leader>e",
     "session_new": "<leader>n",
-    "messages_half_page_down": "ctrl+alt+j",
-    "messages_half_page_up": "ctrl+alt+k"
+    "messages_half_page_down": "shift+alt+j",
+    "messages_half_page_up": "shift+alt+k"
   }
 }
