@@ -29,10 +29,10 @@ return {
       vim.o.autoread = true
 
       -- Recommended/example keymaps.
-      vim.keymap.set("n", "<C-M-k>", function()
+      vim.keymap.set("n", "<A-C-k>", function()
         require("opencode").command("session.half.page.up")
       end, { desc = "opencode half page up" })
-      vim.keymap.set("n", "<C-M-j>", function()
+      vim.keymap.set("n", "<A-C-j>", function()
         require("opencode").command("session.half.page.down")
       end, { desc = "opencode half page down" })
       vim.keymap.set({ "n", "x" }, "<C-x>", function()
