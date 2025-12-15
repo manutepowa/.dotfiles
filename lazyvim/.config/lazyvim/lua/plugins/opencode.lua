@@ -12,9 +12,8 @@ return {
       ---@type opencode.Opts
       vim.g.opencode_opts = {
         -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition".
-        auto_close = true,
-        auto_reload = true,
-        enabled = "snacks",
+        -- auto_reload = true,
+        -- enabled = "snacks",
         ---@type opencode.provider.Snacks
         provider = {
           snacks = {
