@@ -20,6 +20,8 @@ google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode
 # Dar permiso de ejecución
 chmod +x nvim-linux-x86_64.appimage
 
+sudo mkdir /opt/nvim
+
 # Mover a opt (crear carpeta nvim)
 sudo mv nvim-linux-x86_64.appimage /opt/nvim
 

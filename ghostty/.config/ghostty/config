@@ -13,6 +13,8 @@ shell-integration-features = no-cursor
 gtk-titlebar = false
 window-width = 140
 window-height = 75
+window-save-state = always
+quick-terminal-position = right
 
 # No funciona en gtk
 # window-position-x = 486

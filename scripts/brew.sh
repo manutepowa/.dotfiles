@@ -39,6 +39,10 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # Claude CLI
 curl -fsSL https://claude.ai/install.sh | bash
 
+# Opencode
+curl -fsSL https://opencode.ai/install | bash
+stow -nv opencode
+
 # Node.js (usando fnm)
 fnm install 24.11.1
 fnm use 24.11.1
@@ -46,8 +50,8 @@ fnm default 24.11.1
 
 # Docker y Docker Compose
 # Instalar dependencias
-sudo apt-get update
-sudo apt-get install -y ca-certificates curl gnupg
+sudo apt update
+sudo apt install -y ca-certificates curl gnupg
 
 # Añadir clave GPG oficial de Docker
 sudo install -m 0755 -d /etc/apt/keyrings
@@ -58,8 +62,8 @@ sudo chmod a+r /etc/apt/keyrings/docker.asc
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 
 # Instalar Docker
-sudo apt-get update
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Añadir usuario al grupo docker
 sudo groupadd docker

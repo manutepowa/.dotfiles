@@ -5,12 +5,6 @@ settings.scrollStepSize = 240;
 settings.scrollSmoth = false;
 settings.verticalTabs = true;
 settings.modeAfterYank = "Normal";
-settings.defaultLLMProvider = "gemini";
-settings.llm = {
-  gemini: {
-    apiKey: "",
-  }
-}
 
 const {
   aceVimMap,
