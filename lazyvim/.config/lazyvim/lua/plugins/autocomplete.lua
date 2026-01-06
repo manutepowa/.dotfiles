@@ -180,6 +180,7 @@ return {
   {
     "hrsh7th/nvim-cmp",
     enabled = true,
+    version = "v0.0.2",
     -- load cmp on InsertEnter
     event = { "UIEnter" },
     -- these dependencies will only be loaded when cmp loads
