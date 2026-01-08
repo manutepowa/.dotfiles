@@ -34,7 +34,7 @@ return {
         path = os.getenv("HOME") .. "/.dotfiles/obsidian", -- Path to the notes directory
       },
     },
-    completition = {
+    completion = {
       cmp = true,
     },
     picker = {
