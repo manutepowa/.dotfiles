@@ -105,6 +105,7 @@ return {
         input = {
           keys = {
             ["<Esc>"] = { "close", mode = { "n", "i" } },
+            ["<Tab>"] = false,
             ["<A-j>"] = { "list_down", mode = { "i", "n" } },
             ["<A-k>"] = { "list_up", mode = { "i", "n" } },
             ["<A-S-j>"] = { "preview_scroll_down", mode = { "i", "n" } },

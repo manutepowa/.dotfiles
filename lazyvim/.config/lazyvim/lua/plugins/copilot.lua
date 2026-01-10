@@ -11,7 +11,7 @@ return {
           keymap = {
             jump_next = "<c-j>",
             jump_prev = "<c-k>",
-            accept = "<Tab>",
+            accept = false,
             refresh = "r",
             open = "<M-CR>",
           },
