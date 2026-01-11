@@ -9,23 +9,45 @@ return {
       { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
     },
     config = function()
-      ---@type opencode.Opts
+      local Terminal = require("toggleterm.terminal").Terminal
+
+      local width_ratio = 0.9
+      local height_ratio = 0.9
+
+      local opencode_term = Terminal:new({
+        cmd = "opencode --port",
+        direction = "float",
+        hidden = true,
+        float_opts = {
+          border = "curved",
+          width = math.floor(vim.o.columns * width_ratio),
+          height = math.floor(vim.o.lines * height_ratio),
+          row = math.floor((vim.o.lines - (vim.o.lines * height_ratio)) / 2),
+          col = math.floor((vim.o.columns - (vim.o.columns * width_ratio)) / 2),
+        },
+      })
       vim.g.opencode_opts = {
-        -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition".
-        -- auto_reload = true,
-        -- enabled = "snacks",
-        ---@type opencode.provider.Snacks
         provider = {
-          snacks = {
-            win = {
-              enter = true,
-              width = 0.5,
-            },
-          },
+          start = function()
+            if not opencode_term:is_open() then
+              opencode_term:spawn()
+            end
+          end,
+
+          toggle = function()
+            opencode_term:toggle()
+          end,
+
+          show = function()
+            if not opencode_term:is_open() then
+              opencode_term:open()
+            else
+              opencode_term:focus()
+            end
+          end,
         },
       }
 
-      -- Required for `opts.events.reload`.
       vim.o.autoread = true
 
       -- Recommended/example keymaps.
@@ -50,6 +72,24 @@ return {
       -- You may want these if you stick with the opinionated "<C-a>" and "<C-x>" above — otherwise consider "<leader>o".
       vim.keymap.set("n", "+", "<C-a>", { desc = "Increment", noremap = true })
       vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement", noremap = true })
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "OpencodeEvent:*", -- Optionally filter event types
+        callback = function(args)
+          ---@type opencode.cli.client.Event
+          local event = args.data.event
+          ---@type number
+          local port = args.data.port
+
+          -- See the available event types and their properties
+          -- vim.notify(vim.inspect(event))
+
+          -- Do something useful
+          if event.type == "session.idle" then
+            vim.notify("opencode finished")
+          end
+        end,
+      })
     end,
   },
   -- {

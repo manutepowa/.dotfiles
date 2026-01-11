@@ -3,7 +3,6 @@
   "theme": "system",
   "model": "zai-coding-plan/glm-4.7",
   "disabled_providers": [
-    "openai",
     "gemini"
   ],
   "provider": {
@@ -42,7 +41,7 @@
         "@z_ai/mcp-server"
       ],
       "environment": {
-        "Z_AI_API_KEY": "{env:ANTHROPIC_API_KEY}",
+        "Z_AI_API_KEY": "{env:ANTHROPIC_AUTH_TOKEN}",
         "Z_AI_MODE": "ZAI"
       },
       "enabled": true
@@ -51,7 +50,7 @@
       "type": "remote",
       "url": "https://api.z.ai/api/mcp/web_search_prime/mcp",
       "headers": {
-        "Authorization": "{env:ANTHROPIC_API_KEY}"
+        "Authorization": "{env:ANTHROPIC_AUTH_TOKEN}"
       },
       "enabled": true
     },
@@ -59,7 +58,7 @@
       "type": "remote",
       "url": "https://api.z.ai/api/mcp/web_reader/mcp",
       "headers": {
-        "Authorization": "{env:ANTHROPIC_API_KEY}"
+        "Authorization": "{env:ANTHROPIC_AUTH_TOKEN}"
       },
       "enabled": true
     }

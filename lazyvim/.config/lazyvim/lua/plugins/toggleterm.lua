@@ -31,7 +31,7 @@ return {
       local opts = { noremap = true }
       local filetype = vim.api.nvim_buf_get_option(0, "filetype")
       if filetype == "toggleterm" then
-        vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
+        -- vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
         vim.api.nvim_buf_set_keymap(0, "t", "kj", [[<C-\><C-n>]], opts)
       end
     end
