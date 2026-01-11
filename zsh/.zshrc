@@ -14,8 +14,7 @@ export EDITOR="nvim"
 # Flameshot
 export QT_QPA_PLATFORM="wayland"
 
-# ZSH_THEME="robbyrussell"
-
+export COLORTERM=truecolor
 
 # fzf key bindings for vi mode
 VI_MODE_SET_CURSOR=true

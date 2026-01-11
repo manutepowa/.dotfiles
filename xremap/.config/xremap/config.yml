@@ -1,0 +1,23 @@
+keymap:
+  # --- BLOQUE 1: Navegación para Chrome y Ulauncher ---
+  - name: Move
+    application:
+      not:
+        - ghostty.com.mitchellh.ghostty
+    remap:
+      M-j: Down        # Alt + j = Flecha abajo
+      M-k: Up          # Alt + k = Flecha arriba
+      M-h: Left        # Alt + h = Flecha izquierda
+      M-l: Right       # Alt + l = Flecha derecha
+  - name: Delete word
+    application:
+      not:
+        - ghostty.com.mitchellh.ghostty
+    remap:
+      M-BackSpace: C-BackSpace
+  - name: Paste
+    application:
+      not:
+        - ghostty.com.mitchellh.ghostty
+    remap:
+      M-p: C-v
