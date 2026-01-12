@@ -7,6 +7,7 @@ tags:
   - stow
   - tips
   - appimage
+  - xremap
 aliases: []
 id: linux-tips
 ---
@@ -76,3 +77,7 @@ Comment=Reasignación de teclas al iniciar sesión
 xprop WM_CLASS
 ```
 
+## Para probar nuevas cosas en el momento o añadir
+```sh
+pkill xremap && xremap ~/.config/xremap/config.yml &
+```

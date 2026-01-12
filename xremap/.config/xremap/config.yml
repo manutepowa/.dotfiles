@@ -7,8 +7,8 @@ keymap:
     remap:
       M-j: Down        # Alt + j = Flecha abajo
       M-k: Up          # Alt + k = Flecha arriba
-      M-h: Left        # Alt + h = Flecha izquierda
-      M-l: Right       # Alt + l = Flecha derecha
+      # M-h: Left        # Alt + h = Flecha izquierda
+      # M-l: Right       # Alt + l = Flecha derecha
   - name: Delete word
     application:
       not:

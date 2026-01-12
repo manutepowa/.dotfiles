@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "system",
+  "theme": "opencode",
   "model": "zai-coding-plan/glm-4.7",
   "disabled_providers": [
     "gemini"
@@ -13,17 +13,6 @@
   "autoshare": false,
   "autoupdate": true,
   "mcp": {
-    "perplexity": {
-      "environment": {
-        "PERPLEXITY_MODEL": "sonar-pro"
-      },
-      "type": "local",
-      "command": [
-        "npx",
-        "perplexity-mcp"
-      ],
-      "enabled": true
-    },
     "context7": {
       "type": "local",
       "command": [
@@ -60,6 +49,15 @@
       "headers": {
         "Authorization": "{env:ANTHROPIC_AUTH_TOKEN}"
       },
+      "enabled": true
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ],
       "enabled": true
     }
   },
