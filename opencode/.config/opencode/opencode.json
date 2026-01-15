@@ -12,6 +12,15 @@
   },
   "autoshare": false,
   "autoupdate": true,
+  "lsp": {
+    "typescript": {
+      "command": [
+        "typescript-language-server",
+        "--stdio"
+      ],
+      "disabled": false
+    }
+  },
   "mcp": {
     "context7": {
       "type": "local",
@@ -20,7 +29,16 @@
         "-y",
         "@upstash/context7-mcp"
       ],
-      "enabled": true
+      "enabled": false
+    },
+    "next-devtools": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "next-devtools-mcp@latest",
+      ],
+      "enabled": false
     },
     "zai-mcp-server": {
       "type": "local",
@@ -33,7 +51,7 @@
         "Z_AI_API_KEY": "{env:ANTHROPIC_AUTH_TOKEN}",
         "Z_AI_MODE": "ZAI"
       },
-      "enabled": true
+      "enabled": false
     },
     "web-search-prime": {
       "type": "remote",
@@ -49,7 +67,7 @@
       "headers": {
         "Authorization": "{env:ANTHROPIC_AUTH_TOKEN}"
       },
-      "enabled": true
+      "enabled": false
     },
     "chrome-devtools": {
       "type": "local",
@@ -58,7 +76,7 @@
         "-y",
         "chrome-devtools-mcp@latest"
       ],
-      "enabled": true
+      "enabled": false
     }
   },
   "keybinds": {
@@ -75,6 +93,8 @@
     "editor_open": "<leader>e",
     "session_new": "<leader>n",
     "messages_half_page_down": "shift+alt+j",
-    "messages_half_page_up": "shift+alt+k"
+    "messages_half_page_up": "shift+alt+k",
+    "messages_page_down": "ctrl+alt+j",
+    "messages_page_up": "ctrl+alt+k"
   }
 }
