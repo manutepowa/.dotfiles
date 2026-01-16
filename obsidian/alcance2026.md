@@ -25,3 +25,5 @@ id: alcance2026
 ### Front (NextJS)
 - Actualizar a nextjs 16
 - Actualizar todas las librerías (tailwind v4)
+
+[Link Google Docs](https://docs.google.com/document/d/1-fRzQUMTTHEfZvzO18utgt8T2ESZ9PnT5p9evbgNqvQ/edit?tab=t.0)

@@ -1,3 +1,4 @@
 nvim/.config/nvim/undodir
 .opencode
 nvim/.config/nvim/plugin/packer_compiled.lua
+.mcp.json

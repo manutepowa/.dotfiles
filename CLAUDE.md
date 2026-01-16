@@ -95,12 +95,6 @@ fnm is used for Node.js version management. Version 24.11.1 is the default.
 
 ## Key Integrations
 
-### MCP Servers (Claude Code)
-Configured in `claude-code/mcp.json`:
-- Z.ai MCP server (image/video analysis)
-- Web search and reading capabilities
-- Tavily and Perplexity search
-
 ### AutoKey
 Desktop automation scripts in `autokey/` (Python-based) for custom keybindings.
 
