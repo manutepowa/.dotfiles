@@ -98,3 +98,10 @@ PATH=~/.console-ninja/.bin:$PATH
 
 # opencode
 export PATH=/home/manuel/.opencode/bin:$PATH
+
+# bun completions
+[ -s "/home/manuel/.bun/_bun" ] && source "/home/manuel/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
