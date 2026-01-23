@@ -57,27 +57,29 @@ echo 'KERNEL=="uinput", GROUP="uinput", MODE="0660", OPTIONS+="static_node=uinpu
 
 REINICIAR PARA QUE LOS GRUPOS FUNCIONEN SIN SUDO
 
-## Añadir autostart
+## Systemd auto start
+Archivo: ~/.config/systemd/user/xremap.service
 ```sh
-touch ~/.config/autostart/xremap.desktop
-
-
-[Desktop Entry]
-Type=Application
-Name=xremap
-Exec=xremap /home/manuel/.config/xremap/config.yml
-Icon=input-keyboard
-Terminal=false
-X-GNOME-Autostart-enabled=true
-Comment=Reasignación de teclas al iniciar sesión
+[Unit]
+Description=xremap
+After=graphical-session.target
+[Service]
+ExecStart=/usr/local/bin/xremap /home/manuel/.config/xremap/config.yml
+Restart=on-failure
+RestartSec=2
+[Install]
+WantedBy=default.target
 ```
+
+Luego hacemos que se haga efectivo:
+- systemctl --user daemon-reload
+- systemctl --user enable --now xremap
+
+Luego si quieres comprobar el estado:
+- systemctl --user status xremap
+
 
 ## Ver las clases que tienen las aplicaciones para xremap por si queremos añadir nuevos keymap
 ```sh
 xprop WM_CLASS
-```
-
-## Para probar nuevas cosas en el momento o añadir
-```sh
-pkill xremap && xremap ~/.config/xremap/config.yml &
 ```
