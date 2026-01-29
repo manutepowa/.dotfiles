@@ -28,6 +28,7 @@ return {
   },
   opts = {
     ui = { enable = false },
+    legacy_commands = false,
     workspaces = {
       {
         name = "notes", -- Name of the workspace
