@@ -54,7 +54,6 @@ return {
 
       vim.o.autoread = true
 
-      -- Recommended/example keymaps.
       vim.keymap.set("n", "<A-S-k>", function()
         require("opencode").command("session.half.page.up")
       end, { desc = "opencode half page up" })

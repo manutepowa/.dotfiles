@@ -179,6 +179,17 @@ return {
           quit_on_open = true,
         },
       },
+      filesystem_watchers = {
+        enable = true,
+        debounce_delay = 50,
+        ignore_dirs = {
+          "/.next", -- Añade esto para proyectos Next.js
+          "/node_modules", -- Generalmente ignorado por defecto, pero asegúrate
+          "/build",
+          "/target",
+          "dist",
+        },
+      },
     })
   end,
 }
