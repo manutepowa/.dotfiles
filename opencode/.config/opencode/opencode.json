@@ -59,7 +59,7 @@
       "headers": {
         "Authorization": "{env:ANTHROPIC_AUTH_TOKEN}"
       },
-      "enabled": true
+      "enabled": false
     },
     "web-reader": {
       "type": "remote",

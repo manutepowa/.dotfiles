@@ -27,11 +27,3 @@ id: alcance2026
 - Actualizar todas las librerías (tailwind v4)
 
 [Link Google Docs](https://docs.google.com/document/d/1-fRzQUMTTHEfZvzO18utgt8T2ESZ9PnT5p9evbgNqvQ/edit?tab=t.0)
-
-
-# Reunión inet2you y AC
-- Todo registro en inet, entrada a AC
-- Al rellenar el perfil, actualizar AC con tag (perfil actualizado).
-- Juntar breve reseña con a que me dedico.
-- foto obligatoria.
-
