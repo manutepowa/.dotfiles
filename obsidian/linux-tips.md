@@ -78,6 +78,9 @@ Luego hacemos que se haga efectivo:
 Luego si quieres comprobar el estado:
 - systemctl --user status xremap
 
+Reiniciar cuando falla
+- systemctl --user restart xremap
+
 
 ## Ver las clases que tienen las aplicaciones para xremap por si queremos añadir nuevos keymap
 ```sh

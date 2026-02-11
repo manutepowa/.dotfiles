@@ -55,10 +55,10 @@ return {
       vim.o.autoread = true
 
       vim.keymap.set("n", "<A-S-k>", function()
-        require("opencode").command("session.half.page.up")
+        require("opencode").command("session.page.up")
       end, { desc = "opencode half page up" })
       vim.keymap.set("n", "<A-S-j>", function()
-        require("opencode").command("session.half.page.down")
+        require("opencode").command("session.page.down")
       end, { desc = "opencode half page down" })
       vim.keymap.set({ "n", "x" }, "<C-x>", function()
         require("opencode").select()
@@ -71,7 +71,7 @@ return {
         require("opencode").prompt("@this")
         opencode_term:toggle()
       end, { desc = "Add to opencode" })
-      vim.keymap.set({ "n", "t" }, "<A-.>", function()
+      vim.keymap.set({ "n", "t" }, "<A-,>", function()
         require("opencode").toggle()
       end, { desc = "Toggle opencode" })
       -- You may want these if you stick with the opinionated "<C-a>" and "<C-x>" above — otherwise consider "<leader>o".

@@ -22,6 +22,7 @@ tags:
 
 ```sh 
 drush sql-dump --gzip --result-file=../apipar.sql
+drush sql:dump --extra-dump="--ssl=0" --gzip --result-file=../apipar.sql.gz # ssl error
 ```
 
 ### Sync db with ssh key
@@ -101,3 +102,15 @@ Ver todas las variables que tienes disponibles
 # Ignore user abort
 RunCloud → Web App eventos → Settings → PHP Settings → disable_functions → eliminar ignore_user_abort (y set_time_limit si está). Guardar. 
 sudo systemctl reload php*-fpm && sudo systemctl reload nginx (si procede).
+
+# Server production
+## Archivos nuevo proyecto PHP
+.bash_profile
+```sh
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+```
+.bashrc
+```sh
+PATH=/opt/plesk/php/8.3/bin:$PATH
+export PATH
+```

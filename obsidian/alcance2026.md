@@ -27,3 +27,11 @@ id: alcance2026
 - Actualizar todas las librerías (tailwind v4)
 
 [Link Google Docs](https://docs.google.com/document/d/1-fRzQUMTTHEfZvzO18utgt8T2ESZ9PnT5p9evbgNqvQ/edit?tab=t.0)
+
+
+# Reunión
+- [ ] ordenar por último acceso.
+- [ ] Ver además los que tengan los datos ordenar también.
+- [ ] filtro no son los mismos que en las cards, poner lo mismo.
+- [ ] Añadir campo cargo texto limitado en caracteres. y cambiar en la card.
+- [ ] anuncios, superpineado, evento ordenado por mas próximo
