@@ -29,9 +29,22 @@ id: alcance2026
 [Link Google Docs](https://docs.google.com/document/d/1-fRzQUMTTHEfZvzO18utgt8T2ESZ9PnT5p9evbgNqvQ/edit?tab=t.0)
 
 
-# Reunión
-- [ ] ordenar por último acceso.
-- [ ] Ver además los que tengan los datos ordenar también.
-- [ ] filtro no son los mismos que en las cards, poner lo mismo.
-- [ ] Añadir campo cargo texto limitado en caracteres. y cambiar en la card.
-- [ ] anuncios, superpineado, evento ordenado por mas próximo
+# Correcciones de speakingo
+- whisper el rey de speech to text --> barato
+
+# QR
+- descargar excel con todos eventos y asistencias
+# Inet2you
+- match de yo mismo.
+# Bilaterales
+
+- Es inet2you.
+- organizador de evento?
+- Ponentes en mesa con horarios de ese evento.
+- normalmente me cojo mis intereses y horario antes del evento.
+- Cancelaciones.
+- Los admin del grupo pueden crear el "evento" para que se publiquen horarios.
+- Los eventos para reunión son para todos los que estén en inet.
+- Aquí en parque toda persona en inet2you.
+- Pcumh2026
+- mensajes.

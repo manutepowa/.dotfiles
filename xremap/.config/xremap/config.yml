@@ -21,3 +21,9 @@ keymap:
         - ghostty.com.mitchellh.ghostty
     remap:
       M-p: C-v
+  - name: Alt+Enter to Shift+Enter
+    application:
+      not:
+        - ghostty.com.mitchellh.ghostty
+    remap:
+      M-Enter: Shift-Enter

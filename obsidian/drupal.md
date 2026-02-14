@@ -23,6 +23,7 @@ tags:
 ```sh 
 drush sql-dump --gzip --result-file=../apipar.sql
 drush sql:dump --extra-dump="--ssl=0" --gzip --result-file=../apipar.sql.gz # ssl error
+drush sql:cli --extra="--ssl=0" < /tmp/xxxxxx.sql
 ```
 
 ### Sync db with ssh key
