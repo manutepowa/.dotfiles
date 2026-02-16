@@ -49,6 +49,11 @@ return {
               opencode_term:focus()
             end
           end,
+          stop = function()
+            if opencode_term then
+              opencode_term:shutdown()
+            end
+          end,
         },
       }
 
@@ -92,6 +97,24 @@ return {
           -- Do something useful
           if event.type == "session.idle" then
             vim.notify("opencode finished")
+          end
+        end,
+      })
+      vim.api.nvim_create_autocmd("VimLeave", {
+        group = vim.api.nvim_create_augroup("OpencodeCleanup", { clear = true }),
+        callback = function()
+          -- Intentamos cerrar el terminal de forma limpia primero
+          if opencode_term then
+            opencode_term:shutdown()
+          end
+
+          -- Matamos cualquier proceso de opencode que haya quedado huérfano
+          if vim.fn.has("win32") == 1 then
+            -- Comando para Windows
+            vim.fn.system("taskkill /F /IM opencode.exe /T")
+          else
+            -- Comando para Linux/macOS
+            vim.fn.system("pkill -f 'opencode --port'")
           end
         end,
       })
