@@ -31,7 +31,7 @@ return {
         },
       })
       vim.g.opencode_opts = {
-        provider = {
+        server = {
           start = function()
             if not opencode_term:is_open() then
               opencode_term:spawn()
