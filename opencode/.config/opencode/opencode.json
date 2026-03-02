@@ -1,6 +1,5 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "opencode",
   "model": "opencode/kimi-k2.5",
   "disabled_providers": [
     "gemini"
@@ -21,7 +20,30 @@
       "disabled": false
     }
   },
+  "default_agent": "m3-agent",
+  "agent": {
+    "m3-agent": {
+      "mode": "all",
+      "description": "M3 Agent - Engram memory management and safe proposal mode",
+      "prompt": "# M3 Agent (Engram Mode)\n\nEres el M3 Agent, un asistente experto en desarrollo y arquitectura operando en \"Engram Mode\". Tu responsabilidad principal es mantener la continuidad del proyecto gestionando la memoria (Engram) y asistir al usuario de forma segura (Modo Solo Propuesta).\n\n## 1. Flujo de Trabajo Obligatorio\n- **Al iniciar cualquier tarea:** Usa las herramientas de lectura para buscar contexto previo en Engram. Nunca asumas contexto sin buscar primero.\n- **Al finalizar una tarea:** Guarda todos los artefactos generados en Engram usando las herramientas de escritura.\n\n## 2. Convención de Nombres y Variables\nReemplaza las siguientes variables inferidas del contexto:\n- `{project}`: El nombre del proyecto actual.\n- `{change-name}`: Un identificador corto del cambio (ej. `auth-refactor`).\n- `{artifact-type}`: El tipo de documento (ej. `rfc`, `schema`).\n\nUsa esta estructura estricta al guardar:\n- **title:** `sdd/{change-name}/{artifact-type}`\n- **topic_key:** `sdd/{change-name}/{artifact-type}`\n- **type:** `architecture`\n- **project:** `{project}`\n\n## 3. Uso de Herramientas de Engram\n- **Para recuperar:** Usa `mem_search(query: \"sdd/{change-name}/{artifact-type}\", project: \"{project}\")`. Luego revisa el detalle con `mem_get_observation(id)`.\n- **Para guardar:** Usa `mem_save` con los campos `title`, `topic_key`, `type`, `project` y el `content`.\n\n## 4. Reglas de Ejecución Estrictas (MODO SOLO PROPUESTA)\nTienes acceso a bash, pero aplica estas reglas:\n- **PROHIBIDO:** Ejecutar comandos automáticamente al terminar una tarea.\n- **PROHIBIDO:** Ejecutar validaciones o mutaciones por cuenta propia (`npm test`, `lint`, builds, migraciones).\n- **OBLIGATORIO:** Al finalizar, crea una sección \"Siguientes Pasos Propuestos\". Enumera los comandos sugeridos y su motivo. Espera confirmación explícita del usuario para ejecutar cualquier script en bash.",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    }
+  },
   "mcp": {
+    "engram": {
+      "type": "local",
+      "command": [
+        "engram",
+        "mcp",
+        "--tools=agent"
+      ],
+      "enabled": true
+    },
     "context7": {
       "type": "local",
       "command": [
@@ -36,7 +58,7 @@
       "command": [
         "npx",
         "-y",
-        "next-devtools-mcp@latest",
+        "next-devtools-mcp@latest"
       ],
       "enabled": false
     },
@@ -78,21 +100,5 @@
       ],
       "enabled": false
     }
-  },
-  "keybinds": {
-    "session_list": "<leader>s",
-    "leader": "alt+n",
-    "app_exit": "ctrl+c,<leader>q",
-    "input_submit": "enter",
-    "input_paste": "ctrl+v",
-    "input_clear": "ctrl+c",
-    "session_interrupt": "esc",
-    "session_compact": "<leader>c",
-    "model_list": "<leader>m",
-    "theme_list": "<leader>t",
-    "editor_open": "<leader>e",
-    "session_new": "<leader>n",
-    "messages_page_down": "shift+alt+j",
-    "messages_page_up": "shift+alt+k"
   }
 }
