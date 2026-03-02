@@ -1,0 +1,20 @@
+{
+  "$schema": "https://opencode.ai/tui.json",
+  "theme": "opencode",
+  "keybinds": {
+    "session_list": "<leader>s",
+    "leader": "alt+n",
+    "app_exit": "ctrl+c,<leader>q",
+    "input_submit": "enter",
+    "input_paste": "ctrl+v",
+    "input_clear": "ctrl+c",
+    "session_interrupt": "esc",
+    "session_compact": "<leader>c",
+    "model_list": "<leader>m",
+    "theme_list": "<leader>t",
+    "editor_open": "<leader>e",
+    "session_new": "<leader>n",
+    "messages_page_down": "shift+alt+j",
+    "messages_page_up": "shift+alt+k"
+  }
+}
