@@ -26,6 +26,7 @@ Cuando el usuario ejecute este comando, ejecuta el siguiente flujo de trabajo:
    - Crear mensaje siguiendo el formato: `<tipo>: <descripción>`
    - Mantener la descripción concisa, clara y en modo imperativo
    - Mostrar el mensaje propuesto al usuario para confirmación
+   - **IMPORTANTE**: Para poder copiar directamente el mensaje, el output debe contener ÚNICAMENTE el mensaje de commit, sin texto adicional
 
 ## Directrices para Mensajes de Commit
 
@@ -76,7 +77,7 @@ Ejemplo de secuencia de commits:
 
 ## Notas de Comportamiento del Agente
 
-- **importante**: Solo generera el mensaje del commit.
+- **IMPORTANTE**: Generar ÚNICAMENTE el mensaje del commit, sin texto adicional, para permitir copiarlo directamente.
 - **Idioma**: Siempre el commit en inglés.
 - **Manejo de errores**: Si la validación falla, dar al usuario opción de proceder o arreglar problemas primero  
 - **Calidad del mensaje**: Asegurar que los mensajes de commit sean claros, concisos y sigan formato convencional
