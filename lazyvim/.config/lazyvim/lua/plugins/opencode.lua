@@ -60,10 +60,10 @@ return {
       vim.o.autoread = true
 
       vim.keymap.set("n", "<A-S-k>", function()
-        require("opencode").command("session.page.up")
+        require("opencode").command("session.half.page.up")
       end, { desc = "opencode half page up" })
       vim.keymap.set("n", "<A-S-j>", function()
-        require("opencode").command("session.page.down")
+        require("opencode").command("session.half.page.down")
       end, { desc = "opencode half page down" })
       vim.keymap.set({ "n", "x" }, "<C-x>", function()
         require("opencode").select()

@@ -14,7 +14,7 @@
     "theme_list": "<leader>t",
     "editor_open": "<leader>e",
     "session_new": "<leader>n",
-    "messages_page_down": "shift+alt+j",
-    "messages_page_up": "shift+alt+k"
+    "messages_half_page_down": "shift+alt+j",
+    "messages_half_page_up": "shift+alt+k"
   }
 }
