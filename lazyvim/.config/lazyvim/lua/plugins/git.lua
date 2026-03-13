@@ -99,6 +99,7 @@ return {
   {
     "esmuellert/codediff.nvim",
     cmd = "CodeDiff",
+    dependencies = { "MunifTanjim/nui.nvim" },
     opts = {
       diff = {
         layout = "inline", -- Diff layout: "side-by-side" (two panes) or "inline" (single pane with virtual lines)
@@ -115,6 +116,10 @@ return {
         focus_on_select = true, -- Jump to modified pane after selecting a file (default: stay in explorer)
       },
       keymaps = {
+        view = {
+          quit = "q",
+          toggle_layout = "t",
+        },
         explorer = {
           select = "<Tab>", -- Open diff for selected file
         },
