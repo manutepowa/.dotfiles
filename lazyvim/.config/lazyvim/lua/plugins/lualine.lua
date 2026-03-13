@@ -155,7 +155,6 @@ return {
         local ui_filetypes = {
           "help",
           "packer",
-          "neogitstatus",
           "NvimTree",
           "Trouble",
           "lir",

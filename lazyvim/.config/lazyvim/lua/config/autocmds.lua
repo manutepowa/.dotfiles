@@ -16,7 +16,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "fugitive",
     "httpResult",
     "git",
-    "NeogitStatus",
     "query",
   },
   callback = function()

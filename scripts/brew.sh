@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# brew upgrade tmux eza fzf bpytop translate-shell ripgrep fnm bat jq starship imagemagick jesseduffield/lazygit/lazygit
+# brew upgrade tmux eza fzf bpytop translate-shell ripgrep fnm bat jq starship imagemagick jesseduffield/lazygit/lazygit gentleman-programming/tap/engram
 
 # Install Ubuntu - Todas las herramientas instaladas en la nueva instalación
 
