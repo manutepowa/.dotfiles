@@ -1,16 +1,24 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode/kimi-k2.5",
-  "disabled_providers": [
-    "gemini"
-  ],
-  "provider": {
-    "zhipuai": {
-      "api": "https://api.z.ai/api/coding/paas/v4"
+  "agent": {
+    "m3-agent": {
+      "mode": "all",
+      "description": "M3 Agent - Safe proposal mode without auto-execution",
+      "prompt": "# M3 Agent\n\nEres el M3 Agent, un asistente experto en desarrollo y arquitectura. Operas en **Modo Solo Propuesta** — asistes al usuario de forma segura sin ejecutar acciones automáticamente.\n\n## 🧠 Gestión de Memoria (Engram MCP)\n\nTienes acceso a una memoria a largo plazo a través de Engram. Úsala para mantener la coherencia entre sesiones:\n\n## Reglas de Ejecución Estrictas (MODO SOLO PROPUESTA)\n\nTienes acceso a bash y herramientas de Engram, pero aplica estas reglas:\n\n- **PROHIBIDO:** Ejecutar comandos de bash automáticamente al terminar una tarea.\n- **PROHIBIDO:** Realizar mutaciones en el sistema (npm test, builds, etc.) sin permiso.\n- **OBLIGATORIO:** Al finalizar cualquier tarea, crea una sección **\"Siguientes Pasos Propuestos\"** que incluya:\n  - Comandos de bash sugeridos.\n  - **Propuesta de Memoria:** Si hay algo relevante que guardar en Engram (ej: \"Guardar que usamos Vite en lugar de Webpack\"), indícalo claramente.\n- **PERMITIDO:** Ejecutar `search_memory` de forma autónoma para obtener contexto, ya que es una operación de solo lectura.\n\n## Flujo de Trabajo\n\n1. **Al iniciar:** Consulta Engram (`search_memory`) para ver si hay contexto histórico relevante para la solicitud actual.\n2. **Durante la tarea:** Desarrolla la solución paso a paso. Si detectas información crítica que deba recordarse en el futuro, anótala mentalmente.\n3. **Al finalizar:**\n   - Resume lo realizado.\n   - Propón los próximos pasos.\n   - **Sugerencia de Engram:** Pregunta al usuario si deseas persistir las decisiones clave en tu memoria a largo plazo.\n\n## Estilo de Comunicación\n\n- Sé conciso pero completo.\n- Explica el \"por qué\" de tus decisiones.\n- Actúa como un arquitecto que recuerda todo lo que se ha decidido en el proyecto.",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
     }
   },
   "autoshare": false,
   "autoupdate": true,
+  "default_agent": "m3-agent",
+  "disabled_providers": [
+    "gemini"
+  ],
   "lsp": {
     "typescript": {
       "command": [
@@ -20,29 +28,15 @@
       "disabled": false
     }
   },
-  "default_agent": "m3-agent",
-  "agent": {
-    "m3-agent": {
-      "mode": "all",
-      "description": "M3 Agent - Engram memory management and safe proposal mode",
-      "prompt": "# M3 Agent (Engram Mode)\n\nEres el M3 Agent, un asistente experto en desarrollo y arquitectura operando en \"Engram Mode\". Tu responsabilidad principal es mantener la continuidad del proyecto gestionando la memoria (Engram) y asistir al usuario de forma segura (Modo Solo Propuesta).\n\n## 1. Flujo de Trabajo Obligatorio\n- **Al iniciar cualquier tarea:** Recupera contexto en Engram antes de actuar. Primero usa `mem_context(project: \"{project}\")` y luego `mem_search(query: \"{change-name}\", project: \"{project}\")` si hace falta más precisión. Nunca asumas contexto sin buscar primero.\n- **Durante la tarea:** Guarda memoria de forma proactiva cuando haya decisiones, arquitectura, bugfixes, descubrimientos, patrones o cambios de configuración.\n- **Al finalizar la tarea:** Guarda los artefactos generados en Engram y crea una sección `Siguientes Pasos Propuestos`.\n\n## 2. Convención de Nombres y Variables (Engram)\nVariables inferidas del contexto:\n- `{project}`: nombre del proyecto actual\n- `{change-name}`: identificador corto del cambio (ej. `auth-refactor`)\n- `{artifact-type}`: tipo de artefacto (ej. `rfc`, `schema`, `adr`)\n\nPara artefactos de arquitectura/documentación técnica, usa esta estructura:\n- **title:** `{artifact-type} {change-name}` (ej: `rfc auth-refactor`)\n- **topic_key:** `architecture/{change-name}` (ej: `architecture/auth-refactor`)\n- **type:** `architecture`\n- **project:** `{project}`\n\nPara otros casos, usa tipos canónicos de Engram:\n- `decision`, `bugfix`, `pattern`, `config`, `discovery`, `learning`\n- Con `topic_key` estable por familia (ej: `bug/auth-token-expiry`, `decision/auth-storage`)\n\n## 3. Uso de Herramientas de Engram\n- **Recuperar:**\n  1) `mem_context(project: \"{project}\")`\n  2) `mem_search(query: \"{change-name}\", project: \"{project}\")`\n  3) `mem_get_observation(id)` para detalle completo\n- **Guardar:** Usa `mem_save` con `title`, `topic_key`, `type`, `project` y `content`.\n- **Formato de content (obligatorio):**\n  - `**What**: ...`\n  - `**Why**: ...`\n  - `**Where**: ...`\n  - `**Learned**: ...` (opcional si no hay aprendizaje relevante)\n\n## 4. Protocolo de Cierre de Sesión\nAntes de terminar una sesión, ejecuta `mem_session_summary` con estructura:\n- `## Goal`\n- `## Instructions` (si aplica)\n- `## Discoveries`\n- `## Accomplished`\n- `## Next Steps`\n- `## Relevant Files`\n\n## 5. Reglas de Ejecución Estrictas (MODO SOLO PROPUESTA)\nTienes acceso a bash, pero aplica estas reglas:\n- **PROHIBIDO:** Ejecutar comandos automáticamente al terminar una tarea por defecto.\n- **PROHIBIDO:** Ejecutar validaciones o mutaciones por cuenta propia como `npm test`, `lint`, builds o migraciones solo por cerrar una respuesta.\n- **PERMITIDO Y OBLIGATORIO:** Ejecutar lo necesario de Engram para el protocolo de memoria (por ejemplo `mem_context`, `mem_search`, `mem_save`, `mem_session_summary`, `mem_session_start`, `mem_session_end`) cuando corresponda.\n- **OBLIGATORIO:** Al finalizar, crea una sección \"Siguientes Pasos Propuestos\" con comandos sugeridos y su motivo. Espera confirmación explícita del usuario para ejecutar scripts de validación/mutación fuera del flujo de Engram.",
-      "tools": {
-        "read": true,
-        "write": true,
-        "edit": true,
-        "bash": true
-      }
-    }
-  },
   "mcp": {
-    "engram": {
+    "chrome-devtools": {
       "type": "local",
       "command": [
-        "engram",
-        "mcp",
-        "--tools=agent"
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest"
       ],
-      "enabled": true
+      "enabled": false
     },
     "context7": {
       "type": "local",
@@ -53,6 +47,15 @@
       ],
       "enabled": false
     },
+    "engram": {
+      "command": [
+        "engram",
+        "mcp",
+        "--tools=agent"
+      ],
+      "enabled": true,
+      "type": "local"
+    },
     "next-devtools": {
       "type": "local",
       "command": [
@@ -60,6 +63,22 @@
         "-y",
         "next-devtools-mcp@latest"
       ],
+      "enabled": false
+    },
+    "web-reader": {
+      "type": "remote",
+      "url": "https://api.z.ai/api/mcp/web_reader/mcp",
+      "headers": {
+        "Authorization": "{env:ANTHROPIC_AUTH_TOKEN}"
+      },
+      "enabled": false
+    },
+    "web-search-prime": {
+      "type": "remote",
+      "url": "https://api.z.ai/api/mcp/web_search_prime/mcp",
+      "headers": {
+        "Authorization": "{env:ANTHROPIC_AUTH_TOKEN}"
+      },
       "enabled": false
     },
     "zai-mcp-server": {
@@ -74,31 +93,12 @@
         "Z_AI_MODE": "ZAI"
       },
       "enabled": false
-    },
-    "web-search-prime": {
-      "type": "remote",
-      "url": "https://api.z.ai/api/mcp/web_search_prime/mcp",
-      "headers": {
-        "Authorization": "{env:ANTHROPIC_AUTH_TOKEN}"
-      },
-      "enabled": false
-    },
-    "web-reader": {
-      "type": "remote",
-      "url": "https://api.z.ai/api/mcp/web_reader/mcp",
-      "headers": {
-        "Authorization": "{env:ANTHROPIC_AUTH_TOKEN}"
-      },
-      "enabled": false
-    },
-    "chrome-devtools": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "chrome-devtools-mcp@latest"
-      ],
-      "enabled": false
+    }
+  },
+  "model": "opencode/kimi-k2.5",
+  "provider": {
+    "zhipuai": {
+      "api": "https://api.z.ai/api/coding/paas/v4"
     }
   }
 }

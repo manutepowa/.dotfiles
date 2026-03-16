@@ -55,6 +55,13 @@ return {
             end
           end,
         },
+        events = {
+          permissions = {
+            edits = {
+              enabled = false,
+            },
+          },
+        },
       }
 
       vim.o.autoread = true

@@ -48,3 +48,10 @@ id: alcance2026
 - Aquí en parque toda persona en inet2you.
 - Pcumh2026
 - mensajes.
+
+# tablón
+- explicar mejor el privado.
+- tipologías por anuncios por grupo o definir bien los que hay.
+- QR también en eventos inet para jovempa ?
+- lista de usuario pertenencia al grupo, y opción de quitar pertenencia a mi grupo con email de aviso.
+- reuniones: visibilidad de eventos configurables — opción "solo para mi grupo" (restringido a miembros del grupo organizador) o "para todos" (visible y accesible para cualquier usuario de inet2you)
