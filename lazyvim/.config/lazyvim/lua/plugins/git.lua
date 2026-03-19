@@ -40,13 +40,17 @@ return {
       hooks = {
         -- Check diff of a commit
         on_select_commit = function(commit)
+          -- Ensure codediff.nvim is loaded before using it
+          require("codediff")
           vim.notify("CodeDiff " .. commit.hash)
-          vim.cmd(":CodeDiff " .. commit.hash)
+          vim.cmd("CodeDiff " .. commit.hash)
         end,
         -- Check diff from commit a -> commit b
         on_select_range_commit = function(from, to)
+          -- Ensure codediff.nvim is loaded before using it
+          require("codediff")
           vim.notify("CodeDiff " .. from.hash .. "..." .. to.hash)
-          vim.cmd(":CodeDiff " .. from.hash .. "..." .. to.hash)
+          vim.cmd("CodeDiff " .. from.hash .. "..." .. to.hash)
         end,
       },
     },
