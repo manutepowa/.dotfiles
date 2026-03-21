@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "model": "opencode/kimi-k2.5",
   "agent": {
     "m3-agent": {
       "mode": "all",
@@ -93,12 +94,6 @@
         "Z_AI_MODE": "ZAI"
       },
       "enabled": false
-    }
-  },
-  "model": "opencode/kimi-k2.5",
-  "provider": {
-    "zhipuai": {
-      "api": "https://api.z.ai/api/coding/paas/v4"
     }
   }
 }

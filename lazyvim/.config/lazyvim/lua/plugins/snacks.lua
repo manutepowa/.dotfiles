@@ -28,7 +28,7 @@ return {
       },
     },
     image = {
-      enabled = false,
+      enabled = true,
       img_dirs = { "httpdocs/public" },
       convert = {
         notify = false, -- show a notification on error
@@ -42,7 +42,7 @@ return {
         inline = false,
         -- render the image in a floating window
         -- only used if `opts.inline` is disabled
-        float = true,
+        float = false,
         -- Sets the size of the image
         max_width = vim.g.neovim_mode == "skitty" and 20 or 40,
         max_height = vim.g.neovim_mode == "skitty" and 10 or 10,
