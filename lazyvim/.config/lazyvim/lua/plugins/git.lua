@@ -2,6 +2,34 @@ local icons = require("config.icons")
 local solid_bar = icons.git.solid_bar
 local dashed_bar = icons.git.dashed_bar
 
+local function git_rev_parse(rev)
+  local out = vim.fn.systemlist({ "git", "rev-parse", rev })
+  if vim.v.shell_error ~= 0 or not out[1] or out[1] == "" then
+    return nil
+  end
+  return out[1]
+end
+
+local function open_commit_diff(commit_hash)
+  require("codediff")
+
+  local empty_tree = "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+  local parent = git_rev_parse(commit_hash .. "^") or empty_tree
+
+  vim.notify("CodeDiff " .. parent .. " " .. commit_hash)
+  vim.cmd(("CodeDiff %s %s"):format(parent, commit_hash))
+end
+
+local function open_range_diff(from_hash, to_hash)
+  require("codediff")
+
+  local empty_tree = "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+  local base = git_rev_parse(from_hash .. "^") or empty_tree
+
+  vim.notify("CodeDiff " .. base .. " " .. to_hash)
+  vim.cmd(("CodeDiff %s %s"):format(base, to_hash))
+end
+
 return {
   {
     "isakbm/gitgraph.nvim",
@@ -40,17 +68,11 @@ return {
       hooks = {
         -- Check diff of a commit
         on_select_commit = function(commit)
-          -- Ensure codediff.nvim is loaded before using it
-          require("codediff")
-          vim.notify("CodeDiff " .. commit.hash)
-          vim.cmd("CodeDiff " .. commit.hash)
+          open_commit_diff(commit.hash)
         end,
         -- Check diff from commit a -> commit b
         on_select_range_commit = function(from, to)
-          -- Ensure codediff.nvim is loaded before using it
-          require("codediff")
-          vim.notify("CodeDiff " .. from.hash .. "..." .. to.hash)
-          vim.cmd("CodeDiff " .. from.hash .. "..." .. to.hash)
+          open_range_diff(from.hash, to.hash)
         end,
       },
     },
