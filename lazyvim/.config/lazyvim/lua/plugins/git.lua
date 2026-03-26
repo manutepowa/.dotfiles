@@ -139,7 +139,7 @@ return {
         file_filter = {
           ignore = { ".git/**", ".jj/**" }, -- Glob patterns to hide (e.g., {"*.lock", "dist/*"})
         },
-        focus_on_select = true, -- Jump to modified pane after selecting a file (default: stay in explorer)
+        focus_on_select = false, -- Jump to modified pane after selecting a file (default: stay in explorer)
       },
       keymaps = {
         view = {
