@@ -1,6 +1,7 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim",
   opts = {
+    enabled = false, -- Plugin carga pero sin renderizar. Usar :RenderMarkdown toggle para activar
     headings = {
       icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
       backgrounds = {

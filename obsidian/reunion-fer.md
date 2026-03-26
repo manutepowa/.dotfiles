@@ -63,3 +63,7 @@ empresa mobal
   interna.
 
 
+## REU 24-3
+- IA importante ver el tiempo (meteorológico)
+- Solo piezometría.
+- mcp, chat.
