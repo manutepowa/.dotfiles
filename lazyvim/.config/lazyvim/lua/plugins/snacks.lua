@@ -173,6 +173,13 @@ return {
               width = 40,
             },
           },
+          icons = {
+            tree = {
+              vertical = "┊ ",
+              middle = "┊╴",
+              last = "└┄",
+            },
+          },
           win = {
             list = {
               keys = {
