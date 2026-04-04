@@ -57,9 +57,7 @@ return {
         },
         events = {
           permissions = {
-            edits = {
-              enabled = false,
-            },
+            enabled = false,
           },
         },
       }

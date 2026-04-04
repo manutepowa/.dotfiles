@@ -1,3 +1,17 @@
+local function explorer_target_dir(picker, item)
+  local path = item and item.file
+  if not path then
+    return picker:cwd()
+  end
+
+  local stat = vim.uv.fs_stat(path)
+  if stat and stat.type == "directory" then
+    return path
+  end
+
+  return vim.fs.dirname(path)
+end
+
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -18,6 +32,7 @@ return {
     },
   },
   opts = {
+    explorer = {},
     bigfile = { enabled = true },
     bufdelete = { enabled = true },
     statuscolumn = { enabled = false },
@@ -127,9 +142,74 @@ return {
           git_status_hl = true, -- use the git status highlight group for the filename
         },
       },
+      actions = {
+        explorer_files = function(picker, item)
+          Snacks.picker.files({
+            cwd = explorer_target_dir(picker, item),
+            hidden = true,
+            ignored = true,
+          })
+        end,
+        explorer_grep = function(picker, item)
+          Snacks.picker.grep({
+            cwd = explorer_target_dir(picker, item),
+            hidden = true,
+            ignored = true,
+          })
+        end,
+      },
+      sources = {
+        files = {
+          hidden = true,
+          show_ignored = true,
+        },
+        explorer = {
+          auto_close = true,
+          layout = {
+            preset = "sidebar",
+            preview = false,
+            layout = {
+              position = "left",
+              width = 40,
+            },
+          },
+          win = {
+            list = {
+              keys = {
+                ["<BS>"] = "explorer_up",
+                ["<Tab>"] = "confirm",
+                ["a"] = "explorer_add",
+                ["d"] = "explorer_del",
+                ["r"] = "explorer_rename",
+                ["c"] = "explorer_copy",
+                ["m"] = "explorer_move",
+                ["o"] = "explorer_open",
+                ["y"] = { "explorer_yank", mode = { "n", "x" } },
+                ["p"] = "explorer_paste",
+                ["u"] = "explorer_update",
+                ["<CR>"] = "explorer_focus",
+                -- custom mappings
+                ["ff"] = "explorer_files",
+                ["fg"] = "explorer_grep",
+              },
+            },
+          },
+        },
+      },
     },
   },
   keys = {
+    {
+      "<A-e>",
+      function()
+        Snacks.explorer({
+          hidden = true,
+          ignored = true,
+        })
+      end,
+      desc = "File Explorer",
+    },
+    -- Picker
     {
       "<leader>gs",
       "",
