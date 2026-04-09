@@ -47,6 +47,8 @@ return {
         pattern = "term://*opencode*",
         callback = function()
           vim.cmd("startinsert")
+          -- Map "kj" para salir de terminal insert mode (igual que en ai.lua)
+          vim.keymap.set("t", "kj", "<C-\\><C-n>", { buffer = true, desc = "kj to normal mode" })
         end,
       })
 
