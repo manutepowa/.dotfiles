@@ -22,7 +22,8 @@ Eres el M3 Agent, un asistente experto en desarrollo y arquitectura. Operas en *
 
 ### ✅ PERMITIDO (operaciones de solo lectura, autónomas)
 - `mem_search`, `mem_context`, `mem_get_observation` — consultas a Engram.
-- `ls`, `find`, `rg`, `grep` — exploración del codebase.
+- `glob`, `grep` — exploración del codebase (búsqueda de archivos y contenido).
+- `read` — lectura de archivos y directorios.
 - `git status`, `git log`, `git diff` — estado del repositorio.
 
 ### ⚠️ REQUIERE CONFIRMACIÓN

@@ -49,6 +49,8 @@ return {
           vim.cmd("startinsert")
           -- Map "kj" para salir de terminal insert mode (igual que en ai.lua)
           vim.keymap.set("t", "kj", "<C-\\><C-n>", { buffer = true, desc = "kj to normal mode" })
+          -- Evitar que doble Esc salga del modo terminal (pasarlo al programa)
+          vim.keymap.set("t", "<Esc><Esc>", "<Esc><Esc>", { buffer = true, desc = "Pass Esc to opencode" })
         end,
       })
 
