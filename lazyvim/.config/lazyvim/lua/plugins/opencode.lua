@@ -3,95 +3,122 @@ return {
     "NickvanDyke/opencode.nvim",
     lazy = false,
     dependencies = {
-      -- Usamos Snacks porque gestiona el flotante mucho mejor que el plugin por defecto
-      { "folke/snacks.nvim", opts = { terminal = {} } },
+      -- Recommended for `ask()` and `select()`.
+      -- Required for `snacks` provider.
+      ---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
+      { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
     },
     config = function()
-      -- 1. Configuración de dimensiones
-      local float_opts = {
-        width = 0.9,
-        height = 0.9,
-        border = "rounded",
-      }
+      local Terminal = require("toggleterm.terminal").Terminal
 
-      -- 2. Configuración de Open Code (Puerto Dinámico)
+      local width_ratio = 0.9
+      local height_ratio = 0.9
+
+      local opencode_term = Terminal:new({
+        cmd = "opencode --port",
+        direction = "float",
+        hidden = true,
+        highlights = {
+          FloatBorder = {
+            link = "FloatBorder",
+          },
+        },
+        float_opts = {
+          width = math.floor(vim.o.columns * width_ratio),
+          height = math.floor(vim.o.lines * height_ratio),
+          row = math.floor((vim.o.lines - (vim.o.lines * height_ratio)) / 2),
+          col = math.floor((vim.o.columns - (vim.o.columns * width_ratio)) / 2),
+        },
+      })
       vim.g.opencode_opts = {
         server = {
           start = function()
-            -- Al no poner número tras --port, el sistema asigna uno libre
-            Snacks.terminal.open("opencode --port", float_opts)
+            if not opencode_term:is_open() then
+              opencode_term:spawn()
+            end
           end,
+
           toggle = function()
-            Snacks.terminal.toggle("opencode --port", float_opts)
+            opencode_term:toggle()
+          end,
+
+          show = function()
+            if not opencode_term:is_open() then
+              opencode_term:open()
+            else
+              opencode_term:focus()
+            end
           end,
           stop = function()
-            -- Cerramos y matamos el proceso para liberar el puerto dinámico usado
-            pcall(function()
-              Snacks.terminal.get("opencode --port"):close()
-            end)
-            if vim.fn.has("win32") == 1 then
-              vim.fn.system("taskkill /F /IM opencode.exe /T")
-            else
-              vim.fn.system("pkill -f 'opencode --port'")
+            if opencode_term then
+              opencode_term:shutdown()
             end
           end,
         },
         events = {
-          permissions = { enabled = false },
+          permissions = {
+            enabled = false,
+          },
         },
       }
 
-      -- 3. FIX DE FOCO: Forzar modo inserto al abrir la terminal de Open Code
-      -- Esto soluciona que la ventana se abra pero no puedas escribir
-      vim.api.nvim_create_autocmd("TermOpen", {
-        pattern = "term://*opencode*",
-        callback = function()
-          vim.cmd("startinsert")
-          -- Map "kj" para salir de terminal insert mode (igual que en ai.lua)
-          vim.keymap.set("t", "kj", "<C-\\><C-n>", { buffer = true, desc = "kj to normal mode" })
-          -- Evitar que doble Esc salga del modo terminal (pasarlo al programa)
-          vim.keymap.set("t", "<Esc><Esc>", "<Esc><Esc>", { buffer = true, desc = "Pass Esc to opencode" })
-        end,
-      })
-
-      -- 4. Lógica de integración y Keymaps
-      local opencode = require("opencode")
       vim.o.autoread = true
 
-      -- Toggle con Alt+,
-      vim.keymap.set({ "n", "t" }, "<A-,>", function()
-        opencode.toggle()
-      end, { desc = "Toggle Open Code" })
-
-      -- Enviar contexto
-      vim.keymap.set("n", "<leader>oa", function()
-        opencode.prompt("@buffer")
-        opencode.toggle()
-      end, { desc = "Add buffer context" })
-
-      vim.keymap.set("v", "<leader>oa", function()
-        opencode.prompt("@this")
-        opencode.toggle()
-      end, { desc = "Add selection context" })
-
-      -- Otros mapeos
       vim.keymap.set("n", "<A-S-k>", function()
-        opencode.command("session.half.page.up")
-      end)
+        require("opencode").command("session.half.page.up")
+      end, { desc = "opencode half page up" })
       vim.keymap.set("n", "<A-S-j>", function()
-        opencode.command("session.half.page.down")
-      end)
+        require("opencode").command("session.half.page.down")
+      end, { desc = "opencode half page down" })
       vim.keymap.set({ "n", "x" }, "<C-x>", function()
-        opencode.select()
-      end)
+        require("opencode").select()
+      end, { desc = "Execute opencode action…" })
+      vim.keymap.set({ "n" }, "<leader>oa", function()
+        require("opencode").prompt("@buffer")
+        opencode_term:toggle()
+      end, { desc = "Add to opencode" })
+      vim.keymap.set({ "v" }, "<leader>oa", function()
+        require("opencode").prompt("@this")
+        opencode_term:toggle()
+      end, { desc = "Add to opencode" })
+      vim.keymap.set({ "n", "t" }, "<A-,>", function()
+        require("opencode").toggle()
+      end, { desc = "Toggle opencode" })
+      -- You may want these if you stick with the opinionated "<C-a>" and "<C-x>" above — otherwise consider "<leader>o".
+      vim.keymap.set("n", "+", "<C-a>", { desc = "Increment", noremap = true })
+      vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement", noremap = true })
 
-      -- 5. Limpieza al salir de Neovim
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "OpencodeEvent:*", -- Optionally filter event types
+        callback = function(args)
+          ---@type opencode.cli.client.Event
+          local event = args.data.event
+          ---@type number
+          local port = args.data.port
+
+          -- See the available event types and their properties
+          -- vim.notify(vim.inspect(event))
+
+          -- Do something useful
+          if event.type == "session.idle" then
+            vim.notify("opencode finished")
+          end
+        end,
+      })
       vim.api.nvim_create_autocmd("VimLeave", {
         group = vim.api.nvim_create_augroup("OpencodeCleanup", { clear = true }),
         callback = function()
+          -- Intentamos cerrar el terminal de forma limpia primero
+          if opencode_term then
+            opencode_term:shutdown()
+          end
+
+          -- Matamos cualquier proceso de opencode que haya quedado huérfano
           if vim.fn.has("win32") == 1 then
+            -- Comando para Windows
             vim.fn.system("taskkill /F /IM opencode.exe /T")
           else
+            -- Comando para Linux/macOS
             vim.fn.system("pkill -f 'opencode --port'")
           end
         end,
