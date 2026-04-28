@@ -30,6 +30,15 @@ return {
           col = math.floor((vim.o.columns - (vim.o.columns * width_ratio)) / 2),
         },
       })
+
+      local function show_opencode_term()
+        if not opencode_term:is_open() then
+          opencode_term:open()
+        else
+          opencode_term:focus()
+        end
+      end
+
       vim.g.opencode_opts = {
         server = {
           start = function()
@@ -43,11 +52,7 @@ return {
           end,
 
           show = function()
-            if not opencode_term:is_open() then
-              opencode_term:open()
-            else
-              opencode_term:focus()
-            end
+            show_opencode_term()
           end,
           stop = function()
             if opencode_term then
@@ -75,11 +80,11 @@ return {
       end, { desc = "Execute opencode action…" })
       vim.keymap.set({ "n" }, "<leader>oa", function()
         require("opencode").prompt("@buffer")
-        opencode_term:toggle()
+        show_opencode_term()
       end, { desc = "Add to opencode" })
       vim.keymap.set({ "v" }, "<leader>oa", function()
         require("opencode").prompt("@this")
-        opencode_term:toggle()
+        show_opencode_term()
       end, { desc = "Add to opencode" })
       vim.keymap.set({ "n", "t" }, "<A-,>", function()
         require("opencode").toggle()

@@ -75,8 +75,12 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 # Turso
 export PATH="/home/manuel/.turso:$PATH"
 
-# TMUX
-if [ "$TMUX" = "" ]; then tmux; fi
+# TMUX — auto-attach o crear sesión por defecto
+if [ -z "$TMUX" ] && [ -n "$PS1" ] && [[ "$TERM_PROGRAM" != "vscode" ]] && [[ -z "$SSH_CONNECTION" ]]; then
+    # Si hay sesiones existentes, attacha a la última usada
+    # Si no, crea una nueva sesión llamada "main"
+    tmux attach-session -t main 2>/dev/null || tmux new-session -s main
+fi
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
