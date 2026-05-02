@@ -1,8 +1,8 @@
 local servers = {
   "lua_ls",
   "tailwindcss",
-  "intelephense",
   "astro",
+  "phpantom_lsp",
   "cssls",
   "dockerls",
   "eslint",
