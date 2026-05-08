@@ -54,6 +54,16 @@ return {
       end,
     })
 
+    -- phpantom_lsp: keep language features, delegate formatting to conform/php-cs-fixer
+    vim.lsp.config("phpantom_lsp", {
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+
+        require("config.lsphandler").on_attach(client, bufnr)
+      end,
+    })
+
     -- Enable all servers for their respective filetypes
     for _, server in ipairs(servers) do
       vim.lsp.enable(server)

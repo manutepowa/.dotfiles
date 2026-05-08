@@ -38,6 +38,7 @@ return {
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
       javascript = check_eslint,
       typescript = check_eslint,
+      php = { "php_cs_fixer" },
       -- twig = { "djlint" },
       markdown = {},
       http = { "kulala" },
@@ -46,6 +47,15 @@ return {
       kulala = {
         command = "kulala-fmt", -- nombre del comando
         args = { "format", "$FILENAME" }, -- argumentos estándar
+        stdin = false,
+      },
+      php_cs_fixer = {
+        args = {
+          "fix",
+          "--config",
+          vim.fn.stdpath("config") .. "/.php-cs-fixer.dist.php",
+          "$FILENAME",
+        },
         stdin = false,
       },
     },
