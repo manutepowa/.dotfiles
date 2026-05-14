@@ -18,11 +18,6 @@ return {
         cmd = "opencode --port",
         direction = "float",
         hidden = true,
-        highlights = {
-          FloatBorder = {
-            link = "FloatBorder",
-          },
-        },
         float_opts = {
           width = math.floor(vim.o.columns * width_ratio),
           height = math.floor(vim.o.lines * height_ratio),

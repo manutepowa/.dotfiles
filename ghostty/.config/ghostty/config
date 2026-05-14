@@ -1,48 +1,49 @@
+# General
 confirm-close-surface = false
+gtk-single-instance = true
+shell-integration-features = no-cursor
+
 # Theme
 theme = One Half Dark
 background = #1C1C1C
+
+# Cursor
 # cursor-invert-fg-bg = true
 cursor-color = #CCC
 cursor-text = #000
 cursor-style = block_hollow
 cursor-style-blink = false
-shell-integration-features = no-cursor
 
+# Window
 # window-theme = system
 gtk-titlebar = false
 window-width = 140
 window-height = 75
 window-save-state = always
 quick-terminal-position = right
+gtk-tabs-location = bottom
+gtk-wide-tabs = false
 
 # No funciona en gtk
 # window-position-x = 486
 # window-position-y = 127
+
+# Font
 font-family = Geist Mono
 font-family-italic = Geist Mono Italic
 font-family-bold = Geist Mono Bold
 font-family-bold-italic = Geist Mono Bold Italic
 # font-style = Regular
-# font-size = 12
+font-size = 12
 adjust-cell-height = 20%
 adjust-cell-width = -10%
-
-# Appearance
-# gtk-titlebar = false
-gtk-single-instance = true
-gtk-tabs-location = bottom
-gtk-wide-tabs = false
 
 # Mouse
 mouse-hide-while-typing = true
 
-# Other
+# Clipboard
 copy-on-select = clipboard
 
-
+# Keybinds
 keybind = alt+3=reload_config
-
-
-# Clipboard Management
 keybind = alt+p=paste_from_clipboard
