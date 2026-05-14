@@ -23,6 +23,7 @@ return {
           height = math.floor(vim.o.lines * height_ratio),
           row = math.floor((vim.o.lines - (vim.o.lines * height_ratio)) / 2),
           col = math.floor((vim.o.columns - (vim.o.columns * width_ratio)) / 2),
+          border = "none",
         },
       })
 
