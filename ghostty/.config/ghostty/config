@@ -45,5 +45,6 @@ mouse-hide-while-typing = true
 copy-on-select = clipboard
 
 # Keybinds
+keybind = ctrl+shift+o=unbind
 keybind = alt+3=reload_config
 keybind = alt+p=paste_from_clipboard

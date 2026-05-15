@@ -67,3 +67,7 @@ empresa mobal
 - IA importante ver el tiempo (meteorológico)
 - Solo piezometría.
 - mcp, chat.
+
+
+## Reu 14/5
+- El id socio es importante
