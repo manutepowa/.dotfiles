@@ -11,6 +11,10 @@ local function lsp_keymaps(clientName)
   vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
     callback = function(args)
+      if vim.b[args.buf].disable_autoformat then
+        return
+      end
+
       require("conform").format({ bufnr = args.buf, timeout_ms = 500 })
     end,
   })
