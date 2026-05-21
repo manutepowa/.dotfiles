@@ -143,6 +143,10 @@ return {
       "",
     },
     {
+      "<leader>p",
+      "",
+    },
+    {
       "<leader>ff",
       function()
         Snacks.picker.files({
