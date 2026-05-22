@@ -17,9 +17,7 @@
   "autoshare": false,
   "autoupdate": true,
   "default_agent": "m3-agent",
-  "disabled_providers": [
-    "gemini"
-  ],
+  "disabled_providers": [],
   "lsp": {
     "typescript": {
       "command": [

@@ -1,5 +1,6 @@
 return {
   "mistweaverco/kulala.nvim",
+  tag = "v5.3.4",
   keys = {
     { "<leader>kr", "<cmd>lua require('kulala').run()<cr>", desc = "Send the request" },
     { "<leader>ki", "<cmd>lua require('kulala').inspect()<cr>", desc = "Inspect current request", ft = "http" },
@@ -15,13 +16,12 @@ return {
     global_keymaps = false,
     global_keymaps_prefix = "<leader>R",
     kulala_keymaps_prefix = "",
-    focus = true,
     ui = {
       display_mode = "float", -- "tab" | "split" | "float"
-      default_view = "headers_body",
+      default_view = "body",
       winbar = true,
       win_opts = {
-        width = 90,
+        width = 100,
         wo = { number = true, wrap = true }, -- window options
       },
       max_response_size = 3145728, -- 3MB en bytes (aumentado desde 32KB por defecto)
