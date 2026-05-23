@@ -16,25 +16,12 @@ export QT_QPA_PLATFORM="wayland"
 
 export COLORTERM=truecolor
 
-# fzf key bindings for vi mode
-VI_MODE_SET_CURSOR=true
-
-bindkey '^[l' forward-word # Move next word in line
-# bindkey '^H' backward-kill-word
-bindkey "^[h" backward-char
-bindkey "^[k" up-line-or-history
-bindkey "^[j" down-line-or-history
-
-# vi-mode
-bindkey -M viins '^[^?' backward-kill-word
-bindkey -M viins 'kj' vi-cmd-mode
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z docker npm vi-mode fzf zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git z docker npm fzf zsh-autosuggestions zsh-syntax-highlighting)
 
 
 alias m3ssh="cd /home/manuel/Desarrollo/m3ssh/ && ./m3ssh.sh"
@@ -91,6 +78,49 @@ fi
 export FZF_DEFAULT_OPTS='--bind=alt-k:up,alt-j:down'
 
 source $ZSH/oh-my-zsh.sh
+
+# Native Zsh vi mode
+bindkey -v
+
+# Reduce key sequence delay for mappings like "kj".
+export KEYTIMEOUT=1
+
+# Cursor shape per mode:
+# - vi command mode: block cursor
+# - insert mode: beam cursor
+function zle-keymap-select {
+  case $KEYMAP in
+    vicmd)
+      echo -ne '\e[2 q'
+      ;;
+    viins|main)
+      echo -ne '\e[6 q'
+      ;;
+  esac
+}
+
+function zle-line-init {
+  zle -K viins
+  echo -ne '\e[6 q'
+}
+
+function zle-line-finish {
+  echo -ne '\e[0 q'
+}
+
+zle -N zle-keymap-select
+zle -N zle-line-init
+zle -N zle-line-finish
+
+# Insert mode mappings
+bindkey -M viins 'kj' vi-cmd-mode
+bindkey -M viins '^[^?' backward-kill-word
+
+# Vim-like movement without leaving insert mode: Alt+h/j/k/l
+bindkey -M viins '^[h' backward-char
+bindkey -M viins '^[j' down-line-or-history
+bindkey -M viins '^[k' up-line-or-history
+bindkey -M viins '^[l' forward-word
 
 # EZA alias
 alias l='eza -l --icons' #   list, size, type
