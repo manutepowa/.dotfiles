@@ -151,3 +151,47 @@ pnpm update --interactive --recursive
 3. **Consistencia**: Estructura de node_modules más predecible
 4. **Seguridad**: No permite hoisting inesperado
 5. **Lockfile**: Único lockfile para todo el monorepo
+
+---
+
+## DDEV + ngrok + Next.js HMR
+
+Proyecto DDEV con Next.js 15+ dev server y Traefik (ddev-router). El adaptador mapea `HTTP_EXPOSE=80:3002` para que el tráfico del router vaya directo al Node.js.
+
+### Comando que funciona
+
+```bash
+ngrok http https://lecturas.ddev.site \
+  --host-header=rewrite \
+  --request-header-add "Origin: https://lecturas.ddev.site"
+```
+
+### Por qué
+
+| Problema | Causa | Fix |
+|---|---|---|
+| Traefik no enruta | El `Host` header es la URL de ngrok | `--host-header=rewrite` lo reescribe a `lecturas.ddev.site` |
+| WebSocket HMR 500 | Next.js verifica el `Origin` header. El navegador envía `Origin: https://xxx.ngrok.io`, que no está en `allowedDevOrigins` | `--request-header-add "Origin: https://lecturas.ddev.site"` lo fuerza |
+
+Sin el fix de Origin, los assets estáticos cargan bien (200) pero el HMR (`/_next/webpack-hmr`) falla con 500 porque el WebSocket no se establece.
+
+### Alternativas (mismo resultado)
+
+```bash
+# Puerto HTTP directo de DDEV
+ngrok http http://127.0.0.1:32768 \
+  --host-header=rewrite \
+  --request-header-add "Origin: https://lecturas.ddev.site"
+
+# HTTP de DDEV
+ngrok http http://lecturas.ddev.site \
+  --host-header=rewrite \
+  --request-header-add "Origin: https://lecturas.ddev.site"
+```
+
+### Notas
+
+- `ddev ngrok` no existe como add-on en DDEV v1.25.2. Se usa ngrok directo desde el host.
+- DDEV expone los puertos del router en `127.0.0.1:32768` (HTTP) y `127.0.0.1:32769` (HTTPS) por defecto.
+- `lecturas.ddev.site` resuelve por DNS público (`use_dns_when_possible: true`), no por `/etc/hosts`.
+- NGINX dentro del contenedor queda bypassed — el tráfico va directo al puerto 3002 del Node.js.

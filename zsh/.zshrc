@@ -23,7 +23,6 @@ export COLORTERM=truecolor
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git z docker npm fzf zsh-autosuggestions zsh-syntax-highlighting)
 
-
 alias m3ssh="cd /home/manuel/Desarrollo/m3ssh/ && ./m3ssh.sh"
 alias devtest="cd /home/manuel/Desarrollo/devtest"
 
@@ -139,3 +138,6 @@ export PATH=/home/manuel/.opencode/bin:$PATH
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Created by `pipx` on 2026-06-04 11:30:00
+export PATH="$PATH:/home/manuel/.local/bin"
