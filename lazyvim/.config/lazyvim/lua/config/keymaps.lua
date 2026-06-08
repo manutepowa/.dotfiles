@@ -1,3 +1,5 @@
+local cp = require("utils.clipboard")
+
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
@@ -102,6 +104,8 @@ vim.keymap.set("c", "<A-k>", "<UP>", { silent = true })
 -- end, { silent = true })
 
 vim.keymap.set("n", "<leader>l", ":Lazy<cr>", { silent = true })
+vim.keymap.set("n", "<leader>yf", cp.copy_current_location, { desc = "Copiar ruta y línea actual" })
+vim.keymap.set("v", "<leader>yf", cp.copy_visual_location, { desc = "Copiar ruta y rango visual" })
 
 -- CMD commands
 -- map command to cmdline
