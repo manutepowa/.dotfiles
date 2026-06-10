@@ -4,3 +4,6 @@ nvim/.config/nvim/plugin/packer_compiled.lua
 /.mcp.json
 .agents
 skills-lock.json
+# Local Pi runtime state
+.atl/
+.pi

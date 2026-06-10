@@ -42,6 +42,8 @@ alias ddm='ddev mailpit' # all list
 
 # claude code
 alias cc='claude' # all list
+alias oc='opencode'
+
 # Bazecore
 alias bb='/home/manuel/Downloads/NEWDEB/Bazecor-1.8.3-x64.AppImage --no-sandbox' # all list
 
@@ -141,3 +143,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Created by `pipx` on 2026-06-04 11:30:00
 export PATH="$PATH:/home/manuel/.local/bin"
+
+# pnpm
+export PNPM_HOME="/home/manuel/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

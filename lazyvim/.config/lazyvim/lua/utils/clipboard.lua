@@ -16,8 +16,7 @@ function M.copy_current_location()
     return
   end
 
-  local line = vim.fn.line(".")
-  local result = string.format("%s:L%d", file_path, line)
+  local result = string.format("@%s", file_path)
 
   vim.fn.setreg("+", result)
   vim.notify("Copiado: " .. result, vim.log.levels.INFO)
@@ -36,7 +35,7 @@ function M.copy_visual_location()
     start_line, end_line = end_line, start_line
   end
 
-  local result = string.format("%s:L%d-L%d", file_path, start_line, end_line)
+  local result = string.format("@%s:L%d-L%d", file_path, start_line, end_line)
 
   vim.fn.setreg("+", result)
   vim.notify("Rango copiado: " .. result, vim.log.levels.INFO)
