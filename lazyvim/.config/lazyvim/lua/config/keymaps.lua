@@ -104,8 +104,8 @@ vim.keymap.set("c", "<A-k>", "<UP>", { silent = true })
 -- end, { silent = true })
 
 vim.keymap.set("n", "<leader>l", ":Lazy<cr>", { silent = true })
-vim.keymap.set("n", "<leader>yf", cp.copy_current_location, { desc = "Copiar ruta y línea actual" })
-vim.keymap.set("v", "<leader>yf", cp.copy_visual_location, { desc = "Copiar ruta y rango visual" })
+vim.keymap.set("n", "<leader>oa", cp.copy_current_location, { desc = "Copiar ruta y línea actual" })
+vim.keymap.set("v", "<leader>oa", cp.copy_visual_location, { desc = "Copiar ruta y rango visual" })
 
 -- CMD commands
 -- map command to cmdline

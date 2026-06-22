@@ -10,6 +10,33 @@ local function get_current_file()
   return vim.fn.fnamemodify(file_path, ":.")
 end
 
+---@param text string
+local function send_to_tmux_scratch(text)
+  if not vim.env.TMUX then
+    return
+  end
+
+  pcall(function()
+    -- 1. Asegura que scratch existe (falla silenciosamente si ya existe)
+    vim.fn.system({ "tmux", "new-session", "-d", "-s", "scratch" })
+
+    -- 2. Envía el texto al pane activo de scratch (literal, sin Enter)
+    vim.fn.system({ "tmux", "send-keys", "-t", "scratch", "-l", text })
+
+    -- 3. Abre popup con scratch
+    vim.fn.system({
+      "tmux",
+      "display-popup",
+      "-w90%",
+      "-h90%",
+      "-d",
+      vim.fn.getcwd(),
+      "-E",
+      "exec tmux attach-session -t scratch",
+    })
+  end)
+end
+
 function M.copy_current_location()
   local file_path = get_current_file()
   if not file_path then
@@ -20,6 +47,7 @@ function M.copy_current_location()
 
   vim.fn.setreg("+", result)
   vim.notify("Copiado: " .. result, vim.log.levels.INFO)
+  send_to_tmux_scratch(result)
 end
 
 function M.copy_visual_location()
@@ -39,6 +67,7 @@ function M.copy_visual_location()
 
   vim.fn.setreg("+", result)
   vim.notify("Rango copiado: " .. result, vim.log.levels.INFO)
+  send_to_tmux_scratch(result)
 
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
 end
