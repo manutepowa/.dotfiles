@@ -151,3 +151,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Audio opencode sound
+export AGENT_SOUND_BLOCKED=/usr/share/sounds/freedesktop/stereo/dialog-information.oga
+export AGENT_SOUND_IDLE=/usr/share/sounds/freedesktop/stereo/dialog-information.oga
