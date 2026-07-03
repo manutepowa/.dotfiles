@@ -6,14 +6,19 @@
   ],
   "agent": {
     "m3-agent": {
-      "mode": "all",
-      "description": "M3 Agent - Safe proposal mode without auto-execution",
+      "mode": "primary",
+      "description": "M3 Agent - Modo Solo Propuesta y orquestador de subagentes minion",
       "prompt": "{file:./M3_AGENT.md}",
-      "tools": {
-        "read": true,
-        "write": true,
-        "edit": true,
-        "bash": true
+      "permission": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "task": {
+          "*": "deny",
+          "subagents/minion": "allow"
+        }
       }
     }
   },

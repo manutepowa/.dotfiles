@@ -3,22 +3,20 @@ description: "Agente de redacción de documentación"
 mode: subagent
 model: github-copilot/gpt-5-mini
 temperature: 0.2
-tools:
-  read: true
-  grep: true
-  glob: true
-  edit: true
-  write: true
-  bash: false
-permissions:
+permission:
+  read: allow
+  glob: allow
+  grep: allow
   bash:
     "*": "deny"
   edit:
+    "*": "deny"
     "plan/**/*.md": "allow"
     "**/*.md": "allow"
     "**/*.env*": "deny"
     "**/*.key": "deny"
     "**/*.secret": "deny"
+  task: deny
 ---
 
 # Agente de Documentación
@@ -37,5 +35,4 @@ Flujo de Trabajo:
 Restricciones:
 
 - Sin bash. Solo editar markdown y documentos.
-
 
