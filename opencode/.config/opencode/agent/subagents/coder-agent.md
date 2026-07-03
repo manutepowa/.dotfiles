@@ -3,23 +3,20 @@ description: "Ejecuta subtareas de programación en secuencia, asegurando la fin
 mode: subagent
 model: github-copilot/claude-sonnet-4
 temperature: 0
-tools:
-  read: true
-  edit: true
-  write: true
-  grep: true
-  glob: true
-  bash: false
-  patch: true
-permissions:
+permission:
+  read: allow
+  glob: allow
+  grep: allow
   bash:
     "*": "deny"
   edit:
+    "*": "ask"
     "**/*.env*": "deny"
     "**/*.key": "deny"
     "**/*.secret": "deny"
     "node_modules/**": "deny"
     ".git/**": "deny"
+  task: deny
 ---
 
 # Agente Programador (@coder-agent)
