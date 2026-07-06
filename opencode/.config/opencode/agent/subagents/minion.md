@@ -2,6 +2,7 @@
 description: "Explorador de código en solo lectura para M3 Agent"
 mode: subagent
 model: opencode-go/deepseek-v4-flash
+reasoningEffort: medium
 permission:
   read: allow
   glob: allow
