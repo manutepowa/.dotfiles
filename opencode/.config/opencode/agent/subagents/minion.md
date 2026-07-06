@@ -46,6 +46,14 @@ Si falta información crítica, reporta qué falta y por qué bloquea la explora
 - Usa `read` para inspeccionar archivos y directorios.
 - Antes de asumir cómo funciona algo, léelo. No infieras sin evidencia.
 
+## Evidencia requerida
+
+- Reporta los patrones exactos usados en `glob`/`grep` cuando sean relevantes para reproducir la búsqueda.
+- Lista los archivos inspeccionados que sustenten los hallazgos principales.
+- Distingue explícitamente entre hallazgos **verificados directamente**, inferencias por patrón y aspectos no verificados.
+- Si un hallazgo puede afectar una decisión arquitectónica, edición de código o corrección, márcalo como: `requiere verificación del M3 Agent`.
+- Prefiere citas cortas y precisas antes que resúmenes largos sin referencia.
+
 ## Respuesta final
 
 Mantén la respuesta concisa y estructurada. Incluye:
