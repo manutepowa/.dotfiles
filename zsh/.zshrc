@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 . "$HOME/.config/zsh/exports.zsh"
 
-eval "$(fnm env --use-on-cd --shell zsh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/fnm env --use-on-cd --shell zsh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
 
@@ -63,11 +63,10 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 # Turso
 export PATH="/home/manuel/.turso:$PATH"
 
-# TMUX — auto-attach o crear sesión por defecto
-if [ -z "$TMUX" ] && [ -n "$PS1" ] && [[ "$TERM_PROGRAM" != "vscode" ]] && [[ -z "$SSH_CONNECTION" ]]; then
-    # Si hay sesiones existentes, attacha a la última usada
-    # Si no, crea una nueva sesión llamada "main"
-    tmux attach-session -t main 2>/dev/null || tmux new-session -s main
+# HERDR — auto-attach o crear sesión persistente
+# Descomentar para que herdr se lance automáticamente al abrir terminal
+if [ -z "$HERDR_ENV" ] && [ -n "$PS1" ] && [[ "$TERM_PROGRAM" != "vscode" ]] && [[ -z "$SSH_CONNECTION" ]]; then
+    herdr
 fi
 
 # export NVM_DIR="$HOME/.nvm"
@@ -155,3 +154,11 @@ esac
 # Audio opencode sound
 export AGENT_SOUND_BLOCKED=/usr/share/sounds/freedesktop/stereo/dialog-information.oga
 export AGENT_SOUND_IDLE=/usr/share/sounds/freedesktop/stereo/dialog-information.oga
+
+# ~/.zshrc
+autoload -Uz add-zsh-hook
+function _herdr_auto_tab_name {
+  herdr tab rename "$HERDR_TAB_ID" "${PWD##*/}" &>/dev/null
+}
+add-zsh-hook chpwd _herdr_auto_tab_name
+_herdr_auto_tab_name  # nombre inicial al abrir el tab

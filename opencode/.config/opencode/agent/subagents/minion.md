@@ -1,7 +1,7 @@
 ---
 description: "Subagent ejecutor para tareas delegadas por M3 Agent"
 mode: subagent
-model: openai/gpt-5.5
+model: opencode-go/deepseek-v4-pro
 reasoningEffort: medium
 permission:
   read: allow

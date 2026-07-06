@@ -17,7 +17,7 @@ cursor-style-blink = false
 # Window
 # window-theme = system
 gtk-titlebar = false
-window-width = 140
+window-width = 143
 window-height = 75
 window-save-state = always
 quick-terminal-position = right
@@ -46,5 +46,5 @@ copy-on-select = clipboard
 
 # Keybinds
 keybind = ctrl+shift+o=unbind
-keybind = alt+3=reload_config
+keybind = alt+9=reload_config
 keybind = alt+p=paste_from_clipboard
