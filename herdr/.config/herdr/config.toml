@@ -91,10 +91,33 @@ next_tab = "prefix+tab"
 # close_tab = "prefix+shift+x"
 # rename_pane = "prefix+shift+p"
 # edit_scrollback = "prefix+e"
-focus_pane_left = "ctrl+h"
-focus_pane_down = "ctrl+j"
-focus_pane_up = "ctrl+k"
-focus_pane_right = "ctrl+l"
+# focus_pane_left/right/up/down eliminadas — reemplazadas por [[keys.command]]
+# con herdr-nav.sh para navegación vim-aware (ctrl+h/j/k/l)
+
+[[keys.command]]
+key = "ctrl+h"
+type = "shell"
+command = "$HOME/.config/herdr/scripts/herdr-nav.sh left"
+description = "nav pane/split left"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "shell"
+command = "$HOME/.config/herdr/scripts/herdr-nav.sh down"
+description = "nav pane/split down"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "shell"
+command = "$HOME/.config/herdr/scripts/herdr-nav.sh up"
+description = "nav pane/split up"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "shell"
+command = "$HOME/.config/herdr/scripts/herdr-nav.sh right"
+description = "nav pane/split right"
+
 # cycle_pane_next = "prefix+tab"
 # cycle_pane_previous = "prefix+shift+tab"
 # last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
@@ -127,7 +150,7 @@ split_horizontal = "prefix+-"
 #     --label "$dir" \
 #     --focus
 # """
-description = "new tab with dirname"
+# description = "new tab with dirname"
 # [[keys.command]]
 # key = "prefix+alt+g"
 # type = "pane"

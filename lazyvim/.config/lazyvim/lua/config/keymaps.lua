@@ -113,13 +113,29 @@ vim.keymap.set("c", "<A-l>", "<Right>")
 vim.keymap.set("c", "<A-h>", "<Left>")
 vim.keymap.set("c", "<A-BS>", "<c-w>")
 
---
-local nvim_tmux_nav = require("nvim-tmux-navigation")
+-- Smart navigation: wincmd dentro de Neovim, herdr pane focus en el borde
+local function nav(wincmd, dir)
+  local prev = vim.api.nvim_get_current_win()
+  vim.cmd("wincmd " .. wincmd)
+  if vim.api.nvim_get_current_win() ~= prev then
+    return
+  end
+  if vim.env.TMUX and vim.env.TMUX ~= "" then
+    -- Fallback a tmux por si alguna vez estás dentro de tmux
+    local tmux = { left = "Left", down = "Down", up = "Up", right = "Right" }
+    pcall(vim.cmd, "TmuxNavigate" .. tmux[dir])
+    return
+  end
+  if vim.env.HERDR_PANE_ID and vim.env.HERDR_PANE_ID ~= "" then
+    local herdr = vim.env.HERDR_BIN_PATH or "herdr"
+    vim.fn.system({ herdr, "pane", "focus", "--direction", dir, "--current" })
+  end
+end
 
-vim.keymap.set("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft) -- Navigate to the left pane
-vim.keymap.set("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown) -- Navigate to the bottom pane
-vim.keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp) -- Navigate to the top pane
-vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight) -- Navigate to the right pane
+vim.keymap.set("n", "<C-h>", function() nav("h", "left") end, { silent = true, desc = "Nav left" })
+vim.keymap.set("n", "<C-j>", function() nav("j", "down") end, { silent = true, desc = "Nav down" })
+vim.keymap.set("n", "<C-k>", function() nav("k", "up") end, { silent = true, desc = "Nav up" })
+vim.keymap.set("n", "<C-l>", function() nav("l", "right") end, { silent = true, desc = "Nav right" })
 
 -- AI
 -- vim.keymap.set("n", "<leader>ai", "<cmd>AvanteAsk<CR>", { desc = "Start AvanteAsk" })

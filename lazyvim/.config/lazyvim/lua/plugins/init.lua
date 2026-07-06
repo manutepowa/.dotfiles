@@ -30,7 +30,6 @@ return {
     event = "InsertEnter",
     config = true,
   },
-  { "alexghergh/nvim-tmux-navigation" },
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
