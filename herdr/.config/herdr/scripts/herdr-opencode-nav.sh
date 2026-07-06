@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# herdr-opencode-nav <up|down>
+# herdr-opencode-nav <up|down|left|right|h|j|k|l>
 # Si opencode está en foreground, envía la tecla de navegación hacia dentro.
 # Si no, pasa la tecla Alt+original al panel.
 set -euo pipefail
 
-dir=${1:?usage: herdr-opencode-nav <up|down>}
+dir=${1:?usage: herdr-opencode-nav <up|down|left|right|h|j|k|l>}
 case $dir in
 down)
   key=Down
@@ -13,6 +13,14 @@ down)
 up)
   key=Up
   orig="alt+k"
+  ;;
+left)
+  key=Left
+  orig="alt+h"
+  ;;
+right)
+  key=Right
+  orig="alt+l"
   ;;
 *)
   echo "herdr-opencode-nav: bad direction '$dir'" >&2

@@ -156,8 +156,14 @@ split_horizontal = "prefix+-"
 # type = "pane"
 # command = "lazygit"
 
-# Navegación Alt+j/Alt+k: si opencode está en foreground envía Up/Down,
+# Navegación Alt+h/j/k/l: si opencode está en foreground envía la flecha,
 # si no, pasa la tecla Alt+original al panel.
+[[keys.command]]
+key = "alt+h"
+type = "shell"
+command = "$HOME/.config/herdr/scripts/herdr-opencode-nav.sh left"
+description = "opencode-aware pane left"
+
 [[keys.command]]
 key = "alt+j"
 type = "shell"
@@ -169,6 +175,12 @@ key = "alt+k"
 type = "shell"
 command = "$HOME/.config/herdr/scripts/herdr-opencode-nav.sh up"
 description = "opencode-aware pane up"
+
+[[keys.command]]
+key = "alt+l"
+type = "shell"
+command = "$HOME/.config/herdr/scripts/herdr-opencode-nav.sh right"
+description = "opencode-aware pane right"
 
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
