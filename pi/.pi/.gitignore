@@ -1,0 +1,25 @@
+# Local Pi runtime state
+.atl/
+
+# Auth & security (contains API keys, tokens)
+agent/auth.json
+
+# Local trust settings (machine-specific paths)
+agent/trust.json
+
+# Runtime cache
+agent/mcp-cache.json
+
+# Session data
+agent/sessions/
+
+# Dependencies (managed by pi itself)
+agent/npm/
+agent/package.json
+agent/pnpm-lock.yaml
+
+# IPC runtime files
+agent/intercom/
+
+# Local databases (frecency, history)
+agent/pi-pretty/

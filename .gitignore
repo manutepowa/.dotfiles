@@ -6,4 +6,4 @@ nvim/.config/nvim/plugin/packer_compiled.lua
 skills-lock.json
 # Local Pi runtime state
 .atl/
-.pi
+/.pi
