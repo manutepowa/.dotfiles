@@ -128,46 +128,55 @@ Cada delegación debe incluir:
 - `git add` + `git commit` (cuando el usuario lo pida explícitamente).
 - Ejecución de tests o builds (proponer el comando, esperar aprobación).
 
-## 🧠 Gestión de Memoria (Engram MCP)
+## 🧠 Gestión de Memoria (Engram en OpenCode)
 
-Tienes acceso a una memoria a largo plazo a través de Engram. Úsala para mantener la coherencia entre sesiones. Este protocolo es obligatorio y está siempre activo; no se activa bajo demanda.
+En OpenCode, la integración recomendada de Engram es `engram setup opencode`. Esto instala el plugin de OpenCode y registra el MCP `engram mcp --tools=agent`. El plugin se encarga de session tracking, captura de prompts, compaction recovery y autoarranque de `engram serve` cuando es posible; las tools `mem_*` del agente se exponen por MCP. Este protocolo es obligatorio y está siempre activo.
+
+### PROYECTO Y ARRANQUE
+
+- **Primera llamada recomendada:** `mem_current_project`.
+- Si Engram devuelve `available_projects`, `ambiguous_project` o cualquier ambigüedad de proyecto, **no adivines**.
+- Pide al usuario que confirme el proyecto exacto, o sugiere añadir `.engram/config.json` con `project_name`.
+- Si una escritura falla por proyecto ambiguo, reintenta solo con los campos de recuperación que exponga el schema/error actual (por ejemplo `project`, `project_choice_reason`, `recovery_token`). No inventes nombres de proyecto ni flags.
+- Después de confirmar el proyecto, llama a `mem_context` para recuperar contexto reciente.
+- Usa `mem_search` si necesitas más detalle histórico o si el primer mensaje del usuario ya apunta a un tema, feature o bug concreto.
 
 ### CUÁNDO GUARDAR (obligatorio — no esperes a que el usuario lo pida)
 
 Llama a `mem_save` INMEDIATAMENTE y SIN QUE EL USUARIO LO PIDA después de:
+- Fix de un bug completado.
 - Decisión de arquitectura o diseño tomada.
-- Convención de equipo documentada o establecida.
-- Cambio de workflow acordado.
-- Elección de herramienta o librería con tradeoffs.
-- Fix de un bug completado (incluir root cause).
-- Feature implementada con enfoque no obvio.
-- Artefacto significativo creado o actualizado (GitHub, Notion, Jira, documentación, etc.).
 - Descubrimiento no obvio sobre el codebase.
-- Matiz importante, edge case o comportamiento inesperado encontrado.
 - Cambio de configuración o setup de entorno.
 - Patrón establecido (nomenclatura, estructura, convención).
 - Preferencia o restricción del usuario aprendida.
 
+Disciplina adicional del agente:
+- También guarda cuando una convención queda explícita.
+- También guarda cuando un tradeoff importante queda decidido.
+- También guarda cuando aparece un edge case o comportamiento inesperado que ahorrará trabajo futuro.
+- También guarda cuando una feature se resuelve con un enfoque no obvio.
+- También guarda cuando se cree, actualice o acuerde un artefacto o workflow significativo que afecte futuras sesiones.
+
 **Auto-verificación después de CADA tarea:** "¿Tomé una decisión, corregí un bug, descubrí algo no obvio o establecí una convención? Si sí, llama a `mem_save` AHORA."
 
 Formato para `mem_save`:
-- **title**: Verbo + qué — corto, buscable (ej: "Fixed N+1 query in UserList")
-- **type**: bugfix | decision | architecture | discovery | pattern | config | preference
+- **title**: Verbo + qué — corto, buscable (ej: `Fixed N+1 query in UserList`).
+- **type**: `bugfix` | `decision` | `architecture` | `discovery` | `pattern` | `config` | `preference`.
 - **scope**: `project` por defecto; usa `personal` solo para preferencias generales del usuario.
 - **topic_key**: recomendado para temas evolutivos, ej: `architecture/auth-model`.
-- **capture_prompt**: opcional; `true` por defecto. Usa `false` solo para artefactos automatizados (ej: reportes SDD, caches de testing, salida de skills).
+- **capture_prompt**: opcional cuando el schema lo expone; `true` por defecto. Usa `false` solo para artefactos automatizados.
 - **content**:
   **What**: Una oración — qué se hizo
-  **Why**: Qué motivó el cambio (petición del usuario, bug, performance, etc.)
+  **Why**: Qué motivó el cambio
   **Where**: Archivos o rutas afectadas
-  **Learned**: Matices importantes, edge cases, cosas que sorprendieron (omitir si no hay)
+  **Learned**: Matices importantes, edge cases o sorpresas relevantes (omitir si no hay)
 
-**Captura automática de prompt (Engram v1.15.3+):**
-- `mem_save` captura el prompt del usuario automáticamente cuando hay contexto activo. No inventa texto.
-- Si un hook o plugin externo observa el prompt antes que `mem_save`, debe llamar `mem_save_prompt` primero para alimentar la captura.
-- No decidir captura por `type` — usa `capture_prompt: false` explícito para artefactos automatizados.
-- Si el schema de una herramienta anterior no expone `capture_prompt`, omite el campo.
-- Al finalizar tareas largas, `mem_capture_passive` extrae learnings estructurados de la salida de texto automáticamente.
+**Prompt capture en OpenCode:**
+- El plugin de OpenCode normalmente captura el prompt del usuario automáticamente por la vía HTTP.
+- `capture_prompt` sigue siendo válido cuando la tool lo expone; úsalo en `false` para saves automatizados o no conversacionales.
+- Usa `mem_save_prompt` como fallback cuando la captura normal no haya ocurrido o cuando una integración/hook necesite alimentar el contexto explícitamente.
+- No inventes prompts si no existen; si el schema no expone `capture_prompt`, omite el campo.
 
 Reglas de actualización de memoria:
 - Temas distintos NO deben pisarse entre sí.
@@ -180,25 +189,25 @@ Reglas de actualización de memoria:
 Si `mem_save` responde con `judgment_required=true` y `candidates[]`:
 1. Itera cada candidato y llama `mem_judge` con su `judgment_id`.
 2. Relaciones posibles: `related`, `compatible`, `scoped`, `conflicts_with`, `supersedes`, `not_conflict`.
-3. **Resuelve automáticamente** si confianza ≥ 0.7 y no es tipo crítico (architecture/policy/decision).
-4. **Pregunta al usuario** si confianza < 0.7, o si la relación es `supersedes`/`conflicts_with` con tipo `architecture`/`policy`/`decision`.
-5. Usa `mem_compare` para persistir un veredicto semántico entre dos memorias existentes (relacionar, marcar como obsoleto, comparar).
+3. **Pregunta al usuario** si la confianza es `< 0.7`, o si la relación sería `supersedes`/`conflicts_with` sobre memoria de tipo `architecture`, `policy` o `decision`.
+4. **Resuelve sin preguntar** si la confianza es `>= 0.7` y la relación no afecta memoria crítica, especialmente para `related`, `compatible`, `scoped` o `not_conflict`.
+5. Usa `mem_compare` para comparaciones semánticas proactivas entre memorias ya leídas; no lo confundas con el flujo normal de conflicto surfacing de `mem_save`.
 
 ### CUÁNDO BUSCAR EN MEMORIA
 
 Cuando el usuario pregunte por algo pasado ("recordar", "recuerda", "recall", "qué hicimos", "what did we do", "cómo lo resolvimos", "how did we solve", "acuérdate") o haga referencia a trabajo anterior:
 1. Llama a `mem_context` — revisa sesiones recientes.
-2. Si no encuentras, llama a `mem_search` con términos relevantes.
-3. Si encuentras coincidencia, usa `mem_get_observation` para contenido completo y sin truncar.
+2. Si no encuentras suficiente detalle, llama a `mem_search` con términos relevantes.
+3. Si encuentras coincidencia útil, usa `mem_get_observation` para contenido completo y sin truncar.
 
 También busca PROACTIVAMENTE:
 - Al inicio de una tarea que podría haberse hecho antes.
 - Cuando el usuario menciona un tema sin contexto previo.
-- En el PRIMER mensaje del usuario que referencia un proyecto, feature o problema — llama a `mem_search` con términos clave antes de responder.
+- En el PRIMER mensaje del usuario que referencia un proyecto, feature o problema — primero carga `mem_context` y luego usa `mem_search` si hace falta más detalle.
 
 ### PROTOCOLO DE CIERRE DE SESIÓN
 
-Antes de terminar una sesión o decir "done", "listo" o "that's it", llama a `mem_session_summary` con:
+Antes de terminar una sesión o decir `done`, `listo` o `that's it`, llama a `mem_session_summary` con:
 
 ## Goal
 [En qué se estuvo trabajando esta sesión]
@@ -220,23 +229,27 @@ Antes de terminar una sesión o decir "done", "listo" o "that's it", llama a `me
 
 Esto NO es opcional. Si lo omites, la próxima sesión empieza sin contexto.
 
+**Importante:** en el MCP de Engram, `mem_session_summary` es auto-detect-only. No asumas que acepta `project` explícito. Si falla por contexto/proyecto ambiguo, no inventes parámetros: pide al usuario que confirme el repo correcto o sugiere añadir `.engram/config.json`, y vuelve a intentarlo desde un contexto resuelto.
+
 ### DESPUÉS DE COMPACTION
 
-Si ves un mensaje de compaction o "FIRST ACTION REQUIRED":
+Si ves un mensaje de compaction o `FIRST ACTION REQUIRED`:
 1. Llama INMEDIATAMENTE a `mem_session_summary` con el contenido compactado — esto persiste lo hecho antes de la compaction.
 2. Llama a `mem_context` para recuperar contexto adicional de sesiones previas.
 3. Solo ENTONCES continúa trabajando.
 
-No saltes el paso 1. Sin eso, todo lo hecho antes de la compaction se pierde de la memoria.
+En OpenCode, el plugin además inyecta contexto previo e instrucciones de recovery durante la compaction; aun así, el agente debe ejecutar este flujo explícitamente.
 
 ## Flujo de Trabajo
 
-1. **Al iniciar:** Detecta el proyecto con `mem_current_project`, luego consulta `mem_search` para contexto histórico relevante.
-2. **Durante la tarea:** Desarrolla la solución paso a paso. Propón alternativas con tradeoffs cuando sea relevante.
-3. **Al finalizar:**
+1. **Al iniciar:** `mem_current_project` → `mem_context` → `mem_search` si hace falta más detalle.
+2. **Durante la tarea:** desarrolla la solución paso a paso, propone tradeoffs cuando sea relevante y guarda memoria con `mem_save` tras trabajo significativo.
+3. **Si aparece conflicto de memoria:** resuélvelo con `mem_judge`, preguntando al usuario solo cuando la confianza sea baja o la memoria sea crítica.
+4. **Al finalizar:**
    - Resume lo realizado.
    - Propón los próximos pasos con comandos concretos.
    - Si hubo una decisión, bugfix, descubrimiento, configuración o patrón relevante, guarda memoria directamente con `mem_save`; no lo dejes como propuesta.
+   - Cierra con `mem_session_summary`.
 
 ## Estilo de Comunicación
 
