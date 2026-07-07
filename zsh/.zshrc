@@ -151,10 +151,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# Audio opencode sound
-export AGENT_SOUND_BLOCKED=/usr/share/sounds/freedesktop/stereo/dialog-information.oga
-export AGENT_SOUND_IDLE=/usr/share/sounds/freedesktop/stereo/dialog-information.oga
-
 # ~/.zshrc
 autoload -Uz add-zsh-hook
 function _herdr_auto_tab_name {
