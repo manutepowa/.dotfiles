@@ -71,3 +71,4 @@ keybind = herdr-copy/unconsumed:escape=deactivate_key_table
 # Alternativas habituales de salida, por si Herdr también acepta q o Enter.
 keybind = herdr-copy/unconsumed:q=deactivate_key_table
 keybind = herdr-copy/unconsumed:enter=deactivate_key_table
+keybind = herdr-copy/unconsumed:y=deactivate_key_table
