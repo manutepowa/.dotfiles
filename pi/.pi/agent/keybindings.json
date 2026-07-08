@@ -10,6 +10,7 @@
     "shift+enter",
     "alt+enter"
   ],
+  "app.thinking.cycle": "ctrl+t",
   "app.message.followUp": [],
   "tui.select.up": [
     "up",
