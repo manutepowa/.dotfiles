@@ -48,3 +48,26 @@ copy-on-select = clipboard
 keybind = ctrl+shift+o=unbind
 keybind = alt+9=reload_config
 keybind = alt+p=paste_from_clipboard
+
+# ----------------------------------------
+# HERDR COPY MODE + GHOSTTY MODAL KEYBINDS
+# ----------------------------------------
+
+# F4 entra en copy mode de Herdr y, al mismo tiempo,
+# activa una tabla modal en Ghostty.
+keybind = unconsumed:f4=activate_key_table:herdr-copy
+
+
+# Dentro de copy mode:
+# Alt+K = 5 líneas arriba
+# Alt+J = 5 líneas abajo
+keybind = herdr-copy/alt+k=text:\x1b[A\x1b[A\x1b[A\x1b[A\x1b[A
+keybind = herdr-copy/alt+j=text:\x1b[B\x1b[B\x1b[B\x1b[B\x1b[B
+
+
+# Al salir de copy mode con Esc, Ghostty también sale de la tabla modal.
+keybind = herdr-copy/unconsumed:escape=deactivate_key_table
+
+# Alternativas habituales de salida, por si Herdr también acepta q o Enter.
+keybind = herdr-copy/unconsumed:q=deactivate_key_table
+keybind = herdr-copy/unconsumed:enter=deactivate_key_table
