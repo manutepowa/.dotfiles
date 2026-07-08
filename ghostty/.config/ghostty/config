@@ -17,7 +17,7 @@ cursor-style-blink = false
 # Window
 # window-theme = system
 gtk-titlebar = false
-window-width = 149
+window-width = 160
 window-height = 75
 window-save-state = always
 quick-terminal-position = right
