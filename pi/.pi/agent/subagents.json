@@ -1,5 +1,16 @@
 {
-  "maxConcurrent": 4,
-  "defaultMaxTurns": 0,
-  "graceTurns": 5
+  "mode": "opencode",
+  "timeout_ms": 600000,
+  "stall_timeout_ms": 120000,
+  "max_concurrency": 4,
+  "session_resources": "lean",
+  "history_panel_shortcut": "ctrl+down",
+  "detail_cancel_shortcut": "x",
+  "background_handoff_shortcut": "ctrl+h",
+  "model_profiles": {
+    "minion": {
+      "model": "opencode-go/deepseek-v4-flash",
+      "effort": "medium"
+    }
+  }
 }
