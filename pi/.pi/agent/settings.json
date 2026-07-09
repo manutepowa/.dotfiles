@@ -2,25 +2,15 @@
   "npmCommand": [
     "pnpm"
   ],
-  "defaultModel": "deepseek-v4-flash",
+  "defaultModel": "glm-5.2",
   "defaultProvider": "opencode-go",
   "defaultThinkingLevel": "high",
   "doubleEscapeAction": "tree",
   "enabledModels": [
-    "opencode-go/deepseek-v4-flash",
+    "openai-codex/gpt-5.5",
     "opencode-go/deepseek-v4-pro",
-    "opencode-go/glm-5.1",
-    "opencode-go/glm-5.2",
-    "opencode-go/kimi-k2.6",
-    "opencode-go/kimi-k2.7-code",
-    "opencode-go/mimo-v2.5",
-    "opencode-go/mimo-v2.5-pro",
-    "opencode-go/minimax-m2.7",
-    "opencode-go/minimax-m3",
-    "opencode-go/qwen3.6-plus",
-    "opencode-go/qwen3.7-max",
-    "opencode-go/qwen3.7-plus",
-    "openai-codex/gpt-5.5"
+    "opencode-go/deepseek-v4-flash",
+    "opencode-go/glm-5.2"
   ],
   "hideThinkingBlock": false,
   "lastChangelogVersion": "0.80.3",
@@ -33,7 +23,6 @@
     "npm:pi-web-access",
     "npm:@juicesharp/rpiv-todo",
     "npm:pi-btw",
-    "npm:pi-opencode-bridge",
     "npm:gentle-engram@0.1.8"
   ],
   "theme": "dark"
