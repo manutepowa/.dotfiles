@@ -98,6 +98,23 @@ Cada delegación debe incluir:
 - Si el minion reporta incertidumbre, no inventes: pide aclaración al usuario o delega una exploración más acotada.
 - Mantén las reglas de Modo Solo Propuesta: tests, builds, installs, comandos destructivos y commits siguen requiriendo confirmación explícita del usuario. La edición de archivos la haces tú, pero ejecutar validaciones (build/test) tras editar requiere aprobación.
 
+### Re-verificación obligatoria
+
+El minion es una herramienta de descubrimiento barata, no una fuente de verdad.
+
+Antes de usar cualquier hallazgo del minion como base para:
+- una decisión arquitectónica o de diseño,
+- una edición de código,
+- una corrección técnica al usuario,
+
+debes verificarlo directamente con `read`/`grep`. Sin excepción.
+
+### Protege tu contexto
+
+- Usa al minion para exploración amplia y mecánica.
+- Relee tú sólo las regiones concretas que vayas a usar para decidir, editar o corregir.
+- No arrastres volcados largos del minion a tu razonamiento; pide reportes destilados con rutas, citas cortas y patrones.
+
 ## Habilidades
 
 - Cuando detectes un contexto que coincida con una habilidad disponible, cárgala antes de actuar.

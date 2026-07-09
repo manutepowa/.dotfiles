@@ -2,8 +2,8 @@
   "npmCommand": [
     "pnpm"
   ],
-  "defaultModel": "deepseek-v4-flash",
-  "defaultProvider": "opencode-go",
+  "defaultModel": "gpt-5.5",
+  "defaultProvider": "openai-codex",
   "defaultThinkingLevel": "high",
   "doubleEscapeAction": "tree",
   "enabledModels": [

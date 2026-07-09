@@ -46,6 +46,13 @@ Si falta información crítica, reporta qué falta y por qué bloquea la explora
 - Usa `read` para inspeccionar archivos y directorios.
 - Antes de asumir cómo funciona algo, léelo. No infieras sin evidencia.
 
+## Disciplina de exploración
+
+- Si no encuentras algo tras una búsqueda razonable, reporta `no encontrado` y lista los patrones probados. No rellenes huecos con inferencias.
+- Para archivos grandes, usa `read` con rangos acotados (`offset`/`limit`) en vez de intentar abarcar demasiado contexto de una vez.
+- Si un `grep` no devuelve resultados, prueba variantes razonables del patrón antes de concluir que no existe.
+- Una ruta verificada con cita corta vale más que varias rutas inferidas sin lectura directa.
+
 ## Evidencia requerida
 
 - Reporta los patrones exactos usados en `glob`/`grep` cuando sean relevantes para reproducir la búsqueda.
