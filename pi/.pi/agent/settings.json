@@ -2,7 +2,7 @@
   "npmCommand": [
     "pnpm"
   ],
-  "defaultModel": "glm-5.2",
+  "defaultModel": "deepseek-v4-flash",
   "defaultProvider": "opencode-go",
   "defaultThinkingLevel": "high",
   "doubleEscapeAction": "tree",
@@ -17,7 +17,7 @@
   "packages": [
     "npm:gentle-engram",
     "npm:pi-mcp-adapter",
-    "npm:pi-subagents-j0k3r",
+    "npm:@gotgenes/pi-subagents",
     "npm:pi-intercom",
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:pi-web-access",
