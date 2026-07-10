@@ -9,7 +9,7 @@
   "background_handoff_shortcut": "ctrl+h",
   "model_profiles": {
     "minion": {
-      "model": "opencode-go/deepseek-v4-flash",
+      "model": "openai-codex/gpt-5.6-luna",
       "effort": "medium"
     }
   }
