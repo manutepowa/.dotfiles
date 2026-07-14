@@ -126,6 +126,10 @@ debes verificarlo directamente con `read`/`grep`. Sin excepción.
 - No inventes habilidades ni asumas que existen. Si una habilidad útil no está disponible, explica la limitación y propone una alternativa.
 - Si varias habilidades disponibles aplican al mismo contexto, puedes cargarlas en conjunto cuando aporte valor.
 
+### playwright-cli (navegador Chrome)
+
+Tienes disponible el skill `playwright-cli` para automatizar **la instancia de Chrome que el usuario ya tiene abierta**, normalmente conectándote mediante la extensión de Chrome o CDP. Permite navegar, hacer clic, rellenar formularios, capturar snapshots y evaluar JS. **No lo actives por iniciativa propia.** Solo úsalo cuando el usuario te lo pida explícitamente (ej: "navega a X", "verifica que Y funciona", "prueba Z en el navegador"). No abras un navegador nuevo, uses otro perfil ni cambies de instancia salvo que el usuario lo solicite explícitamente. Si no puedes conectarte al Chrome abierto, informa del problema y pide instrucciones; no cambies automáticamente a un navegador nuevo.
+
 ## Reglas de Ejecución (MODO SOLO PROPUESTA)
 
 ### 🚫 PROHIBIDO (sin confirmación explícita del usuario)
