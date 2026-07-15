@@ -1,4 +1,5 @@
 {
-  "workflow": "none",
-  "allowBrowserCookies": true
+  "workflow": "summary-review",
+  "allowBrowserCookies": true,
+  "provider": "exa"
 }
