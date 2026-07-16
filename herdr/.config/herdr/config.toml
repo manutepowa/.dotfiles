@@ -129,34 +129,6 @@ split_horizontal = "prefix+-"
 # resize_mode = "prefix+r"
 # toggle_sidebar = "prefix+b"
 
-# Navigate-mode movement. These local shortcuts win while navigate mode is open.
-# They are independent from focus_pane_*. Do not include prefix+, esc, enter, tab, or 1..9 here.
-# navigate_workspace_up = "up"
-# navigate_workspace_down = "down"
-# navigate_pane_left = "h"      # left arrow always focuses the pane to the left
-# navigate_pane_down = "j"
-# navigate_pane_up = "k"
-# navigate_pane_right = "l"     # right arrow always focuses the pane to the right
-
-# Custom commands use the same binding syntax.
-# type = "shell" runs detached in the background.
-# type = "pane" opens a temporary pane and closes it when the command exits.
-# [[keys.command]]
-# key = "prefix+w"
-# type = "shell"
-# command = """
-#   dir=$(basename "$HERDR_ACTIVE_PANE_CWD")
-#   herdr tab create \
-#     --cwd "$HERDR_ACTIVE_PANE_CWD" \
-#     --label "$dir" \
-#     --focus
-# """
-# description = "new tab with dirname"
-# [[keys.command]]
-# key = "prefix+alt+g"
-# type = "pane"
-# command = "lazygit"
-
 # Navegación Alt+h/j/k/l: si opencode está en foreground envía la flecha,
 # si no, pasa la tecla Alt+original al panel.
 [[keys.command]]
@@ -249,6 +221,7 @@ prompt_new_tab_name = false
 # accent = "cyan"
 
 # Background notification popup delivery
+show_agent_labels_on_pane_borders = false
 [ui.toast]
 # off = disable pop-up notifications
 # herdr = show in-app toasts
@@ -277,6 +250,13 @@ delivery = "off"
 # By default, droid is muted.
 # [ui.sound.agents]
 # droid = "off"
+
+
+[ui.sidebar.spaces]
+row_gap = 1
+
+[ui.sidebar.agents]
+row_gap = 1
 
 [session]
 # Resume supported AI-agent panes into their native conversation sessions after
