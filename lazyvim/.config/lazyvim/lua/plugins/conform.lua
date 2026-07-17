@@ -1,32 +1,54 @@
--- Función auxiliar para verificar archivos ESLint
-local function check_eslint()
-  local eslint_files = {
-    ".eslintrc.js",
-    ".eslintrc",
-    ".eslintrc.json",
-    ".eslintrc.yml",
-    ".eslintrc.yaml",
-    "eslint.config.js",
-    "eslint.config.mjs",
-    "eslint.config.cjs",
-  }
+local function find_project_file(names)
+  local filename = vim.api.nvim_buf_get_name(0)
+  local directory = vim.fs.dirname(filename)
 
-  local root = vim.fn.getcwd()
-  for _, file in ipairs(eslint_files) do
-    -- Verificar en la raíz del proyecto
-    if vim.fn.filereadable(root .. "/" .. file) == 1 then
-      -- Si existe ESLint, no usar prettier
-      return {}
-    end
-    -- Verificar en el directorio httpdocs
-    if vim.fn.filereadable(root .. "/httpdocs/" .. file) == 1 then
-      -- Si existe ESLint, no usar prettier
-      return {}
+  for _, name in ipairs(names) do
+    local matches = vim.fs.find(name, {
+      path = directory,
+      upward = true,
+      type = "file",
+    })
+
+    if #matches > 0 then
+      return matches[1]
     end
   end
+end
 
-  -- Si no hay ESLint, usar prettier
-  return { "prettierd", "prettier" }
+local function project_formatter()
+  if
+    find_project_file({
+      "eslint.config.js",
+      "eslint.config.mjs",
+      "eslint.config.cjs",
+      ".eslintrc.js",
+      ".eslintrc.json",
+    })
+  then
+    return {}
+  end
+
+  if find_project_file({
+    "biome.json",
+    "biome.jsonc",
+  }) then
+    return { "biome" }
+  end
+
+  if
+    find_project_file({
+      ".prettierrc",
+      ".prettierrc.json",
+      ".prettierrc.js",
+      ".prettierrc.mjs",
+      "prettier.config.js",
+      "prettier.config.mjs",
+    })
+  then
+    return { "prettierd", "prettier" }
+  end
+
+  return {}
 end
 
 return {
@@ -35,18 +57,18 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
       json = { "jq" },
-      -- javascript = { "prettierd", "prettier", stop_after_first = true },
-      javascript = check_eslint,
-      typescript = check_eslint,
+      javascript = project_formatter,
+      typescript = project_formatter,
+      javascriptreact = project_formatter,
+      typescriptreact = project_formatter,
       php = { "php_cs_fixer" },
-      -- twig = { "djlint" },
       markdown = {},
       http = { "kulala" },
     },
     formatters = {
       kulala = {
-        command = "kulala-fmt", -- nombre del comando
-        args = { "format", "$FILENAME" }, -- argumentos estándar
+        command = "kulala-fmt",
+        args = { "format", "$FILENAME" },
         stdin = false,
       },
       php_cs_fixer = {

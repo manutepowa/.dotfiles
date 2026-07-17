@@ -2,9 +2,9 @@
   "npmCommand": [
     "pnpm"
   ],
-  "defaultModel": "gpt-5.6-sol",
+  "defaultModel": "gpt-5.6-luna",
   "defaultProvider": "openai-codex",
-  "defaultThinkingLevel": "high",
+  "defaultThinkingLevel": "low",
   "doubleEscapeAction": "tree",
   "enabledModels": [
     "opencode-go/deepseek-v4-flash",
@@ -13,7 +13,7 @@
     "openai-codex/gpt-5.6-luna"
   ],
   "hideThinkingBlock": false,
-  "lastChangelogVersion": "0.80.7",
+  "lastChangelogVersion": "0.80.10",
   "packages": [
     "npm:gentle-engram",
     "npm:pi-mcp-adapter",
