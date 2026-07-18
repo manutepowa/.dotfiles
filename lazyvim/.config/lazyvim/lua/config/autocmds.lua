@@ -136,14 +136,3 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = "markdown",
   command = "setlocal nospell",
 })
-
--- Automatically check health after startup if no files are opened
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    if vim.fn.argc() == 0 then
-      vim.defer_fn(function()
-        vim.cmd("checkhealth lazy")
-      end, 1000)
-    end
-  end,
-})
