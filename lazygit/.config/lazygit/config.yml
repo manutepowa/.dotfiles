@@ -1,4 +1,3 @@
-# keybinding:
-#   universal:
-#     quit: <esc>
-#     return: q
+keybinding:
+  universal:
+    backspaceWord: <alt+backspace>
