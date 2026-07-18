@@ -44,16 +44,6 @@ return {
       on_attach = require("config.lsphandler").on_attach,
     })
 
-    -- Set up custom on_attach for all servers
-    vim.api.nvim_create_autocmd("LspAttach", {
-      callback = function(args)
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client then
-          require("config.lsphandler").on_attach(client, args.buf)
-        end
-      end,
-    })
-
     -- phpantom_lsp: keep language features, delegate formatting to conform/php-cs-fixer
     vim.lsp.config("phpantom_lsp", {
       on_attach = function(client, bufnr)

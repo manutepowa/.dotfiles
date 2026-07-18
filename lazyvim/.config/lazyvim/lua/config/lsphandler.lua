@@ -8,16 +8,6 @@ local function lsp_keymaps(clientName)
   vim.keymap.set("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>", { buffer = 0 })
   vim.keymap.set("n", "<S-l>", "<cmd>lua vim.diagnostic.open_float()<CR>", { buffer = 0 })
 
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*",
-    callback = function(args)
-      if vim.b[args.buf].disable_autoformat then
-        return
-      end
-
-      require("conform").format({ bufnr = args.buf, timeout_ms = 500 })
-    end,
-  })
 end
 
 M.on_attach = function(client, bufnr)
@@ -27,7 +17,8 @@ M.on_attach = function(client, bufnr)
   end
 
   if client.name == "biome" then
-    client.server_capabilities.documentFormatting = true -- disable biome formatting by conflict with prettier
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
   end
 
   if client.name == "intelephense" then

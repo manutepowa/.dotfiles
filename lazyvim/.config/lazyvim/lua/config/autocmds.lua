@@ -1,6 +1,21 @@
 -- Autocmds are automatically loaded on the VeryLazy event
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
+
+local format_group = vim.api.nvim_create_augroup("format_on_save", { clear = true })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = format_group,
+  pattern = "*",
+  callback = function(args)
+    if vim.b[args.buf].disable_autoformat then
+      return
+    end
+
+    require("conform").format({ bufnr = args.buf, timeout_ms = 500 })
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = {
     "Jaq",
