@@ -1,5 +1,5 @@
 {
-  "workflow": "summary-review",
+  "workflow": "auto-summary",
   "allowBrowserCookies": true,
   "provider": "exa"
 }

@@ -3,7 +3,7 @@ import type { Plugin } from "@opencode-ai/plugin"
 // Lista hardcoded de modelos rápidos (investigación del usuario, no delegan).
 // Formato: "providerID/modelID" (modelID puede ser substring match).
 const FAST_MODELS: Array<{ providerID: string; modelIDIncludes: string }> = [
-  { providerID: "opencode-go", modelIDIncludes: "deepseek-v4-flash" },
+  { providerID: "openai", modelIDIncludes: "gpt-5.6-luna" },
   // Añadir aquí más modelos rápidos cuando haga falta.
 ]
 

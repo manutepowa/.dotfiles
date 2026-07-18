@@ -1,12 +1,16 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode-go/deepseek-v4-flash",
+  "model": "openai/gpt-5.6-luna",
   "plugin": [
     "commandcode-go-opencode-provider"
   ],
   "agent": {
     "m3-agent": {
       "mode": "primary",
+      "model": "openai/gpt-5.6-luna",
+      "options": {
+        "reasoningEffort": "low"
+      },
       "description": "M3 Agent - Modo Solo Propuesta y orquestador de subagentes minion",
       "prompt": "{file:./M3_AGENT.md}",
       "permission": {

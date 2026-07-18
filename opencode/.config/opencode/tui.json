@@ -16,9 +16,5 @@
     "messages_half_page_down": "shift+alt+j",
     "messages_half_page_up": "shift+alt+k"
   },
-  "plugin": [
-    "opencode-subagent-statusline"
-  ],
   "theme": "opencode"
 }
-
