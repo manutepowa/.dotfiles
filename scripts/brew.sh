@@ -16,7 +16,7 @@ sudo add-apt-repository -y universe
 sudo apt install -y libfuse2
 
 # Herramientas de desarrollo y productividad con Brew
-brew install tmux eza fzf bpytop translate-shell ripgrep fnm bat jq starship imagemagick jesseduffield/lazygit/lazygit
+opencode upgrade && brew upgrade tmux eza fzf btop translate-shell ripgrep fnm bat jq starship imagemagick jesseduffield/lazygit/lazygit gentleman-programming/tap/engram fd codex && pi update && pi update --extensions
 
 # Navegador web
 # Google Chrome

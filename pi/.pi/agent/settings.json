@@ -2,8 +2,8 @@
   "npmCommand": [
     "pnpm"
   ],
-  "defaultModel": "gpt-5.6-luna",
-  "defaultProvider": "openai-codex",
+  "defaultModel": "mimo-v2.5",
+  "defaultProvider": "xiaomi",
   "defaultThinkingLevel": "low",
   "doubleEscapeAction": "tree",
   "enabledModels": [
@@ -27,7 +27,9 @@
     "npm:pi-lens",
     "npm:@pi-kaush/pi-double-paste",
     "npm:@pi-kaush/pi-inline-skill-identifier",
-    "npm:@ogulcancelik/pi-minimal-footer"
+    "npm:@ogulcancelik/pi-minimal-footer",
+    "npm:@ff-labs/pi-fff",
+    "npm:pi-thinking-steps"
   ],
   "theme": "dark"
 }
