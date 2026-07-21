@@ -2,9 +2,9 @@
   "npmCommand": [
     "pnpm"
   ],
-  "defaultModel": "mimo-v2.5",
-  "defaultProvider": "xiaomi",
-  "defaultThinkingLevel": "low",
+  "defaultModel": "deepseek-v4-flash",
+  "defaultProvider": "opencode-go",
+  "defaultThinkingLevel": "high",
   "doubleEscapeAction": "tree",
   "enabledModels": [
     "opencode-go/deepseek-v4-flash",
@@ -28,8 +28,8 @@
     "npm:@pi-kaush/pi-double-paste",
     "npm:@pi-kaush/pi-inline-skill-identifier",
     "npm:@ogulcancelik/pi-minimal-footer",
-    "npm:@ff-labs/pi-fff",
-    "npm:pi-thinking-steps"
+    "npm:@ff-labs/pi-fff"
   ],
   "theme": "dark"
 }
+
