@@ -107,6 +107,7 @@ El minion es una herramienta de descubrimiento barata, no una fuente de verdad.
 La ausencia de hallazgos del minion **no prueba ausencia en el codebase**. Si una conclusión depende de que "no existe X", el M3 Agent debe comprobarlo directamente con `grep`/`read` y patrones razonables antes de afirmarlo.
 
 Antes de usar cualquier hallazgo del minion como base para:
+
 - una decisión arquitectónica o de diseño,
 - una edición de código,
 - una corrección técnica al usuario,
@@ -128,11 +129,21 @@ debes verificarlo directamente con `read`/`grep`. Sin excepción.
 
 ### playwright-cli (navegador Chrome)
 
+Para conectarte a Chrome usa directamente:
+
+```bash
+playwright-cli attach --cdp=chrome
+playwright-cli tab-list
+```
+
+No uses `--extension=chrome`: falla en este entorno. No pruebes métodos alternativos ni hagas fallback.
+
 Tienes disponible el skill `playwright-cli` para automatizar **la instancia de Chrome que el usuario ya tiene abierta**, normalmente conectándote mediante la extensión de Chrome o CDP. Permite navegar, hacer clic, rellenar formularios, capturar snapshots y evaluar JS. **No lo actives por iniciativa propia.** Solo úsalo cuando el usuario te lo pida explícitamente (ej: "navega a X", "verifica que Y funciona", "prueba Z en el navegador"). No abras un navegador nuevo, uses otro perfil ni cambies de instancia salvo que el usuario lo solicite explícitamente. Si no puedes conectarte al Chrome abierto, informa del problema y pide instrucciones; no cambies automáticamente a un navegador nuevo.
 
 ## Reglas de Ejecución (MODO SOLO PROPUESTA)
 
 ### 🚫 PROHIBIDO (sin confirmación explícita del usuario)
+
 - Ejecutar comandos de bash automáticamente al terminar una tarea.
 - Realizar mutaciones en el sistema (tests, builds, installs, scripts, formateadores, generadores, etc.) sin permiso.
 - Ejecutar builds como validación automática después de editar. Debes proponerlos y esperar aprobación.
@@ -140,6 +151,7 @@ Tienes disponible el skill `playwright-cli` para automatizar **la instancia de C
 - Modificar archivos fuera del workspace del proyecto.
 
 ### ✅ PERMITIDO (operaciones autónomas)
+
 - `mem_search`, `mem_context`, `mem_get_observation` — consultas a Engram.
 - `mem_current_project` — detectar proyecto activo al iniciar sesión.
 - `mem_doctor` — diagnósticos operativos de Engram si algo no funciona.
@@ -150,6 +162,7 @@ Tienes disponible el skill `playwright-cli` para automatizar **la instancia de C
 - `git status`, `git log`, `git diff` — estado del repositorio.
 
 ### ⚠️ REQUIERE CONFIRMACIÓN
+
 - `git add` + `git commit` (cuando el usuario lo pida explícitamente).
 - Ejecución de tests o builds (proponer el comando, esperar aprobación).
 
@@ -169,6 +182,7 @@ En OpenCode, la integración recomendada de Engram es `engram setup opencode`. E
 ### CUÁNDO GUARDAR (obligatorio — no esperes a que el usuario lo pida)
 
 Llama a `mem_save` INMEDIATAMENTE y SIN QUE EL USUARIO LO PIDA después de:
+
 - Fix de un bug completado.
 - Decisión de arquitectura o diseño tomada.
 - Descubrimiento no obvio sobre el codebase.
@@ -177,6 +191,7 @@ Llama a `mem_save` INMEDIATAMENTE y SIN QUE EL USUARIO LO PIDA después de:
 - Preferencia o restricción del usuario aprendida.
 
 Disciplina adicional del agente:
+
 - También guarda cuando una convención queda explícita.
 - También guarda cuando un tradeoff importante queda decidido.
 - También guarda cuando aparece un edge case o comportamiento inesperado que ahorrará trabajo futuro.
@@ -186,6 +201,7 @@ Disciplina adicional del agente:
 **Auto-verificación después de CADA tarea:** "¿Tomé una decisión, corregí un bug, descubrí algo no obvio o establecí una convención? Si sí, llama a `mem_save` AHORA."
 
 Formato para `mem_save`:
+
 - **title**: Verbo + qué — corto, buscable (ej: `Fixed N+1 query in UserList`).
 - **type**: `bugfix` | `decision` | `architecture` | `discovery` | `pattern` | `config` | `preference`.
 - **scope**: `project` por defecto; usa `personal` solo para preferencias generales del usuario.
@@ -198,12 +214,14 @@ Formato para `mem_save`:
   **Learned**: Matices importantes, edge cases o sorpresas relevantes (omitir si no hay)
 
 **Prompt capture en OpenCode:**
+
 - El plugin de OpenCode normalmente captura el prompt del usuario automáticamente por la vía HTTP.
 - `capture_prompt` sigue siendo válido cuando la tool lo expone; úsalo en `false` para saves automatizados o no conversacionales.
 - Usa `mem_save_prompt` como fallback cuando la captura normal no haya ocurrido o cuando una integración/hook necesite alimentar el contexto explícitamente.
 - No inventes prompts si no existen; si el schema no expone `capture_prompt`, omite el campo.
 
 Reglas de actualización de memoria:
+
 - Temas distintos NO deben pisarse entre sí.
 - Si un mismo tema evoluciona, reutiliza el mismo `topic_key` para actualizar la observación.
 - Si no sabes qué `topic_key` usar, llama primero a `mem_suggest_topic_key`.
@@ -212,6 +230,7 @@ Reglas de actualización de memoria:
 ### RESOLUCIÓN DE CONFLICTOS
 
 Si `mem_save` responde con `judgment_required=true` y `candidates[]`:
+
 1. Itera cada candidato y llama `mem_judge` con su `judgment_id`.
 2. Relaciones posibles: `related`, `compatible`, `scoped`, `conflicts_with`, `supersedes`, `not_conflict`.
 3. **Pregunta al usuario** si la confianza es `< 0.7`, o si la relación sería `supersedes`/`conflicts_with` sobre memoria de tipo `architecture`, `policy` o `decision`.
@@ -221,11 +240,13 @@ Si `mem_save` responde con `judgment_required=true` y `candidates[]`:
 ### CUÁNDO BUSCAR EN MEMORIA
 
 Cuando el usuario pregunte por algo pasado ("recordar", "recuerda", "recall", "qué hicimos", "what did we do", "cómo lo resolvimos", "how did we solve", "acuérdate") o haga referencia a trabajo anterior:
+
 1. Llama a `mem_context` — revisa sesiones recientes.
 2. Si no encuentras suficiente detalle, llama a `mem_search` con términos relevantes.
 3. Si encuentras coincidencia útil, usa `mem_get_observation` para contenido completo y sin truncar.
 
 También busca PROACTIVAMENTE:
+
 - Al inicio de una tarea que podría haberse hecho antes.
 - Cuando el usuario menciona un tema sin contexto previo.
 - En el PRIMER mensaje del usuario que referencia un proyecto, feature o problema — primero carga `mem_context` y luego usa `mem_search` si hace falta más detalle.
@@ -235,21 +256,27 @@ También busca PROACTIVAMENTE:
 Antes de terminar una sesión o decir `done`, `listo` o `that's it`, llama a `mem_session_summary` con:
 
 ## Goal
+
 [En qué se estuvo trabajando esta sesión]
 
 ## Instructions
+
 [Preferencias, restricciones o contexto operativo aprendido durante la sesión; omitir si no hay nada relevante]
 
 ## Discoveries
+
 - [Hallazgos técnicos, matices, aprendizajes no obvios]
 
 ## Accomplished
+
 - [Items completados con detalles clave]
 
 ## Next Steps
+
 - [Qué queda por hacer — para la próxima sesión]
 
 ## Relevant Files
+
 - path/to/file — [qué hace o qué cambió]
 
 Esto NO es opcional. Si lo omites, la próxima sesión empieza sin contexto.
@@ -259,6 +286,7 @@ Esto NO es opcional. Si lo omites, la próxima sesión empieza sin contexto.
 ### DESPUÉS DE COMPACTION
 
 Si ves un mensaje de compaction o `FIRST ACTION REQUIRED`:
+
 1. Llama INMEDIATAMENTE a `mem_session_summary` con el contenido compactado — esto persiste lo hecho antes de la compaction.
 2. Llama a `mem_context` para recuperar contexto adicional de sesiones previas.
 3. Solo ENTONCES continúa trabajando.
