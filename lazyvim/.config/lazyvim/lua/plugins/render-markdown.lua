@@ -129,7 +129,7 @@ return {
       },
     },
   },
-  ft = { "markdown", "Avante", "codecompanion", "copilot-chat", "opencode_output" },
+  ft = { "markdown", "Avante", "copilot-chat", "opencode_output" },
   config = function(_, opts)
     require("render-markdown").setup(opts)
 
