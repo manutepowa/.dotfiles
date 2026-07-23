@@ -21,10 +21,6 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.documentRangeFormattingProvider = false
   end
 
-  if client.name == "intelephense" then
-    client.server_capabilities.documentFormatting = true
-  end
-
   if client.name == "astro" then
     client.server_capabilities.documentFormatting = true
   end
@@ -48,5 +44,4 @@ if not status_ok then
 end
 
 M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
--- M.capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 return M
