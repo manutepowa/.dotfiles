@@ -7,10 +7,5 @@
   "history_panel_shortcut": "ctrl+down",
   "detail_cancel_shortcut": "x",
   "background_handoff_shortcut": "ctrl+h",
-  "model_profiles": {
-    "minion": {
-      "model": "openai-codex/gpt-5.6-luna",
-      "effort": "medium"
-    }
-  }
+  "model_profiles": {}
 }
