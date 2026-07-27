@@ -2,7 +2,7 @@
   "npmCommand": [
     "pnpm"
   ],
-  "defaultModel": "gpt-5.6-sol",
+  "defaultModel": "gpt-5.6-luna",
   "defaultProvider": "openai-codex",
   "defaultThinkingLevel": "low",
   "doubleEscapeAction": "tree",
@@ -13,7 +13,7 @@
     "openai-codex/gpt-5.6-luna"
   ],
   "hideThinkingBlock": false,
-  "lastChangelogVersion": "0.81.1",
+  "lastChangelogVersion": "0.82.1",
   "packages": [
     "npm:gentle-engram",
     "npm:pi-mcp-adapter",

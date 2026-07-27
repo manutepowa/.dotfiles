@@ -71,3 +71,11 @@ empresa mobal
 
 ## Reu 14/5
 - El id socio es importante
+
+
+## Reu 24/7
+- Red SIAR
+Extracciones de agua subterránea
+Volumenes jucar vinalopó.
+
+mostrar 2 en telemando y mostrar la última.
