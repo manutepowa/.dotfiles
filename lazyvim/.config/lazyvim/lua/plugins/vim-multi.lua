@@ -20,8 +20,8 @@ return {
       ["Select All"] = "<M-n>",
       ["Visual All"] = "<M-n>",
     }
-    vim.keymap.set("n", "<S-M-j>", "<Plug>(VM-Select-Cursor-Down)")
-    vim.keymap.set("n", "<S-M-k>", "<Plug>(VM-Select-Cursor-Up)")
+    vim.keymap.set("n", "<C-A-j>", "<Plug>(VM-Select-Cursor-Down)")
+    vim.keymap.set("n", "<C-A-k>", "<Plug>(VM-Select-Cursor-Up)")
     vim.g.VM_add_cursor_at_pos_no_mappings = 1
   end,
 }

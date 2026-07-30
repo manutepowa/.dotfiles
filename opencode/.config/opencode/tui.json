@@ -12,9 +12,7 @@
     "model_list": "<leader>m",
     "theme_list": "<leader>t",
     "editor_open": "<leader>e",
-    "session_new": "<leader>n",
-    "messages_half_page_down": "shift+alt+j",
-    "messages_half_page_up": "shift+alt+k"
+    "session_new": "<leader>n"
   },
   "theme": "opencode"
 }
