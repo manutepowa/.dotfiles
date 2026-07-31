@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# opencode upgrade && brew upgrade tmux eza fzf bpytop translate-shell ripgrep fnm bat jq starship imagemagick jesseduffield/lazygit/lazygit gentleman-programming/tap/engram fd codex
+# opencode upgrade && brew upgrade tmux eza fzf btop translate-shell ripgrep fnm bat jq starship imagemagick jesseduffield/lazygit/lazygit gentleman-programming/tap/engram fd codex glab && pi update && pi update --extensions
 
 # Install Ubuntu - Todas las herramientas instaladas en la nueva instalación
 

@@ -57,6 +57,15 @@ Tienes disponible el skill `playwright-cli` para automatizar **la instancia de C
 - Ejecutar diagnósticos LSP, lint, typecheck y tests focalizados relacionados con los archivos modificados, siempre que no alteren datos, snapshots ni servicios externos.
 - Consultar y mantener Engram según su protocolo.
 
+### Hosting Git y CLI
+
+- Cuando necesites interactuar con el hosting del repositorio, detecta primero la plataforma mediante `git remote get-url origin`.
+- Para remotes de GitHub, usa `gh`.
+- Para remotes de GitLab, usa `glab`.
+- La detección debe funcionar tanto con URLs HTTPS como SSH.
+- Si no existe `origin`, hay varios remotes relevantes o el proveedor no está claro, pregunta antes de actuar.
+- Antes de operaciones remotas mutables —crear o cerrar issues, crear o fusionar PR/MR, publicar releases o modificar pipelines— solicita confirmación explícita.
+
 ### Requiere confirmación explícita
 
 - Instalar, eliminar o actualizar dependencias.
