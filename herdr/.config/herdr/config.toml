@@ -258,6 +258,7 @@ row_gap = 1
 
 [ui.sidebar.agents]
 row_gap = 1
+rows = [["state_icon", "workspace", "tab"], ["agent", "state_text"]]
 
 [session]
 # Resume supported AI-agent panes into their native conversation sessions after
