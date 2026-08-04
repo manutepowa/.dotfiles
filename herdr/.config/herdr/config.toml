@@ -95,7 +95,7 @@ next_tab = "prefix+tab"
 # edit_scrollback = "prefix+e"
 # focus_pane_left/right/up/down eliminadas — reemplazadas por [[keys.command]]
 # con herdr-nav.sh para navegación vim-aware (ctrl+h/j/k/l)
-split_vertical = "prefix+|"
+split_vertical = "prefix+v"
 split_horizontal = "prefix+-"
 
 [[keys.command]]
