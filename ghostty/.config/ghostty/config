@@ -64,8 +64,8 @@ keybind = herdr-copy/alt+j=text:\x1b[B\x1b[B\x1b[B\x1b[B\x1b[B
 
 # Alt+Shift+K = page up
 # Alt+Shift+J = page down
-keybind = shift+alt+k=csi:5~
-keybind = shift+alt+j=csi:6~
+# keybind = shift+alt+k=csi:5~
+# keybind = shift+alt+j=csi:6~
 
 
 # Al salir de copy mode con Esc, Ghostty también sale de la tabla modal.

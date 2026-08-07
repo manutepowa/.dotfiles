@@ -35,5 +35,7 @@
   "tui.editor.cursorRight": [
     "right",
     "alt+l"
-  ]
+  ],
+  "tui.altScreen.halfPageUp": "shift+alt+k",
+  "tui.altScreen.halfPageDown": "shift+alt+j"
 }

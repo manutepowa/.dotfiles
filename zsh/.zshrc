@@ -148,6 +148,13 @@ export PATH="$PATH:/home/manuel/.local/bin"
 
 # pnpm
 export PNPM_HOME="/home/manuel/.local/share/pnpm"
+# PNPM_HOME: shims antiguos (p.ej. pi en la raíz). bin/: bins globales modernos.
+# Sin bin/ en PATH, `pnpm root -g` / `pnpm list -g` fallan y `pi update` cree
+# que la install no es global ("cannot self-update this installation").
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
