@@ -37,5 +37,6 @@
     "alt+l"
   ],
   "tui.altScreen.halfPageUp": "shift+alt+k",
-  "tui.altScreen.halfPageDown": "shift+alt+j"
+  "tui.altScreen.halfPageDown": "shift+alt+j",
+  "tui.altScreen.search": "ctrl+f"
 }
