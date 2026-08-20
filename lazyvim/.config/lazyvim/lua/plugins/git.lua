@@ -161,4 +161,17 @@ return {
       { "<leader>dh", ":CodeDiff history<CR>", desc = "CodeDiff history" },
     },
   },
+  {
+    "georgeguimaraes/review.nvim",
+    version = "*",
+    cmd = { "Review" },
+    dependencies = {
+      "esmuellert/codediff.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    keys = {
+      { "<leader>gr", "<cmd>Review commits<cr>", desc = "Git Review commits" },
+    },
+    opts = {},
+  },
 }
