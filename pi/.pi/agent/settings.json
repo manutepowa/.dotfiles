@@ -2,15 +2,18 @@
   "npmCommand": [
     "pnpm"
   ],
-  "defaultModel": "gpt-5.6-luna",
-  "defaultProvider": "openai-codex",
-  "defaultThinkingLevel": "medium",
+  "defaultModel": "deepseek/deepseek-v4-flash",
+  "defaultProvider": "commandcode",
+  "defaultThinkingLevel": "high",
   "doubleEscapeAction": "tree",
   "enabledModels": [
-    "opencode-go/deepseek-v4-flash",
-    "opencode-go/grok-4.5",
+    "openai-codex/gpt-5.6-luna",
     "openai-codex/gpt-5.6-sol",
-    "openai-codex/gpt-5.6-luna"
+    "commandcode/xai/grok-4.6",
+    "commandcode/deepseek/deepseek-v4-flash",
+    "commandcode/zai-org/GLM-5.3",
+    "commandcode/deepseek/deepseek-v4-pro",
+    "commandcode/meta/muse-spark-1.2-contributor"
   ],
   "hideThinkingBlock": false,
   "lastChangelogVersion": "0.84.2",
@@ -28,9 +31,9 @@
     "npm:@pi-kaush/pi-inline-skill-identifier",
     "npm:@ogulcancelik/pi-minimal-footer",
     "npm:@ff-labs/pi-fff",
-    "npm:pi-commandcode-provider",
     "npm:pi-tool-display",
-    "npm:pi-docparser"
+    "npm:pi-docparser",
+    "git/github.com/patlux/pi-commandcode-provider"
   ],
   "theme": "dark",
   "fullscreenScrollbar": "auto",

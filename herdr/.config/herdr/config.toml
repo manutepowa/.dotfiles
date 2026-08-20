@@ -68,7 +68,8 @@ copy_mode = "f4"
 # help = "prefix+?"
 # settings = "prefix+s"
 # detach = "prefix+q"
-reload_config = "prefix+r"
+reload_config = "prefix+c"
+resize_mode = "prefix+r" # resize mode: entras y redimensionas con flechas/HJKL (mantener pulsado repite)
 # open_notification_target = "prefix+o"
 # workspace_picker = "prefix+w"
 # goto = "prefix+g"
@@ -223,6 +224,15 @@ prompt_new_tab_name = false
 
 # Background notification popup delivery
 show_agent_labels_on_pane_borders = false
+
+# Right-aligned status entries in the desktop tab bar (tmux-style).
+# Types: zoom, hostname, datetime, text, command. Empty by default.
+# datetime uses strftime; %z/%s are rejected (server-local wall clock).
+tab_bar_right = [
+  { type = "command", command = "~/.config/herdr/scripts/herdr-ram.sh", interval_seconds = 5, timeout_seconds = 2 },
+  { type = "datetime", format = "%d/%m/%Y %H:%M" },
+]
+tab_bar_right_separator = " | "
 [ui.toast]
 # off = disable pop-up notifications
 # herdr = show in-app toasts
