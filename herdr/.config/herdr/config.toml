@@ -233,6 +233,7 @@ tab_bar_right = [
   { type = "datetime", format = "%d/%m/%Y %H:%M" },
 ]
 tab_bar_right_separator = " | "
+status_indicators = "symbols"
 [ui.toast]
 # off = disable pop-up notifications
 # herdr = show in-app toasts

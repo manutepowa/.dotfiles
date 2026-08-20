@@ -2,7 +2,7 @@
   "npmCommand": [
     "pnpm"
   ],
-  "defaultModel": "deepseek/deepseek-v4-flash",
+  "defaultModel": "tencent/hy3-paid",
   "defaultProvider": "commandcode",
   "defaultThinkingLevel": "high",
   "doubleEscapeAction": "tree",
