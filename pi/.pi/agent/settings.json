@@ -2,9 +2,9 @@
   "npmCommand": [
     "pnpm"
   ],
-  "defaultModel": "gpt-5.6-luna",
+  "defaultModel": "deepseek/deepseek-v4-flash-vision-exp",
   "defaultProvider": "commandcode",
-  "defaultThinkingLevel": "medium",
+  "defaultThinkingLevel": "off",
   "doubleEscapeAction": "tree",
   "enabledModels": [
     "openai-codex/gpt-5.6-luna",
@@ -13,7 +13,7 @@
     "commandcode/deepseek/deepseek-v4-flash",
     "commandcode/zai-org/GLM-5.3",
     "commandcode/deepseek/deepseek-v4-pro",
-    "commandcode/meta/muse-spark-1.2-contributor"
+    "commandcode/deepseek/deepseek-v4-flash-vision-exp"
   ],
   "hideThinkingBlock": false,
   "lastChangelogVersion": "0.84.2",
