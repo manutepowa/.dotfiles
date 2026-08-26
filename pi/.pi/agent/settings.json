@@ -1,7 +1,4 @@
 {
-  "npmCommand": [
-    "pnpm"
-  ],
   "defaultModel": "deepseek/deepseek-v4-flash-vision-exp",
   "defaultProvider": "commandcode",
   "defaultThinkingLevel": "high",
@@ -15,11 +12,13 @@
     "commandcode/deepseek/deepseek-v4-pro",
     "commandcode/deepseek/deepseek-v4-flash-vision-exp"
   ],
+  "fullscreenScrollbar": "auto",
   "hideThinkingBlock": false,
   "lastChangelogVersion": "0.84.3",
+  "npmCommand": [
+    "pnpm"
+  ],
   "packages": [
-    "npm:gentle-engram",
-    "npm:pi-mcp-adapter",
     "npm:pi-subagents-j0k3r",
     "npm:pi-intercom",
     "npm:@juicesharp/rpiv-ask-user-question",
@@ -33,9 +32,17 @@
     "npm:@ff-labs/pi-fff",
     "npm:pi-tool-display",
     "npm:pi-docparser",
-    "git/github.com/patlux/pi-commandcode-provider"
+    "git/github.com/patlux/pi-commandcode-provider",
+    {
+      "extensions": [
+        "extensions/*.ts",
+        "!extensions/pi-pretty.ts"
+      ],
+      "source": "npm:gentle-pi"
+    },
+    "npm:gentle-engram",
+    "npm:pi-mcp-adapter"
   ],
   "theme": "dark",
-  "fullscreenScrollbar": "auto",
   "tuiMode": "fullscreen"
 }
