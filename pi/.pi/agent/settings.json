@@ -1,6 +1,6 @@
 {
-  "defaultModel": "deepseek/deepseek-v4-flash-vision-exp",
-  "defaultProvider": "commandcode",
+  "defaultModel": "openai-codex/gpt-5.6-luna",
+  "defaultProvider": "openai-codex",
   "defaultThinkingLevel": "high",
   "doubleEscapeAction": "tree",
   "enabledModels": [

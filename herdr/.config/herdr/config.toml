@@ -230,6 +230,7 @@ show_agent_labels_on_pane_borders = false
 # datetime uses strftime; %z/%s are rejected (server-local wall clock).
 tab_bar_right = [
   { type = "command", command = "~/.config/herdr/scripts/herdr-ram.sh", interval_seconds = 5, timeout_seconds = 2 },
+  { type = "command", command = "~/.config/herdr/scripts/herdr-battery.sh", interval_seconds = 30, timeout_seconds = 2 },
   { type = "datetime", format = "%d/%m/%Y %H:%M" },
 ]
 tab_bar_right_separator = " | "
