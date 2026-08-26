@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# opencode upgrade && brew upgrade tmux eza fzf btop translate-shell ripgrep fnm bat jq starship imagemagick jesseduffield/lazygit/lazygit gentleman-programming/tap/engram fd codex glab && pi update --all
+# opencode upgrade && brew upgrade tmux eza fzf btop translate-shell ripgrep fnm bat jq starship imagemagick jesseduffield/lazygit/lazygit gentleman-programming/tap/engram gentleman-programming/tap/gentle-ai fd codex glab && gentle-ai sync && pi update --all
 # Nota: `pi update` requiere $PNPM_HOME/bin en PATH (ver zsh/.zshrc). Fallback:
 #   pnpm install -g --ignore-scripts --config.minimumReleaseAge=0 @earendil-works/pi-coding-agent && pi update --extensions
 
@@ -18,7 +18,7 @@ sudo add-apt-repository -y universe
 sudo apt install -y libfuse2
 
 # Herramientas de desarrollo y productividad con Brew
-opencode upgrade && brew upgrade tmux eza fzf btop translate-shell ripgrep fnm bat jq starship imagemagick jesseduffield/lazygit/lazygit gentleman-programming/tap/engram fd codex && pi update --all
+opencode upgrade && brew upgrade tmux eza fzf btop translate-shell ripgrep fnm bat jq starship imagemagick jesseduffield/lazygit/lazygit gentleman-programming/tap/engram gentleman-programming/tap/gentle-ai fd codex glab && gentle-ai sync && pi update --all
 
 # Navegador web
 # Google Chrome
@@ -94,8 +94,7 @@ sudo gdebi autokey-common_0.96.0_all.deb
 rm autokey-gtk_0.96.0_all.deb autokey-common_0.96.0_all.deb
 
 # Discord - chat de voz y texto
-wget https://discord.com/api/download?platform=linux &
-format=deb -O discord.deb
+wget 'https://discord.com/api/download?platform=linux' -O discord.deb
 sudo gdebi discord.deb
 rm discord.deb
 

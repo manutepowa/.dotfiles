@@ -1,7 +1,7 @@
 {
   "defaultModel": "openai-codex/gpt-5.6-luna",
   "defaultProvider": "openai-codex",
-  "defaultThinkingLevel": "high",
+  "defaultThinkingLevel": "medium",
   "doubleEscapeAction": "tree",
   "enabledModels": [
     "openai-codex/gpt-5.6-luna",
@@ -36,13 +36,16 @@
     {
       "extensions": [
         "extensions/*.ts",
-        "!extensions/pi-pretty.ts"
+        "!extensions/pi-pretty.ts",
+        "!extensions/startup-banner.ts"
       ],
       "source": "npm:gentle-pi"
     },
     "npm:gentle-engram",
     "npm:pi-mcp-adapter"
   ],
-  "theme": "dark",
-  "tuiMode": "fullscreen"
+  "theme": "Gentle",
+  "tuiMode": "fullscreen",
+  "outputPad": 0
 }
+
