@@ -139,6 +139,8 @@ PATH=~/.console-ninja/.bin:$PATH
 # opencode
 export PATH=/home/manuel/.opencode/bin:$PATH
 
+export PATH="$HOME/go/bin:$PATH"
+
 # bun completions
 [ -s "/home/manuel/.bun/_bun" ] && source "/home/manuel/.bun/_bun"
 
