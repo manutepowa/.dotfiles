@@ -19,8 +19,9 @@ export COLORTERM=truecolor
 export PI_MINIMAL_FOOTER_SHOW_CWD=0
 export PI_MINIMAL_FOOTER_SHOW_BRANCH=0
 
-# Disable gentle-pi quiet-tools to avoid tool-registration conflict with pi-tool-display
 export GENTLE_PI_QUIET_TOOLS=0
+export PRETTY_MAX_PREVIEW_LINES=10
+export PRETTY_THEME=github-dark
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
