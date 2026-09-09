@@ -16,8 +16,8 @@ export QT_QPA_PLATFORM="wayland"
 
 export COLORTERM=truecolor
 
-export PI_MINIMAL_FOOTER_SHOW_CWD=0
-export PI_MINIMAL_FOOTER_SHOW_BRANCH=0
+# export PI_MINIMAL_FOOTER_SHOW_CWD=0
+# export PI_MINIMAL_FOOTER_SHOW_BRANCH=0
 
 # export GENTLE_PI_QUIET_TOOLS=0
 export GENTLE_PI_TODO_KEY="alt+t"
@@ -51,8 +51,6 @@ alias ddr='ddev restart' # all list
 alias ddx='ddev xdebug' # all list
 alias ddm='ddev mailpit' # all list
 
-# claude code
-alias cc='claude' # all list
 alias oc='opencode'
 
 # Bazecore
