@@ -19,12 +19,12 @@ export COLORTERM=truecolor
 # export PI_MINIMAL_FOOTER_SHOW_CWD=0
 # export PI_MINIMAL_FOOTER_SHOW_BRANCH=0
 
-# export GENTLE_PI_QUIET_TOOLS=0
+export GENTLE_PI_QUIET_TOOLS="0"
 export GENTLE_PI_TODO_KEY="alt+t"
 export GENTLE_PI_AGENTS_KEY="alt+a"
 export GENTLE_PI_AGENTS_VIEW_KEY="alt+shift+,"
 export GENTLE_PI_SHELL_CHANGES_KEY="alt+g"
-export PRETTY_MAX_PREVIEW_LINES=10
+export PRETTY_MAX_PREVIEW_LINES=4
 export PRETTY_THEME=github-dark
 
 # Which plugins would you like to load?
