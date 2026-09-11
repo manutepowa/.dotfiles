@@ -7,7 +7,7 @@ return {
     config = function()
       require("copilot").setup({
         panel = {
-          enable = false,
+          enabled = false,
           keymap = {
             jump_next = "<c-j>",
             jump_prev = "<c-k>",
@@ -21,7 +21,7 @@ return {
           },
         },
         suggestion = {
-          enable = true,
+          enabled = true,
           auto_trigger = true,
           hide_during_completion = true,
           debounce = 75,
@@ -33,20 +33,6 @@ return {
             prev = "<C-k>",
             dismiss = "<C-e>",
           },
-        },
-      })
-    end,
-  },
-  {
-    "supermaven-inc/supermaven-nvim",
-    enabled = false,
-    lazy = false,
-    config = function()
-      require("supermaven-nvim").setup({
-        keymaps = {
-          accept_suggestion = "<Tab>",
-          clear_suggestion = "<C-]>",
-          accept_word = "<C-l>",
         },
       })
     end,
