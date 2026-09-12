@@ -109,13 +109,13 @@ command = "$HOME/.config/herdr/scripts/herdr-nav.sh left"
 description = "nav pane/split left"
 
 [[keys.command]]
-key = "ctrl+j"
+key = "prefix+ctrl+j"
 type = "shell"
 command = "$HOME/.config/herdr/scripts/herdr-nav.sh down"
 description = "nav pane/split down"
 
 [[keys.command]]
-key = "ctrl+k"
+key = "prefix+ctrl+k"
 type = "shell"
 command = "$HOME/.config/herdr/scripts/herdr-nav.sh up"
 description = "nav pane/split up"
