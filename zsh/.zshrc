@@ -19,7 +19,7 @@ export COLORTERM=truecolor
 # export PI_MINIMAL_FOOTER_SHOW_CWD=0
 # export PI_MINIMAL_FOOTER_SHOW_BRANCH=0
 
-export GENTLE_PI_QUIET_TOOLS="0"
+export GENTLE_PI_QUIET_TOOLS="1"
 export GENTLE_PI_TODO_KEY="alt+t"
 export GENTLE_PI_AGENTS_KEY="alt+a"
 export GENTLE_PI_AGENTS_VIEW_KEY="alt+shift+,"
