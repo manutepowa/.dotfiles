@@ -9,7 +9,7 @@ Controla una instancia de Chrome abierta usando el MCP `chrome-devtools` con `--
 ## Requisitos
 
 - Chrome 144+ ejecutándose con remote debugging habilitado (`chrome://inspect#remote-debugging`)
-- MCP `chrome-devtools` habilitado en `opencode.json` (propiedad `enabled: true`)
+- MCP `chrome-devtools` habilitado en `opencode.json` (`mcp.servers.chrome-devtools.disabled: false`)
 - La primera vez Chrome pedirá permiso — el usuario debe hacer clic en "Allow"
 
 ## Uso

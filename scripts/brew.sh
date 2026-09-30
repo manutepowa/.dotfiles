@@ -41,8 +41,8 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # Claude CLI
 curl -fsSL https://claude.ai/install.sh | bash
 
-# Opencode
-curl -fsSL https://opencode.ai/install | bash
+# Opencode V2
+curl -fsSL https://opencode.ai/v2/install | bash
 stow -nv opencode
 
 # Node.js (usando fnm)

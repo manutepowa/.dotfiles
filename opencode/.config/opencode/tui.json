@@ -16,8 +16,5 @@
     "messages_half_page_down": "shift+alt+j",
     "messages_half_page_up": "shift+alt+k"
   },
-  "theme": "opencode",
-  "plugin": [
-    "opencode-cmd-provider"
-  ]
+  "theme": "opencode"
 }

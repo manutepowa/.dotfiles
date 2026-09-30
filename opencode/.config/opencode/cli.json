@@ -1,0 +1,26 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
+    "name": "opencode",
+    "mode": "system"
+  },
+  "keybinds": {
+    "leader": "alt+n",
+    "session.list": "<leader>s",
+    "app.exit": "ctrl+c,<leader>q",
+    "input.submit": "return",
+    "prompt.paste": {
+      "key": "ctrl+v",
+      "preventDefault": false
+    },
+    "prompt.clear": "ctrl+c",
+    "session.interrupt": "esc",
+    "session.compact": "<leader>c",
+    "model.list": "<leader>m",
+    "theme.switch": "<leader>t",
+    "prompt.editor": "<leader>e",
+    "session.new": "<leader>n",
+    "session.half.page.down": "shift+alt+j",
+    "session.half.page.up": "shift+alt+k"
+  }
+}

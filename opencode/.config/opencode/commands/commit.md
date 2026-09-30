@@ -1,5 +1,5 @@
 ---
-descripción: Generar nombre de rama y mensaje de commit
+description: Generar nombre de rama y mensaje de commit
 model: "opencode-go/deepseek-v4-flash"
 ---
 
