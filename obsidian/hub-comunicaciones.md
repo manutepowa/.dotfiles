@@ -32,3 +32,26 @@ tags:
 
 - 
 
+tester_estudiante_full@idiomasumh.es
+4$NE4tQkCK
+
+## Presentación plataformas
+### Frontend - user
+- Enrollments
+- Classroom
+- Ejercicios unit3 b1.2
+  - index
+  - menu
+### Backend - teacher
+- enrollments
+  - progress
+- writing correction
+- message
+- classroom content
+
+
+- NO tienen centro de idiomas
+- han nombrado los modulos Tonia??? lo de Health, Ingeniería.
+
+
+1 licencia de cada nivel y 1 de cada expecializadas. Student y teacher. por supuesto center manager.

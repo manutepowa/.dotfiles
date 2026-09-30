@@ -13,10 +13,8 @@ tags:
 
 ## Eventos Inet2You
 
-### Pasos para llevar a producción
+### dudas tablon
 
--   [x] Preparar acceso SSO (pagar kinde)
--   [x] Llevar las nuevas tags de inet2you a eventos
--   [x] Modificar datos del template de eventos para el SSO
--   [ ] Programar en parquecientifico la extracción de datos del nuevo sitio
--   [ ] Llevar al nuevo sitio a comunicación, que se acostumbren y den por culo
+- [ ] responsabilidad juridica archivos subida
+- [ ] Reserva de salas sede digital.
+- [ ] en sede aparecen todas las empresas de Inet2You

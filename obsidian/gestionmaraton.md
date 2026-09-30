@@ -1,11 +1,11 @@
 ---
-title: gestionmaraton
+id: gestionmaraton
+aliases: []
 tags:
   - proyecto
   - maraton
   - gestion
-aliases: []
-id: gestionmaraton
+title: gestionmaraton
 ---
 
 # gestionmaraton
@@ -19,3 +19,7 @@ id: gestionmaraton
 ### Tareas
 - tareas - permitir fuera de plazo
 - Entregable comentarios -> ckeditor imagenes
+
+
+## 2026
+

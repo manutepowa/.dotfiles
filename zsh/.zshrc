@@ -20,6 +20,7 @@ export COLORTERM=truecolor
 # export PI_MINIMAL_FOOTER_SHOW_BRANCH=0
 
 # export GENTLE_PI_QUIET_TOOLS="0"
+export GENTLE_PI_HISTORY_CAPTURE=1
 export GENTLE_PI_COMMANDS_KEY=shift+alt+p
 export GENTLE_PI_TODO_KEY="alt+t"
 export GENTLE_PI_AGENTS_KEY="alt+a"
@@ -75,7 +76,7 @@ export PATH="/home/manuel/.turso:$PATH"
 
 # HERDR — auto-attach o crear sesión persistente
 # Descomentar para que herdr se lance automáticamente al abrir terminal
-if [ -z "$HERDR_ENV" ] && [ -n "$PS1" ] && [[ "$TERM_PROGRAM" != "vscode" ]] && [[ -z "$SSH_CONNECTION" ]]; then
+if [ -z "$HERDR_ENV" ] && [ -n "$PS1" ] && [[ "$TERM_PROGRAM" != "vscode" ]]; then
     herdr
 fi
 
