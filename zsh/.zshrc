@@ -28,6 +28,7 @@ export GENTLE_PI_AGENTS_VIEW_KEY="alt+shift+,"
 export GENTLE_PI_SHELL_CHANGES_KEY="alt+g"
 export PRETTY_MAX_PREVIEW_LINES=4
 export PRETTY_THEME=github-dark
+export ANTIGRAVITY_NO_SEARCH_TOOL=1
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/

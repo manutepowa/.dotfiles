@@ -1,6 +1,7 @@
 return {
   "mistweaverco/kulala.nvim",
   tag = "v5.3.4",
+  submodules = false,
   keys = {
     { "<leader>kr", "<cmd>lua require('kulala').run()<cr>", desc = "Send the request" },
     { "<leader>ki", "<cmd>lua require('kulala').inspect()<cr>", desc = "Inspect current request", ft = "http" },
