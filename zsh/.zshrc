@@ -179,3 +179,7 @@ function _herdr_auto_tab_name {
 }
 add-zsh-hook chpwd _herdr_auto_tab_name
 _herdr_auto_tab_name  # nombre inicial al abrir el tab
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/manuel/.local/bin:$PATH"

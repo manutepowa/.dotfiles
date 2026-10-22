@@ -46,9 +46,11 @@ curl -fsSL https://opencode.ai/v2/install | bash
 stow -nv opencode
 
 # Node.js (usando fnm)
-fnm install 24.11.1
-fnm use 24.11.1
-fnm default 24.11.1
+# 24.22.1 corrige CVE-2026-111497 (Brotli RCE) y los bypass de hostname TLS/DNS
+# del release de seguridad del 2026-10-21.
+fnm install 24.22.1
+fnm use 24.22.1
+fnm default 24.22.1
 
 # Docker y Docker Compose
 # Instalar dependencias
