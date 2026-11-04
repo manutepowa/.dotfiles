@@ -21,11 +21,11 @@ export COLORTERM=truecolor
 
 # export GENTLE_PI_QUIET_TOOLS="0"
 # export GENTLE_PI_HISTORY_CAPTURE=1
-export GENTLE_PI_COMMANDS_KEY=shift+alt+p
-export GENTLE_PI_TODO_KEY="alt+t"
-export GENTLE_PI_AGENTS_KEY="alt+a"
-export GENTLE_PI_AGENTS_VIEW_KEY="alt+shift+,"
-export GENTLE_PI_SHELL_CHANGES_KEY="alt+g"
+# export GENTLE_PI_COMMANDS_KEY=shift+alt+p
+# export GENTLE_PI_TODO_KEY="alt+t"
+# export GENTLE_PI_AGENTS_KEY="alt+a"
+# export GENTLE_PI_AGENTS_VIEW_KEY="alt+shift+,"
+# export GENTLE_PI_SHELL_CHANGES_KEY="alt+g"
 export PRETTY_MAX_PREVIEW_LINES=4
 export PRETTY_THEME=github-dark
 export ANTIGRAVITY_NO_SEARCH_TOOL=1
