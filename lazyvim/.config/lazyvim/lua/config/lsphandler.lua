@@ -11,7 +11,7 @@ local function lsp_keymaps(clientName)
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name == "ts_ls" or client.name == "eslint" then
+  if client.name == "vtsls" or client.name == "eslint" then
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
   end
