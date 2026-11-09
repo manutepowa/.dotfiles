@@ -1,5 +1,6 @@
 local servers = {
   "lua_ls",
+  "vtsls",
   "tailwindcss",
   "astro",
   "phpantom_lsp",
