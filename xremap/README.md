@@ -27,7 +27,7 @@ physical keyboard -> Handy (blocks Shift+Space) -> handy-keys passthrough -> xre
 It symlinks `systemd/handy.service` and `systemd/xremap.service` into `~/.config/systemd/user/`,
 enables both and restarts them in order.
 
-- `xremap.service` starts `After=handy.service` and runs `systemd/wait-handy-grab.sh`: it waits
+- `xremap.service` starts `After=handy.service` and waits
   up to 15 s until Handy's passthrough devices exist and their count is stable for 1 s, so every
   keyboard is grabbed by Handy first; it then starts anyway, so remaps are never lost.
 - `PartOf=handy.service` restarts xremap whenever Handy restarts, keeping the order.
