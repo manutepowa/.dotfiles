@@ -1,0 +1,17 @@
+[Unit]
+Description=xremap keyboard remapper
+PartOf=graphical-session.target
+# Start after Handy and restart with it, so xremap grabs Handy's
+# "handy-keys passthrough" clones instead of the physical keyboards.
+After=handy.service
+PartOf=handy.service
+
+[Service]
+# Wait (max 15 s) until Handy has grabbed the built-in keyboard; start anyway after that.
+ExecStartPre=/bin/sh -c 'for i in $$(seq 30); do grep -q "handy-keys passthrough: AT Translated Set 2 keyboard" /proc/bus/input/devices && exit 0; sleep 0.5; done; exit 0'
+ExecStart=%h/.local/bin/xremap --watch=config,device %h/.dotfiles/xremap/.config/xremap/config.yml
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=graphical-session.target
