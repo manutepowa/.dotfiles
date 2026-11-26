@@ -64,8 +64,11 @@ alias pn='pnpm'
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-# Speed keyboard
-xset r rate 220 40
+
+# En GNOME con Wayland, la repetición del teclado se guarda por usuario y persiste tras reiniciar.
+# Para configurarla una sola vez (220 ms de espera, 40 repeticiones por segundo):
+# gsettings set org.gnome.desktop.peripherals.keyboard delay 220
+# gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 25
 
 NPM_PACKAGES="${HOME}/.npm-packages"
 

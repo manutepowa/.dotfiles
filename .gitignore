@@ -9,3 +9,14 @@ skills-lock.json
 /.pi
 .playwright-cli
 .codegraph
+
+# Herdr: ignore everything except the versioned config and scripts.
+/herdr/.config/herdr/*
+!/herdr/.config/herdr/config.toml
+!/herdr/.config/herdr/scripts/
+/herdr/.config/herdr/scripts/*
+!/herdr/.config/herdr/scripts/herdr-battery.sh
+!/herdr/.config/herdr/scripts/herdr-cpu.sh
+!/herdr/.config/herdr/scripts/herdr-nav.sh
+!/herdr/.config/herdr/scripts/herdr-opencode-nav.sh
+!/herdr/.config/herdr/scripts/herdr-ram.sh
