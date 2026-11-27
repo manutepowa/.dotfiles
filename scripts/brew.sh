@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# opencode upgrade && brew upgrade tmux eza fzf btop translate-shell ripgrep fnm bat jq starship imagemagick jesseduffield/lazygit/lazygit gentleman-programming/tap/engram gentleman-programming/tap/gentle-ai fd codex glab && gentle-ai sync && pi update --all
+# brew upgrade eza fzf btop translate-shell ripgrep fnm bat jq starship imagemagick jesseduffield/lazygit/lazygit fd codex glab gh go herdr && claude update
 # Nota: `pi update` requiere $PNPM_HOME/bin en PATH (ver zsh/.zshrc). Fallback:
 #   pnpm install -g --ignore-scripts --config.minimumReleaseAge=0 @earendil-works/pi-coding-agent && pi update --extensions
 
