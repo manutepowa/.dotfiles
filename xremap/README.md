@@ -27,6 +27,9 @@ physical keyboard -> Handy (blocks Shift+Space) -> handy-keys passthrough -> xre
 It symlinks `systemd/handy.service` and `systemd/xremap.service` into `~/.config/systemd/user/`,
 enables both and restarts them in order.
 
+- At login, `graphical-session.target` pulls in both services. Handy starts after
+  `graphical-session-pre.target`, not after the target that pulls them in: waiting for
+  `graphical-session.target` here would create an ordering cycle through xremap.
 - `xremap.service` starts `After=handy.service` and waits
   up to 15 s until Handy's passthrough devices exist and their count is stable for 1 s, so every
   keyboard is grabbed by Handy first; it then starts anyway, so remaps are never lost.

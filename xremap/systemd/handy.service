@@ -3,7 +3,7 @@ Description=Handy speech-to-text
 # Handy must grab the keyboards before xremap so its push-to-talk
 # shortcut is blocked from reaching the focused app. See ../README.md.
 PartOf=graphical-session.target
-After=graphical-session.target
+After=graphical-session-pre.target
 
 [Service]
 ExecStart=/usr/bin/handy --start-hidden
